@@ -1,0 +1,115 @@
+.welcome {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+
+    background: linear-gradient(227deg, #fd00ff, #001cff, #004145);
+    background-size: 600% 600%;
+
+    -webkit-animation: gradient 10s ease infinite;
+    -moz-animation: gradient 10s ease infinite;
+    animation: gradient 10s ease infinite;
+    flex-wrap: wrap;
+}
+
+.welcome svg {
+    min-width: 200px;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+    background-color: #ffffff2b;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.welcome-content h1{
+    width: 270px;
+}
+
+.welcome-content-btn {
+    font-size: 20px;
+    padding: 0.1em 0.05em;
+}
+
+
+@-webkit-keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+.welcome-content-btn {
+    --color: rgb(0, 151, 192);
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+}
+
+.welcome-content-btn::before,
+.welcome-content-btn::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+}
+
+.welcome-content-btn::before {
+    top: -1em;
+    left: -1em;
+}
+
+.welcome-content-btn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.welcome-content-btn:hover::before,
+.welcome-content-btn:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.welcome-content-btn:hover {
+    color: rgb(10, 25, 30);
+    color: #fff;
+}
+
+.welcome-content-btn:active {
+    filter: brightness(.8);
+}

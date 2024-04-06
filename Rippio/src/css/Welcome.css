@@ -1,5 +1,6 @@
 .welcome {
     position: absolute;
+    z-index: 1;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,7 +8,7 @@
     justify-content: space-around;
     align-items: center;
 
-    background: linear-gradient(227deg, #fd00ff, #001cff, #004145);
+    background: linear-gradient(227deg, #ffbc03, #00ccc3, #ffffff);
     background-size: 600% 600%;
 
     -webkit-animation: gradient 10s ease infinite;
@@ -112,4 +113,10 @@
 
 .welcome-content-btn:active {
     filter: brightness(.8);
+}
+
+
+.WelcomeHidden{
+    opacity: 0;
+    transition: all 0.5s;
 }

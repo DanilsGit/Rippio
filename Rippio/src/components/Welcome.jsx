@@ -1,19 +1,25 @@
 import { useState } from "react";
-
+import '../css/Welcome.css'
 
 export function Welcome() {
 
     const [firstTime, setFirstTime] = useState(window.localStorage.getItem('firstTime'))
 
+
     const firstTimeFunction = () => {
-        setFirstTime(true)
+
+        document.querySelector('.welcome').classList.add('WelcomeHidden')
         window.localStorage.setItem('firstTime', true)
+        setTimeout(() => {
+            setFirstTime(true)
+        }, 500)
     }
 
     return (
         <div style={
             {
                 display: firstTime ? 'none' : 'flex',
+
             }
             } className="welcome">
             <div className="welcome-content">

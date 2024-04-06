@@ -1,0 +1,126 @@
+.mainContent-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0px;
+    background-color: #01CBC3;
+}
+
+.mainContent-header-searchSection{
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: #fff;
+    padding-left: 20px;
+}
+
+.header-child{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.header-child:nth-child(2){
+    flex-grow: 2;
+}
+
+
+.mainContent-header-searchSection-input{
+    background: none;
+    border: none;
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    resize: none;
+    outline: none;
+    font-size: 17px;
+}
+
+.mainContent-header-searchSection-img{
+    margin-right: 20px;
+    width: 30px;
+}
+
+.mainContent-header-searchSection-button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.mainContent-header-div-a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 40px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mainContent-header-userSection-a-div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mainContent-header-userSection-a-div-p{
+    margin: auto;
+}
+
+.mainContent-header-userSection-a{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.shoppingCart, .userIcon{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+
+}
+
+.locoIcon, .shoppingCart, .userIcon{
+    width: 100%;
+    object-fit: contain;
+    min-width: 40px;
+}
+
+.userIcon{
+    background-color: #01CBC3;
+    border-radius: 50%;
+}
+
+.shoppingCart{
+    filter: invert(100%);
+}
+
+.mainContent-header-userSection{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+@media screen and (max-width: 750px) {
+    .mainContent-header-div{
+        display: none;
+    }
+    .mainContent-header-searchSection{
+        margin-left: 10px;
+    }
+    .mainContent-header-searchSection-input{
+        font-size: 13px;
+    }
+    .searchLogoIcon{
+        display: none;
+    }
+    .mainContent-header-userSection-a-div-p{
+        display: none;
+    }
+    .mainContent-header-searchSection-img{
+        margin-right: 20px;
+    }
+}

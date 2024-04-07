@@ -1,6 +1,7 @@
 import windowIcon from '../assets/windowIcon.png';
 import userIcon from '../assets/user.png';
 import searchIcon from '../assets/searchIcon.png';
+import logoIcon from '../assets/LogoIcon.png'
 import shoppingCartIcon from '../assets/shoppingCartIcon.png';
 import '../css/HeaderMainContent.css'
 
@@ -10,7 +11,7 @@ export function HeaderMainContent() {
 
             <div className='mainContent-header-div header-child'>
                 <a href='#' className='mainContent-header-div-a'>
-                    <img draggable='false' className='locoIcon' src={windowIcon} alt="Rippio" />
+                    <img draggable='false' className='logoIcon' src={logoIcon} alt="Rippio" />
                 </a>
             </div>
 
@@ -30,7 +31,7 @@ export function HeaderMainContent() {
                 <a className='mainContent-header-userSection-a' href='#'>
                     <div className='mainContent-header-userSection-a-div'>
                         <img draggable='false' className='userIcon' src={userIcon}></img>
-                        <p className='mainContent-header-userSection-a-div-p'>Ingresar</p>
+                        <p className='mainContent-header-userSection-a-div-p'>Ingreso</p>
                     </div>
                 </a>
             </section>

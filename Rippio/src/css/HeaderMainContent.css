@@ -1,10 +1,8 @@
 .mainContent-header{
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     border-bottom: 1px solid #e0e0e0;
-    padding: 10px 0px;
+    padding: 10px 20px;
     background-color: #01CBC3;
 }
 
@@ -17,12 +15,18 @@
 }
 
 .header-child{
-    flex-grow: 1;
+    flex-grow: 0.5;
     display: flex;
-    justify-content: center;
 }
+
 .header-child:nth-child(2){
     flex-grow: 2;
+    
+}
+
+.mainContent-header-div{
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -37,9 +41,16 @@
     font-size: 17px;
 }
 
+.searchLogoIcon{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
 .mainContent-header-searchSection-img{
     margin-right: 20px;
-    width: 30px;
+    width: 25px;
 }
 
 .mainContent-header-searchSection-button{
@@ -53,7 +64,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 40px;
+    width: 150px;
     color: #fff;
     text-decoration: none;
 }
@@ -93,8 +104,9 @@
     border-radius: 50%;
 }
 
-.shoppingCart{
-    filter: invert(100%);
+
+.logoIcon{
+    width: 150px;
 }
 
 .mainContent-header-userSection{

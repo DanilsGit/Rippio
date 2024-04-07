@@ -1,0 +1,26 @@
+[
+  {
+    "image": "/categories/fastFood.png",
+    "title": "Comida rápida"
+  },
+  {
+    "image": "/categories/fishFood.png",
+    "title": "Mariscos"
+  },
+  {
+    "image": "/categories/asianFood.png",
+    "title": "Asiática"
+  },
+  {
+    "image": "/categories/vegetarianFood.png",
+    "title": "Vegetariana"
+  },
+  {
+    "image": "/categories/riceFood.png",
+    "title": "Arroz"
+  },
+  {
+    "image": "/categories/pastaFood.png",
+    "title": "Pasta"
+  }
+]

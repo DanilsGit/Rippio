@@ -3,10 +3,10 @@
 }
 
 .MainContent-bodySection-content{
-    padding: 20px 0px;
+    padding: 0px 0px;
     width: 95%;
     display: flex;
     margin: auto;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
 }

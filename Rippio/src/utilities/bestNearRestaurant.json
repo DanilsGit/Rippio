@@ -1,0 +1,38 @@
+[
+  {
+    "image": "/bestNearRestaurant/mcdonals.png",
+    "title": "mcdonals"
+  },
+  {
+    "image": "/bestNearRestaurant/frisby.png",
+    "title": "frisby"
+  },
+  {
+    "image": "/bestNearRestaurant/popsy.png",
+    "title": "popsy"
+  },
+  {
+    "image": "/bestNearRestaurant/srwok.png",
+    "title": "srwok"
+  },
+  {
+    "image": "/bestNearRestaurant/starbucks.png",
+    "title": "starbucks"
+  },
+  {
+    "image": "/bestNearRestaurant/buengelato.png",
+    "title": "buengelato"
+  },
+  {
+    "image": "/bestNearRestaurant/dominospizza.png",
+    "title": "dominospizza"
+  },
+  {
+    "image": "/bestNearRestaurant/donpapa.png",
+    "title": "donpapa"
+  },
+  {
+    "image": "/bestNearRestaurant/elcorral.png",
+    "title": "elcorral"
+  }
+]

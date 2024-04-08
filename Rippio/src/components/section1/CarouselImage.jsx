@@ -10,7 +10,9 @@ export default function CarouselImage({ slides }) {
             <swiper-container
             slides-per-view="1"
             navigation="true"
-            pagination="true">
+            pagination="true"
+            loop='true'
+            >
                 {slides.map((slide) => (
                     <swiper-slide key={slide.image}>
                         <img src={slide.image} alt={slide.title} />

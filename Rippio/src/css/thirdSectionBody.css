@@ -1,0 +1,48 @@
+.thirdSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.mostSearched{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mostSearched-content-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mostSearched-item {
+    background-color: #00000037;
+    border-radius: 20px;
+    padding: 1px 10px;
+}
+
+.problemReport{
+    display: flex;
+    background-color: #FFC625;
+    padding: 5px;
+    border-radius: 20px;
+    width: 400px;
+    align-items: center;
+    gap: 5px;
+}
+
+.problemReport img{
+    object-fit: contain;
+    width: 85px;
+    height: 85;
+}
+
+.problemReport-info h2{
+    font-size: 1rem;
+}
+
+.problemReport-info p{
+    font-size: 0.9rem;
+}

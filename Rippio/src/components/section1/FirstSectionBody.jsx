@@ -1,7 +1,7 @@
 import CarouselImage from "./CarouselImage";
 import slides from '../../utilities/carrousel.json'
 import { Categories } from "./Categories";
-
+import '../../css/firstSectionBody.css';
 
 
 export function FirstSectionBody() {

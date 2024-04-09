@@ -3,7 +3,7 @@ import userIcon from '../assets/user.png';
 import searchIcon from '../assets/searchIcon.png';
 import logoIcon from '../assets/LogoIcon.png'
 import shoppingCartIcon from '../assets/shoppingCartIcon.png';
-import '../css/HeaderMainContent.css'
+import '../css/headerMainContent.css'
 
 export function HeaderMainContent() {
     return (

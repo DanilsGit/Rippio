@@ -1,0 +1,135 @@
+.SearchSection{
+    display: flex;
+    margin: 50px 0px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.firstSearchSection{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.location{
+    display: flex;
+}
+
+.locationImg{
+    width: 20px;
+    height: 20px;
+}
+
+.searchFormSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.searchFormInfo{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchFormTitle{
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    color:#032B2A;
+}
+
+.searchFormP{
+    color: #11928D;
+}
+
+.Form-container{
+    background-color: #fff;
+    box-shadow: 5px 5px 1px 0px #0000004b;
+    display: flex;
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.Form-container:focus-within{
+    box-shadow: 5px 5px 1px 0px #00b7cf69;
+    transition: all 1s;
+}
+
+.FormSearchText{
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.FormSearchBtn{
+    width: 20px;
+    background-color: #fff;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.FormSearchBtn img{
+    width: 100%;
+}
+
+.secondSearchSection{
+    position: relative;
+    flex-grow: 2.5;
+    background-color: blue;
+    min-width: 550px;
+    max-height: 700px;
+    height: 300px;
+}
+
+.secondSearchSection-img{
+    position: absolute;
+}
+
+/* TODO: cambiar las posiciones de las imagenes
+queda mejor utilizando media queries 
+*/
+
+/* brocheta */
+.secondSearchSection-img:nth-child(1){ 
+    z-index: 2;
+    width: 20%;
+    top: 35%;
+}
+
+/* sushi */
+.secondSearchSection-img:nth-child(2){
+    z-index: 2;
+    top: 45%;
+    left: 15%;
+}
+
+/* hoja */
+.secondSearchSection-img:nth-child(3){
+    z-index: 2;
+    top: 6%;
+    left: 10%;
+}
+
+/* hamburguesa */
+.secondSearchSection-img:nth-child(4){
+    width: 40%;
+    z-index: 2;
+    top: 5%;
+    right: 5%;
+}
+.secondSearchSection-img:nth-child(5){
+    top: -14%;
+    right: -8%;
+    z-index: 1;
+    /* border: 1px solid red; */
+}

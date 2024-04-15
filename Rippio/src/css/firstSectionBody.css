@@ -36,7 +36,7 @@ swiper-slide{
     height: 300px;
     object-fit: fill;
     border-radius: 10px;
-    filter: brightness(80%);
+    filter: brightness(90%);
 }
 
 swiper-container::part(button-next), swiper-container::part(button-prev) {

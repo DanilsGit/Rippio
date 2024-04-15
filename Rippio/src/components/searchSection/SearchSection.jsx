@@ -10,7 +10,7 @@ export function SearchSection() {
         <section className='SearchSection MainContent-bodySection-search'>
             <section className="firstSearchSection">
                 <header className="location">
-                    <img className='locationImg' src="/icons/locationIcon.png" alt="location"></img>
+                    <img draggable='false' className='locationImg' src="/icons/locationIcon.png" alt="location"></img>
                     <p>Ubicación</p>
                 </header>
                 <section className='searchFormSection'>

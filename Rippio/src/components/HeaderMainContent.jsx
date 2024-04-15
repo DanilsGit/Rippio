@@ -1,39 +1,28 @@
-import windowIcon from '../assets/windowIcon.png';
-import userIcon from '../assets/user.png';
-import searchIcon from '../assets/searchIcon.png';
-import logoIcon from '../assets/LogoIcon.png'
-import shoppingCartIcon from '../assets/shoppingCartIcon.png';
 import '../css/headerMainContent.css'
+import { HeaderDrawer } from './HeaderDrawer'
 
 export function HeaderMainContent() {
     return (
         <header className='mainContent-header'>
-
-            <div className='mainContent-header-div header-child'>
-                <a href='#' className='mainContent-header-div-a'>
-                    <img draggable='false' className='logoIcon' src={logoIcon} alt="Rippio" />
-                </a>
+            <div className='mainContent-header-logo'>
+                <a href='#'><img className='logoIcon' draggable='false' src='/icons/rippiofood.png' /></a>
             </div>
+            <nav className='header-nav'>
+                <ul>
+                    <li><a href='#'>Principal</a></li>
+                    <li><a href='#'>Categorías</a></li>
+                    <li><a href='#'>Acerca de nosotros</a></li>
+                </ul>
+            </nav>
+            <section className='header-userSection'>
+                <div>
+                    <a href='#' className='cartLink'><img className='cartIcon' src='/icons/cartIcon.png' /></a>
+                </div>
+                <div>
+                    <a href='#'><div className='userlink'><img className='userIcon' src='/icons/userIcon.png' /><span className='userText'>Ingresa</span></div></a>
+                </div>
 
-            <section className='mainContent-header-searchSection header-child'>
-                <img className='mainContent-header-searchSection-img searchLogoIcon' draggable='false' src={windowIcon} alt="Rippio" />
-                <input type='search' className='mainContent-header-searchSection-input' placeholder='¡Encuentra tus restaurantes favoritos!'>
-                </input>
-                <button className='mainContent-header-searchSection-button' type='submit' href='#'>
-                    <img className='mainContent-header-searchSection-img' draggable='false' src={searchIcon} alt="Buscar" />
-                </button>
-            </section>
-
-            <section className='mainContent-header-userSection header-child'>
-                <a href='#' className='mainContent-header-userSection-a'>
-                    <img draggable='false' className='shoppingCart' src={shoppingCartIcon}></img>
-                </a>
-                <a className='mainContent-header-userSection-a' href='#'>
-                    <div className='mainContent-header-userSection-a-div'>
-                        <img draggable='false' className='userIcon' src={userIcon}></img>
-                        <p className='mainContent-header-userSection-a-div-p'>Ingreso</p>
-                    </div>
-                </a>
+                <HeaderDrawer />
             </section>
         </header>
     )

@@ -1,14 +1,14 @@
 [
   {
-    "image": "/carousel_img/mcdonals.jpg",
-    "title": "mcDonals"
+    "image": "/carousel_img/subway.png",
+    "title": "Subway"
   },
   {
-    "image": "/carousel_img/kfc.jpg",
+    "image": "/carousel_img/kfc.png",
     "title": "KFC"
   },
   {
-    "image": "/carousel_img/subway.jpg",
-    "title": "Subway"
+    "image": "/carousel_img/mcdonals.png",
+    "title": "mcDonals"
   }
 ]

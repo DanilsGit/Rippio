@@ -3,13 +3,16 @@
     margin: 50px 0px;
     flex-wrap: wrap;
     gap: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .firstSearchSection{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1;
+    flex-basis: 360px;
 }
 
 .location{
@@ -48,7 +51,6 @@
 }
 
 .Form-container{
-    background-color: #fff;
     box-shadow: 5px 5px 1px 0px #0000004b;
     display: flex;
     width: 80%;
@@ -57,7 +59,7 @@
 }
 
 .Form-container:focus-within{
-    box-shadow: 5px 5px 1px 0px #00b7cf69;
+    box-shadow: 5px 5px 1px 0px #032b2ad2;
     transition: all 1s;
 }
 
@@ -72,10 +74,10 @@
 
 .FormSearchBtn{
     width: 20px;
-    background-color: #fff;
     border:none;
     background-color: transparent;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .FormSearchBtn img{
@@ -84,52 +86,147 @@
 
 .secondSearchSection{
     position: relative;
-    flex-grow: 2.5;
-    background-color: blue;
-    min-width: 550px;
-    max-height: 700px;
+    flex: 1;
+    /* background-color: blue; */
+    flex-basis: 300px;
     height: 300px;
+    display: flex;
+    align-items: center;
 }
+
 
 .secondSearchSection-img{
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: cycle 5s ease-in-out infinite;
 }
-
-/* TODO: cambiar las posiciones de las imagenes
-queda mejor utilizando media queries 
-*/
 
 /* brocheta */
 .secondSearchSection-img:nth-child(1){ 
     z-index: 2;
     width: 20%;
-    top: 35%;
+    /* animation: moveBrocheta 3s ease-in-out infinite; */
+    animation-delay: 0s;
 }
 
 /* sushi */
 .secondSearchSection-img:nth-child(2){
     z-index: 2;
-    top: 45%;
-    left: 15%;
+    width: 25%;
+    /* left: 20%;
+    top: 80%; */
+    /* animation: moveSushi 4s ease-in-out infinite; */
+    animation-delay: 1.25s;
 }
 
 /* hoja */
 .secondSearchSection-img:nth-child(3){
     z-index: 2;
-    top: 6%;
-    left: 10%;
+    width: 15%;
+    /* left: 15%;
+    top: 30%; */
+    /* animation: moveHoja 3s ease-in-out infinite; */
+    animation-delay: 2.5s;
 }
 
 /* hamburguesa */
 .secondSearchSection-img:nth-child(4){
-    width: 40%;
+    width: 50%;
     z-index: 2;
-    top: 5%;
-    right: 5%;
+    /* right: 0; */
+    /* animation: moveHamburguesa 3s ease-in-out infinite; */
+    animation-delay: 3.75s;
 }
+
 .secondSearchSection-img:nth-child(5){
-    top: -14%;
-    right: -8%;
-    z-index: 1;
+    right: -20%;
+    width: 130%;
+    height: 300px;
+    z-index: 0;
     /* border: 1px solid red; */
+    animation: none;
+}
+/* 
+@keyframes moveBrocheta {
+    0% {
+        top: 50%;
+    }
+    50% {
+        top: 47%;
+    }
+    100% {
+        top: 50%;
+    }
+} 
+
+@keyframes moveSushi {
+    0% {
+        top: 80%;
+    }
+    50% {
+        top: 83%;
+    }
+    100% {
+        top: 80%;
+    }
+}
+
+@keyframes moveHoja {
+    0% {
+        top: 30%;
+    }
+    50% {
+        top: 33%;
+    }
+    100% {
+        top: 30%;
+    }
+}
+
+@keyframes moveHamburguesa {
+    0% {
+        top: 50%;
+    }
+    50% {
+        top: 47%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+ */
+@keyframes cycle {
+    0% {
+        z-index: 3;
+        width: 20%;
+        left: 0;
+
+
+    }
+    25% {
+        z-index: 4;
+        width: 30%;
+        left: 35%;
+
+
+    }
+    50% {
+        z-index: 4;
+        width: 20%;
+        left: 80%;
+
+
+    }
+    75% {
+        z-index: 1;
+        width: 15%;
+        left: 30%;
+
+
+    }
+    100% {
+        width: 20%;
+        left: 0;
+    }
 }

@@ -1,16 +1,18 @@
 import '../../css/searchSection.css'
-import food1 from '/searchSection/food1.png';
-import food2 from '/searchSection/food2.png';
-import food3 from '/searchSection/food3.png';
-import food4 from '/searchSection/food4.png';
-import foodBackground from '/searchSection/foodbackground.png';
+import food1 from '/principalPage/searchSection/food1.png';
+import food2 from '/principalPage/searchSection/food2.png';
+import food3 from '/principalPage/searchSection/food3.png';
+import food4 from '/principalPage/searchSection/food4.png';
+import foodBackground from '/principalPage/searchSection/foodbackground.png';
+import locationIcon from '/principalPage/icons/locationIcon.png';
+import searchIcon from '/principalPage/icons/searchIcon.png';
 
 export function SearchSection() {
     return (
         <section className='SearchSection MainContent-bodySection-search'>
             <section className="firstSearchSection">
                 <header className="location">
-                    <img draggable='false' className='locationImg' src="/icons/locationIcon.png" alt="location"></img>
+                    <img draggable='false' className='locationImg' src={locationIcon} alt="location"></img>
                     <p>Ubicación</p>
                 </header>
                 <section className='searchFormSection'>
@@ -21,7 +23,7 @@ export function SearchSection() {
                     <form className='Form-container'>
                         <input className='FormSearchText' type="text" />
                         <button className='FormSearchBtn'>
-                            <img src="/icons/searchIcon.png" alt="searchIcon"></img>
+                            <img src={searchIcon} alt="searchIcon"></img>
                         </button>
                     </form>
                 </section>

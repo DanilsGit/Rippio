@@ -17,7 +17,7 @@ export function ThirdSectionBody() {
                 </section>
             </section>
             <section className="problemReport">
-                <img src="/icons/warning.png" alt="undraw-Problem-solving-3xdc" border="0" />
+                <img src="/principalPage/icons/warning.png" alt="undraw-Problem-solving-3xdc" border="0" />
                 <section className='problemReport-info'>
                     <h2>¿Tuviste problemas con tu pedido?</h2>
                     <p>Contamos con cientos de asesores que están disponibles las 24 horas del día para ayudarte!</p>

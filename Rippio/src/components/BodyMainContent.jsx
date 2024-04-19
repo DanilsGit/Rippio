@@ -1,4 +1,4 @@
-import { FirstSectionBody } from '../components/section1/FirstSectionBody'
+import { FirstSectionBody } from '../components/promoSection/FirstSectionBody'
 import { SecondSectionBody } from './section2/SecondSectionBody'
 import { ThirdSectionBody } from './section3/ThirdSectionBody'
 import { FourthSectionBody } from './section4/FourthSectionBody'
@@ -16,8 +16,8 @@ export function BodyMainContent() {
                 <FirstSectionBody />
                 <SecondSectionBody slides={slides} />
                 <ThirdSectionBody />
-                <FourthSectionBody />
             </section>
+            <FourthSectionBody />
         </section>
     )
 }

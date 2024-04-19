@@ -1,25 +1,29 @@
-import '../css/headerMainContent.css'
+import '../css/HeaderMainContent.css'
 import { HeaderDrawer } from './HeaderDrawer'
+import rippioFoodLogo from '/principalPage/icons/rippiofood.png'
+import cartIcon from '/principalPage/icons/cartIcon.png'
+import userIcon from '/principalPage/icons/userIcon.png'
+
 
 export function HeaderMainContent() {
     return (
         <header className='mainContent-header'>
             <div className='mainContent-header-logo'>
-                <a href='#'><img className='logoIcon' draggable='false' src='/icons/rippiofood.png' /></a>
+                <a href='#'><img className='logoIcon' draggable='false' src={rippioFoodLogo} /></a>
             </div>
             <nav className='header-nav'>
-                <ul>
-                    <li><a href='#'>Principal</a></li>
-                    <li><a href='#'>Categorías</a></li>
-                    <li><a href='#'>Acerca de nosotros</a></li>
+                <ul className='header-ul'>
+                    <li className='header-ul-li'><a href='#'>Principal</a></li>
+                    <li className='header-ul-li'><a href='#'>Categorías</a></li>
+                    <li className='header-ul-li'><a href='#'>Acerca de nosotros</a></li>
                 </ul>
             </nav>
             <section className='header-userSection'>
                 <div>
-                    <a href='#' className='cartLink'><img className='cartIcon' src='/icons/cartIcon.png' /></a>
+                    <a href='#' className='cartLink'><img className='cartIcon' src={cartIcon} /></a>
                 </div>
                 <div>
-                    <a href='#'><div className='userlink'><img className='userIcon' src='/icons/userIcon.png' /><span className='userText'>Ingresa</span></div></a>
+                    <a href='#'><div className='userlink'><img className='userIcon' src={userIcon} /><span className='userText'>Ingresa</span></div></a>
                 </div>
 
                 <HeaderDrawer />

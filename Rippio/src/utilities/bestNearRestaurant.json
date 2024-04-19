@@ -1,38 +1,47 @@
 [
   {
-    "image": "/bestNearRestaurant/mcdonals.png",
-    "title": "mcdonals"
+    "image": "/principalPage/bestNearRestaurant/mcdonals.png",
+    "title": "mcdonals",
+    "score": 4.9
   },
   {
-    "image": "/bestNearRestaurant/frisby.png",
-    "title": "frisby"
+    "image": "/principalPage/bestNearRestaurant/frisby.png",
+    "title": "frisby",
+    "score": 4
   },
   {
-    "image": "/bestNearRestaurant/popsy.png",
-    "title": "popsy"
+    "image": "/principalPage/bestNearRestaurant/popsy.png",
+    "title": "popsy",
+    "score": 4.8
   },
   {
-    "image": "/bestNearRestaurant/srwok.png",
-    "title": "srwok"
+    "image": "/principalPage/bestNearRestaurant/srwok.png",
+    "title": "srwok",
+    "score": 4.2
   },
   {
-    "image": "/bestNearRestaurant/starbucks.png",
-    "title": "starbucks"
+    "image": "/principalPage/bestNearRestaurant/starbucks.png",
+    "title": "starbucks",
+    "score": 4.3
   },
   {
-    "image": "/bestNearRestaurant/buengelato.png",
-    "title": "buengelato"
+    "image": "/principalPage/bestNearRestaurant/buengelato.png",
+    "title": "buengelato",
+    "score": 4.7
   },
   {
-    "image": "/bestNearRestaurant/dominospizza.png",
-    "title": "dominospizza"
+    "image": "/principalPage/bestNearRestaurant/dominospizza.png",
+    "title": "dominospizza",
+    "score": 4.9
   },
   {
-    "image": "/bestNearRestaurant/donpapa.png",
-    "title": "donpapa"
+    "image": "/principalPage/bestNearRestaurant/donpapa.png",
+    "title": "donpapa",
+    "score": 4.9
   },
   {
-    "image": "/bestNearRestaurant/elcorral.png",
-    "title": "elcorral"
+    "image": "/principalPage/bestNearRestaurant/elcorral.png",
+    "title": "elcorral",
+    "score": 4.9
   }
 ]

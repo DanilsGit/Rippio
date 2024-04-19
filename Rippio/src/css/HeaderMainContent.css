@@ -20,7 +20,7 @@ a{
     color: #032B2A;
 }
 
-ul{
+.header-ul{
     list-style-type: none;
     display: flex;
     justify-content: right;
@@ -28,14 +28,14 @@ ul{
     width: 100%;
 }
 
-li:nth-child(1){
+.header-ul-li:nth-child(1){
     border-bottom: 4px solid #00b7cf;
 }
-li{
+.header-ul-li{
     border-bottom: 4px solid transparent;
 }
 
-li:hover{
+.header-ul-li:hover{
     border-bottom: 4px solid #032B2A;
     transition: border-bottom  1s;
 }
@@ -96,17 +96,17 @@ li:hover{
     display: block;
 }
 
-ul{
+.header-ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
 }
 
-li:nth-child(1){
+.header-ul-li:nth-child(1){
     border-bottom: 4px solid #00b7cf;
 }
-li{
+.header-ul-li{
     border-bottom: 4px solid transparent;
     text-align: center;
 }

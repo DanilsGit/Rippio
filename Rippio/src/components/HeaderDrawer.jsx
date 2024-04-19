@@ -37,7 +37,7 @@ export function HeaderDrawer() {
 
     return (
         <div className='Header-Drawer'>
-            <Button onClick={toggleDrawer(true)}><img className='drawerIcon' src='/icons/optionLinesIcon.png'/></Button>
+            <Button onClick={toggleDrawer(true)}><img className='drawerIcon' src='/principalPage/icons/optionLinesIcon.png'/></Button>
             <Drawer anchor={'right'} open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>

@@ -1,5 +1,6 @@
 import  { HeaderMainContent }  from './HeaderMainContent';
 import { BodyMainContent } from './BodyMainContent';
+import { Footer } from './footer/Footer';
 
 export function MainContent() {
 
@@ -7,7 +8,7 @@ export function MainContent() {
         <main className='mainContent'>
             <HeaderMainContent />
             <BodyMainContent />
-            {/* <FooterMainContent /> */}
+            <Footer />
         </main>
     )
 }

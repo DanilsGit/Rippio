@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     font-size: 14px;
-    @media screen and (max-width: 1000px){
+    @media screen and (max-width: 1050px){
         font-size: 10px;
     }
     @media screen and (max-width: 300px){

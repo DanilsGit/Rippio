@@ -10,14 +10,14 @@ export function PlanSection() {
             <section className='businessSection-plans-content'>
 
                 <section className='businessSection-plan-item'>
-                    <div className='plan-header'>
+                    <header className='plan-header'>
                         <div className='plan-icon-container'>
                             <img className='planIcon' draggable='false' src={rippioPlanIcon}></img>
                             <p className='iconText'>Rippio plan básico</p>
                         </div>
                         <h2 className='plan-title'>Plan Básico</h2>
                         <p className='planPrice'>16.500/mes</p>
-                    </div>
+                    </header>
                     <ul className='plan-ul'>
                         <li className='plan-ul-li'>Descuentos exclusivos en restaurantes</li>
                         <li className='plan-ul-li'>Cancela cuando quieras</li>

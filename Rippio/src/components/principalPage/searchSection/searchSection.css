@@ -1,0 +1,181 @@
+.SearchSection{
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstSearchSection{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 360px;
+    max-width: 40em;
+    @media screen and (max-width: 741px){
+        font-size: 1.2em;
+    }
+}
+
+.location{
+    display: flex;
+}
+
+.locationImg{
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.searchFormSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3em;
+}
+
+.searchFormInfo{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchFormTitle{
+    font-size: 2em;
+    letter-spacing: 1.5px;
+    color:#032B2A;
+}
+
+.searchFormP{
+    color: #11928D;
+    font-size: 1em;
+}
+
+.Form-container{
+    box-shadow: 5px 5px 1px 0px #0000004b;
+    display: flex;
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.Form-container:focus-within{
+    box-shadow: 5px 5px 1px 0px #032b2ad2;
+    transition: all 1s;
+}
+
+.FormSearchText{
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.FormSearchBtn{
+    width: 20px;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.FormSearchBtn img{
+    width: 100%;
+}
+
+
+
+.secondSearchSection{
+    position: relative;
+    flex: 1;
+    /* background-color: blue; */
+    flex-basis: 300px;
+    height: 15em;
+    display: flex;
+    align-items: center;
+    max-width: 40em;
+    @media screen and (max-width: 741px){
+        max-width: 40em;
+    }
+}
+
+
+.secondSearchSection-img{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: cycle 5s ease-in-out infinite;
+}
+
+/* brocheta */
+.secondSearchSection-img:nth-child(1){ 
+    z-index: 3;
+    width: 20%;
+    left: 0;
+    animation-delay: 0s;
+}
+
+/* sushi */
+.secondSearchSection-img:nth-child(2){
+    z-index: 4;
+    width: 30%;
+    left: 35%;
+    animation-delay: -1.25s;
+}
+
+/* hoja */
+.secondSearchSection-img:nth-child(3){
+    z-index: 4;
+    width: 20%;
+    left: 80%;
+    animation-delay: -2.5s;
+}
+
+/* hamburguesa */
+.secondSearchSection-img:nth-child(4){
+    z-index: 1;
+    width: 15%;
+    left: 30%;
+    animation-delay: -3.75s;
+}
+
+.secondSearchSection-img:nth-child(5){
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    animation: none;
+}
+
+@keyframes cycle {
+    0% {
+        z-index: 3;
+        width: 20%;
+        left: 0;
+    }
+    25% {
+        z-index: 4;
+        width: 30%;
+        left: 35%;
+    }
+    50% {
+        z-index: 4;
+        width: 20%;
+        left: 80%;
+    }
+    75% {
+        z-index: 1;
+        width: 15%;
+        left: 30%;
+    }
+    100% {
+        width: 20%;
+        left: 0;
+    }
+}

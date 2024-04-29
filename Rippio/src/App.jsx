@@ -1,5 +1,5 @@
-import {Welcome} from './components/Welcome'
-import {MainContent} from './components/MainContent'
+import {Welcome} from './pages/Welcome'
+import {PrincipalPage} from './pages/PrincipalPage'
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Welcome />
-      <MainContent />
+      <PrincipalPage />
     </>
   )
 }

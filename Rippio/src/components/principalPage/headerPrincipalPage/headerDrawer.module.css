@@ -1,0 +1,15 @@
+.headerDrawerLi{
+    li{
+        width: 100%;
+        border-bottom: 2px solid #00b7cf;
+    }
+    span{
+        width: 100%;
+    }
+    a{
+        width: 100%;
+    }
+    span{
+        text-align: center;
+    }
+}

@@ -1,0 +1,58 @@
+.bestNearRestaurant{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.bestNearRestaurant-title{
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    color: #000;
+
+}
+
+.swiper-wrapper{
+    height: 10em;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: auto;
+}
+
+.restaurant-img{
+    width: 6.25em;
+    z-index: 1;
+}
+
+.award-frame{
+    width: 7.25em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.top-reward{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2em;
+    z-index: 2;
+    top: 0px;
+}
+
+
+.swiper-button-next, .swiper-button-prev{
+    color: #000;
+    width: 1em;
+}
+
+.swiper-slide{
+    text-align: center;
+}

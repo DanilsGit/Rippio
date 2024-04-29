@@ -1,0 +1,113 @@
+.mainContent-header{
+    color: #032B2A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+    gap: 2%;
+}
+
+.header-nav{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.header-a{
+    text-decoration: none;
+    color: #032B2A;
+}
+
+.header-ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    gap: 10%;
+    width: 100%;
+}
+
+.header-ul-li:nth-child(1){
+    border-bottom: 4px solid #00b7cf;
+}
+.header-ul-li{
+    border-bottom: 4px solid transparent;
+}
+
+.header-ul-li:hover{
+    border-bottom: 4px solid #032B2A;
+    transition: border-bottom  1s;
+}
+
+.header-userSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.cartLink{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userlink{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.logoIcon{
+    width: 90%;
+
+}
+
+.cartIcon{
+    width: 25px;
+}
+
+.userIcon{
+    width: 35px;
+}
+
+.Header-Drawer{
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+.header-nav{
+    display: none;
+}
+
+
+.userText{
+    display: none;
+
+}
+
+.drawerIcon{
+    width: 30px;
+}
+
+.Header-Drawer{
+    display: block;
+}
+
+.header-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.header-ul-li:nth-child(1){
+    border-bottom: 4px solid #00b7cf;
+}
+.header-ul-li{
+    border-bottom: 4px solid transparent;
+    text-align: center;
+}
+}

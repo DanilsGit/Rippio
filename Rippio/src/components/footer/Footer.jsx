@@ -1,4 +1,4 @@
-import '../../css/footer.css';
+import './footer.css';
 import { FooterInformation } from './FooterInformation';
 
 export function Footer() {

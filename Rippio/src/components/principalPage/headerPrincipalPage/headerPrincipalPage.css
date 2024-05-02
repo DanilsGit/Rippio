@@ -1,4 +1,4 @@
-.mainContent-header{
+.mainContent-headerPrincipalPage{
     color: #032B2A;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -10,17 +10,17 @@
     gap: 2%;
 }
 
-.header-nav{
+.headerPrincipalPage-nav{
     width: 100%;
     padding-left: 10px;
 }
 
-.header-a{
+.headerPrincipalPage-a{
     text-decoration: none;
     color: #032B2A;
 }
 
-.header-ul{
+.headerPrincipalPage-ul{
     list-style-type: none;
     display: flex;
     justify-content: right;
@@ -28,19 +28,19 @@
     width: 100%;
 }
 
-.header-ul-li:nth-child(1){
+.headerPrincipalPage-ul-li:nth-child(1){
     border-bottom: 4px solid #00b7cf;
 }
-.header-ul-li{
+.headerPrincipalPage-ul-li{
     border-bottom: 4px solid transparent;
 }
 
-.header-ul-li:hover{
+.headerPrincipalPage-ul-li:hover{
     border-bottom: 4px solid #032B2A;
     transition: border-bottom  1s;
 }
 
-.header-userSection{
+.headerPrincipalPage-userSection{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +78,7 @@
 }
 
 @media screen and (max-width: 800px){
-.header-nav{
+.headerPrincipalPage-nav{
     display: none;
 }
 
@@ -96,17 +96,17 @@
     display: block;
 }
 
-.header-ul{
+.headerPrincipalPage-ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
 }
 
-.header-ul-li:nth-child(1){
+.headerPrincipalPage-ul-li:nth-child(1){
     border-bottom: 4px solid #00b7cf;
 }
-.header-ul-li{
+.headerPrincipalPage-ul-li{
     border-bottom: 4px solid transparent;
     text-align: center;
 }

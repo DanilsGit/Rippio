@@ -36,18 +36,18 @@
     flex-direction: column;
     gap: 1.1em;
     position: relative;
-    margin: 4em 1em;
+    margin: 4em 0em;
 }
 
 
 .teamSection-item-content{
-    padding: 2em 1em;
+    padding: 1.2em 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 25em;
+    max-width: 23em;
     gap: 1em;
     background-color: #fff;
     border-radius: 20px;
@@ -84,17 +84,17 @@
     width: 100%;
     text-align: center;
     text-decoration: none;
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 600;
     letter-spacing: 1px;
     color: #000;
     background-color: #D68F24;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 0.2em 0em;
 }
 
 .team-title{
-    font-size: 2em;
+    font-size: 1.5em;
     color: #11928D;
 }
 

@@ -7,23 +7,23 @@ import userIcon from '/principalPage/icons/userIcon.png'
 
 export function HeaderMainContent() {
     return (
-        <header className='mainContent-header'>
-            <div className='mainContent-header-logo'>
+        <header className='mainContent-headerPrincipalPage'>
+            <div className='mainContent-headerPrincipalPage-logo'>
                 <a href='#'><img className='logoIcon' draggable='false' src={rippioFoodLogo} /></a>
             </div>
-            <nav className='header-nav'>
-                <ul className='header-ul'>
-                    <li className='header-ul-li'><a className='header-a' href='#'>Principal</a></li>
-                    <li className='header-ul-li'><a className='header-a' href='#'>Categorías</a></li>
-                    <li className='header-ul-li'><a className='header-a' href='#'>Acerca de nosotros</a></li>
+            <nav className='headerPrincipalPage-nav'>
+                <ul className='headerPrincipalPage-ul'>
+                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Principal</a></li>
+                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Categorías</a></li>
+                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Acerca de nosotros</a></li>
                 </ul>
             </nav>
-            <section className='header-userSection'>
+            <section className='headerPrincipalPage-userSection'>
                 <div>
                     <a href='#' className='cartLink'><img className='cartIcon' src={cartIcon} /></a>
                 </div>
                 <div>
-                    <a className='header-a'href='#'><div className='userlink'><img className='userIcon' src={userIcon} /><span className='userText'>Ingresa</span></div></a>
+                    <a className='headerPrincipalPage-a'href='#'><div className='userlink'><img className='userIcon' src={userIcon} /><span className='userText'>Ingresa</span></div></a>
                 </div>
 
                 <HeaderDrawer />

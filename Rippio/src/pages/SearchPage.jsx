@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { Header } from '../components/header/Header';
+import { RestaurantIconResult } from '../components/searchPage/restaurantResult/RestaurantIconResult';
+import { RestaurantsInformationResult } from '../components/searchPage/RestaurantInformationResult/RestaurantsInformationResult';
+import { Footer } from '../components/footer/Footer';
+
+import { resultados } from '../utilities/searchQuery.json';
+
+import './searchPage.css'
 
 export function SearchPage() {
     const params = useParams();
 
-    const [productos, setProductos] = useState([]);
+    // const [productos, setProductos] = useState([]);
 
-    useEffect(() => {
-        fetch(`https://dummyjson.com/products`)
-            .then(res => res.json())
-            .then(data => {
-                setProductos(data.products)
-            })
-    },[]);
+    // useEffect(() => {
+    //     fetch(`https://dummyjson.com/products`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setProductos(data.products)
+    //         })
+    // }, []);
 
     return (
         <main className='searchPage'>
-            <h1> Sección de búsqueda </h1>
-            <p> Has buscado: {params.search} !!!! </p>
-            <h2> Resultados de la búsqueda </h2>
-            <Link to='/'>Volver al inicio</Link>
-            <ul>
-                {productos.map(producto => (
-                    <li key={producto.id}>
-                        <h3>{producto.title}</h3>
-                        <img src={producto.thumbnail} alt={producto.title} />
-                        <p>{producto.brand}</p>
-                    </li>
-                ))}
-            </ul>
+            <Header />
+            <section className='searchPage-content'>
+                <h1 className='searchPage-title'> Mira lo que encontramos para <span>{params.search}</span> </h1>
+                <RestaurantIconResult results={resultados} />
+                <RestaurantsInformationResult results={resultados} />
+            </section>
+            <Footer />
         </main>
     )
 }

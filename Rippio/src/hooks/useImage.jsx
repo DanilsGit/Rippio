@@ -30,7 +30,6 @@ export function useImage(url) {
             .catch((error) => {
                 console.error("Error al obtener la URL de descarga:", error);
             });
-            console.log(image)
     return {
         image
     }

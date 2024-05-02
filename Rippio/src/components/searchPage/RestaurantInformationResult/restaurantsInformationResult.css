@@ -1,0 +1,120 @@
+.searchPage-restaurantInformationResult{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+.restaurantInformation-item{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #0000005e;
+    gap: 1em;
+}
+
+.restaurantInformation-item-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1em;
+}
+
+.restaurantInformation-item-header-img{
+    width: 4em;
+}
+
+.restaurantInformation-item-calificacion{
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    background-color: #01CBC3;
+    padding: 0.1em 0.3em;
+    border-radius: 20px;
+}
+
+.item-calificacion-img{
+    width: 1em;
+}
+.item-calificacion-text{
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* PRODUCTS */
+
+.restaurantInformation-item-products{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.restaurantInformation-item-products-product{
+    display: flex;
+    flex-direction: column;
+    width: 8em;
+    position: relative;
+    align-items: center;
+}
+
+.restaurantInformation-item-products-product:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.restaurantInformation-item-products-product-button{
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    background-color: #01CBC3;
+    padding: 3.5% 4%;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #003b39;
+    width: 23%;
+}
+
+.restaurantInformation-item-products-product-button:hover{
+    background-color: #003b39;
+    transition: 0.5s;
+
+}
+
+.restaurantInformation-item-products-product-button-img{
+    width: 100%;
+}
+
+.restaurantInformation-item-products-product-img{
+    width: 8em;
+    height: 7em;
+    object-fit: cover;
+    border-radius: 1em;
+    cursor: pointer;
+    border: 2px solid #003b39;
+}
+
+.restaurantInformation-item-products-product-img:hover{
+    border: 2px solid #01CBC3;
+    transition: 0.5s;
+
+}
+
+.restaurantInformation-item-products-product > div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+}
+
+.restaurantInformation-item-products-product span {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.restaurantInformation-item-products-product p {
+    font-size: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}

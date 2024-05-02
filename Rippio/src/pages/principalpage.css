@@ -24,7 +24,6 @@
     @media screen and (max-width: 685px){
         flex-direction: column;
         gap: 2em;
-        font-size: clamp(10px, 2vw, 20px);
     }
     @media screen and (max-width: 400px){
         flex-direction: row;
@@ -35,7 +34,7 @@
     margin: 0 auto;
 }
 
-/* PRIMERA SECCIÓN */
+/* Sección business */
 
 .businessSection{
     margin-top: 50px;

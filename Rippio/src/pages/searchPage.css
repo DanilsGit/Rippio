@@ -1,0 +1,23 @@
+.searchPage{
+    background: rgb(208,208,208);
+    background: linear-gradient(180deg, rgba(208,208,208,1) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+}
+
+.searchPage-content{
+    min-height: 100vh;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-bottom: 3em;
+}
+
+.searchPage-title{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.searchPage-title > span{
+    color: #00b7cf;
+}

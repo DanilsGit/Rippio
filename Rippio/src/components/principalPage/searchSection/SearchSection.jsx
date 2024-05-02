@@ -1,22 +1,15 @@
 import './searchSection.css'
-import foodBackground from '/principalPage/searchSection/foodbackground.png';
 import locationIcon from '/principalPage/icons/locationIcon.png';
 import searchIcon from '/principalPage/icons/searchIcon.png';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { useImage } from '../../../hooks/useImage';
+import { useNavigate } from 'react-router-dom';
 
 
 export function SearchSection() {
 
     const [searchTerm, setSearchTerm] = useState('');
-
-    const {image: food1} = useImage('/HomePage/AnimationSearch/burger.png');
-    const {image: food2} = useImage('/HomePage/AnimationSearch/burrito.png');
-    const {image: food3} = useImage('/HomePage/AnimationSearch/sushi.png');
-    const {image: food4} = useImage('/HomePage/AnimationSearch/brocheta.png');
+    const navigate = useNavigate();
 
 
     const handleInputChange = (event) => {
@@ -36,34 +29,29 @@ export function SearchSection() {
                         <h2 className='searchFormTitle'>¿Qué te apetece comer hoy?</h2>
                         <p className='searchFormP'>Descubre restaurantes cerca de ti</p>
                     </div>
-                    <form onSubmit={() => {
-                        document.querySelector('.FormSearchBtn').click();
+                    <form onSubmit={(e) => {
+                        e.preventDefault()
+                        searchTerm.trim() && navigate(`/searchpage/${searchTerm}`)
                     }} className='Form-container'>
                         <input
                             className='FormSearchText'
                             type="text"
-                            name="query"
                             autoComplete='off'
                             value={searchTerm}
                             onChange={handleInputChange}
                         />
-                        <Link to={
-                            searchTerm === '' ?
-                                '/'
-                                :
-                                `/searchpage/${searchTerm}`
-                        } className='FormSearchBtn'>
+                        <button className='FormSearchBtn'>
                             <img src={searchIcon} alt="searchIcon"></img>
-                        </Link>
+                        </button>
                     </form>
                 </section>
             </section>
             <section className="secondSearchSection">
-                <img draggable='false'  className='secondSearchSection-img' src={food1} alt="foodIcon"></img>
-                <img draggable='false' className='secondSearchSection-img' src={food2} alt="foodIcon"></img>
-                <img draggable='false' className='secondSearchSection-img' src={food3} alt="foodIcon"></img>
-                <img draggable='false' className='secondSearchSection-img' src={food4} alt="foodIcon"></img>
-                <img draggable='false' className='secondSearchSection-img' src={foodBackground} alt="foodIcon"></img>
+                <img draggable='false'  className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fburger.png?alt=media&token=81cb53a2-ee9e-4418-be80-371e72a3b4a4' alt="foodIcon"></img>
+                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fbrocheta.png?alt=media&token=2b9d703c-2e4a-49bb-afe9-80d4d67d9919' alt="foodIcon"></img>
+                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fburrito.png?alt=media&token=666db319-3c35-425b-b739-856ef91234c1' alt="foodIcon"></img>
+                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fsushi.png?alt=media&token=df46d08b-cae1-4661-800b-1ab28dd310fd' alt="foodIcon"></img>
+                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Ffoodbackground.png?alt=media&token=c30f626c-43b4-474d-aedf-4ba8e3a1cf5d' alt="foodIcon"></img>
             </section>
         </section>
     )

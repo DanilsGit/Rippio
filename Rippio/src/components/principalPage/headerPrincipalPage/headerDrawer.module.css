@@ -8,6 +8,9 @@
     }
     a{
         width: 100%;
+        text-decoration: none;
+        color: #000;
+        font-family: 'Montserrat', sans-serif;
     }
     span{
         text-align: center;

@@ -1,0 +1,109 @@
+.header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    @media screen and (max-width: 768px){
+        justify-content: space-around;
+    }
+}
+
+.header-img{
+    width: 6em;
+    cursor: pointer;
+    @media screen and (max-width: 768px){
+        display: none;
+    }
+}
+.header-ul{
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+
+.header-li{
+    list-style-type: none;
+    display: flex;
+}
+
+.header-li-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-li-img{
+    width: 2em;
+    cursor: pointer;
+}
+
+.header-li-div{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.header-li-div span {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #11928D;
+    @media screen and (max-width: 768px){
+        display: none;
+    }
+}
+
+.header-form{
+    width: 50%;
+    display: flex;
+}
+
+.header-form-div{
+    background-color: #fff;
+    display: flex;
+    /* padding: 0.2em 0.5em; */
+    width: 100%;
+}
+
+.header-form-text{
+    border: none;
+    width: 100%;
+    padding: 0em 1em;
+    margin: 0;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #11928D;
+    outline: none;
+    border-top-left-radius: 1.5em;
+    border-bottom-left-radius: 1.5em;
+    background-color: #fff;
+    border-top: 2px solid #00000052;
+    border-bottom: 2px solid #00000052;
+    border-left: 2px solid #00000052;
+}
+
+.header-form-text::placeholder{
+    color: #11928e80;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.header-form-btn{
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    width: 5em;
+    padding: 0.2em 1.5em;
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    border-top: 2px solid #00000052;
+    border-bottom: 2px solid #00000052;
+    border-right: 2px solid #00000052;
+}
+
+.header-form-btn-img{
+    width: 90%;
+}

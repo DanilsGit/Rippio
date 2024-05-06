@@ -1,0 +1,134 @@
+.ProductModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 4px;
+    width: 60vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProductModal-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-bottom: 2px solid #00000076;
+    padding: 0.3em 0em;
+    text-align: center;
+}
+
+.ProductModalInfo{
+    overflow-y: auto;
+}
+
+.ReactModal__Overlay{
+    background-color: #032b2ab4 !important;
+    z-index: 2;
+}
+
+.ProductModal-section-container{
+    display: flex;
+    height: 100%;
+    @media screen and (max-width: 902px){
+        flex-direction: column;
+    }
+}
+
+.ProductModal-sectionImg{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+.ProductModal-sectionImg-imgContainer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProductModal-sectionImg img{
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+.ProductModal-sectionImg-quantityContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    background-color: #FFC625;
+    border-radius: 0.5em;
+    padding: 0.3em 1em;
+}
+
+.ProductModal-sectionImg-quantityContainer-btn{
+    width: 1em;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.ProductModal-sectionImg-quantityContainer-text{
+    text-align: center;
+    width: 2em;
+}
+
+.ProductModal-sectionInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.ProductModal-sectionInfo-infoContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ProductModal-sectionInfo-infoContainer span{
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.ProductModal-sectionInfo-infoContainer-overflow{
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+.ProductModal-sectionInfo-infoContainer p{
+    font-size: 1em;
+}
+.ProductModal-btnContainer{
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    gap: 1em;
+
+}
+
+.ProductModal-btnContainer-btn{
+    color: #fff;
+    border: none;
+    padding: 0.3em 1em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    background-color: #01CBC3;
+}

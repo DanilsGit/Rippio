@@ -1,4 +1,4 @@
-.Modal{
+.ModalConflictProduct{
     position: absolute;
     background-color: #fff;
     width: 50vw;
@@ -12,7 +12,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.modal-header{
+.ReactModal__Overlay{
+    background-color: #032b2ab4 !important;
+    z-index: 2;
+}
+
+.ModalConflictProduct-header{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,29 +26,29 @@
     padding: 0.5em;
 }
 
-.modal-header img{
+.ModalConflictProduct-header img{
     width: 3em;
 }
 
-.Modal-aviso{
+.ModalConflictProduct-aviso{
     display: flex;
     flex-direction: column;
 }
 
-.Modal span {
+.ModalConflictProduct span {
     font-size: 1.1em;
     font-weight: bold;
     padding: 0 0.5em;
 }
 
-.modal-btnContainer{
+.ModalConflictProduct-btnContainer{
     display: flex;
     justify-content: center;
     gap: 1em;
     padding: 1em;
 }
 
-.modal-btnContainer button {
+.ModalConflictProduct-btnContainer button {
     flex: 1;
     color: #fff;
     border: none;
@@ -53,9 +58,9 @@
     cursor: pointer;
 }
 
-.modal-btnContainer button:nth-child(1){
+.ModalConflictProduct-btnContainer button:nth-child(1){
     background-color: #12bb96;
 }
-.modal-btnContainer button:nth-child(2){
+.ModalConflictProduct-btnContainer button:nth-child(2){
     background-color: #032B2A;
 }

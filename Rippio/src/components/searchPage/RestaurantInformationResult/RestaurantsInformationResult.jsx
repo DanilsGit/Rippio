@@ -1,8 +1,23 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 import './restaurantsInformationResult.css'
+import { useCart } from '../../../hooks/useCart'
+import { ProductModal } from '../../productModal/ProductModal'
+import { useState } from 'react'
+import { checkProductInCart } from '../../../constants/cart'
+
 
 export function RestaurantsInformationResult({ results }) {
+    const cart = useCart((state) => state.cart)
+    const addToCart = useCart((state) => state.addToCart)
+    const removeFromCart = useCart((state) => state.removeFromCart)
+    const [selectedProduct, setSelectedProduct] = useState(null)
+
+    const selectProduct = (product) => {
+        setSelectedProduct(product)
+    }
+
+
     return (
         <section className="searchPage-restaurantInformationResult">
             {results.restaurantes.map((restaurant) => {
@@ -22,16 +37,27 @@ export function RestaurantsInformationResult({ results }) {
                             {restaurant.productos.map((product) => {
                                 return (
                                     <section key={product.id} className='restaurantInformation-item-products-product'>
-                                        <button className='restaurantInformation-item-products-product-button'>
-                                            <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FaddIcon.png?alt=media&token=ed181174-d4ad-4c8a-a7ad-4a3035dfd4f4' alt='plus' />
+                                        <button
+                                            style={{
+                                                backgroundColor: checkProductInCart(cart, product) ? '#032B2A' : '#01CBC3'
+                                            }}
+                                            onClick={() => {
+                                                checkProductInCart(cart, product)
+                                                    ? removeFromCart({ product })
+                                                    : addToCart({ product, restaurant, quantity: 1 })
+                                            }} className='restaurantInformation-item-products-product-button'>
+                                            {checkProductInCart(cart, product)
+                                                ? <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FremoveIcon.png?alt=media&token=25ab08fb-5469-49d6-914e-310722e4e9cd' alt='plus' />
+                                                : <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FaddIcon.png?alt=media&token=ed181174-d4ad-4c8a-a7ad-4a3035dfd4f4' alt='plus' />}
                                         </button>
-                                        <Link to={`/restaurant/${restaurant.id}/product/${product.id}`}>
+                                        <button className='restaurantInformation-item-products-product-buttonContainer' onClick={()=>selectProduct(product)}>
                                             <img draggable='false' className='restaurantInformation-item-products-product-img' src={product.imagen} alt={product.nombre} />
-                                        </Link>
-                                        <div>
-                                            <span>{product.costo_unit}</span>
-                                            <p>{product.nombre}</p>
-                                        </div>
+                                            <div>
+                                                <span>{product.costo_unit}</span>
+                                                <p>{product.nombre}</p>
+                                            </div>
+                                        </button>
+                                        <ProductModal product={product} restaurant={restaurant} selectedProduct={selectedProduct} selectProduct={selectProduct} />
                                     </section>
                                 )
                             })}

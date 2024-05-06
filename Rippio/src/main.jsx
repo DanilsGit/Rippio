@@ -9,6 +9,9 @@ import { RestaurantPage } from './pages/RestaurantPage.jsx'
 import { ProductPage } from './pages/ProductPage.jsx'
 
 import './css/index.css'
+import 'normalize.css'
+import { CartModal } from './components/cartModal/CartModal.jsx';
+import { ModalConflictProduct } from './components/differentRestaurantModal/ModalConflictProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <CartModal />
+    <ModalConflictProduct />
     <RouterProvider router={router} />
   </React.StrictMode>,
 )

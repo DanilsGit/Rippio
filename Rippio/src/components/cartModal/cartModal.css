@@ -1,0 +1,58 @@
+.ModalCart{
+    position: absolute;
+    background-color: #fff;
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0.5em;
+    font-size: 1em;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ReactModal__Overlay{
+    background-color: #032b2ab4 !important;
+    z-index: 2;
+}
+
+.ModalCart-header{
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+.ModalCart-header h2 {
+    font-size: 1.8em;
+}
+
+.ModalCart-content-items{
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.ModalCart-content-item{
+    border-bottom: 2px solid #000;
+    padding: 0.5em;
+}
+
+.ModalCart-content-item-actions{
+    display: flex;
+    gap: 1em;
+}
+
+.ModalCart-content-item-btn{
+    background-color: #01CBC3;
+    color: #fff;
+    border: none;
+    padding: 0.2em 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    width: auto;
+    font-size: 1em;
+}
+
+.ModalCart-content-item img{
+    width: 10em;
+}
+

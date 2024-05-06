@@ -12,7 +12,7 @@ import { TeamSection } from '../components/principalPage/businessSection/TeamSec
 import { HeaderMainContent } from '../components/principalPage/headerPrincipalPage/HeaderMainContent';
 import { Footer } from '../components/footer/Footer';
 
-import './principalpage.css'
+import './principalPage.css'
 
 import slidesTopNear from '../utilities/bestNearRestaurant.json'
 import slidesCarousel from '../utilities/carrousel.json'

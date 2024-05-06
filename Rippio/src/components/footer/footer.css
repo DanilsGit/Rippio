@@ -6,7 +6,6 @@
     @media screen and (max-width: 1050px){
         font-size: 10px;
     }
-    display: var(--sprint)
 }
 
 .footer-information{

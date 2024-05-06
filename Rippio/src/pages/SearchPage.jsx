@@ -9,19 +9,8 @@ import { Footer } from '../components/footer/Footer';
 import { resultados } from '../utilities/searchQuery.json';
 
 import './searchPage.css'
-
 export function SearchPage() {
     const params = useParams();
-
-    // const [productos, setProductos] = useState([]);
-
-    // useEffect(() => {
-    //     fetch(`https://dummyjson.com/products`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProductos(data.products)
-    //         })
-    // }, []);
 
     return (
         <main className='searchPage'>

@@ -60,7 +60,7 @@
 
 .restaurantInformation-item-products-product:hover{
     transform: scale(1.1);
-    transition: 0.5s;
+    transition: transform 0.5s;
 }
 
 .restaurantInformation-item-products-product-button{
@@ -68,7 +68,7 @@
     top: -5%;
     right: -5%;
     background-color: #01CBC3;
-    padding: 3.5% 4%;
+    padding: 4% 4%;
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid #003b39;
@@ -76,18 +76,25 @@
 }
 
 .restaurantInformation-item-products-product-button:hover{
-    background-color: #003b39;
+    background-color: #007571 !important;
     transition: 0.5s;
-
 }
 
 .restaurantInformation-item-products-product-button-img{
     width: 100%;
 }
 
+.restaurantInformation-item-products-product-buttonContainer{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
 .restaurantInformation-item-products-product-img{
-    width: 8em;
-    height: 7em;
+    width: 100%;
+    height: 8em;
     object-fit: cover;
     border-radius: 1em;
     cursor: pointer;
@@ -100,21 +107,22 @@
 
 }
 
-.restaurantInformation-item-products-product > div {
+.restaurantInformation-item-products-product-buttonContainer > div {
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 100%;
 }
 
-.restaurantInformation-item-products-product span {
+.restaurantInformation-item-products-product-buttonContainer span {
     font-size: 1em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
 
-.restaurantInformation-item-products-product p {
+.restaurantInformation-item-products-product-buttonContainer p {
     font-size: 0.8em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    text-align: start;
 }

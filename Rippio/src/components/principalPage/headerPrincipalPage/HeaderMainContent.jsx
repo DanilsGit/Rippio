@@ -34,7 +34,7 @@ export function HeaderMainContent() {
                     </button>
                 </div>
                 <div>
-                    <Link to='/' className='headerPrincipalPage-a'><div className='userlink'><img className='userIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdefaultUserIcon.png?alt=media&token=4cf7ae75-e6ac-4fc4-b33f-e3d869739818' /><span className='userText'>Ingresa</span></div></Link>
+                    <Link to='/login' className='headerPrincipalPage-a'><div className='userlink'><img className='userIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdefaultUserIcon.png?alt=media&token=4cf7ae75-e6ac-4fc4-b33f-e3d869739818' /><span className='userText'>Ingresa</span></div></Link>
                 </div>
 
                 <HeaderDrawer />

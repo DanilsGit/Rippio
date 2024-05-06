@@ -35,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/restaurant/:idRestaurant/product/:idProduct',
     element: <ProductPage />,
+  },
+  {
+    path: '/Page404',
+    element: <Page404 />,
   }
 ]);
 

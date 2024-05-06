@@ -10,6 +10,8 @@
     border: 5px solid rgb(0, 0, 0);
     border-radius: 1em;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .ReactModal__Overlay{

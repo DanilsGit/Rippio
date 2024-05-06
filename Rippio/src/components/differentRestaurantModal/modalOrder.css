@@ -1,0 +1,61 @@
+.Modal{
+    position: absolute;
+    background-color: #fff;
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0.5em;
+    font-size: 1em;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border-bottom: 2px solid #00000076;
+    padding: 0.5em;
+}
+
+.modal-header img{
+    width: 3em;
+}
+
+.Modal-aviso{
+    display: flex;
+    flex-direction: column;
+}
+
+.Modal span {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 0 0.5em;
+}
+
+.modal-btnContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+}
+
+.modal-btnContainer button {
+    flex: 1;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.modal-btnContainer button:nth-child(1){
+    background-color: #12bb96;
+}
+.modal-btnContainer button:nth-child(2){
+    background-color: #032B2A;
+}

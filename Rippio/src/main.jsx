@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import LoginPage from './pages/LoginPage.jsx'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Page404 } from './pages/Page404.jsx'
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     errorElement: <Page404 />
+  },
+  {
+    path: '/login', // Agrega esta ruta
+    element: <LoginPage />, // Agrega este elemento
   },
   {
     path: '/searchpage/:search',

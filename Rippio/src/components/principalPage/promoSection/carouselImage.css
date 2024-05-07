@@ -21,11 +21,11 @@ swiper-slide{
     height: auto;
     object-fit: fill;
     border-radius: 10px;
-    filter: brightness(90%);
+    filter: brightness(95%);
 }
 
 swiper-container::part(button-next), swiper-container::part(button-prev) {
-    width: 1em;
+    width: .6em;
     color: white;
 }
 

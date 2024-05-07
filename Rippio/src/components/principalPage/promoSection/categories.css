@@ -12,17 +12,18 @@
 }
 
 .Categories-header h2{
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Montserrat', sans-serif;
     line-height: 1em;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 700;
+    color: black;
 }
 
 .Categories-header p{
     font-size: 0.9em;
     font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     font-weight: 500;
 }
 

@@ -14,10 +14,11 @@
 }
 
 .Highlight h2 span{
-    color: #11928D;
+    color: #1da7b9;
 }
 
 .Highlight-imgContainer {
+    margin-top: .5em;
     max-width: 16em;
 }
 

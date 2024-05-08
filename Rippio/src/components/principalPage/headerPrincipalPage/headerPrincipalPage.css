@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .cartLink{
@@ -61,16 +61,17 @@
 }
 
 .logoIcon{
-    width: 90%;
+    width: 100%;
+    margin-left: 1em;
 
 }
 
 .cartIcon{
-    width: 25px;
+    width: 23px;
 }
 
 .userIcon{
-    width: 35px;
+    width: 30px;
 }
 
 .Header-Drawer{

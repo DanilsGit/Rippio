@@ -10,9 +10,14 @@
     "score": 4
   },
   {
+    "image": "/principalPage/bestNearRestaurant/crepes.png",
+    "title": "crepes",
+    "score": 4.8
+  },
+  {
     "image": "/principalPage/bestNearRestaurant/popsy.png",
     "title": "popsy",
-    "score": 4.8
+    "score": 4.7
   },
   {
     "image": "/principalPage/bestNearRestaurant/srwok.png",
@@ -25,23 +30,33 @@
     "score": 4.3
   },
   {
+    "image": "/principalPage/bestNearRestaurant/ceropollito.png",
+    "title": "ceropollito",
+    "score": 4.6
+  },
+  {
     "image": "/principalPage/bestNearRestaurant/buengelato.png",
     "title": "buengelato",
-    "score": 4.7
+    "score": 4.6
   },
   {
     "image": "/principalPage/bestNearRestaurant/dominospizza.png",
     "title": "dominospizza",
-    "score": 4.9
+    "score": 4.8
   },
   {
     "image": "/principalPage/bestNearRestaurant/donpapa.png",
     "title": "donpapa",
-    "score": 4.9
+    "score": 4.5
+  },
+  {
+    "image": "/principalPage/bestNearRestaurant/drive.png",
+    "title": "drive",
+    "score": 4.8
   },
   {
     "image": "/principalPage/bestNearRestaurant/elcorral.png",
     "title": "elcorral",
-    "score": 4.9
+    "score": 4.8
   }
 ]

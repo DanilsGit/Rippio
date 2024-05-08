@@ -22,12 +22,12 @@ export function SearchSection() {
             <section className="firstSearchSection">
                 <header className="location">
                     <img draggable='false' className='locationImg' src={locationIcon} alt="location"></img>
-                    <p>Ubicación</p>
+                    <p>Tuluá, Valle del Cauca</p>
                 </header>
                 <section className='searchFormSection'>
                     <div className='searchFormInfo'>
                         <h2 className='searchFormTitle'>¿Qué te apetece comer hoy?</h2>
-                        <p className='searchFormP'>Descubre restaurantes cerca de ti</p>
+                        <p className='searchFormP'>Descubre restaurantes que están cerca de ti</p>
                     </div>
                     <form onSubmit={(e) => {
                         e.preventDefault()

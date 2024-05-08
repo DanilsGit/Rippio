@@ -4,7 +4,7 @@ export function MostSearch() {
     return (
         <section className='thirdSection'>
             <section className="mostSearched">
-                <h2 className="mostSearched-title">Lo más buscado</h2>
+                <h2 className="mostSearched-title">Lo más buscado hoy</h2>
                 <section className="mostSearched-content-items">
                     <div className="mostSearched-item"><p>Pollo Asado</p></div>
                     <div className="mostSearched-item"><p>Churrasco</p></div>
@@ -18,7 +18,7 @@ export function MostSearch() {
                 <img src="/principalPage/icons/warning.png" alt="undraw-Problem-solving-3xdc" border="0" />
                 <section className='problemReport-info'>
                     <h2>¿Tuviste problemas con tu pedido?</h2>
-                    <p>Contamos con cientos de asesores que están disponibles las 24 horas del día para ayudarte!</p>
+                    <p>Contamos con cientos de asesores que están disponibles las 24 horas del día para ayudarte</p>
                 </section>
             </section>
         </section>

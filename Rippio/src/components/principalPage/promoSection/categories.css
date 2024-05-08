@@ -12,7 +12,7 @@
 }
 
 .Categories-header h2{
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-family: 'Montserrat', sans-serif;
     line-height: 1em;
     letter-spacing: 1px;
@@ -21,10 +21,11 @@
 }
 
 .Categories-header p{
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1.2px;
     font-weight: 500;
+    margin-bottom: .5em;
 }
 
 .Categories-content{
@@ -46,7 +47,7 @@
 }
 
 .Categories-content-item-img{
-    margin-top: 1em;
+    margin-top: .9em;
     width: 6em; 
     border-radius: 50%;
     object-fit: cover;

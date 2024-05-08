@@ -4,7 +4,6 @@ import './highlight.css'
 export function Highlight(){
     return (
         <section className="Highlight firstSection-child">
-        <h2> Destacado en tu <span>Zona</span></h2>
         <div className="Highlight-imgContainer">
             <img draggable='false' src={highlight} alt="Highlight" />
         </div>

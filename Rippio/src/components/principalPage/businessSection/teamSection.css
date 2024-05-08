@@ -34,24 +34,30 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1.1em;
+    gap: 1em;
     position: relative;
     margin: 4em 0em;
 }
 
 
 .teamSection-item-content{
-    padding: 1.2em 1em;
+    padding: 1em 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 23em;
-    gap: 1em;
+    max-width: 20em;
+    gap: .7em;
     background-color: #fff;
     border-radius: 20px;
     text-align: center;
+}
+
+.teamSection-content p{
+    font-size: 1em;
+    letter-spacing: 1px;
+
 }
 
 .verticalText-2, .verticalText-1{
@@ -84,18 +90,18 @@
     width: 100%;
     text-align: center;
     text-decoration: none;
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: 1.3em;
+    font-weight: 700;
     letter-spacing: 1px;
-    color: #000;
+    color: #1b140c;
     background-color: #D68F24;
-    border-radius: 15px;
-    padding: 0.2em 0em;
+    border-radius: 20px;
+    padding: 0.3em 0em;
 }
 
 .team-title{
-    font-size: 1.5em;
-    color: #11928D;
+    font-size: 1.7em;
+    color: #002221;
 }
 
 .img-container{
@@ -105,7 +111,11 @@
 
 .teamIcon{
     position: absolute;
-    width: 65%;
-    left: 20%;
-    top: -63%;
+    width: 90%;
+    left: 5%;
+    top: -95%;
+}
+
+.visibility{
+    top: -98%;
 }

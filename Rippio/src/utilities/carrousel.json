@@ -1,14 +1,18 @@
 [
   {
-    "image": "/principalPage/carousel_img/subway.png",
+    "image": "/principalPage/carousel_img/crepes.waffles.jpg",
+    "title": "Crepes"
+  },
+  {
+    "image": "/principalPage/carousel_img/subway.jpg",
     "title": "Subway"
   },
   {
-    "image": "/principalPage/carousel_img/kfc.png",
+    "image": "/principalPage/carousel_img/kfc.jpg",
     "title": "KFC"
   },
   {
-    "image": "/principalPage/carousel_img/mcdonals.png",
-    "title": "mcDonals"
+    "image": "/principalPage/carousel_img/señor.wok.png",
+    "title": "Wok"
   }
 ]

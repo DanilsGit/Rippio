@@ -26,13 +26,13 @@ export function TeamSection(){
                         <section className='teamSection-item-content'>
                         <h3 className='verticalText-2'>CRECIMIENTO Y PROMOCIÓN</h3>
                             <div className='img-container'>
-                                <img draggable='false' className='teamIcon' src='/principalPage/teamSection/visibilityIcon.png'></img>
+                                <img draggable='false' className='teamIcon visibility' src='/principalPage/teamSection/visibilityIcon.png'></img>
                                 <img draggable='false' className='teamImg' src='/principalPage/teamSection/visibility.png'></img>
                             </div>
-                            <h2 className='team-title'>CONSIGUE VISIBILIDAD</h2>
-                            <p>Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
+                            <h2 className='team-title'>OBTEN VISIBILIDAD</h2>
+                            <p>¡Sé parte de Rippio! Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
                         </section>
-                        <a className='teamBtn' href='#'>Acceder al equipo</a>
+                        <a className='teamBtn' href='#'>Acceder al registro</a>
                     </section>
                 </div>
             </section>

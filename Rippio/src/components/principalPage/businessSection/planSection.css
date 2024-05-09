@@ -5,7 +5,7 @@
 }
 
 .businessSection-plans-content{
-    padding: 2.5em 0px;
+    padding: 5em 0px;
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -40,8 +40,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.2em; 
-    padding: 1.1em;
+    gap: .9em; 
+    padding: 1em;
     background-color: #032b2adc;
     border-radius: 20px;
     z-index: 2;
@@ -58,7 +58,7 @@
 .plan-icon-container{
     width: 100%;
     display: flex;
-    gap: 1em;
+    gap: .7em;
 }
 
 .planIcon{
@@ -67,6 +67,7 @@
 }
 .iconText, .planPrice{
     color: #fff;
+
     
 }
 
@@ -75,12 +76,12 @@
 }
 
 .plan-title{
-    font-size: 1.8em;
-    color: #FFE18E;
+    font-size: 1.7em;
+    color: #ffda74;
 }
 
 .planPrice{
-    font-size: 1em;
+    font-size: .8em;
     font-weight: 600;
 }
 
@@ -90,19 +91,21 @@
 }
 
 .plan-ul-li{
-    font-size: 1.1em;
-    margin: 1em 0px;
+    font-size: 1em;
+    margin: .8em 0px;
 }
 
 .planBtn{
     width: 90%;
     text-align: center;
     text-decoration: none;
-    font-size: 1.2em;
-    color: #000;
-    background-color: #FFE18E;
+    font-size: 1em;
+    font-weight: 700;
+    color: #002024;
+    background-color: #fcd465;
     border-radius: 20px;
     padding: 0.2em 0em;
+    margin-top: -.2em;
 }
 
 .planDesc{
@@ -110,11 +113,10 @@
 }
 
 .terminosBtn{
-    margin-top: 0.5em;
     text-align: center;
     text-decoration: none;
     line-height: 1em; 
-    font-size: 1em;
+    font-size: .7em;
     letter-spacing: 1px;
     color: #fff;
     border-bottom: #fff 1px solid;

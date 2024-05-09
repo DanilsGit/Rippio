@@ -14,13 +14,13 @@
 .mostSearched-content-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1.23em;
 }
 
 .mostSearched-item {
-    background-color: #00000037;
+    background-color: #3d696371;
     border-radius: 20px;
-    padding: 1px 10px;
+    padding: 5px 25px;
 }
 
 .problemReport{
@@ -28,14 +28,15 @@
     background-color: #FFC625;
     padding: 5px;
     border-radius: 20px;
-    width: 23em;
+    width: 26em;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
 }
 
 .problemReport img{
     object-fit: contain;
     width: 4em;
+    margin: 0 .7em;
 }
 
 .problemReport-info h2{

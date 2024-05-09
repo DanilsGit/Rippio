@@ -1,7 +1,6 @@
 import { SearchSection } from '../components/principalPage/searchSection/SearchSection'
 import { CarouselImage } from "../components/principalPage/promoSection/CarouselImage";
 import { Categories } from "../components/principalPage/promoSection/Categories";
-import { Highlight } from "../components/principalPage/promoSection/Highlight";
 
 import { RankingRestaurantSlider } from '../components/principalPage/rankingrestaurantslider/RankingRestaurantSlider'
 import { MostSearch } from '../components/principalPage/mostSearch/MostSearch'
@@ -30,7 +29,6 @@ export function PrincipalPage() {
                     <section className="MainContent-bodySection-firstSection">
                         <CarouselImage slides={slidesCarousel} />
                         <Categories items={itemsCategories} />
-                        <Highlight />
                     </section>
                     <RankingRestaurantSlider slides={slidesTopNear} />
                     <MostSearch />

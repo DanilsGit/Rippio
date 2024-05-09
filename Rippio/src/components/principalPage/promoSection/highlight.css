@@ -5,24 +5,17 @@
     text-align: center;
     align-items: center;
     overflow: hidden;
-}
-
-
-.Highlight h2{
-    font-size: 1.4em;
-    letter-spacing: 1px;
-}
-
-.Highlight h2 span{
-    color: #1da7b9;
+    min-height: 100%;
+    background-color: red;
 }
 
 .Highlight-imgContainer {
-    margin-top: .6em;
-    max-width: 16em;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .Highlight-imgContainer img {
     max-width: 100%;
     max-height: 100%;
+    object-fit: cover;
 }

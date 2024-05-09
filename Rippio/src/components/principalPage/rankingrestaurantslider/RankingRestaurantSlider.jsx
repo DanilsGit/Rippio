@@ -20,7 +20,7 @@ export function RankingRestaurantSlider({ slides }) {
 
             <div>
                 <Swiper
-                    spaceBetween={50}
+                    spaceBetween={40}
                     navigation={true}
                     // loop={false}
                     // autoplay={
@@ -31,14 +31,14 @@ export function RankingRestaurantSlider({ slides }) {
                     breakpoints={
                         {
                             0: {
-                                slidesPerView: 2,
+                                slidesPerView: 3,
                             },
                             350: {
-                                slidesPerView: 3,
+                                slidesPerView: 4,
 
                             },
                             550: {
-                                slidesPerView: 4,
+                                slidesPerView: 5,
 
                             },
                             800: {
@@ -46,7 +46,7 @@ export function RankingRestaurantSlider({ slides }) {
 
                             },
                             1100: {
-                                slidesPerView: 6,
+                                slidesPerView: 8,
                             },
                         }
                     }

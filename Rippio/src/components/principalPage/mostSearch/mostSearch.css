@@ -19,8 +19,8 @@
 
 .mostSearched-item {
     background-color: #3d696371;
-    border-radius: 20px;
-    padding: 5px 25px;
+    border-radius: 1em;
+    padding: 0.2em 0.8em;
 }
 
 .problemReport{

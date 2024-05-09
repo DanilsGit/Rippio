@@ -1,7 +1,8 @@
 
 .Carousel{
     min-width: 0px;
-    max-width: 30em;
+    width: 45%;
+    max-width: 40em;
     background-color: transparent;
     border-radius: 10px;
     /* @media screen and (max-width: 685px){
@@ -31,4 +32,11 @@ swiper-container::part(button-next), swiper-container::part(button-prev) {
 
 swiper-container::part(bullet-active) {
     background-color: #ffffff;
+}
+
+@media screen and (max-width: 685px){
+    .Carousel{
+        width: 90%;
+        max-width: 90%;
+    }
 }

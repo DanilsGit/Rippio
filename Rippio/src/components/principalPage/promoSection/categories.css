@@ -1,10 +1,14 @@
 .Categories{
-    width: 24em;
+    width: 45%;
     height: auto;
     /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .Categories-header{
+    width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -12,7 +16,7 @@
 }
 
 .Categories-header h2{
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-family: 'Montserrat', sans-serif;
     line-height: 1em;
     letter-spacing: 1px;
@@ -21,7 +25,7 @@
 }
 
 .Categories-header p{
-    font-size: 0.85em;
+    font-size: 1em;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1.2px;
     font-weight: 500;
@@ -29,26 +33,34 @@
 }
 
 .Categories-content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 0.5em;
+    @media screen and (max-width: 350px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 250px){
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .Categories-content-item{
     position: relative;
-    flex: 0 0 calc(33.33% - 10px); 
-    margin: 5px; 
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
 .Categories-content-item-title{
     position: absolute;
+    top: 0;
 }
 
 .Categories-content-item-img{
     margin-top: .9em;
-    width: 6em; 
+    width: 6.5em; 
     border-radius: 50%;
     object-fit: cover;
 }
@@ -59,4 +71,20 @@
 
 .text{
     fill: white;
+}
+
+@media screen and (max-width: 685px){
+    .Categories{
+        width: 90%;
+    }
+
+    .Categories-header{
+        gap: 1em;
+        font-size: 2.5vw;
+    }
+
+    .Categories-content-item-img{
+        margin-top: 10%;
+        width: 70%
+    }
 }

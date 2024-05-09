@@ -9,10 +9,12 @@ export function CarouselImage({ slides }) {
     return (
         <section className="Carousel firstSection-child">
             <swiper-container
-            slides-per-view="1"
-            navigation="true"
-            pagination="true"
-            loop='true'
+                slides-per-view="1"
+                navigation="true"
+                pagination="true"
+                loop='true'
+                autoplay='true'
+                speed='1000'
             >
                 {slides.map((slide) => (
                     <swiper-slide key={slide.image}>

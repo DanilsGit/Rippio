@@ -1,0 +1,123 @@
+.ProfilePage{
+    background-image:
+    url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2Fprofilebackground.png?alt=media&token=11e3acae-aeec-4acd-a5fc-048e31a540b3');
+    background-size: fill;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfilePageContent{
+    background: transparent;
+    background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: start;
+    padding: 4em 2em;
+    gap: 3em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ProfileOptionsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background-color: #fff;
+    border-radius: 1em;
+    padding: 1em;
+    box-shadow: -10px 10px 0px 0px #0000001e;
+}
+
+.ProfileOptionsContainer li {
+    list-style: none;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid #00000023;
+}
+
+
+.ProfileOption-Link, .ProfileOption-activeLink{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: #000;
+}
+
+.ProfileOption-activeLink{
+    font-weight: 600;
+}
+
+.ProfileOptionsContainer a img{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.ProfileOptions-header{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #00000023;
+    display: flex;
+    gap: 0.5em;
+}
+
+.ProfileOptions-header img{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.ProfileOptions-header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+}
+
+.ProfileOptions-header p:nth-child(1) {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    color: #00000099;
+    font-size: 0.5em;
+}
+
+.ProfileOptions-header p:nth-child(2) {
+    font-size: 0.8em;
+}
+
+
+.ProfileChildrenPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 1em;
+    flex: 3;
+    box-shadow: -10px 10px 0px 0px #0000001e;
+}
+
+
+@media screen and (max-width: 645px){
+    .ProfilePageContent{
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+    }
+    .ProfileChildrenPage{
+        width: 90%;
+        flex: 0;
+    }
+    .ProfileOptionsContainer{
+        width: 90%;
+        flex: 0;
+    }
+    .ProfilePageContent{
+        padding: 5em 0em;
+    }
+}

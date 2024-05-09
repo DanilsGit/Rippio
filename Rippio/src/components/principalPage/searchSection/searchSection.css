@@ -176,7 +176,7 @@
         left: 30%;
     }
     100% {
-        z-index: 1;
+        z-index: 0;
         width: 20%;
         left: 0;
     }

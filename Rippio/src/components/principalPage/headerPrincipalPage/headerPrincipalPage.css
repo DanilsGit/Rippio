@@ -51,6 +51,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
+    border: none;
 }
 
 .userlink{
@@ -64,15 +66,15 @@
 .logoIcon{
     width: 100%;
     margin-left: 1em;
-
 }
 
+
 .cartIcon{
-    width: 23px;
+    width: 1.6em;
 }
 
 .userIcon{
-    width: 30px;
+    width: 1.7em;
 }
 
 .Header-Drawer{

@@ -43,10 +43,18 @@ export const useCart = create((set) => {
             removeFromCart: (item) => set((state) => {
                 // Crea una copia del estado actual del carrito
                 const cart = { ...state.cart }
+                //Total a restar
+                let totalRestar = 0;
+                // Busca el item en el carrito
+                const itemsToRemove = cart.items.filter((i) => i.product.id === item.product.id)
+                // Resta el precio de cada producto
+                itemsToRemove.forEach((item) => {
+                    totalRestar += item.product.costo_unit * item.quantity;
+                });
                 // Remueve el item del carrito
                 cart.items = cart.items.filter((i) => i.product.id !== item.product.id)
                 // Disminuye el costo total del carrito
-                cart.total = (cart.total || 0) - item.product.costo_unit * item.quantity
+                cart.total = (cart.total || 0) - totalRestar
                 // Retorna el nuevo estado del carrito
                 saveCartToLocalStorage(cart);
                 return { cart }

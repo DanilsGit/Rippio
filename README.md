@@ -1,8 +1,15 @@
-# React + Vite
+# Rippio
+Rippio is being developed to be an web application that connects people with restaurants. Your favorite foods in one place
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Configuración inicial
 
-Currently, two official plugins are available:
+### Start to work with us
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone <https://github.com/DanilsGit/Rippio.git>
+npm install
+npm run dev
+```
+
+## Acerca del proyecto
+Este proyecto utiliza React y Vite para proporcionar un entorno de desarrollo eficiente con Hot Module Replacement (HMR) y algunas reglas de ESLint.

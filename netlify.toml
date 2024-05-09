@@ -1,4 +1,4 @@
 [[redirects]]
-from = “/*”
-to = “/Page404”
+from = "/*"
+to = "/Page404"
 status = 404

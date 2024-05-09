@@ -30,7 +30,7 @@ export function TeamSection(){
                                 <img draggable='false' className='teamImg' src='/principalPage/teamSection/visibility.png'></img>
                             </div>
                             <h2 className='team-title'>OBTEN VISIBILIDAD</h2>
-                            <p>Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
+                            <p>¡Sé parte de Rippio! Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
                         </section>
                         <a className='teamBtn' href='#'>Acceder al registro</a>
                     </section>

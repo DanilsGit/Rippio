@@ -1,0 +1,226 @@
+.register-login-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2Floginbackground.png?alt=media&token=0b0acb9f-2bd0-4f79-a7e4-f2d26842309d");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.register-login-page-content{
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    width: 70vw;
+    height: 80vh;
+    background: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.733), 0 6px 20px 0px rgba(0, 0, 0, 0.87);
+    overflow: hidden;
+
+}
+
+.register-login-page-content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:-50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-50deg, #01CBC3, #032726);
+    transform: translateX(100%);
+    transition: 1s ease-in-out;
+    z-index: 1;
+}
+
+
+.loginPage-form, .registerPage-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-width: 450px;
+    padding: 0 10px;
+}
+
+.loginPage-form{
+    opacity: 1;
+    transition: .5s ease-in-out;
+    transition-delay: .3s;
+}
+
+.registerPage-form{
+    opacity: 0;
+    transition: .5s ease-in-out;
+    transition-delay: .3s;
+}
+
+.loginPage-form h2, .registerPage-form h2{
+    font-size: 35px;
+    color: rgb(6, 161, 161);
+    text-shadow: 0 0 7px #b3fffe;
+    margin-bottom: 15px;
+}
+
+.loginPage-form-input, .registerPage-form-input{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    margin: 15px 0;
+    border-bottom: 2px solid #01CBC3;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.loginPage-form-input i, .registerPage-form-input i{
+    text-align: center;
+    color: #01CBC3;
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+.loginPage-form-input input::placeholder, .registerPage-form-input input::placeholder{
+    color: #398583bd;
+    font-size: 17px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.loginPage-form-input input, .registerPage-form-input input{
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: #185351;
+    z-index: 2;
+}
+
+.loginPage-form-button, .registerPage-form-button{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    background: #01CBC3;
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.loginPage-form-button:hover, .registerPage-form-button:hover{
+    background: #0a837f;
+    box-shadow: 0 0 7px rgba(45, 170, 170, 0.479);
+    transition: .5s;
+    
+}
+
+.panels-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 35%;
+    min-width: 350px;
+    padding: 0 10px;
+    text-align: center;
+    z-index: 6;
+
+}
+
+.left-panel-content, .right-panel-content{
+    color:rgb(255, 255, 255);
+    transition: 1.1s ease-in-out;
+    transition-delay: .2s;
+}
+
+.panel h3{
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: 0 0 10px #00504e;
+    margin: 10px 0;
+    color: #e1ffff;
+}
+
+.panel p{
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.loginPage-button, .registerPage-button{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    color: rgb(2, 32, 36);
+    background: #ffffff;
+    margin: 25px 0;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.479);
+    transition: .7s;
+}
+
+.loginPage-button:hover, .registerPage-button:hover{
+    background: #d5ffff;
+    box-shadow: 0 0 7px rgb(75, 249, 255);
+    color: #085f5c;
+    transition: .7s;
+}
+
+
+.register-login-page.registerPage-mode .register-login-page-content::before {
+    transform: translateX(0%);
+}
+
+.register-login-page.loginPage-mode .register-login-page-content::before {
+    transform: translateX(100%);
+}
+
+.left-panel .image, .left-panel .left-panel-content{
+    transform: translateX(-200%);
+
+}
+
+.right-panel .image, .left-panel .right-panel-content{
+    transform: translateX(0);
+
+}
+
+.register-login-page.registerPage-mode .right-panel .image, .register-login-page.registerPage-mode .right-panel .right-panel-content{
+    transform: translateX(200%);
+}
+
+.register-login-page.registerPage-mode .left-panel .image, .register-login-page.registerPage-mode .left-panel .left-panel-content{
+    transform: translateX(0);
+}
+
+.register-login-page.registerPage-mode .loginPage-form{
+    opacity: 0;
+}
+
+.register-login-page.registerPage-mode .registerPage-form{
+    opacity: 1;
+}

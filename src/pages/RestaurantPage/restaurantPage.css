@@ -1,0 +1,25 @@
+.RestaurantPage{
+    background: rgb(208,208,208);
+    background: linear-gradient(180deg, rgba(208,208,208,1) 0%, rgba(245,245,245,1) 10%, rgba(245,245,245,1) 100%);
+}
+
+.RestaurantPage-content{
+    min-height: 90vh;
+}
+
+.RestaurantPage-content{
+    display: grid;
+    grid-template-columns: 25% auto;
+    gap: 1em;
+}
+
+@media screen and (max-width: 700px){
+    .RestaurantPage-content{
+        display: flex;
+        flex-direction: column;
+    }
+    .aside-presentation-banner{
+        width: 10vw;
+        height: 15em;
+    }
+}

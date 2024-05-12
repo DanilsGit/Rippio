@@ -1,11 +1,11 @@
-import './headerPrincipalPage.css'
+import './headerNav.css'
 import { HeaderDrawer } from './HeaderDrawer'
-import { useCart } from '../../../hooks/useCart'
+import { useCart } from '../../hooks/useCart'
 import { Link } from 'react-router-dom'
-import { handleClickCartModal } from '../../../constants/cart'
+import { handleClickCartModal } from '../../constants/cart'
 
 
-export function HeaderMainContent() {
+export function HeaderNav() {
     const cart = useCart((state) => state.cart)
 
     const { toggleCartModal } = useCart()
@@ -13,13 +13,13 @@ export function HeaderMainContent() {
     return (
         <header className='mainContent-headerPrincipalPage'>
             <div className='mainContent-headerPrincipalPage-logo'>
-                <a href='#'><img className='logoIcon' draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Frippiofood.png?alt=media&token=3a5253e4-3033-4e9e-8412-a32e53d0358a' /></a>
+                <Link to='/'><img className='logoIcon' draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Frippiofood.png?alt=media&token=3a5253e4-3033-4e9e-8412-a32e53d0358a' /></Link>
             </div>
             <nav className='headerPrincipalPage-nav'>
                 <ul className='headerPrincipalPage-ul'>
-                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Principal</a></li>
-                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Categorías</a></li>
-                    <li className='headerPrincipalPage-ul-li'><a className='headerPrincipalPage-a' href='#'>Acerca de nosotros</a></li>
+                    <li className='headerPrincipalPage-ul-li'><Link className='headerPrincipalPage-a' to='/'>Principal</Link></li>
+                    <li className='headerPrincipalPage-ul-li'><Link className='headerPrincipalPage-a' to='/'>Categorías</Link></li>
+                    <li className='headerPrincipalPage-ul-li'><Link className='headerPrincipalPage-a' to='/'>Acerca de nosotros</Link></li>
                 </ul>
             </nav>
             <section className='headerPrincipalPage-userSection'>

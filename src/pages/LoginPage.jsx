@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { HeaderMainContent } from '../components/principalPage/headerPrincipalPage/HeaderMainContent';
+import { HeaderNav } from '../components/headerNav/HeaderNav';
 import './loginPage.css'
 // hook
 import { useState } from 'react';
@@ -42,7 +42,7 @@ export function Login() {
 
     return (
         <main className='loginpage'>
-            <HeaderMainContent />
+            <HeaderNav />
             <div className='loginpage-container'>
                 <form className='loginpage-form'>
                     <h1 className='loginpage-form-h1'>Inicia Sesión</h1>

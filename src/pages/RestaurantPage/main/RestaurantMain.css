@@ -1,0 +1,88 @@
+/* .RestaurantPage-content-main{
+
+} */
+
+.RestaurantPage-content-main{
+    padding-bottom: 5em;
+}
+
+.RestaurantPage-content-main-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    padding: 1em 0em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.RestaurantPage-content-main-content-article{
+    display:  grid;
+    grid-template-columns: repeat(auto-fill, minmax(0em, 15em));
+    justify-content: center;
+    gap: 1em;
+}
+
+.RestaurantPage-content-main-content-articleTitle{
+    font-size: 1.5em;
+    font-weight: 700;
+    grid-column: 1 / -1;
+}
+
+.RestaurantPage-content-main-content-articleCard{
+    display: flex;
+    flex-direction: row;
+    height: 5em;
+    gap: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 2px solid #00000023;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.RestaurantPage-content-main-content-articleCard:hover{
+    background-color: #00ddff23;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.RestaurantPage-content-main-content-articleCard img{
+    width: 4em;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.RestaurantPage-content-main-content-articleCard > div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.1em;
+}
+
+.RestaurantPage-content-main-content-articleCard > div p{
+    text-align: start;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.RestaurantPage-content-main-content-articleCard  h4{
+    font-size: 0.8em;
+    font-weight: 600;
+    text-align: start;
+}
+
+.RestaurantPage-content-main-content-articleCard  p{
+    font-size: 0.7em;
+    font-weight: 400;
+}
+
+.RestaurantPage-content-main-content-articleCard  span{
+    font-size: 0.7em;
+    font-weight: 700;
+}

@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 1em;
 }
 
 .cartLink{
@@ -114,4 +114,20 @@
     border-bottom: 4px solid transparent;
     text-align: center;
 }
+
+
+.logoIcon{
+    width: 70%;
+    margin-left: 1em;
+}
+
+
+.cartIcon{
+    width: 3em;
+}
+
+.userIcon{
+    width: 3em;
+}
+
 }

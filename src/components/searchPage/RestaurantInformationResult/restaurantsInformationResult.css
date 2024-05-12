@@ -22,6 +22,12 @@
 
 .restaurantInformation-item-header-img{
     width: 4em;
+    transition: 0.5s;
+}
+
+.restaurantInformation-item-header-img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
 }
 
 .restaurantInformation-item-calificacion{
@@ -56,6 +62,7 @@
     width: 8em;
     position: relative;
     align-items: center;
+    transition: transform 0.5s;
 }
 
 .restaurantInformation-item-products-product:hover{

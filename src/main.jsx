@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Page404 } from './pages/Page404.jsx'
 import { SearchPage } from './pages/SearchPage.jsx'
-import { RestaurantPage } from './pages/RestaurantPage.jsx'
+import { RestaurantPage } from './pages/RestaurantPage/RestaurantPage.jsx'
 import { ProductPage } from './pages/ProductPage.jsx'
 import { Profile } from './pages/Profile/Profile.jsx'
 import { ProfileSettings } from './pages/Profile/ProfileSettings.jsx'

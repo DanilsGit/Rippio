@@ -8,13 +8,13 @@ export function useImage(url) {
     const [image, setImage] = useState('')
 
     const firebaseConfig = {
-        apiKey: "AIzaSyCTGxgcRumGdJl2MhiISQStGaU3EhvqbTs",
-        authDomain: "rippio.firebaseapp.com",
-        projectId: "rippio",
-        storageBucket: "rippio.appspot.com",
-        messagingSenderId: "411384309178",
-        appId: "1:411384309178:web:c0b20376a4a11d5c106983",
-        measurementId: "G-EEZBVZ41LF"
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.VITE_FIREBASE_APP_ID,
+        measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
     };
 
 

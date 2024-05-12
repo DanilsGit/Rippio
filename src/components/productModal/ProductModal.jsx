@@ -3,12 +3,13 @@ import Modal from 'react-modal';
 import './productModal.css';
 import { useState } from 'react';
 import { useCart } from '../../hooks/useCart';
+import { handleAddToCart } from '../../constants/cart';
+import { useProductModal } from '../../hooks/useProductModal';
 
-export const ProductModal = ({ product, restaurant, selectedProduct, selectProduct }) => {
+export const ProductModal = ({ product, restaurant }) => {
 
     const [quantity, setQuantity] = useState(1)
-
-    const { addToCart } = useCart()
+    const addToCart = useCart((state) => state.addToCart)
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1)
@@ -18,12 +19,18 @@ export const ProductModal = ({ product, restaurant, selectedProduct, selectProdu
             setQuantity(quantity - 1)
         }
     }
-// { product, restaurantId: restaurant.id, restaurantName: restaurant.nombre, quantity: 1 }
-// product -> {id, estado, nombre, descripcion, imagen, costo_unit}
+    // { product, restaurantId: restaurant.id, restaurantName: restaurant.nombre, quantity: 1 }
+    // product -> {id, estado, nombre, descripcion, imagen, costo_unit}
+    const selectProduct = useProductModal((state) => state.selectProduct)
+    const selectedProduct = useProductModal((state) => state.selectedProduct)
+
+
     return (
         <div>
-            <Modal className='ProductModal' isOpen={product === selectedProduct} onRequestClose={() => { selectProduct(null); setQuantity(1) }}>
-                
+            <Modal className='ProductModal Modal' isOpen={product === selectedProduct} onRequestClose={() => {
+                selectProduct(null); setQuantity(1);
+            }}>
+
                 <header className='ProductModal-header'>
                     {product.nombre}
                 </header>
@@ -47,14 +54,13 @@ export const ProductModal = ({ product, restaurant, selectedProduct, selectProdu
                             </div> */}
                         </div>
                         <div className='ProductModal-btnContainer'>
-                        <button className='ProductModal-btnContainer-btn'>Agregar e ir al carrito</button>
+                            <button className='ProductModal-btnContainer-btn'>Agregar e ir al carrito</button>
                             <button onClick={
                                 () => {
-                                    addToCart({ product, restaurant, quantity })
-                                    setQuantity(1)
+                                    handleAddToCart(addToCart, product, restaurant, quantity)
                                     selectProduct(null)
+                                    setQuantity(1)
                                 }
-                            
                             } className='ProductModal-btnContainer-btn'>Agregar y seguir comprando</button>
                         </div>
                     </section>

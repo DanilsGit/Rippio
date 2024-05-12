@@ -5,3 +5,7 @@ export const checkProductInCart = (cart, product) => {
 export const handleClickCartModal = (toggle) => {
     toggle();
 }
+
+export const handleAddToCart = (addToCart, product, restaurantNomId, quantity) => {
+    addToCart({ product, restaurantNomId, quantity })
+}

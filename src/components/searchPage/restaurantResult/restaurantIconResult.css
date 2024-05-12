@@ -10,4 +10,10 @@
 .searchPage-iconsContainer-img{
     width: 6em;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.searchPage-iconsContainer-img:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
 }

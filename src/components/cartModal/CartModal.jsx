@@ -9,7 +9,7 @@ export function CartModal() {
 
     return (
         <div>
-            <Modal className='ModalCart' isOpen={showCartModal} onRequestClose={toggleCartModal}>
+            <Modal className='ModalCart Modal' isOpen={showCartModal} onRequestClose={toggleCartModal}>
                 <header className='ModalCart-header'>
                     <h2>Rippio Carrito</h2>
                 </header>

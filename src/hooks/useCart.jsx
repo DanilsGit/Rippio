@@ -25,7 +25,7 @@ export const useCart = create((set) => {
                 // Crea una copia del estado actual del carrito
                 const cart = { ...state.cart }
                 // Si el carrito ya tiene items y el restaurante del nuevo item es diferente al del primer item en el carrito
-                if (cart.items.length > 0 && cart.items[0].restaurant.id !== item.restaurant.id) {
+                if (cart.items.length > 0 && cart.items[0].restaurantNomId.id !== item.restaurantNomId.id) {
                     // Muestra una alerta y no agrega el item al carrito
                     return { ...state, showModal: true };
                 }

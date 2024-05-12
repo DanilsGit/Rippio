@@ -8,7 +8,7 @@ import { MostSearch } from '../components/principalPage/mostSearch/MostSearch'
 import { PlanSection } from '../components/principalPage/businessSection/PlanSection'
 import { TeamSection } from '../components/principalPage/businessSection/TeamSection'
 
-import { HeaderMainContent } from '../components/principalPage/headerPrincipalPage/HeaderMainContent';
+import { HeaderNav } from '../components/headerNav/HeaderNav';
 import { Footer } from '../components/footer/Footer';
 
 import './principalPage.css'
@@ -22,7 +22,7 @@ import itemsCategories from '../utilities/categories.json'
 export function PrincipalPage() {
     return (
         <main className='mainContent'>
-            <HeaderMainContent />
+            <HeaderNav />
             <section className='MainContent-bodySection'>
                 <section className='MainContent-bodySection-content'>
                     <SearchSection />

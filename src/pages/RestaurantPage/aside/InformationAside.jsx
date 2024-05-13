@@ -15,19 +15,20 @@ export function InformationAside({ name, direction, schedule, rating, logo, bann
     }
 
     useEffect(() => {
+
         const checkScreenSize = () => {
             setIsScreenSmall(window.innerWidth < 700);
             if (window.innerWidth > 700) {
                 setShowSchedule(true);
-            }else{
+            } else {
                 setShowSchedule(false);
             }
         };
-        
         window.addEventListener('resize', checkScreenSize);
 
         return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
+
 
 
     return (
@@ -62,19 +63,19 @@ export function InformationAside({ name, direction, schedule, rating, logo, bann
                 </section>
                 <section className='RestaurantPage-content-aside-information-schedule'>
                     <button
-                    className='RestaurantPage-content-aside-information-schedule-btn'
-                    onClick={handleShowSchedule}
+                        className='RestaurantPage-content-aside-information-schedule-btn'
+                        onClick={handleShowSchedule}
                     >
-                    Horarios
-                    {
-                        isScreenSmall
-                        ? showSchedule
-                            ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FupArrow.png?alt=media&token=9a1a8d3a-4d3a-4e0c-9e3a-0e8c9a1b3f7d' alt='Arrow'></img>
-                            : <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdownArrow.png?alt=media&token=2eb9a78a-94b0-4c11-b2c0-41788a4f46cc' alt='Arrow'></img>
-                        : showSchedule
-                            ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FupArrow.png?alt=media&token=9a1a8d3a-4d3a-4e0c-9e3a-0e8c9a1b3f7d' alt='Arrow'></img>
-                            : <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdownArrow.png?alt=media&token=2eb9a78a-94b0-4c11-b2c0-41788a4f46cc' alt='Arrow'></img>
-                    }
+                        Horarios
+                        {
+                            isScreenSmall
+                                ? showSchedule
+                                    ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FupArrow.png?alt=media&token=9a1a8d3a-4d3a-4e0c-9e3a-0e8c9a1b3f7d' alt='Arrow'></img>
+                                    : <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdownArrow.png?alt=media&token=2eb9a78a-94b0-4c11-b2c0-41788a4f46cc' alt='Arrow'></img>
+                                : showSchedule
+                                    ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FupArrow.png?alt=media&token=9a1a8d3a-4d3a-4e0c-9e3a-0e8c9a1b3f7d' alt='Arrow'></img>
+                                    : <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdownArrow.png?alt=media&token=2eb9a78a-94b0-4c11-b2c0-41788a4f46cc' alt='Arrow'></img>
+                        }
                     </button>
                     <div className={
                         isScreenSmall
@@ -84,16 +85,18 @@ export function InformationAside({ name, direction, schedule, rating, logo, bann
                             'RestaurantPage-content-aside-information-schedule-days RestaurantPage-content-aside-information-schedule-days-active'
                     }
                     >
-                    {
-                        schedule.map((day, index) => {
-                            return (
-                                <div className='RestaurantPage-content-aside-information-schedule-day' key={index}>
-                                    <span>{day.day}</span>
-                                    <span>{day.open} - {day.close}</span>
-                                </div>
-                            )
-                        })
-                    }
+                        {
+                            schedule
+                                ? schedule.map((day, index) => {
+                                    return (
+                                        <div className='RestaurantPage-content-aside-information-schedule-day' key={index}>
+                                            <span>{day.day}</span>
+                                            <span>{day.open} - {day.close}</span>
+                                        </div>
+                                    )
+                                })
+                                : null
+                        }
                     </div>
                 </section>
             </section>

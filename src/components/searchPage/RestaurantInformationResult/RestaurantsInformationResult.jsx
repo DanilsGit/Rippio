@@ -17,12 +17,17 @@ export function RestaurantsInformationResult({ results }) {
 
     return (
         <section className="searchPage-restaurantInformationResult">
-            {results.restaurantes.map((restaurant) => {
+        {
+            results.length === 0
+            ? <h1 className='searchPage-title'>No encontramos resultados</h1>
+            : null
+        }
+            {results.map((restaurant) => {
                 return (
                     <section key={restaurant.id} className='restaurantInformation-item'>
                         <header className='restaurantInformation-item-header'>
                             <Link to={`/restaurant/${restaurant.id}`}>
-                                <img draggable='false' className='restaurantInformation-item-header-img' src={restaurant.imagen} alt={restaurant.nombre} />
+                                <img draggable='false' className='restaurantInformation-item-header-img' src={restaurant.img_icon} alt={restaurant.nombre} />
                             </Link>
                             <h2 className='restaurantInformation-item-header-title'>{restaurant.nombre}</h2>
                             <div className='restaurantInformation-item-calificacion'>
@@ -51,7 +56,7 @@ export function RestaurantsInformationResult({ results }) {
                                                 : <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FaddIcon.png?alt=media&token=ed181174-d4ad-4c8a-a7ad-4a3035dfd4f4' alt='plus' />}
                                         </button>
                                         <button className='restaurantInformation-item-products-product-buttonContainer' onClick={()=>selectProduct(product)}>
-                                            <img draggable='false' className='restaurantInformation-item-products-product-img' src={product.imagen} alt={product.nombre} />
+                                            <img draggable='false' className='restaurantInformation-item-products-product-img' src={product.img_product} alt={product.nombre} />
                                             <div>
                                                 <span>{product.costo_unit}</span>
                                                 <p>{product.nombre}</p>

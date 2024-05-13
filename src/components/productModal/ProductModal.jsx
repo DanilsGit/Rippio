@@ -37,7 +37,7 @@ export const ProductModal = ({ product, restaurant }) => {
                 <section className='ProductModal-section-container'>
                     <section className='ProductModal-sectionImg'>
                         <div className='ProductModal-sectionImg-imgContainer'>
-                            <img draggable='false' src={product.imagen} alt={product.nombre} />
+                            <img draggable='false' src={product.img_product} alt={product.nombre} />
                         </div>
                         <div className='ProductModal-sectionImg-quantityContainer'>
                             <button className='ProductModal-sectionImg-quantityContainer-btn' onClick={decreaseQuantity}>-</button>

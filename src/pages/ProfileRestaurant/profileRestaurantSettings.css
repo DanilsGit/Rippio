@@ -1,0 +1,22 @@
+.ProfileRestaurantSettings{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 1em;
+    gap: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ProfileRestaurantSettings-h1{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.ProfileRestaurantSettings-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}

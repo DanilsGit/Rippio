@@ -1,14 +1,13 @@
-.ProfilePage{
-    background-image:
-    url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2Fprofilebackground.png?alt=media&token=11e3acae-aeec-4acd-a5fc-048e31a540b3');
+.ProfileRestaurantPage{
+    background-color: var(--white);
     background-size: fill;
     display: flex;
     flex-direction: column;
 }
 
-.ProfilePageContent{
+.ProfileRestaurantPageContent{
     background: transparent;
-    background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 2%, rgba(255, 255, 255, 0) 100%);
     min-height: 90vh;
     display: flex;
     align-items: start;
@@ -17,7 +16,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.ProfileOptionsContainer{
+.ProfileRestaurantOptionsContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +27,7 @@
     box-shadow: -10px 10px 0px 0px #0000001e;
 }
 
-.ProfileOptions-header{
+.ProfileRestaurantOptions-header{
     font-size: 1.5em;
     font-weight: bold;
     padding-bottom: 0.5em;
@@ -37,36 +36,29 @@
     gap: 0.5em;
 }
 
-.ProfileOptions-header img{
+.ProfileRestaurantOptions-header img{
     width: 2.5em;
     height: 2.5em;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.ProfileOptions-header div {
+.ProfileRestaurantOptions-header div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #000;
 }
 
-.ProfileOptions-header p:nth-child(1) {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: oblique;
-    color: #00000099;
-    font-size: 0.5em;
-}
-
-.ProfileOptions-header p:nth-child(2) {
+.ProfileRestaurantOptions-header p {
     font-size: 0.8em;
 }
 
 
-.ProfileChildrenPage{
+.ProfileRestaurantChildrenPage{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     background-color: #fff;
     border-radius: 1em;
     flex: 3;
@@ -75,21 +67,21 @@
 
 
 @media screen and (max-width: 645px){
-    .ProfilePageContent{
+    .ProfileRestaurantPageContent{
         flex-direction: column;
         padding: 0;
         margin: 0;
         align-items: center;
     }
-    .ProfileChildrenPage{
+    .ProfileRestaurantChildrenPage{
         width: 90%;
         flex: 0;
     }
-    .ProfileOptionsContainer{
+    .ProfileRestaurantOptionsContainer{
         width: 90%;
         flex: 0;
     }
-    .ProfilePageContent{
+    .ProfileRestaurantPageContent{
         padding: 5em 0em;
     }
 }

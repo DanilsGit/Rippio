@@ -19,6 +19,7 @@
   --lightcyan: #01CBC3;
   --darkcyan: #11928D;
   --darkblue: #032B2A;
+  --white: #E0E3E4;
 }
 
 #root {
@@ -26,12 +27,26 @@
   width: 100%;
 }
 
-
-
 * {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
+}
+
+.block-input {
+  color: #000000b4;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.hidden-label {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 body {

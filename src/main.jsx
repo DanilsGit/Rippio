@@ -62,11 +62,36 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: '/profileRestaurant',
+    element: <ProfileRestaurant />,
+    children: [
+      {
+        path: '/profileRestaurant/settings',
+        element: <ProfileRestaurantSettings />,
+      },
+      {
+        path: '/profileRestaurant/menu',
+        element: <ProfileCredits />,
+      },
+      {
+        path: '/profileRestaurant/horarios',
+        element: <ProfileOrders />,
+      },
+      {
+        path: '/profileRestaurant/help',
+        element: <ProfileHelp />,
+      },
+      { index: true, element: <Navigate to="settings" /> },
+    ]
+  },
+  {
     path: '/Page404',
     element: <Page404 />,
   }
 ]);
 
 import  RenderMain  from './RenderMain.jsx';
+import { ProfileRestaurant } from './pages/ProfileRestaurant/ProfileRestaurant.jsx';
+import { ProfileRestaurantSettings } from './pages/ProfileRestaurant/ProfileRestaurantSettings.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RenderMain router={router} />);

@@ -13,7 +13,7 @@ export function HeaderMainContent() {
     return (
         <header className='mainContent-headerPrincipalPage'>
             <div className='mainContent-headerPrincipalPage-logo'>
-                <a href='#'><img className='logoIcon' draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Frippiofood.png?alt=media&token=3a5253e4-3033-4e9e-8412-a32e53d0358a' /></a>
+                <a href='#'><img className='logoIcon' draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FrippioHeader.png?alt=media&token=f16a9034-cf38-4a78-b93b-a2cedaa10aab' /></a>
             </div>
             <nav className='headerPrincipalPage-nav'>
                 <ul className='headerPrincipalPage-ul'>

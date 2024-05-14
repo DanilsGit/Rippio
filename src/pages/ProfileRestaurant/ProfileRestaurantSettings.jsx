@@ -26,8 +26,8 @@ const customStyles = {
     }),
     control: base => ({
         ...base,
-        height: 35,
-        minHeight: 35
+        height: '3.5em',
+        minHeight: '3.5em',
     }),
 };
 
@@ -37,7 +37,6 @@ export function ProfileRestaurantSettings() {
     const [ciudades, setCiudades] = useState([])
 
     const handleDepartamentoChange = (selectedOption) => {
-        console.log(selectedOption);
         const newCiudades = selectedOption.ciudades.map((ciudad,index) => ({ value: index, label: ciudad }));
         setCiudades(newCiudades);
     }
@@ -58,7 +57,7 @@ export function ProfileRestaurantSettings() {
             <h1 className="ProfileRestaurantSettings-h1">Información de tu restaurante</h1>
             <p className="ProfileRestaurantSettings-h2">Administra la información de tu restaurante que verán los usuarios en la página</p>
             <form className="ProfileRestaurantSettings-form">
-                <fieldset>
+                <fieldset className='fieldsetInformation'>
                     <legend className="ProfileRestaurantSettings-Legend">Información general</legend>
                     <div className='ProfileRestaurantSettings-GridForm-nameRestaurant-Div'>
                         <label className="hidden-label" htmlFor="nameRestaurant">Nombre del restaurante</label>
@@ -69,11 +68,11 @@ export function ProfileRestaurantSettings() {
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-Category-Div'>
                         <label className="hidden-label" htmlFor="category">Categoría principal</label>
-                        <Select styles={customStyles} options={categories} placeholder='Categoría principal' />
+                        <Select className='ProfileRestaurantSettings-GridForm-Category-Div-select' styles={customStyles} options={categories} placeholder='Categoría principal' />
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-Category-Div'>
                         <label className="hidden-label" htmlFor="category">Categoría secundaria</label>
-                        <Select styles={customStyles} options={categories} placeholder='Categoría secundaria' />
+                        <Select className='ProfileRestaurantSettings-GridForm-Category-Div-select' styles={customStyles} options={categories} placeholder='Categoría secundaria' />
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-telPrefix-Div'>
                         <label className="hidden-label" htmlFor="telPrefix">Prefijo</label>
@@ -82,39 +81,46 @@ export function ProfileRestaurantSettings() {
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-telNumber-Div'>
                         <label className="hidden-label" htmlFor="telNumber">Número de teléfono</label>
-                        <input className='ProfileRestaurantSettings-Input' type="text" id="telNumber" name="telNumber"
+                        <input className='ProfileRestaurantSettings-Input' type="number" id="telNumber" name="telNumber" required
+                            onChange={(e)=>{if (e.target.value.length >=10) e.target.value=e.target.value.slice(0,10) }}
                             placeholder='Número de teléfono' />
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className='fieldsetAddress'>
                     <legend className="ProfileRestaurantSettings-Legend">Dirección</legend>
                     <div>
                         <label className="label" htmlFor="address">Departamento</label>
-                        <Select onChange={handleDepartamentoChange}
+                        <Select className='select' onChange={handleDepartamentoChange}
                         styles={customStyles} options={departamentos} placeholder='Seleccionar'/>
                     </div>
                     <div>
                         <label className="label" htmlFor="address">Ciudad</label>
-                        <Select onChange={(selectedOption) => {console.log(selectedOption)}}
+                        <Select className='select' onChange={(selectedOption) => {console.log(selectedOption)}}
                         styles={customStyles} options={ciudades}  placeholder='Seleccionar' />
                     </div>
                     <div>
                         <label className="label" htmlFor="address">Barrio</label>
-                        <input className='ProfileRestaurantSettings-Input' type="text" id="address" name="address"
+                        <input className='ProfileRestaurantSettings-Input' type="text" id="address" name="address" required
                             placeholder='Barrio' />
                     </div>
                     <div>
                         <label className="label" htmlFor="tipoVia">Tipo de vía</label>
-                        <Select styles={customStyles} options={vias} placeholder='Seleccionar' />
+                        <Select className='select' styles={customStyles} options={vias} placeholder='Seleccionar' />
                     </div>
-                    <div>
+                    <div className='fieldsetAddress-address-div'>
                         <label className="label" htmlFor="address">Dirección</label>
                         <div>
-                            <input className='ProfileRestaurantSettings-Input' type="text" id="numAddress" name="numAddress"/>
+                            <input className='ProfileRestaurantSettings-Input' required type="text" id="numAddress" name="numAddress"
+                            onChange={(e)=>{if (e.target.value.length >=3) e.target.value=e.target.value.slice(0,3) }} 
+                            />
                                 #
-                            <input className='ProfileRestaurantSettings-Input' type="text" id="firstNumAddress" name="firstNumAddress"/>
+                            <input className='ProfileRestaurantSettings-Input' required type="number" id="firstNumAddress" name="firstNumAddress"
+                            onChange={(e)=>{if (e.target.value.length >=2) e.target.value=e.target.value.slice(0,2) }}
+                            />
                             -
-                            <input className='ProfileRestaurantSettings-Input' type="text" id="secondNumAddress" name="secondNumAddress"/>
+                            <input className='ProfileRestaurantSettings-Input' required type="number" id="secondNumAddress" name="secondNumAddress"
+                            onChange={(e)=>{if (e.target.value.length >=2) e.target.value=e.target.value.slice(0,2) }}
+                            />
                         </div>
                     </div>
                 </fieldset>

@@ -19,4 +19,115 @@
     flex-direction: column;
     gap: 1em;
     width: 100%;
+    align-items: center;
+}
+
+.ProfileRestaurantSettings-Input{
+    background-color: #0000002f;
+    border: none;
+}
+
+.fieldsetInformation, .fieldsetAddress {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1em;
+    padding: 1em 1.5em;
+    padding-right: 2em;
+    border: 2px solid #00000031;
+    width: 100%;
+}
+
+.fieldsetInformation > legend, .fieldsetAddress > legend {
+    padding: 0em 0.5em;
+}
+
+
+.ProfileRestaurantSettings-form input {
+    font-size: 1em;
+    outline: none;
+    padding: 0.8em;
+    color: #000;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.1em;
+}
+
+.ProfileRestaurantSettings-GridForm-nameRestaurant-Div{
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.fieldsetAddress > div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+}
+
+.fieldsetAddress label {
+    text-align: center;
+}
+
+.fieldsetAddress > div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+}
+
+.select {
+    width: 100%;
+}
+
+.fieldsetAddress-address-div{
+    grid-column: 1 / -1;
+}
+
+.fieldsetAddress-address-div > div{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.fieldsetAddress-address-div > div >input{
+    width: 20%;
+}
+
+
+.ProfileRestaurantSettings-Button{
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--darkcyan);
+    width: 50%;
+    font-weight: 600;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.ProfileRestaurantSettings-Button:hover{
+    background-color: var(--darkblue);
+    transition: background-color 0.5s ease;
+}
+
+@media screen and (max-width: 760px) {
+    .fieldsetInformation, .fieldsetAddress {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1em;
+        padding-right: 2em;
+    }
+
+    .fieldsetAddress > div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 0.3em;
+    }
+
+    .ProfileRestaurantSettings-Button{
+        width: 80%;
+    }
+
 }

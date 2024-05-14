@@ -4,8 +4,8 @@
 
 .register-login-page-background{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2Floginbackground.png?alt=media&token=0b0acb9f-2bd0-4f79-a7e4-f2d26842309d");
     background-size: cover;
@@ -64,24 +64,25 @@
 }
 
 .loginPage-form h2{
-    font-size: 1.8em;
+    font-size: 2em;
     color: rgb(6, 161, 161);
     text-shadow: 0 0 7px #b3fffe;
-    margin-bottom: .3em;
+    margin-bottom: 2em;
 }
 
 .registerPage-form h2{
-    font-size: 1.6em;
+    font-size: 2em;
     color: rgb(6, 161, 161);
     text-shadow: 0 0 7px #b3fffe;
+    margin: 1em 0;
 
 }
 
 .loginPage-form-input, .registerPage-form-input{
     width: 100%;
-    height: 3em;
+    height: 3.5em;
     background: transparent;
-    margin: .9em 0;
+    margin: 2em 0;
     border-bottom: 2px solid #01CBC3;
     display: flex;
     align-items: center;
@@ -89,19 +90,21 @@
 
 .registerPage-form-input{
     height: 2.2em;
+    margin: 1.3em 0;
 }
 
 /* íconos en el login */
 .loginPage-form-input i{
     text-align: center;
     color: #01CBC3;
-    font-size: .9em;
-    padding: 0 .6em;
+    font-size: 1em;
+    padding-right: .9em;
+
 }
 
 .loginPage-form-input input::placeholder, .registerPage-form-input input::placeholder{
     color: #398583bd;
-    font-size: .8em;
+    font-size: 1em;
     font-weight: 600;
 }
 
@@ -110,20 +113,27 @@
     border: none;
     outline: none;
     width: 100%;
-    font-size: 1em;
+    font-size: 1.3em;
     font-weight: 600;
     color: #185351;
     z-index: 2;
 }
 
+.incorrect{
+    display: none;
+    margin-top: -1em;
+    font-style: italic;
+    color: #5bc4c1;
+}
+
 .loginPage-form-button, .registerPage-form-button{
-    width: 8.5em;
+    width: 9em;
     height: 3em;
     border: none;
     border-radius: 50px;
     color: rgb(255, 255, 255);
     background: #01CBC3;
-    margin: 1.5em 0;
+    margin: 2em 0;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
@@ -178,7 +188,7 @@ a {
     justify-content: space-around;
     width: 35%;
     min-width: 25em;
-    padding: 0 .5em;
+    padding: 0 1.7em;
     text-align: center;
     z-index: 6;
 
@@ -191,15 +201,15 @@ a {
 }
 
 .panel h3{
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: 700;
     text-shadow: 0 0 10px #00504e;
     margin: .5em 0;
-    color: #e1ffff;
+    color: hsl(183, 100%, 95%);
 }
 
 .panel p{
-    font-size: .8em;
+    font-size: 1em;
     padding: .5em 0;
 }
 
@@ -275,7 +285,7 @@ a {
 }
 
 /* Responsive */
-/*
+
 @media (max-width: 950px){
     .register-login-page{
         width: 100%;
@@ -288,13 +298,18 @@ a {
     }
 
     .loginPage-content, .registerPage-content{
-        width: 43%;
-        margin: 2.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form.loginPage-form, form.registerPage-form{
+        width: 30em;
     }
 
     .loginPage-form{
         gap: 3em;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     .registerPage-form{
@@ -302,8 +317,12 @@ a {
         font-size: 1em;
     }
 
+    .registerPage-form p{
+        font-size: 1.3em;
+    }
+
     .loginPage-form h2, .registerPage-form h2{
-        font-size: 2.2em;
+        font-size: 2em;
     }
 
     .loginPage-form-button, .registerPage-form-button{
@@ -311,9 +330,9 @@ a {
         height: 3.5em;
         font-size: 1.2em;
     }
-
     .panel{
-        font-size: 1.4em;
+        font-size: 1.5em;
+        padding: 2em;
     }
 }
 
@@ -328,11 +347,10 @@ a {
     .register-login-page-content{
         width: 90%;
         height: 70%;
-        justify-content: start;
     }
 
     .loginPage-content, .registerPage-content{
-        width: 45%;
+
         margin: 1.5em 0;
     }
 
@@ -344,6 +362,10 @@ a {
     .registerPage-form{
         gap: 1em;
         font-size: 1.2em;
+    }
+
+    form.loginPage-form, form.registerPage-form{
+        width: 25em;
     }
 
     .loginPage-form h2, .registerPage-form h2{
@@ -362,7 +384,7 @@ a {
 
 
 }
- BUSCAR QUE ESTÁ DAÑANDO EL RESPONSIVE*/
+ 
 @media (max-width: 650px){
 
     .register-login-page{
@@ -385,13 +407,14 @@ a {
     }
   
     .loginPage-form, .registerPage-form{
-        width: 75vw;
-        gap: .8em;
+        width: 70vw;
+        gap: 1em;
+        font-size: 1.1em;
     }
 
     .loginPage-form{
-        gap: 3em;
-        font-size: 1.2em;
+        gap: 2 em;
+        font-size: 1.4em;
     }
 
     .loginPage-form h2, .registerPage-form h2{
@@ -435,9 +458,8 @@ a {
     }
 
     .register-login-page-content{
-        height: 60%;
+        height: 80%;
         width: 90%;
-
     }
 
     .register-login-page-content::before{

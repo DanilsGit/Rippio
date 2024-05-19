@@ -120,12 +120,9 @@ export function RegisterPage() {
                 <div className="left-panel-content">
                   <h3>¿Ya tienes una cuenta?</h3>
                   <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                    voluptatem sit, sequi cupiditate, non odit perspiciatis
-                    libero voluptas deleniti fugit eius. Ipsam ratione maxime
-                    voluptates beatae sapiente asperiores doloribus
-                    perspiciatis.
+                    Si ya eres parte de la familia, inicia sesión para disfrutar de los mejores platillos.
                   </p>
+                  <img className='right-panel-image' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2FDonutAnimation.png?alt=media&token=cd4285ad-cf40-42f4-a68e-eede58de09ec'></img>
                   <button
                     id="loginPage-button"
                     class="loginPage-button"
@@ -140,12 +137,9 @@ export function RegisterPage() {
                 <div className="right-panel-content">
                   <h3>¿Aún no tienes una cuenta?</h3>
                   <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                    voluptatem sit, sequi cupiditate, non odit perspiciatis
-                    libero voluptas deleniti fugit eius. Ipsam ratione maxime
-                    voluptates beatae sapiente asperiores doloribus
-                    perspiciatis.
+                    Registrándote con nosotros, tendrás acceso a cientos de restaurantes y platillos por probar. 
                   </p>
+                  <img className='right-panel-image' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2FSushiAnimation.png?alt=media&token=6712c17a-aa9c-4a54-92b8-7906fc053674'></img>
                   <button
                     id="registerPage-button"
                     class="registerPage-button"
@@ -153,6 +147,7 @@ export function RegisterPage() {
                   >
                     Registrate
                   </button>
+                  
                 </div>
               </div>
             </div>

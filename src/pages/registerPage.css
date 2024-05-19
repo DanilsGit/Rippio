@@ -33,12 +33,26 @@
     left:-50%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-50deg, #01CBC3, #032726);
+    background: linear-gradient(-50deg, #59dfd8, #288b7e, #7cf5b2);
     transform: translateX(100%);
     transition: 1s ease-in-out;
     z-index: 1;
+    /*
+    animation: bg-animation 5s infinite alternate; */
 }
 
+/* ARREGLAR ANIMACIÓN DEL FONDO
+
+@keyframes bg-animation{
+
+    0%{
+        background: linear-gradient(-50deg, #59dfd8, #288b7e, #7cf5b2);
+    }
+    100%{
+        background: linear-gradient(40deg, #59dfd8, #288b7e, #7cf5b2);
+    }
+}
+*/
 
 .loginPage-form, .registerPage-form{
     display: flex;
@@ -67,14 +81,14 @@
     font-size: 2em;
     color: rgb(6, 161, 161);
     text-shadow: 0 0 7px #b3fffe;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .registerPage-form h2{
     font-size: 2em;
     color: rgb(6, 161, 161);
     text-shadow: 0 0 7px #b3fffe;
-    margin: 1em 0;
+    margin: .2em 0;
 
 }
 
@@ -89,8 +103,8 @@
 }
 
 .registerPage-form-input{
-    height: 2.2em;
-    margin: 1.3em 0;
+    height: 2em;
+    margin: 1em 0;
 }
 
 /* íconos en el login */
@@ -104,7 +118,7 @@
 
 .loginPage-form-input input::placeholder, .registerPage-form-input input::placeholder{
     color: #398583bd;
-    font-size: 1em;
+    font-size: .8em;
     font-weight: 600;
 }
 
@@ -200,8 +214,19 @@ a {
     transition-delay: .2s;
 }
 
+.right-panel-image, .left-panel-image{
+    width: 9em;
+    margin: 0 5em;
+    margin-top: 1em;
+    -webkit-transition: -webkit-transform 10s;
+}
+
+.right-panel-image:hover, .left-panel-image:hover{
+    -webkit-transform: rotate(360deg) translate(0); 
+}
+
 .panel h3{
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 700;
     text-shadow: 0 0 10px #00504e;
     margin: .5em 0;
@@ -209,7 +234,7 @@ a {
 }
 
 .panel p{
-    font-size: 1em;
+    font-size: .9em;
     padding: .5em 0;
 }
 
@@ -220,7 +245,7 @@ a {
     border-radius: 50em;
     color: rgb(2, 32, 36);
     background: #ffffff;
-    margin: 2em 0;
+    margin: 1em 0;
     font-size: 1em;
     font-weight: 700;
     cursor: pointer;
@@ -408,17 +433,17 @@ a {
   
     .loginPage-form, .registerPage-form{
         width: 70vw;
-        gap: 1em;
+        gap: .5em;
         font-size: 1.1em;
     }
 
     .loginPage-form{
-        gap: 2 em;
+        gap: 1.2 em;
         font-size: 1.4em;
     }
 
     .loginPage-form h2, .registerPage-form h2{
-        font-size: 2.2em;
+        font-size: 2em;
     }
 
     .loginPage-form-button, .registerPage-form-button{

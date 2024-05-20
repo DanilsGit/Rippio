@@ -28,19 +28,19 @@ export function FooterInformation(){
                     <div className='information-title-container'><h2 className='footer-information-title'>Accede al centro de ayudas</h2></div>
                     <section className='footer-information-content footer-information-content-inactive'>
                         <div className='content-item'>
-                            <a href="#">Preguntas Frecuentes</a>
+                            <a href="/info">Preguntas Frecuentes</a>
                             <p>Créditos, compras, pedidos</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">Política de cambios y devoluciones</a>
+                            <a href="/info">Política de cambios y devoluciones</a>
                             <p>Para solicitar devoluciones</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">Solicitud de Garantía</a>
+                            <a href="/info">Solicitud de Garantía</a>
                             <p>Protegemos tu pedido</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">¿Cómo gestionar mi pedido?</a>
+                            <a href="/info">¿Cómo gestionar mi pedido?</a>
                             <p>Observaciones, adiciones y extras</p>
                         </div>
                     </section>
@@ -50,19 +50,19 @@ export function FooterInformation(){
                     <div className='information-title-container'><h2 className='footer-information-title'>Acerca de información legal</h2></div>
                     <section className='footer-information-content footer-information-content-inactive'>
                         <div className='content-item'>
-                            <a href="#">Términos y condiciones</a>
+                            <a href="/info">Términos y condiciones</a>
                             <p>Para clientes frecuentes</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">Políticas de privacidad</a>
+                            <a href="/info">Políticas de privacidad</a>
                             <p>Rippio cuida tu información</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">Tratamiento de datos</a>
+                            <a href="/info">Tratamiento de datos</a>
                             <p>¿Qué datos recopilamos?</p>
                         </div>
                         <div className='content-item'>
-                            <a href="#">Superintendencia de industria</a>
+                            <a href="/info">Superintendencia de industria</a>
                             <p>Tener en cuenta al subir su negocio</p>
                         </div>
 

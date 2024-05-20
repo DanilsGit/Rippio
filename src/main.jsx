@@ -12,6 +12,7 @@ import { ProfileSettings } from './pages/Profile/ProfileSettings.jsx'
 import { ProfileCredits } from './pages/Profile/ProfileCredits.jsx'
 import { ProfileOrders } from './pages/Profile/ProfileOrders.jsx'
 import { ProfileHelp } from './pages/Profile/ProfileHelp.jsx'
+import { InfoPage } from './pages/InfoPage.jsx'
 
 import './css/index.css'
 import 'normalize.css'
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/login', // Agrega esta ruta
     element: <LoginPage />, // Agrega este elemento
+  },
+  {
+    path: '/info', 
+    element: <InfoPage />, 
   },
   {
     path: '/searchpage/:search',

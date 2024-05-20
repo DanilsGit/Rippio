@@ -13,7 +13,7 @@ export const ModalConflictProduct = () => {
 
     return (
         <div>
-            <Modal className='ModalConflictProduct' isOpen={showModal} onRequestClose={toggleModal}>
+            <Modal className='ModalConflictProduct Modal' isOpen={showModal} onRequestClose={toggleModal}>
                 <header className='ModalConflictProduct-header'>
                     <img draggable='false' alt='rippioIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FrippioFoodHappyIcon.png?alt=media&token=aadfafd8-dec8-43ae-847e-e46b3d44945a' />
                     {
@@ -27,7 +27,7 @@ export const ModalConflictProduct = () => {
                     cart.items.length > 0 ?
                         <div className='ModalConflictProduct-aviso'>
                             <p>Ya tienes productos de
-                                <span>{cart.items[0].restaurant.nombre}</span>
+                                <span>{cart.items[0].restaurantNomId.nombre}</span>
                                 en tu pedido
                             </p>
                             <p>¿Deseas descartar la orden?</p>

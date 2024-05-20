@@ -17,12 +17,17 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* --sprint: none; */
+  --lightcyan: #01CBC3;
+  --darkcyan: #11928D;
+  --darkblue: #032B2A;
 }
 
 #root {
   height: 100%;
   width: 100%;
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -41,12 +46,15 @@ body {
       font-size: 14px;
   }
   @media screen and (max-width: 1005px){
-      font-size: 12px;
+      font-size: 13px;
   }
   @media screen and (max-width: 901px){
-      font-size: 10px;
+      font-size: 12px;
+      .Modal{
+          width: 95vw;
+      }
   }
   @media screen and (max-width: 760px){
-      font-size: 9px;
+      font-size: 11px;
   }
 }

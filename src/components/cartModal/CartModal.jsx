@@ -9,7 +9,7 @@ export function CartModal() {
 
     return (
         <div>
-            <Modal className='ModalCart' isOpen={showCartModal} onRequestClose={toggleCartModal}>
+            <Modal className='ModalCart Modal' isOpen={showCartModal} onRequestClose={toggleCartModal}>
                 <header className='ModalCart-header'>
                     <h2>Rippio Carrito</h2>
                 </header>
@@ -21,9 +21,9 @@ export function CartModal() {
                                     {
                                         cart.items.map((item, index) => (
                                             <div key={item.uniqueKey} className='ModalCart-content-item'>
-                                                <img draggable='false' alt='product' src={item.product.imagen} />
+                                                <img draggable='false' alt='product' src={item.product.img_product} />
                                                 <div className='ModalCart-content-item-info'>
-                                                    <h3>{item.product.name}</h3>
+                                                    <h3>{item.product.nombre}</h3>
                                                     <p>{item.product.description}</p>
                                                     <p>Cantidad: {item.quantity}</p>
                                                     <p>Precio: {item.product.costo_unit}</p>

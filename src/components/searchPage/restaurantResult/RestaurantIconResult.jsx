@@ -6,10 +6,10 @@ export function RestaurantIconResult({ results }) {
     return (
         <div>
             <section className='searchPage-iconsContainer'>
-                {results.restaurantes.map((restaurant) => {
+                {results.map((restaurant) => {
                     return (
                         <Link to={`/restaurant/${restaurant.id}`} key={restaurant.id}>
-                            <img key={restaurant.id} className='searchPage-iconsContainer-img' src={restaurant.imagen} alt={restaurant.nombre} />
+                            <img key={restaurant.id} className='searchPage-iconsContainer-img' src={restaurant.img_icon} alt={restaurant.nombre} />
                         </Link>
                     )
                 })}

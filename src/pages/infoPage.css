@@ -1,0 +1,115 @@
+.background-container{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.info-container{
+    background: linear-gradient(100deg, #083b3b, #00ccc3, #cbffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: gradient 10s ease infinite;
+    -moz-animation: gradient 10s ease infinite;
+    animation: gradient 10s ease infinite;
+    flex-wrap: wrap-reverse;
+}
+
+.aboutus-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 3.5em;
+    margin: 0 6em;
+    background-color: white;
+}
+
+.aboutus-image{
+    width: 10em;
+}
+
+.aboutus-container-h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #26cac2;
+    margin: 0;
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+    text-align: center;
+    text-shadow: 0 0 10px #9dfffa;
+}
+
+.aboutus-container-p {
+    font-size: 1em;
+    font-weight: 400;
+    color: #0e2b29;
+    text-align: justify;
+    letter-spacing:  .06em;
+    line-height: 2em;
+    margin-bottom: 2em;
+}
+
+.aboutus-container-h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #083f3c;
+    margin: 1em 0;
+    text-shadow: 0 0 10px #cafffc;
+}
+
+
+.help-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 3.5em;
+    margin: 0 6em;
+    background-color: white;
+}
+
+
+.help-container-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #26cac2;
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    text-align: center;
+    text-shadow: 0 0 10px #9dfffa;
+}
+
+
+.help-container-h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #083f3c;
+    margin: 1em 0;
+    text-shadow: 0 0 10px #cafffc;
+}
+
+.help-container-p, p{
+    font-size: 1em;
+    font-weight: 400;
+    color: #0e2b29;
+    text-align: justify;
+    letter-spacing:  .06em;
+    line-height: 2em;
+    margin-bottom: 2em;
+}
+
+.help-container-li{
+    font-size: 1em;
+    font-weight: 700;
+    color: #143836;
+    text-align: justify;
+    letter-spacing:  .06em;
+    line-height: 2em;
+    margin-bottom: 2em;
+}
+
+.help-container-li-li{
+    margin-left: 2em;
+    font-size: .9em;
+    font-weight: 400;
+    color: #265f5b;
+}
+

@@ -86,7 +86,7 @@
     text-shadow: 0 0 10px #cafffc;
 }
 
-.help-container-p, p{
+.help-container-p, .help-container-li > p{
     font-size: 1em;
     font-weight: 400;
     color: #0e2b29;

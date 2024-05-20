@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { HeaderMainContent } from '../components/principalPage/headerPrincipalPage/HeaderMainContent';
+import { HeaderNav } from '../components/headerNav/HeaderNav';
+import { Footer } from '../components/footer/Footer';
 
 import './registerPage.css'
 export function RegisterPage() {
@@ -33,7 +34,7 @@ export function RegisterPage() {
           isRegisterMode ? "registerPage-mode" : "loginPage-mode"
         }`}
       >
-        <HeaderMainContent />
+        <HeaderNav />
         <section className="register-login-page-background">
           <section className="register-login-page-content">
             <section className="loginPage-content">
@@ -153,6 +154,7 @@ export function RegisterPage() {
             </div>
           </section>
         </section>
+        <Footer />
       </main>
     );
 }

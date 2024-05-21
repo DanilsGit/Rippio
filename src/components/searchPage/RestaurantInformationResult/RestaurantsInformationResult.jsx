@@ -17,11 +17,6 @@ export function RestaurantsInformationResult({ results }) {
 
     return (
         <section className="searchPage-restaurantInformationResult">
-        {
-            results.length === 0
-            ? <h1 className='searchPage-title'>No encontramos resultados</h1>
-            : null
-        }
             {results.map((restaurant) => {
                 return (
                     <section key={restaurant.id} className='restaurantInformation-item'>

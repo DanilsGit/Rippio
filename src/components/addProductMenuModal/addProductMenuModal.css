@@ -1,0 +1,190 @@
+.AddProductMenuModal{
+    width: 60vw;
+    padding: 2em;
+}
+
+.AddProductMenuModal > div{
+    padding: 0.5em;
+}
+
+
+.AddProductMenuModal h1{
+    margin: 0.5em 0em;
+}
+
+
+.AddProductMenuModal-form{
+    display: grid;
+    grid-template-areas:    'header header'
+                            'name image'
+                            'description image'
+                            'price image'
+                            'button button';
+    gap: 1em;
+}
+
+.AddProductMenuModal-form-input {
+    overflow: auto; /* Ajusta la propiedad de desbordamiento */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.AddProductMenuModal-form-input input {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.5em;
+    font-weight: 600;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--darkblue);
+}
+
+.AddProductMenuModal-form-input input:hover, .AddProductMenuModal-form-input input:focus{
+    border-bottom: 2px solid var(--darkcyan);
+}
+
+
+.AddProductMenuModal-form-selects{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.AddProductMenuModal-form-inputName{
+    grid-area: name;
+}
+
+.AddProductMenuModal-form-inputDescription{
+    grid-area: description;
+}
+
+.AddProductMenuModal-form-inputPrice{
+    grid-area: price;
+}
+
+.AddProductMenuModal-form-inputImage{
+    grid-area: image;
+    overflow: hidden;
+    position: relative;
+    height: 15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000017;
+    border-radius: 1em;
+}
+
+.AddProductMenuModal-form-inputImage button{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+.AddProductMenuModal-form-inputImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1em;
+}
+
+.AddProductMenuModal-form-inputImage-imgDefault{
+    padding: 2em;
+    opacity: 1;
+}
+
+.AddProductMenuModal-form-inputImage-Btn{
+    opacity: 0;
+}
+
+.AddProductMenuModal-form-inputImage-Btn:hover{
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.AddProductMenuModal-form-inputImage-img{
+    border: 2px dashed var(--darkblue);
+}
+
+.AddProductMenuModal-form-inputImage input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.AddProductMenuModal-form-inputImage-imgLoading{
+    border: none;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.AddProductMenuModal-form-input{
+    width: 95%;
+}
+
+.AddProductMenuModal-form-inputCategory-select,
+.AddProductMenuModal-form-inputState-select {
+    width: 100%;
+}
+
+.AddProductMenuModal-form-btnContainer{
+    grid-area: button;
+    display: flex;
+    gap: 1em;
+}
+
+
+.AddProductMenuModal-form-btnContainer button {
+    flex: 1;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+
+
+.AddProductMenuModal-form-btnContainer button:nth-child(1){
+    background-color: var(--lightcyan);
+}
+.AddProductMenuModal-form-btnContainer button:nth-child(2){
+    background-color: var(--darkblue);
+}
+
+.AddProductMenuModal-form-btnContainer button:hover{
+    background-color: var(--darkcyan);
+    transition: background-color 0.5s;
+}
+
+@media screen and (max-width: 645px){
+    .AddProductMenuModal-form-selects{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .AddProductMenuModal-form{
+        grid-template-areas:    'header'
+                                'name'
+                                'description'
+                                'price'
+                                'image'
+                                'button';
+    }
+
+}

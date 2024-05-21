@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* --sprint: none; */
-  --lightcyan: #01CBC3;
+  --lightcyan: #12bb96;
   --darkcyan: #11928D;
   --darkblue: #032B2A;
   --white: #E0E3E4;
@@ -48,6 +48,27 @@
   width: 1px !important;
   overflow: hidden;
 }
+
+.Modal{
+  position: absolute;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 0.5em;
+  font-size: 1em;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 1em;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.ReactModal__Overlay{
+  background-color: #032b2ab4 !important;
+  z-index: 2;
+}
+
 
 body {
   overflow-x: hidden;

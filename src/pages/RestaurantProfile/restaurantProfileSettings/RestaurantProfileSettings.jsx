@@ -1,4 +1,4 @@
-import './profileRestaurantSettings.css'
+import './RestaurantProfileSettings.css'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Select from 'react-select'
@@ -31,7 +31,7 @@ const customStyles = {
     }),
 };
 
-export function ProfileRestaurantSettings() {
+export function RestaurantProfileSettings() {
 
     const [departamentos, setDepartamentos] = useState([])
     const [ciudades, setCiudades] = useState([])
@@ -52,6 +52,19 @@ export function ProfileRestaurantSettings() {
             });
     }, []);
 
+    const [name, setName] = useState('')
+
+
+    useEffect(()=>{
+        axios.get(`https://rippio-api.vercel.app/api/restaurant/getRestaurantInfoById/4cf1385c-42c2-5647-2ecd-8642c6073d47`)
+        .then((res)=>{
+            document.title = res.data.nombre+' - Perfil'
+            setName(res.data.nombre)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    },[])
+
     return (
         <section className='ProfileRestaurantSettings'>
             <h1 className="ProfileRestaurantSettings-h1">Información de tu restaurante</h1>
@@ -63,7 +76,7 @@ export function ProfileRestaurantSettings() {
                         <label className="hidden-label" htmlFor="nameRestaurant">Nombre del restaurante</label>
                         <Tippy content='Para cambiar el nombre de tu restaurante, por favor ponte en contacto con el soporte'>
                             <input className='block-input ProfileRestaurantSettings-Input' readOnly type="text" id="nameRestaurant" name="nameRestaurant"
-                                placeholder='Nombre de mi restaurante' />
+                                placeholder={name} />
                         </Tippy>
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-Category-Div'>

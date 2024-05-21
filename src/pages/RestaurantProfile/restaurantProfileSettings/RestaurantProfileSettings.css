@@ -103,10 +103,12 @@
     font-weight: 600;
     transition: background-color 0.5s ease;
     cursor: pointer;
+    color: #fff;
+
 }
 
 .ProfileRestaurantSettings-Button:hover{
-    background-color: var(--darkblue);
+    background-color: var(--lightcyan);
     transition: background-color 0.5s ease;
 }
 

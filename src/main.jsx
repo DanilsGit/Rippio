@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import LoginPage from './pages/LoginPage.jsx'
+import RegisterPage from './pages/RegisterPage.jsx'
 
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Page404 } from './pages/Page404.jsx'
@@ -15,6 +15,8 @@ import { ProfileHelp } from './pages/Profile/ProfileHelp.jsx'
 import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.jsx';
 import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
 import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
+import { InfoPage } from './pages/InfoPage.jsx'
+
 
 import './css/index.css'
 import 'normalize.css'
@@ -26,8 +28,12 @@ const router = createBrowserRouter([
     errorElement: <Page404 />
   },
   {
-    path: '/login', // Agrega esta ruta
-    element: <LoginPage />, // Agrega este elemento
+    path: '/login', 
+    element: <RegisterPage />, 
+  },
+  {
+    path: '/info', 
+    element: <InfoPage />, 
   },
   {
     path: '/searchpage/:search',

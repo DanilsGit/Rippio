@@ -62,6 +62,24 @@
     font-size: 0.8em;
 }
 
+.ProfileOptions-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--darkblue);
+    color: #fff;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    font-weight: 600;
+}
+
+.ProfileOptions-logout:hover{
+    background-color: var(--darkcyan);
+}
+
 
 .ProfileChildrenPage{
     display: flex;
@@ -72,6 +90,7 @@
     flex: 3;
     box-shadow: -10px 10px 0px 0px #0000001e;
 }
+
 
 
 @media screen and (max-width: 645px){

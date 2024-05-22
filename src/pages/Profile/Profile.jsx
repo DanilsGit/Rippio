@@ -1,5 +1,5 @@
 import { Footer } from "../../components/footer/Footer";
-import { Header } from "../../components/header/Header";
+import { HeaderSearch } from "../../components/headerSearch/HeaderSearch";
 import {Outlet } from 'react-router-dom';
 
 import './profile.css'
@@ -23,7 +23,7 @@ const links = [
         text: 'Últimos pedidos'
     },
     {
-        to: '/profile/help',
+        to: '/info',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FhelpIcon.png?alt=media&token=04620c4d-2768-49b5-b2b7-e207d36c1ce0',
         text: 'Centro de ayuda'
     }
@@ -32,7 +32,7 @@ const links = [
 export function Profile() {
     return (
         <main className="ProfilePage">
-            <Header />
+            <HeaderSearch />
             <section className="ProfilePageContent">
                 <section className="ProfileOptionsContainer">
                     <header className="ProfileOptions-header">
@@ -43,6 +43,7 @@ export function Profile() {
                         </div>
                     </header>
                     <ProfilePanel links={links} />
+                    <button className="ProfileOptions-logout">Cerrar sesión</button>
                 </section>
                 <section className="ProfileChildrenPage">
                     <Outlet />

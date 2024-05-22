@@ -1,5 +1,5 @@
 import { Footer } from "../../components/footer/Footer";
-import { Header } from "../../components/header/Header";
+import { HeaderNav } from "../../components/headerNav/HeaderNav";
 import { Outlet } from 'react-router-dom';
 
 import './restaurantProfile.css'
@@ -25,7 +25,7 @@ const links = [
         text: 'Horarios'
     },
     {
-        to: '/restaurantProfile/help',
+        to: '/info',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FhelpIcon.png?alt=media&token=04620c4d-2768-49b5-b2b7-e207d36c1ce0',
         text: 'Centro de ayuda'
     }
@@ -69,7 +69,7 @@ export function RestaurantProfile() {
 
     return (
         <main className="ProfileRestaurantPage">
-            <Header />
+            <HeaderNav />
             <section className="ProfileRestaurantPageContent">
                 <section className="ProfileRestaurantOptionsContainer">
                     <header className="ProfileRestaurantOptions-header">

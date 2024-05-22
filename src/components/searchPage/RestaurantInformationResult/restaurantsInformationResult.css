@@ -95,6 +95,9 @@
     cursor: pointer;
     border: 2px solid #003b39;
     width: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .restaurantInformation-item-products-product-button:hover{

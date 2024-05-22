@@ -1,0 +1,82 @@
+.CategoryDeleteModal{
+    width: 90vw;
+}
+
+.CategoryDeleteModal-haveProducts{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.5em;
+    color: #000000;
+}
+
+.CategoryDeleteModal h1{
+    margin: 0;
+}
+
+.CategoryDeleteModal-haveProducts span, .CategoryDeleteModal-noHaveProducts span{
+    color: var(--lightcyan);
+}
+
+.CategoryDeleteModal-haveProducts button{
+    flex: 1;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    background-color: var(--lightcyan);
+}
+
+.CategoryDeleteModal-haveProducts button:hover{
+    background-color: var(--darkblue);
+    transition: background-color 0.5s;
+}
+
+
+
+
+.CategoryDeleteModal-noHaveProducts{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.5em;
+    color: #000000;
+}
+
+.CategoryDeleteModal-noHaveProducts div{
+    display: flex;
+    gap: 1em;
+    padding: 0.5em;
+    color: #000000;
+}
+
+.CategoryDeleteModal-noHaveProducts div > button {
+    flex: 1;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.CategoryDeleteModal-noHaveProducts div > button:nth-child(1){
+    background-color: var(--lightcyan);
+}
+
+.CategoryDeleteModal-noHaveProducts div > button:nth-child(1):hover{
+    background-color: var(--darkcyan);
+    transition: background-color 0.5s;
+}
+
+.CategoryDeleteModal-noHaveProducts div > button:nth-child(2){
+    background-color: var(--darkblue);
+}
+
+.CategoryDeleteModal-noHaveProducts div > button:nth-child(2):hover{
+    background-color: var(--darkcyan);
+    transition: background-color 0.5s;
+}

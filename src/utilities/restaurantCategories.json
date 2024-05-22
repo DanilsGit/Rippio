@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "nombre": "Clásicas",
+        "productos": [
+            {
+                "id": 1001,
+                "estado": "Disponible",
+                "nombre": "Pizza Margherita",
+                "descripcion": "Pizza con tomate, mozzarella y albahaca.",
+                "imagen": "https://underpizza-image-storage.s3.us-east-2.amazonaws.com/sides/dEcc48jAvLAM5t2KY/0.webp",
+                "costo_unit": 12000
+            },
+            {
+                "id": 1002,
+                "estado": "Disponible",
+                "nombre": "Pizza Pepperoni",
+                "descripcion": "Pizza con tomate, mozzarella y pepperoni.",
+                "imagen": "https://theobjective.com/wp-content/uploads/2023/06/como-hacer-pizzas-caseras-saludables.jpg",
+                "costo_unit": 13000
+            },
+            {
+                "id": 1003,
+                "estado": "Disponible",
+                "nombre": "Pizza Hawaiana",
+                "descripcion": "Pizza con tomate, mozzarella, jamón y piña.",
+                "imagen": "https://media.gq.com.mx/photos/5be9ec3c802158524e66fae4/master/pass/pizzerias_internacionales_4557.jpg",
+                "costo_unit": 14000
+            },
+            {
+                "id": 1004,
+                "estado": "Disponible",
+                "nombre": "Pizza de Champiñones",
+                "descripcion": "Pizza con tomate, mozzarella y champiñones.",
+                "imagen": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/02/10/16444827878923.jpg",
+                "costo_unit": 15000
+            },
+            {
+                "id": 1005,
+                "estado": "Disponible",
+                "nombre": "Pizza de Cuatro Quesos",
+                "descripcion": "Pizza con mozzarella, parmesano, gorgonzola y queso de cabra.",
+                "imagen": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c6/4c/88/delta-restaurant.jpg?w=600&h=-1&s=1",
+                "costo_unit": 16000
+            },
+            {
+                "id": 1006,
+                "estado": "Disponible",
+                "nombre": "Pizza de Verduras",
+                "descripcion": "Pizza con tomate, mozzarella, pimientos, cebolla, champiñones y aceitunas.",
+                "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ihZrYEeJNMRD-XMHNn_lhBWm08D48hpME7D7n_gkFJfKFldDtWbqzKWYiHoX8Vej4AU&usqp=CAU",
+                "costo_unit": 17000
+            },
+            {
+                "id": 1007,
+                "estado": "Disponible",
+                "nombre": "Pizza de Pollo BBQ",
+                "descripcion": "Pizza con pollo en salsa BBQ, cebolla y cilantro.",
+                "imagen": "https://images.deliveryhero.io/image/stores-glovo/stores/e55ad76f547d14c543ec2ea805a2d58db6fe13c2afc6b1e2f23e0ed90659f697?t=W3siYXV0byI6eyJxIjoibG93In19LHsicmVzaXplIjp7Im1vZGUiOiJmaWxsIiwiYmciOiJ0cmFuc3BhcmVudCIsIndpZHRoIjo1ODgsImhlaWdodCI6MzIwfX1d",
+                "costo_unit": 18000
+            },
+            {
+                "id": 1008,
+                "estado": "Disponible",
+                "nombre": "Pizza de Carne",
+                "descripcion": "Pizza con tomate, mozzarella, carne molida, cebolla y pimientos.",
+                "imagen": "https://media-cdn.tripadvisor.com/media/photo-s/1d/74/13/63/pizzas-garage-medellin.jpg",
+                "costo_unit": 19000
+            },
+            {
+                "id": 1009,
+                "estado": "Disponible",
+                "nombre": "Pizza de Salami",
+                "descripcion": "Pizza con tomate, mozzarella y salami.",
+                "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjxfLVMCkDKaGIpBm2C2HVLtg5LNVAsR4h9g&usqp=CAU",
+                "costo_unit": 20000
+            },
+            {
+                "id": 1010,
+                "estado": "Disponible",
+                "nombre": "Pizza de Jamón",
+                "descripcion": "Pizza con tomate, mozzarella y jamón.",
+                "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3rL6I3Nq3fS6UHOFKRogbXUqoWPcEKQslA&usqp=CAU",
+                "costo_unit": 21000
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Vegetarianas",
+        "productos": [
+            {
+                "id": 701,
+                "estado": "Disponible",
+                "nombre": "Pizza Vegana",
+                "descripcion": "Pizza con tomate, queso vegano, champiñones, pimientos, cebolla y aceitunas.",
+                "imagen": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Eataly_Las_Vegas_-_Feb_2019_-_Sarah_Stierch_12.jpg",
+                "costo_unit": 15000
+            },
+            {
+                "id": 702,
+                "estado": "Disponible",
+                "nombre": "Pizza de Espinacas",
+                "descripcion": "Pizza con tomate, mozzarella, espinacas, ajo y aceite de oliva.",
+                "imagen": "https://www.buengusto.co/wp-content/uploads/2019/01/pizza-1920x1275.jpeg",
+                "costo_unit": 13000
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Sin Gluten",
+        "productos": [
+            {
+                "id": 801,
+                "estado": "Disponible",
+                "nombre": "Pizza Margherita Sin Gluten",
+                "descripcion": "Pizza con tomate, mozzarella y albahaca en base sin gluten.",
+                "imagen": "https://img.resized.co/esmmagazine/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL21lZGlhLm1hZGlzb25wdWJsaWNhdGlvbnMuZXVcXFwvdXBsb2Fkc1xcXC8yMDE3XFxcLzA3XFxcLzE5MTAyMzE0XFxcL3BpenphLWh1dC10by1oaXJlLTMtMDAwLWluLWlyZWxhbmQtYW5kLXVrLWV4cGFuc2lvbi5qcGdcIixcIndpZHRoXCI6MTIwMCxcImhlaWdodFwiOjYyNyxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvaW1nLnJlc2l6ZWQuY29cXFwvbm8taW1hZ2UucG5nXCIsXCJvcHRpb25zXCI6W119IiwiaGFzaCI6IjE4Yzk5NzY1NzFmOTA4MGJlYWVkYjVkYmNmYjkwMmZhZTA4NWM4ZDMifQ==/freiberger-to-acquire-pizza-maker-richelieu-for-435-million.jpg",
+                "costo_unit": 12000
+            },
+            {
+                "id": 802,
+                "estado": "Disponible",
+                "nombre": "Pizza de Pollo Sin Gluten",
+                "descripcion": "Pizza con pollo, tomate, mozzarella y orégano en base sin gluten.",
+                "imagen": "https://s1.ppllstatics.com/canarias7/www/multimedia/201810/17/media/cortadas/mejorpizza_4127509_20181016122726--1248x702.jpg",
+                "costo_unit": 14000
+            },
+            {
+                "id": 902,
+                "estado": "Disponible",
+                "nombre": "Pizza de Salmón Ahumado",
+                "descripcion": "Pizza con salmón ahumado, queso crema, alcaparras y eneldo.",
+                "imagen": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/fe96ba3c-4d28-4413-bd23-068c2abee032/Derivates/240c1feb-b425-4065-ba01-7127f00779f4.jpg",
+                "costo_unit": 26000
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Gourmet",
+        "productos": [
+            {
+                "id": 901,
+                "estado": "Disponible",
+                "nombre": "Pizza de Foie Gras",
+                "descripcion": "Pizza con foie gras, mozzarella, peras caramelizadas y rúcula.",
+                "imagen": "https://media-cdn.tripadvisor.com/media/photo-s/16/4b/86/b2/img-20190114-150655-437.jpg",
+                "costo_unit": 28000
+            },
+            {
+                "id": 902,
+                "estado": "Disponible",
+                "nombre": "Pizza de Salmón Ahumado",
+                "descripcion": "Pizza con salmón ahumado, queso crema, alcaparras y eneldo.",
+                "imagen": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/fe96ba3c-4d28-4413-bd23-068c2abee032/Derivates/240c1feb-b425-4065-ba01-7127f00779f4.jpg",
+                "costo_unit": 26000
+            }
+        ]
+    }
+]

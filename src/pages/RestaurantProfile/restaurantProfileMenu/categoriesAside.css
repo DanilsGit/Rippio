@@ -1,0 +1,150 @@
+
+.RestaurantProfileMenu-manage-category{
+    border-left: 2px solid #0000002b;
+}
+
+.RestaurantProfileMenu-manage-category header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.RestaurantProfileMenu-manage-category header > button {
+    display: none;
+    width: 50%;
+    height: 100%;
+    background-color: var(--darkblue);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.RestaurantProfileMenu-manage-category header > button:hover {
+    background-color: var(--lightcyan);
+    color: #000;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: start;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer > div {
+    color: #fff;
+    font-size: 0.8em;
+    width: 100%;
+    background-color: var(--darkblue);
+    padding: 0.5em 0.5em;
+    border-radius: 1em;
+    text-align: start;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer > div > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2em;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer > div > div > button {
+    border: none;
+    background-color: var(--lightcyan);
+    padding: 0.5em;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer input {
+    background-color: #00eeff1e;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainerAddBtn{
+    width: 100%;
+    background-color: var(--darkblue);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: start;
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer-addingCategory button{
+    border: none;
+    background-color: var(--lightcyan);
+    padding: 0.5em;
+    border-radius: 1em;
+    cursor: pointer;
+
+}
+
+.RestaurantProfileMenu-manage-categoriesContainerAddBtn:hover{
+    background-color: var(--darkcyan);
+}
+
+
+@media screen and (max-width: 480px) {
+    .RestaurantProfileMenu-manage{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .RestaurantProfileMenu-manage-category{
+        border: none;
+        border-bottom: 2px solid #0000002b;
+    }
+    
+    .RestaurantProfileMenu-manage-category header > button{
+        display: block;
+    }
+    
+    .RestaurantProfileMenu-manage-categoriesContainer{
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .RestaurantProfileMenu-manage-category-active{
+        max-height: 25vh;
+        overflow: auto;
+        padding: 1em 0em;
+        transition: 0.5s;
+    }
+
+    .RestaurantProfileMenu-manage-categoriesContainer > div > div {
+        gap: 2em;
+    }
+
+    .RestaurantProfileMenu-manage-categoriesContainer > div > div > button {
+        border: none;
+        background-color: var(--lightcyan);
+        width: 4em;
+        padding: 0.5em;
+        border-radius: 1em;
+        cursor: pointer;
+    }
+
+
+
+}

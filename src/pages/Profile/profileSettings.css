@@ -28,16 +28,12 @@
     border-bottom: 2px solid #032B2A;
     outline: none;
     width: 100%;
+    background-color: transparent;
 }
 
 .ProfileSettingsInput:hover {
     border-bottom: 2px solid #00adab;
     transition: 0.5s;
-}
-
-.block-input {
-    color: #000000b4;
-    cursor: not-allowed;
 }
 
 .ProfileSettings-GridForm-btnContainer{

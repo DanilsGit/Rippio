@@ -1,15 +1,5 @@
 .ProductModal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    border-radius: 4px;
     width: 60vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .ProductModal-header{
@@ -25,11 +15,6 @@
 
 .ProductModalInfo{
     overflow-y: auto;
-}
-
-.ReactModal__Overlay{
-    background-color: #032b2ab4 !important;
-    z-index: 2;
 }
 
 .ProductModal-section-container{

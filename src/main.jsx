@@ -12,7 +12,11 @@ import { ProfileSettings } from './pages/Profile/ProfileSettings.jsx'
 import { ProfileCredits } from './pages/Profile/ProfileCredits.jsx'
 import { ProfileOrders } from './pages/Profile/ProfileOrders.jsx'
 import { ProfileHelp } from './pages/Profile/ProfileHelp.jsx'
+import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.jsx';
+import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
+import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
 import { InfoPage } from './pages/InfoPage.jsx'
+
 
 import './css/index.css'
 import 'normalize.css'
@@ -67,11 +71,35 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: '/restaurantProfile',
+    element: <RestaurantProfile />,
+    children: [
+      {
+        path: '/restaurantProfile/settings',
+        element: <RestaurantProfileSettings />,
+      },
+      {
+        path: '/restaurantProfile/menu',
+        element: <RestaurantProfileMenu />,
+      },
+      {
+        path: '/restaurantProfile/horarios',
+        element: <ProfileOrders />,
+      },
+      {
+        path: '/restaurantProfile/help',
+        element: <ProfileHelp />,
+      },
+      { index: true, element: <Navigate to="settings" /> },
+    ]
+  },
+  {
     path: '/Page404',
     element: <Page404 />,
   }
 ]);
 
 import  RenderMain  from './RenderMain.jsx';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RenderMain router={router} />);

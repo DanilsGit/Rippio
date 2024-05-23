@@ -3,10 +3,6 @@ import { create } from 'zustand'
 import { getUserData, loginRequest, registerRequest } from '../api/auth'
 
 
-
-
-
-
 // Crea un nuevo hook personalizado llamado 'useAuth'
 export const useAuth = create((set) => ({
     user: null,
@@ -16,9 +12,7 @@ export const useAuth = create((set) => ({
     login: async (userLogin) => {
         try {
             const res = await loginRequest(userLogin);
-            console.log(res.data);
             const resUser = await getUserData(res.data.id);
-            console.log(document.cookie);
             set({ user: resUser.data[0] });
             set({ isAuthenticated: true });
         } catch (error) {
@@ -29,10 +23,12 @@ export const useAuth = create((set) => ({
     register: async (userRegister) => {
         try {
             const res = await registerRequest(userRegister);
-            console.log(res);
-            set({ user: res });
+            const resUser = await getUserData(res.data.id);
+            set({ user: resUser.data[0] });
+            set({ isAuthenticated: true });
         } catch (error) {
             set({ errors: error.response.data });
+            console.log(error);
             setTimeout(() => set({ errors: null }), 3000);
         }
     },

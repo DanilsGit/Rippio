@@ -6,6 +6,7 @@ import './profile.css'
 
 import { useAuth } from "../../hooks/useAuth";
 import { ProfilePanel } from "../../components/ProfilePanel/ProfilePanel";
+import { useEffect } from "react";
 
 
 const links = [
@@ -35,8 +36,13 @@ export function Profile() {
 
     const user = useAuth((state) => state.user)
     const isAuthenticated = useAuth((state) => state.isAuthenticated)
+    const logout = useAuth((state) => state.logout)
 
-
+    useEffect(() => {
+        if (!isAuthenticated) {
+            logout()
+        }
+    }, [user])
 
     return (
         <main className="ProfilePage">
@@ -55,7 +61,7 @@ export function Profile() {
                         </div>
                     </header>
                     <ProfilePanel links={links} />
-                    <button className="ProfileOptions-logout">Cerrar sesión</button>
+                    <button onClick={logout} className="ProfileOptions-logout">Cerrar sesión</button>
                 </section>
                 <section className="ProfileChildrenPage">
                     <Outlet />

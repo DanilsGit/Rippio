@@ -2,26 +2,45 @@
 import { useAuth } from "../hooks/useAuth";
 import { Navigate } from "react-router-dom"; 
 
-export function ProtectedUserRoute({ element }) {
-    const user = useAuth((state) => state.user);
-
-    if (user.tipo_usuario === 3) {
-        return <Navigate to="/profileRestaurant" replace/>;
-    }
-    if (user.tipo_usuario !== 1) {
-        return <Navigate to="/login" replace/>;
-    }
-    
-    return element;
-}
-
-export function ProtectedUserOrDefaultRoute({ element }) {
+export function ProtectedProfileRoute({ element }) {
     const user = useAuth((state) => state.user);
     const isAuthenticated = useAuth((state) => state.isAuthenticated);
+    
+    
+    if (!isAuthenticated) {
+        return <Navigate to="/login" />;
+    }
 
-    if (isAuthenticated && user.tipo_usuario !== 1) {
-        return <Navigate to="/" replace/>;
+    if (isAuthenticated && user?.tipo_usuario === 3) {
+        return <Navigate to="/restaurantprofile" />;
+    }
+
+    return element;
+}
+
+export function ProtectedSearchRoute({ element }) {
+    const user = useAuth((state) => state.user);
+
+    if (user?.tipo_usuario === 3) {
+        return <Navigate to="/restaurantprofile" />;
+    }
+
+    return element;
+}
+
+
+export function ProtectedRegisterRoute({ element }) {
+    const user = useAuth((state) => state.user);
+
+    if (user?.tipo_usuario === 1) {
+        return <Navigate to="/profile" />;
+    }
+
+    if (user?.tipo_usuario === 3) {
+        return <Navigate to="/restaurantprofile" />;
     }
     
     return element;
 }
+
+

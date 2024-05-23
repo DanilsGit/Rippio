@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { HeaderNav } from '../components/headerNav/HeaderNav';
 import { Footer } from '../components/footer/Footer';
 import { useAuth } from '../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
 
 import './registerPage.css'
 
@@ -12,8 +11,7 @@ export function RegisterPage() {
   const register = useAuth((state) => state.register)
   const login = useAuth((state) => state.login)
   const errors = useAuth((state) => state.errors)
-  const userLogged = useAuth((state) => state.user)
-  const navigator = useNavigate()
+
 
 
   const [userRegister, setUserRegister] = useState({
@@ -26,10 +24,11 @@ export function RegisterPage() {
     tipo_usuario: 1
   })
 
+
+
   const handleSubmitRegister = async (e) => {
     e.preventDefault()
     await register(userRegister)
-    if (userLogged) navigator('/profile')
   }
 
   const [userLogin, setUserLogin] = useState({
@@ -39,9 +38,7 @@ export function RegisterPage() {
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault()
-    console.log(userLogin);
     await login(userLogin)
-    if (userLogged) navigator('/profile')
   }
 
   const [isRegisterMode, setIsRegisterMode] = useState(false);
@@ -61,9 +58,6 @@ export function RegisterPage() {
         }`}
     >
       <HeaderNav />
-      <button onClick={(e)=>{e.preventDefault(); console.log(userLogged); console.log(errors)}}>mostrar</button>
-      <button onClick={(e)=>{e.preventDefault(); navigator('/profile')}}>perfil</button>
-
       <section className="register-login-page-background">
         <section className="register-login-page-content">
           <section className="loginPage-content">
@@ -171,10 +165,14 @@ export function RegisterPage() {
                   }))}
                 />
               </div>
-
+              {
+                errors
+                ? <p className="incorrect">{errors.message}</p>
+                : null
+              }
               <input
                 type="submit"
-                value="Registrate"
+                value="Regístrate"
                 className="registerPage-form-button"
               />
               <p className="info">
@@ -204,7 +202,7 @@ export function RegisterPage() {
                   className="loginPage-button"
                   onClick={handleLoginClick}
                 >
-                  Inicia sesion
+                  Inicia sesión
                 </button>
               </div>
             </div>
@@ -221,7 +219,7 @@ export function RegisterPage() {
                   className="registerPage-button"
                   onClick={handleRegisterClick}
                 >
-                  Registrate
+                  Regístrate
                 </button>
 
               </div>

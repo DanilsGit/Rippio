@@ -14,7 +14,7 @@ import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.j
 import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
 import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
 import { InfoPage } from './pages/InfoPage.jsx'
-import { ProtectedUserRoute, ProtectedUserOrDefaultRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
+import { ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
 import { AllRestaurants } from './pages/AllRestaurants.jsx';
 
 
@@ -24,12 +24,12 @@ import 'normalize.css'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ProtectedUserOrDefaultRoute element={<App />} />,
+    element: <App />,
     errorElement: <Page404 />
   },
   {
     path: '/login', 
-    element: <RegisterPage />, 
+    element: <ProtectedRegisterRoute element={<RegisterPage />} />,
   },
   {
     path: '/info', 
@@ -37,19 +37,19 @@ const router = createBrowserRouter([
   },
   {
     path: '/allrestaurants',
-    element: <AllRestaurants />,
+    element: <ProtectedSearchRoute element={<AllRestaurants />} />,
   },
   {
     path: '/searchpage/:search',
-    element: <ProtectedUserOrDefaultRoute element={<SearchPage />} />,
+    element: <ProtectedSearchRoute element={<SearchPage />} />,
   },
   {
     path: '/restaurant/:idRestaurant',
-    element: <RestaurantPage />,
+    element: <ProtectedSearchRoute element={<RestaurantPage />} />,
   },
   {
     path: '/profile',
-    element: <ProtectedUserRoute element={<Profile />} />,
+    element: <ProtectedProfileRoute element={<Profile />} />,
     children: [
       {
         path: '/profile/settings',

@@ -19,7 +19,7 @@
 
 .headerPrincipalPage-a{
     text-decoration: none;
-    color: #032B2A;
+    color: var(--darkblue);
 }
 
 .headerPrincipalPage-ul{
@@ -30,7 +30,7 @@
     width: 90%;
 }
 
-.headerPrincipalPage-ul-li:nth-child(1){
+.active{
     border-bottom: 4px solid #00b7cf;
 }
 .headerPrincipalPage-ul-li{
@@ -110,14 +110,10 @@
     width: 100%;
 }
 
-.headerPrincipalPage-ul-li:nth-child(1){
-    border-bottom: 4px solid #00b7cf;
-}
 .headerPrincipalPage-ul-li{
     border-bottom: 4px solid transparent;
     text-align: center;
 }
-
 
 .logoIcon{
     width: 70%;
@@ -131,6 +127,19 @@
 
 .userIcon{
     width: 3em;
+}
+
+.headerDrawerBtnAccess{
+    background-color: var(--darkcyan);
+    color: #fff !important;
+    font-weight: 600;
+    border: none;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+.headerNav-a{
+    border-bottom: 2px solid var(--lightcyan);
 }
 
 }

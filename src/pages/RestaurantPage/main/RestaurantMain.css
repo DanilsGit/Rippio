@@ -4,6 +4,7 @@
 
 .RestaurantPage-content-main{
     padding-bottom: 5em;
+    color: #000;
 }
 
 .RestaurantPage-content-main-content{
@@ -40,6 +41,7 @@
     justify-content: center;
     cursor: pointer;
     background-color: #fff;
+    color: #000;
 }
 
 .RestaurantPage-content-main-content-articleCard:hover{

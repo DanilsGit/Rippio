@@ -17,9 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* --sprint: none; */
-  --lightcyan: #01CBC3;
+  --lightcyan: #12bb96;
   --darkcyan: #11928D;
   --darkblue: #032B2A;
+  --white: #E0E3E4;
 }
 
 #root {
@@ -27,13 +28,49 @@
   width: 100%;
 }
 
-
-
 * {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
 }
+
+.block-input {
+  color: #000000b4;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.hidden-label {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.Modal{
+  position: absolute;
+  background-color: #fff;
+  min-width: 50vw;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 0.5em;
+  font-size: 1em;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 1em;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.ReactModal__Overlay{
+  background-color: #032b2ab4 !important;
+  z-index: 2;
+}
+
 
 body {
   overflow-x: hidden;

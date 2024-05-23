@@ -7,6 +7,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import estilos from './headerDrawer.module.css';
+import { Link } from 'react-router-dom';
+import { Divider } from '@mui/material';
 
 export function HeaderDrawer() {
     const [open, setOpen] = React.useState(false);
@@ -18,21 +20,48 @@ export function HeaderDrawer() {
     const DrawerList = (
         <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
-                {['Principal', 'Categorías', 'Acerca de nosotros'].map(
+                {[['Principal','/'], ['Restaurantes','/allrestaurants'], ['Información','/info']]
+                .map(
                     (text) => (
                         <ListItem key={text} disablePadding>
-                        <a className='header-a' href='#'>
+                        <Link className='headerNav-a' to={text[1]}>
                             <ListItemButton>
                                 {/* <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                         </ListItemIcon> */}
-                                <ListItemText primary={text} />
+                                <ListItemText primary={text[0]} />
                             </ListItemButton>
-                        </a>
+                        </Link>
                         </ListItem>
                     )
                 )}
             </List>
+            <Divider />
+            <List>
+                <ListItem disablePadding>
+                    <Link className='headerDrawerBtnAccess' to='/login'>
+                        <ListItemButton>
+                            <ListItemText primary='Ingresa' />
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link className='headerDrawerBtnAccess' to='/login'>
+                        <ListItemButton>
+                            <ListItemText primary='Regístrate' />
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+            </List>
+            <Divider />
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={toggleDrawer(false)}>
+                        <ListItemText primary='Cerrar' />
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            
         </Box>
     );
 

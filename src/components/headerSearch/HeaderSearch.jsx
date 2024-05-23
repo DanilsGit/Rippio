@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import './header.css'
+import './headerSearch.css'
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useCart } from '../../hooks/useCart'
 
 import { handleClickCartModal } from '../../constants/cart'
+import { HeaderDrawer } from '../headerDrawer/HeaderDrawer';
 
-export function Header() {
+export function HeaderSearch() {
     const navigate = useNavigate();
     const [search, setSearch] = useState('');
     const cart = useCart((state) => state.cart)
@@ -31,7 +32,7 @@ export function Header() {
                     <li className='header-li'>
                         <button 
                         onClick={()=>handleClickCartModal(toggleCartModal)}
-                        className='header-li-link' to='/cart'>
+                        className='header-li-link'>
                             {
                                 cart.items.length > 0 ?
                                     <img draggable='false' alt='cart' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartContainIcon.png?alt=media&token=a3667264-0a76-40ee-92cc-b2344651ab54' />
@@ -41,13 +42,14 @@ export function Header() {
                         </button>
                     </li>
                     <li className='header-li'>
-                        <Link className='header-li-link' to='/search'>
+                        <Link className='header-li-link' to='/login'>
                             <div className='header-li-div'>
                                 <img draggable='false' alt='User' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdefaultUserIcon.png?alt=media&token=4cf7ae75-e6ac-4fc4-b33f-e3d869739818' />
                                 <span>Ingresa</span>
                             </div>
                         </Link>
                     </li>
+                    <HeaderDrawer />
                 </ul>
             </nav>
         </header>

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import './restaurantPage.css'
-import { Header } from '../../components/header/Header';
+import { HeaderSearch } from '../../components/headerSearch/HeaderSearch';
 import { Footer } from "../../components/footer/Footer";
 import { InformationAside } from "./aside/InformationAside";
 import { RestaurantMain } from "./main/RestaurantMain";
@@ -38,7 +38,7 @@ export function RestaurantPage() {
     const restaurant = {id, nombre}
     return (
         <main className="RestaurantPage">
-            <Header />
+            <HeaderSearch />
             <section className="RestaurantPage-content">
                 <InformationAside name={nombre} direction={direccion} schedule={horario} rating={calificacion} logo={img_icon} banner={img_banner} />
                 <RestaurantMain categories={categories} restaurant={restaurant} />

@@ -1,12 +1,11 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { Header } from '../components/header/Header';
+import { HeaderSearch } from '../components/headerSearch/HeaderSearch';
 import { RestaurantIconResult } from '../components/searchPage/restaurantResult/RestaurantIconResult';
 import { RestaurantsInformationResult } from '../components/searchPage/RestaurantInformationResult/RestaurantsInformationResult';
 import { Footer } from '../components/footer/Footer';
 
-// import { resultados } from '../utilities/searchQuery.json';
 
 import './searchPage.css'
 
@@ -38,7 +37,7 @@ export function SearchPage() {
 
     return (
         <main className='searchPage'>
-            <Header />
+            <HeaderSearch />
             <section className='searchPage-content'>
                 {
                     isLoading

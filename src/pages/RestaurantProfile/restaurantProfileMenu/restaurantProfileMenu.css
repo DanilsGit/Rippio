@@ -1,0 +1,233 @@
+.RestaurantProfileMenu{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.RestaurantProfileMenu-noProducts{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 0em;
+}
+
+.RestaurantProfileMenu-noProducts-img{
+    width: 13em;
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.RestaurantProfileMenu-noProducts h1{
+    margin: 0;
+}
+
+.RestaurantProfileMenu-noProducts h2{
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.RestaurantProfileMenu-noProducts button{
+    background-color: #FFC625;
+    color: #000;
+    border: none;
+    padding: 0.5em 3em;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RestaurantProfileMenu-noProducts button:hover{
+    background-color: #FFD55A;
+}
+
+/* RESTAURANT PROFILE WITH PRODUCTS */
+
+.RestaurantProfileMenu-section{
+    width: 100%;
+    display: flex;
+    padding: 0.5em;
+    flex-direction: column;
+}
+
+.RestaurantProfileMenu-header{
+    padding: 0.5em 1em;
+    border-bottom: 2px solid #0000002b;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.RestaurantProfileMenu-header h1{
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: start;
+}
+
+.RestaurantProfileMenu-header button{
+    background-color: var(--darkblue);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RestaurantProfileMenu-header button:hover{
+    background-color: var(--darkcyan);
+}
+
+.RestaurantProfileMenu-manage{
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 20% auto;
+    direction: rtl;
+}
+
+.RestaurantProfileMenu-manage > * {
+    direction: ltr;
+}
+
+.RestaurantProfileMenu-manage-category, .RestaurantProfileMenu-manage-products{
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.5em;
+    color: #0000008a;
+}
+
+
+
+/* DRAG AND DROP ZONE */
+
+
+.RestaurantProfileMenu-manage-productsCategoriesContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.RestaurantProfileMenu-manage-row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.RestaurantProfileMenu-manage-ddZone{
+    width: 100%;
+    border: 2px solid #0000002b;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+    padding: 1em;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.1em;
+    color: #000;
+    border: 2px solid var(--darkblue);
+    padding: 0.5em;
+    border-radius: 1em;
+    cursor: grab;
+    height: 100%;
+    min-height: 17em;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product:hover{
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product:active{
+    cursor: grabbing;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+
+.RestaurantProfileMenu-manage-ddZone-product img{
+    width: 100%;
+    height: 40%;
+    border-radius: 1em;
+    object-fit: cover;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product h4{
+    font-size: 1em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product p{
+    font-size: 0.8em;
+    color: #0000008a;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product button{
+    background-color: var(--darkblue);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RestaurantProfileMenu-manage-ddZone-product button:hover{
+    background-color: var(--lightcyan);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* DRAG AND DROP ZONE END */
+
+
+@media screen and (max-width: 900px) {
+    .RestaurantProfileMenu-manage{
+        grid-template-columns: 25% auto;
+    }
+    
+}
+
+

@@ -62,14 +62,13 @@ export function InfoPage() {
                                     <p>En Rippio Food, nos comprometemos a ofrecerte productos frescos y de alta calidad. Si no estás satisfecho con tu pedido, tienes hasta 24 horas para solicitar una devolución o cambio. Asegúrate de proporcionar detalles específicos sobre el problema para que podamos procesar tu solicitud adecuadamente.</p>
                             </li>
                             <li className='help-container-li'>¿Cómo puedo solicitar una devolución?
-                                <p>Para solicitar una devolución, sigue estos pasos:  
+                                <p>Para solicitar una devolución, sigue estos pasos:  </p> 
                                 <ol>
                                     <li className='help-container-li-li'>Ve a la sección "Mis Pedidos" en tu cuenta.</li>
                                     <li className='help-container-li-li'>Selecciona el pedido que deseas devolver.</li>
                                     <li className='help-container-li-li'>Haz clic en "Solicitar Devolución" y sigue las instrucciones proporcionadas.</li>
                                     <li className='help-container-li-li'>Nuestro equipo de soporte se pondrá en contacto contigo para confirmar los detalles y procesar tu solicitud.</li>
                                 </ol>
-                                </p> 
                             </li>
                         </ul>
                 
@@ -80,7 +79,7 @@ export function InfoPage() {
                                 <p>La garantía de Rippio Food cubre la calidad y frescura de los alimentos entregados. Si recibes un producto que no cumple con nuestros estándares de calidad, puedes solicitar una compensación o reemplazo.</p>
                             </li>
                             <li className='help-container-li'>¿Cómo solicitar una garantía?
-                                <p>Para solicitar una garantía, sigue estos pasos:
+                                <p>Para solicitar una garantía, sigue estos pasos:</p>
                                     <ol>
                                         <li className='help-container-li-li'>Ve a la sección "Mis Pedidos" en tu cuenta.</li>
                                         <li className='help-container-li-li'>Selecciona el pedido en cuestión.</li>
@@ -88,7 +87,7 @@ export function InfoPage() {
                                         <li className='help-container-li-li'>Adjunta fotos si es necesario para ayudar a nuestro equipo a evaluar la situación.</li>
                                         <li className='help-container-li-li'>Nuestro equipo de soporte revisará tu solicitud y se pondrá en contacto contigo para resolver el problema.</li>
                                     </ol>
-                                </p>
+                                
                             </li>
                         </ul>
 

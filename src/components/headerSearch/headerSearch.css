@@ -40,6 +40,10 @@
     cursor: pointer;
 }
 
+.header-li-img-userIcon{
+    border-radius: 50%;
+}
+
 .header-li-div{
     display: flex;
     align-items: center;

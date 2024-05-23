@@ -5,8 +5,10 @@ import { Outlet } from 'react-router-dom';
 import './restaurantProfile.css'
 import { ProfilePanel } from "../../components/ProfilePanel/ProfilePanel";
 import { uploadFile } from "../../constants/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 import axios from "axios";
+
 
 const links = [
     {
@@ -33,28 +35,29 @@ const links = [
 
 export function RestaurantProfile() {
 
-    const [image, setImage] = useState('')
-    const [name, setName] = useState('')
+    const user = useAuth((state) => state.user)
+    const setUser = useAuth((state) => state.setUser)
+    const token = useAuth((state) => state.token)
+    const isAuthenticated = useAuth((state) => state.isAuthenticated)
+    const logout = useAuth((state) => state.logout)
+
     const [loading, setLoading] = useState(false)
-
-
-    useEffect(() => {
-        axios.get(`https://rippio-api.vercel.app/api/restaurant/getRestaurantInfoById/4cf1385c-42c2-5647-2ecd-8642c6073d47`)
-            .then((res) => {
-                setImage(res.data.img_icon)
-                document.title = res.data.nombre
-                setName(res.data.nombre)
-            }).catch((err) => {
-                console.log(err)
-            })
-    }, [])
 
 
     const handleInputProfileChange = async (e) => {
         setLoading(true);
         try {
-            const newImage = await uploadFile(e.target.files[0], 'RestaurantIcon','tokenIDRestaurant');
-            setImage(newImage);
+            const newImage = await uploadFile(e.target.files[0], 'RestaurantIcon', user.id);
+            await axios.post('https://rippio-api.vercel.app/api/profile/modify_profile_image',
+            {
+                image: newImage
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            setUser({ ...user, img_icon: newImage });
         } catch (error) {
             console.error(error);
         }
@@ -70,32 +73,38 @@ export function RestaurantProfile() {
     return (
         <main className="ProfileRestaurantPage">
             <HeaderNav />
-            <section className="ProfileRestaurantPageContent">
-                <section className="ProfileRestaurantOptionsContainer">
-                    <header className="ProfileRestaurantOptions-header">
-                        {
-                            loading
-                            ? <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile loading" draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' alt="Foto de perfil" />
-                            : <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile" draggable='false' src={image} alt="Foto de perfil" />
-                        }
-                        <div className="ProfileRestaurantOptionsContainer-uploadIconContainer">
-                            <label className="hidden-label" htmlFor="upload">Subir imagen:</label>
-                            <input type="file" id="upload" name="upload" accept=".png, .jpg"
-                                onChange={handleInputProfileChange} />
-                            <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonClick}>
-                                <img draggable='false' className="ProfileRestaurantOptions-header-imgEdit" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
-                            </button>
-                        </div>
-                        <div>
-                            <h1 className="RestaurantProfileTitle">{name}</h1>
-                        </div>
-                    </header>
-                    <ProfilePanel links={links} />
-                </section>
-                <section className="ProfileRestaurantChildrenPage">
-                    <Outlet />
-                </section>
-            </section>
+            {
+                isAuthenticated
+                    ?
+                    <section className="ProfileRestaurantPageContent">
+                        <section className="ProfileRestaurantOptionsContainer">
+                            <header className="ProfileRestaurantOptions-header">
+                                {
+                                    loading
+                                        ? <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile loading" draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' alt="Foto de perfil" />
+                                        : <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile" draggable='false' src={user.img_icon} alt="Foto de perfil" />
+                                }
+                                <div className="ProfileRestaurantOptionsContainer-uploadIconContainer">
+                                    <label className="hidden-label" htmlFor="upload">Subir imagen:</label>
+                                    <input type="file" id="upload" name="upload" accept=".png, .jpg"
+                                        onChange={handleInputProfileChange} />
+                                    <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonClick}>
+                                        <img draggable='false' className="ProfileRestaurantOptions-header-imgEdit" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
+                                    </button>
+                                </div>
+                                <div>
+                                    <h1 className="RestaurantProfileTitle">{user.nombre}</h1>
+                                </div>
+                            </header>
+                            <ProfilePanel links={links} />
+                            <button onClick={logout} className="ProfileOptions-logout">Cerrar sesión</button>
+                        </section>
+                        <section className="ProfileRestaurantChildrenPage">
+                            <Outlet />
+                        </section>
+                    </section>
+                    : null
+            }
             <Footer />
         </main>
     )

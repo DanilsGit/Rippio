@@ -4,25 +4,26 @@ import React, { useEffect } from 'react';
 import { CartModal } from './components/cartModal/CartModal.jsx';
 import { ModalConflictProduct } from './components/differentRestaurantModal/ModalConflictProduct.jsx';
 import { RouterProvider } from "react-router-dom";
-import Cookies from 'js-cookie';
 import { useAuth } from './hooks/useAuth.jsx';
+import { getUserData } from './api/auth.jsx';
+
 
 function RenderMain({ router }) {
-    useEffect(() => {
-        const cookie = Cookies.get();
-        console.log(cookie);
-    }, []);
 
+    const user = useAuth((state) => state.user);
+    const setUser = useAuth((state) => state.setUser);
     const isAuthenticated = useAuth((state) => state.isAuthenticated);
 
+    const updateUserData = async () => {
+        const newUser = await getUserData(user.id);
+        setUser(newUser.data[0]);
+    }
+
     useEffect(() => {
-        if (!isAuthenticated) {
-            Cookies.remove('token');
-        }else{
-            const cookie = Cookies.get();
-            console.log(cookie);
+        if (isAuthenticated) {
+            updateUserData();
         }
-    }, [isAuthenticated]);
+    }, []);
 
     return (
         <React.StrictMode>

@@ -4,6 +4,7 @@ import 'tippy.js/dist/tippy.css';
 import Select from 'react-select'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../../../hooks/useAuth';
 
 const categories = [
     { value: '1', label: 'Comida rápida' },
@@ -52,18 +53,10 @@ export function RestaurantProfileSettings() {
             });
     }, []);
 
-    const [name, setName] = useState('')
+    const user = useAuth((state) => state.user)
 
-
-    useEffect(()=>{
-        axios.get(`https://rippio-api.vercel.app/api/restaurant/getRestaurantInfoById/4cf1385c-42c2-5647-2ecd-8642c6073d47`)
-        .then((res)=>{
-            document.title = res.data.nombre+' - Perfil'
-            setName(res.data.nombre)
-        }).catch((err)=>{
-            console.log(err)
-        })
-    },[])
+    // TODO: IMPLEMENTAR PARA RESTAURANTES
+    const [newUser, setNewUser] = useState({})
 
     return (
         <section className='ProfileRestaurantSettings'>
@@ -76,7 +69,14 @@ export function RestaurantProfileSettings() {
                         <label className="hidden-label" htmlFor="nameRestaurant">Nombre del restaurante</label>
                         <Tippy content='Para cambiar el nombre de tu restaurante, por favor ponte en contacto con el soporte'>
                             <input className='block-input ProfileRestaurantSettings-Input' readOnly type="text" id="nameRestaurant" name="nameRestaurant"
-                                placeholder={name} />
+                                placeholder={user.nombre} />
+                        </Tippy>
+                    </div>
+                    <div className='ProfileRestaurantSettings-GridForm-nameRestaurant-Div'>
+                        <label className="hidden-label" htmlFor="nameRestaurant">Nombre del restaurante</label>
+                        <Tippy content='Para cambiar el correo de tu restaurante, por favor ponte en contacto con el soporte'>
+                            <input className='block-input ProfileRestaurantSettings-Input' readOnly type="text" id="emailRestaurant" name="emailRestaurant"
+                                placeholder={user.email} />
                         </Tippy>
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-Category-Div'>
@@ -94,7 +94,7 @@ export function RestaurantProfileSettings() {
                     </div>
                     <div className='ProfileRestaurantSettings-GridForm-telNumber-Div'>
                         <label className="hidden-label" htmlFor="telNumber">Número de teléfono</label>
-                        <input className='ProfileRestaurantSettings-Input' type="number" id="telNumber" name="telNumber" required
+                        <input className='ProfileRestaurantSettings-Input' type="number" id="telNumber" name="telNumber" required value={user.telefono}
                             onChange={(e)=>{if (e.target.value.length >=10) e.target.value=e.target.value.slice(0,10) }}
                             placeholder='Número de teléfono' />
                     </div>

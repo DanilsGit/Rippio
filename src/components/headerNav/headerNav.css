@@ -63,6 +63,7 @@
     align-items: center;
     gap: 8px;
     margin-right: 1.2em;
+    font-size: 0.9em;
 }
 
 .logoIcon{
@@ -73,11 +74,13 @@
 
 
 .cartIcon{
+    cursor: pointer;
     width: 1.6em;
 }
 
 .userIcon{
     width: 1.7em;
+    border-radius: 50%;
 }
 
 .Header-Drawer{

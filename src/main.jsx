@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import RegisterPage from './pages/RegisterPage.jsx'
+import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
 
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Page404 } from './pages/Page404.jsx'
@@ -14,7 +14,7 @@ import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.j
 import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
 import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
 import { InfoPage } from './pages/InfoPage.jsx'
-import { ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
+import { ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute, ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
 import { AllRestaurants } from './pages/AllRestaurants.jsx';
 
 
@@ -24,7 +24,7 @@ import 'normalize.css'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <ProtectedPrincipalPageRestaurantRoute element={<App />} />,
     errorElement: <Page404 />
   },
   {
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/restaurantProfile',
-    element: <RestaurantProfile />,
+    element: <ProtectedProfileRestaurantRoute element={<RestaurantProfile />} />,
     children: [
       {
         path: '/restaurantProfile/settings',

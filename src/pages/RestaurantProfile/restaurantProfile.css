@@ -18,7 +18,7 @@
 
 .RestaurantProfileTitle{
     margin: 0;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 .ProfileRestaurantOptionsContainer{
@@ -39,7 +39,7 @@
     padding-bottom: 0.5em;
     border-bottom: 1px solid #00000023;
     display: flex;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 .ProfileRestaurantOptions-header-imgProfile{

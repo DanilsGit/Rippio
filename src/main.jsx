@@ -13,6 +13,7 @@ import { ProfileCredits } from './pages/Profile/ProfileCredits.jsx'
 import { ProfileOrders } from './pages/Profile/ProfileOrders.jsx'
 import { ProfileHelp } from './pages/Profile/ProfileHelp.jsx'
 import { InfoPage } from './pages/InfoPage.jsx'
+import { ProtectedUserRoute, ProtectedUserOrDefaultRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
 
 import './css/index.css'
 import 'normalize.css'
@@ -20,7 +21,7 @@ import 'normalize.css'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <ProtectedUserOrDefaultRoute element={<App />} />,
     errorElement: <Page404 />
   },
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/searchpage/:search',
-    element: <SearchPage />,
+    element: <ProtectedUserOrDefaultRoute element={<SearchPage />} />,
   },
   {
     path: '/restaurant/:idRestaurant',
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/profile',
-    element: <Profile />,
+    element: <ProtectedUserRoute element={<Profile />} />,
     children: [
       {
         path: '/profile/settings',

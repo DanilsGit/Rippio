@@ -135,10 +135,11 @@
 }
 
 .incorrect{
-    display: none;
-    margin-top: -1em;
+    margin-top: -0.5em;
+    font-weight: 700;
     font-style: italic;
     color: #5bc4c1;
+    border-bottom: var(--darkcyan) 2px solid;
 }
 
 .loginPage-form-button, .registerPage-form-button{

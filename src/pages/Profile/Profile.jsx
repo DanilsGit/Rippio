@@ -3,22 +3,32 @@ import { Header } from "../../components/header/Header";
 import {Outlet, NavLink } from 'react-router-dom';
 
 import './profile.css'
+import { useAuth } from "../../hooks/useAuth";
 
 function getLinkClass({ isActive }) {
     return isActive ? 'ProfileOption-activeLink' : 'ProfileOption-Link';
 }
 
 export function Profile() {
+
+    const user = useAuth((state) => state.user)
+    const isAuthenticated = useAuth((state) => state.isAuthenticated)
+
+
+
     return (
         <main className="ProfilePage">
             <Header />
-            <section className="ProfilePageContent">
+            {
+                isAuthenticated
+                ?
+                <section className="ProfilePageContent">
                 <section className="ProfileOptionsContainer">
                     <header className="ProfileOptions-header">
-                        <img draggable='false' src="https://via.placeholder.com/150" alt="Foto de perfil" />
+                        <img draggable='false' src={user.img_icon} alt="Foto de perfil" />
                         <div>
                             <p>Mi perfil</p>
-                            <p>Invitado</p>
+                            <p>{user.nombre}</p>
                         </div>
                     </header>
                     <section>
@@ -44,6 +54,8 @@ export function Profile() {
                     <Outlet />
                 </section>
             </section>
+            : null
+            }
             <Footer />
         </main>
     )

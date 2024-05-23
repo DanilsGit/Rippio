@@ -1,11 +1,20 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { HeaderNav } from '../components/headerNav/HeaderNav';
 import { Footer } from '../components/footer/Footer';
-import axios from 'axios'
+import { useAuth } from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 import './registerPage.css'
+
 export function RegisterPage() {
+
+
+  const register = useAuth((state) => state.register)
+  const login = useAuth((state) => state.login)
+  const errors = useAuth((state) => state.errors)
+  const userLogged = useAuth((state) => state.user)
+  const navigator = useNavigate()
+
 
   const [userRegister, setUserRegister] = useState({
     identificacion: '',
@@ -17,16 +26,10 @@ export function RegisterPage() {
     tipo_usuario: 1
   })
 
-  const handleSubmitRegister = (e) => {
+  const handleSubmitRegister = async (e) => {
     e.preventDefault()
-    console.log(userRegister)
-    axios.post('https://rippio-api.vercel.app/api/auth/register', userRegister)
-      .then((res) => {
-        console.log(res);
-      }
-      ).catch((e) => {
-        console.log(e);
-      })
+    await register(userRegister)
+    if (userLogged) navigator('/profile')
   }
 
   const [userLogin, setUserLogin] = useState({
@@ -34,25 +37,14 @@ export function RegisterPage() {
     password: ''
   })
 
-  const handleSubmitLogin = (e) => {
+  const handleSubmitLogin = async (e) => {
     e.preventDefault()
     console.log(userLogin);
-    //usar credentials true para recibir las cookies
-    axios.post('http://localhost:4000/api/auth/login', userLogin)
-      .then((res) => {
-        console.log(res);
-
-      }
-      ).catch((e) => {
-        console.log(e);
-      })
-
+    await login(userLogin)
+    if (userLogged) navigator('/profile')
   }
 
   const [isRegisterMode, setIsRegisterMode] = useState(false);
-  const [isRegisterMode2, setIsRegisterMode2] = useState(false);
-  const [isLoginMode2, setIsLoginMode2] = useState(false);
-  const params = useParams();
 
   const handleRegisterClick = () => {
     setIsRegisterMode(true);
@@ -62,15 +54,6 @@ export function RegisterPage() {
     setIsRegisterMode(false);
   };
 
-  // Estos botones son para el responsive
-
-  const handleRegisterClick2 = () => {
-    setIsRegisterMode2(true);
-  };
-
-  const handleLoginClick2 = () => {
-    setIsLoginMode2(true);
-  };
 
   return (
     <main
@@ -78,6 +61,9 @@ export function RegisterPage() {
         }`}
     >
       <HeaderNav />
+      <button onClick={(e)=>{e.preventDefault(); console.log(userLogged); console.log(errors)}}>mostrar</button>
+      <button onClick={(e)=>{e.preventDefault(); navigator('/profile')}}>perfil</button>
+
       <section className="register-login-page-background">
         <section className="register-login-page-content">
           <section className="loginPage-content">
@@ -102,8 +88,11 @@ export function RegisterPage() {
                     password: e.target.value
                   }))} />
               </div>
-              <p className="incorrect">* La contraseña es incorrecta</p>
-
+              {
+                errors
+                ? <p className="incorrect">{errors.message}</p>
+                : null
+              }
               <input
                 type="submit"
                 value="Iniciar Sesión"

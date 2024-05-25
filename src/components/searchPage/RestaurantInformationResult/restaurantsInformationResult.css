@@ -137,6 +137,7 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
+    color: #000;
 }
 
 .restaurantInformation-item-products-product-buttonContainer span {

@@ -78,8 +78,15 @@
     width: 1.6em;
 }
 
+.headerPrincipalPage-a{
+    width: 100%;
+    height: 100%;
+}
+
 .userIcon{
-    width: 1.7em;
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -126,10 +133,12 @@
 
 .cartIcon{
     width: 3em;
+    height: 3em;
 }
 
 .userIcon{
     width: 3em;
+    height: 3em;
 }
 
 .headerDrawerBtnAccess{

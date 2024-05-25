@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import './categoriesAside.css'
-import uuid from 'react-uuid';
+import axios from 'axios';
+import { useAuth } from '../../../hooks/useAuth';
 
 export default function CategoriesAside({ categories, setCategories, setSelectedCategory, setIsModalOpen}) {
 
+    const token = useAuth((state) => state.token)
+    
     const  handleClickExpandCategories = () => {
         const categories = document.querySelector('.RestaurantProfileMenu-manage-categoriesContainer')
         categories.classList.toggle('RestaurantProfileMenu-manage-category-active')
@@ -59,14 +62,29 @@ export default function CategoriesAside({ categories, setCategories, setSelected
         setNewCategoryName(event.target.value);
     }
 
-    const handleConfirmAddCategoryClick = () => {
+    const handleConfirmAddCategoryClick = async () => {
         if (!newCategoryName) return
 
+        let idCategory=0;
+        await axios.post('http://localhost:4000/api/section/add',
+        {
+            nombre_seccion: newCategoryName
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => {
+            idCategory = res.data.id;
+        })
+
         const newCategory = {
-            id: uuid(),
+            id: idCategory,
             nombre: newCategoryName,
             productos: []
         }
+
+        console.log(newCategory);
 
         setCategories([...categories, newCategory])
         setNewCategoryName('')

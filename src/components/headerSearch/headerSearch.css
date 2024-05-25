@@ -37,11 +37,14 @@
 
 .header-li-img{
     width: 2em;
+    height: 2em;
     cursor: pointer;
 }
 
 .header-li-img-userIcon{
     border-radius: 50%;
+    border: 1px solid var(--darkblue);
+    object-fit: cover;
 }
 
 .header-li-div{

@@ -46,6 +46,7 @@ export const useAuth = create((set) => ({
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('user');
         set({ user: null });
+        set({ token: null });
         set({ isAuthenticated: false });
     },
 }));

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 // Main.jsx
 import React, { useEffect } from 'react';
-import { CartModal } from './components/cartModal/CartModal.jsx';
-import { ModalConflictProduct } from './components/differentRestaurantModal/ModalConflictProduct.jsx';
+import { CartModal } from './components/Modals/cartModal/CartModal.jsx';
+import { ModalConflictProduct } from './components/Modals/differentRestaurantModal/ModalConflictProduct.jsx';
 import { RouterProvider } from "react-router-dom";
 import { useAuth } from './hooks/useAuth.jsx';
 import { getUserData } from './api/auth.jsx';

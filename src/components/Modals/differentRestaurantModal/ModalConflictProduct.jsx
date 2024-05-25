@@ -1,4 +1,4 @@
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import Modal from 'react-modal';
 import './modalConflictProduct.css';
 

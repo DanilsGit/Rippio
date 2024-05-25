@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import './restaurantsInformationResult.css'
 import { useCart } from '../../../hooks/useCart'
-import { ProductModal } from '../../productModal/ProductModal'
+import { ProductModal } from '../../Modals/productModal/ProductModal'
 import { checkProductInCart, handleAddToCart } from '../../../constants/cart'
 import { useProductModal } from '../../../hooks/useProductModal'
 

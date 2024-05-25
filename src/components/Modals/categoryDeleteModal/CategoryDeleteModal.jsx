@@ -2,7 +2,7 @@
 import Modal from 'react-modal'
 import './categoryDeleteModal.css'
 
-export default function CategoryDeleteModal({ isModalOpen, handleCancelModalCategoriesClick, selectedCategory, handleConfirmModalCategoriesClick }) {
+export default function CategoryDeleteModal({ loadingDelete, isModalOpen, handleCancelModalCategoriesClick, selectedCategory, handleConfirmModalCategoriesClick }) {
     return (
         <div>
             <Modal
@@ -23,8 +23,14 @@ export default function CategoryDeleteModal({ isModalOpen, handleCancelModalCate
                                 : <div className='CategoryDeleteModal-noHaveProducts'>
                                     <h1>¿Estás seguro de que deseas eliminar la categoría <span>{selectedCategory?.nombre}</span>?</h1>
                                     <div>
-                                        <button onClick={handleConfirmModalCategoriesClick}>Confirmar</button>
-                                        <button onClick={handleCancelModalCategoriesClick}>Cancelar</button>
+                                        {
+                                            loadingDelete
+                                                ? <button>Eliminando... </button>
+                                                : <>
+                                                    <button onClick={handleConfirmModalCategoriesClick}>Confirmar</button>
+                                                    <button onClick={handleCancelModalCategoriesClick}>Cancelar</button>
+                                                </>
+                                        }
                                     </div>
                                 </div>
                             : null

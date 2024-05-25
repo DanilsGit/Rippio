@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
 import { HeaderSearch } from '../components/headerSearch/HeaderSearch';
 import { RestaurantIconResult } from '../components/searchPage/restaurantResult/RestaurantIconResult';
 import { RestaurantsInformationResult } from '../components/searchPage/RestaurantInformationResult/RestaurantsInformationResult';

@@ -30,7 +30,7 @@
     gap: 0.5em;
 }
 
-.AddProductMenuModal-form-input input {
+.AddProductMenuModal-form-input input, .AddProductMenuModal-form-input textarea{
     width: 100%;
     font-size: 1em;
     padding: 0.5em;
@@ -60,6 +60,13 @@
 .AddProductMenuModal-form-inputDescription{
     grid-area: description;
 }
+
+.AddProductMenuModal-form-inputDescription textarea{
+    resize: vertical;
+    max-height: 20vh;
+    overflow: auto;
+}
+
 
 .AddProductMenuModal-form-inputPrice{
     grid-area: price;

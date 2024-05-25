@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import './cartModal.css'
 
 

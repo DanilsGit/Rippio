@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import './RestaurantMain.css'
-import { ProductModal } from '../../../components/productModal/ProductModal'
+import { ProductModal } from '../../../components/Modals/productModal/ProductModal'
 import { useProductModal } from '../../../hooks/useProductModal'
 
 export function RestaurantMain({ categories, restaurant }) {

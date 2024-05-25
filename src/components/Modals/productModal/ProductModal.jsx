@@ -2,9 +2,9 @@
 import Modal from 'react-modal';
 import './productModal.css';
 import { useState } from 'react';
-import { useCart } from '../../hooks/useCart';
-import { handleAddToCart } from '../../constants/cart';
-import { useProductModal } from '../../hooks/useProductModal';
+import { useCart } from '../../../hooks/useCart';
+import { handleAddToCart } from '../../../constants/cart';
+import { useProductModal } from '../../../hooks/useProductModal';
 
 export const ProductModal = ({ product, restaurant }) => {
 

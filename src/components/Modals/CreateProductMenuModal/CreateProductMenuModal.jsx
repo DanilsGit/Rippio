@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import Modal from 'react-modal'
-import './addProductMenuModal.css'
+import './createProductMenuModal.css'
 import Select from 'react-select';
-import { uploadFile } from '../../constants/image';
-import { useState } from 'react';
+import { uploadFile } from '../../../constants/image';
+import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react';
 
 
 
-export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddProductClick, handleConfirmModalAddProductClick, setCreatedProduct, categories, createdProduct }) {
+export default function CreateProductMenuModal({ isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit }) {
 
 
     const categoryOptions = categories.map(category => {
@@ -31,14 +31,21 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
 
+
+    useEffect(() => {
+        if (productSelectedToEdit && image !== productSelectedToEdit.img_product) {
+            setImage(productSelectedToEdit.img_product);
+        }
+    }, [productSelectedToEdit, image]);
+
     const uploadImage = async (file) => {
         setLoading(true);
         try {
             console.log(file);
             const newImage = await uploadFile(file, `ProductImage`, file.name);
             setImage(newImage);
-            setCreatedProduct({
-                ...createdProduct,
+            setProduct({
+                ...newProduct,
                 imagen: newImage
             })
         } catch (error) {
@@ -90,19 +97,30 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
             <Modal
                 className='AddProductMenuModal Modal'
                 isOpen={isModalOpen}
-                onRequestClose={handleCancelModalAddProductClick}
+                onRequestClose={handleCancel}
                 contentLabel="Agregar nuevo producto"
             >
                 <div>
-                    {
-                        createdProduct?.nombre
-                            ? <h1>{createdProduct.nombre}</h1>
+                    {/* {
+                        newProduct?.nombre
+                            ? <h1>{newProduct.nombre}</h1>
                             : <h1>Nuevo producto</h1>
+                    } */}
+                    {
+                        <h1>
+                            {
+                                productSelectedToEdit
+                                    ? productSelectedToEdit.nombre
+                                    : newProduct?.nombre
+                                        ? newProduct.nombre
+                                        : 'Nuevo producto'
+                            }
+                        </h1>
                     }
                     <form
                         onSubmit={(e) => {
                             e.preventDefault()
-                            handleConfirmModalAddProductClick()
+                            handleConfirm()
                         }}
                         className='AddProductMenuModal-form'
                     >
@@ -113,15 +131,20 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                                 <label htmlFor="categories">Categoría</label>
                                 <Select
                                     className='AddProductMenuModal-form-inputCategory-select'
-                                    required
+                                    required={productSelectedToEdit ? false : true}
                                     id="categories"
                                     name="categories"
                                     isMulti
+                                    defaultValue={productSelectedToEdit
+                                        ? categories.filter(category => category.productos.find(producto => producto.id === productSelectedToEdit.id))
+                                            .map(category => ({ value: category.id, label: category.nombre }))
+                                        : []
+                                    }
                                     options={categoryOptions}
                                     onChange={
                                         (selectedCategories) => {
-                                            setCreatedProduct({
-                                                ...createdProduct,
+                                            setProduct({
+                                                ...newProduct,
                                                 categories: selectedCategories.map(category => category.value)
                                             })
                                         }}
@@ -134,14 +157,20 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                                 <label htmlFor="estado">Estado</label>
                                 <Select
                                     className='AddProductMenuModal-form-inputCategory-select'
-                                    required
+                                    required={productSelectedToEdit ? false : true}
                                     id="estado"
                                     name="estado"
                                     options={estados}
+                                    defaultValue={productSelectedToEdit ?
+                                        productSelectedToEdit.disponible ?
+                                            { value: 'true', label: 'Disponible' }
+                                            : { value: 'false', label: 'No disponible' }
+                                        : null
+                                    }
                                     onChange={
                                         (estado) => {
-                                            setCreatedProduct({
-                                                ...createdProduct,
+                                            setProduct({
+                                                ...newProduct,
                                                 estado: estado.value
                                             })
                                         }}
@@ -153,12 +182,18 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                         <div
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputName'>
                             <label htmlFor="nombre">Nombre</label>
-                            <input required type="text" id="nombre" name="nombre" onChange={(e) => setCreatedProduct({ ...createdProduct, nombre: e.target.value })} />
+                            <input required={productSelectedToEdit ? false : true}
+                                value={newProduct ? newProduct.nombre : ''}
+                                type="text" id="nombre" name="nombre" onChange={(e) => setProduct({ ...newProduct, nombre: e.target.value })} />
                         </div>
                         <div
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputDescription'>
                             <label htmlFor="descripcion">Descripción</label>
-                            <input required type="text" id="descripcion" name="descripcion" onChange={(e) => setCreatedProduct({ ...createdProduct, descripcion: e.target.value })} />
+                            <textarea required={productSelectedToEdit ? false : true}
+                                value={newProduct ? newProduct.descripcion : ''}
+                                type="text" id="descripcion" name="descripcion"
+                                onChange={(e) => setProduct({ ...newProduct, descripcion: e.target.value })}
+                            />
                         </div>
                         <div
                             onDragLeave={handleDragLeave}
@@ -167,7 +202,6 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputImage'
                         >
                             <label className="hidden-label">Subir imagen</label>
-
                             {
                                 loading
                                     ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' alt='loading' className='AddProductMenuModal-form-inputImage-img AddProductMenuModal-form-inputImage-imgLoading' />
@@ -175,7 +209,9 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                                         ? <img className="AddProductMenuModal-form-inputImage-img" src={image} alt="Imagen del producto" />
                                         : <img className="AddProductMenuModal-form-inputImage-img AddProductMenuModal-form-inputImage-imgDefault" src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="Imagen del producto" />
                             }
-                            <input required type="file" id="uploadProductImage" name="uploadImage" accept=".png, .jpg"
+                            <input
+                                required={productSelectedToEdit ? false : true}
+                                type="file" id="uploadProductImage" name="uploadImage" accept=".png, .jpg"
                                 onChange={handleInputProfileChange} />
                             <Tippy content='Intentaremos dar la mejor presentación al público'>
                                 <button className="AddProductMenuModal-form-inputImage-Btn" onClick={handleButtonClick}>
@@ -187,11 +223,20 @@ export default function AddProductMenuModal({ isModalOpen, handleCancelModalAddP
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputPrice'
                         >
                             <label htmlFor="costo_unit">Costo unitario</label>
-                            <input required type="number" id="costo_unit" name="costo_unit" onChange={(e) => setCreatedProduct({ ...createdProduct, costo_unit: e.target.value })} />
+                            <input
+                            value={newProduct ? newProduct.costo_unit : '' }
+                                required={productSelectedToEdit ? false : true}
+                                type="number" id="costo_unit" name="costo_unit" onChange={(e) => setProduct({ ...newProduct, costo_unit: e.target.value })} />
                         </div>
                         <div className='AddProductMenuModal-form-btnContainer'>
-                            <button>Agregar</button>
-                            <button type='button' onClick={handleCancelModalAddProductClick}>Cancelar</button>
+                            <button>
+                                {
+                                    productSelectedToEdit
+                                        ? 'Editar'
+                                        : 'Agregar'
+                                }
+                            </button>
+                            <button type='button' onClick={handleCancel}>Cancelar</button>
                         </div>
                     </form>
                 </div>

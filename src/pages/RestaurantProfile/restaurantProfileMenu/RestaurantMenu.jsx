@@ -2,7 +2,7 @@
 import uuid from 'react-uuid'
 import './restaurantMenu.css'
 
-export default function RestaurantMenu({categories, setCategories}) {
+export default function RestaurantMenu({categories, setCategories, setSelectedProduct, setIsModalEditProductOpen, setEditProduct}) {
 
     const handleDragStart = (e, item) => {
         e.dataTransfer.setData('itemIds', [item.uniqueKey, item.id])
@@ -15,7 +15,7 @@ export default function RestaurantMenu({categories, setCategories}) {
         const categoryItem = categories.find(category =>
             category.productos.find(product => product.uniqueKey == itemIds[0])
         );
-
+        console.log(categoryItem);
         if (categoryDrop === categoryItem) return
 
         const item = categoryItem.productos.find(product => product.uniqueKey == itemIds[0])
@@ -52,8 +52,6 @@ export default function RestaurantMenu({categories, setCategories}) {
         e.preventDefault()
     }
 
-
-
     return (
         <section className='RestaurantProfileMenu-manage-products'>
             <h2>Gestión de productos</h2>
@@ -70,7 +68,6 @@ export default function RestaurantMenu({categories, setCategories}) {
                                 {
                                     category.productos.map((product) => {
                                         const uniqueKey = uuid()
-                                        if (!product.id) return
                                         return (
                                             <article draggable='true' onDragStart={(e) => handleDragStart(e, product)}
                                                 key={uniqueKey} className='RestaurantProfileMenu-manage-ddZone-product'>
@@ -78,7 +75,11 @@ export default function RestaurantMenu({categories, setCategories}) {
                                                 <h4>{product.nombre}</h4>
                                                 <p>{product.descripcion}</p>
                                                 <span>{product.costo_unit}</span>
-                                                <button>🖌</button>
+                                                <button onClick={()=>{
+                                                    setSelectedProduct(product)
+                                                    setIsModalEditProductOpen(true)
+                                                    setEditProduct(product)
+                                                }}>🖌</button>
                                             </article>
                                         )
                                     })

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import {  useEffect, useState } from 'react';
 import './categoriesAside.css'
 import axios from 'axios';
 import { useAuth } from '../../../hooks/useAuth';
@@ -7,6 +7,15 @@ import { useAuth } from '../../../hooks/useAuth';
 export default function CategoriesAside({ categories, setCategories, setSelectedCategory, setIsModalOpen}) {
 
     const token = useAuth((state) => state.token)
+
+    const [error, setError] = useState(null);
+    useEffect(() => {
+        if (error) {
+            setTimeout(() => {
+                setError(null)
+            }, 3000)
+        }
+    }, [error])
     
     const  handleClickExpandCategories = () => {
         const categories = document.querySelector('.RestaurantProfileMenu-manage-categoriesContainer')
@@ -15,6 +24,7 @@ export default function CategoriesAside({ categories, setCategories, setSelected
 
     const [editingCategory, setEditingCategory] = useState(null);
     const [editedName, setEditedName] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleNameChange = (event) => {
         setEditedName(event.target.value);
@@ -26,27 +36,37 @@ export default function CategoriesAside({ categories, setCategories, setSelected
         setAddingCategory(false)
     };
 
-    const handleConfirmClick = () => {
-        // Aquí debes implementar la lógica para actualizar la categoría en la base de datos
-        // usando `editingCategory` y `editedName`.
-
+    const handleConfirmClick = async () => {
         if (!editedName) return
 
-        const newCategories = [...categories]
+        setLoading(true);
 
-        newCategories.map(category => {
-            if (category.id == editingCategory) {
-                category.nombre = editedName
+        await axios.post('https://rippio-api.vercel.app/api/section/update',
+        {
+            id_seccion: editingCategory,
+            nombre_seccion: editedName
+        },
+        {
+            headers: {
+                authorization: `Bearer ${token}`
             }
+        }).then(() => {
+            const newCategories = [...categories]
+            newCategories.map(category => {
+                if (category.id == editingCategory) {
+                    category.nombre = editedName
+                }
+            })
+            setCategories(newCategories)
+            setEditingCategory(null);
+            setEditedName('');
+            setLoading(false);
+        }).catch(error => {
+            console.log(error.response.data.error);
+            setError(error.response.data.error)
+            setLoading(false);
         })
-
-        setCategories(newCategories)
-
-        // Luego, restablece `editingCategory` y `editedName` a sus valores iniciales.
-        setEditingCategory(null);
-        setEditedName('');
     };
-
 
 
     const [addingCategory, setAddingCategory] = useState(false);
@@ -62,11 +82,14 @@ export default function CategoriesAside({ categories, setCategories, setSelected
         setNewCategoryName(event.target.value);
     }
 
+    
     const handleConfirmAddCategoryClick = async () => {
         if (!newCategoryName) return
+        setLoading(true);
 
-        let idCategory=0;
-        await axios.post('http://localhost:4000/api/section/add',
+        
+
+        await axios.post('https://rippio-api.vercel.app/api/section/add',
         {
             nombre_seccion: newCategoryName
         },
@@ -75,26 +98,29 @@ export default function CategoriesAside({ categories, setCategories, setSelected
                 'Authorization': `Bearer ${token}`
             }
         }).then(res => {
-            idCategory = res.data.id;
-        })
-
-        const newCategory = {
-            id: idCategory,
-            nombre: newCategoryName,
-            productos: []
-        }
-
-        console.log(newCategory);
-
-        setCategories([...categories, newCategory])
-        setNewCategoryName('')
-        setAddingCategory(false)
+            const idCategory = res.data.id;
+            const newCategory = {
+                id: idCategory,
+                nombre: newCategoryName,
+                productos: []
+            }
+            setCategories([...categories, newCategory])
+            setNewCategoryName('')
+            setAddingCategory(false)
+            setLoading(false);
+        }).catch(error => {
+            setError(error.response.data.error)
+            setLoading(false);
+        });
     }
+
 
     const handleCancelAddCategoryClick = () => {
         setNewCategoryName('')
         setAddingCategory(false)
     }
+
+
 
     return (
         <section className='RestaurantProfileMenu-manage-category'>
@@ -103,6 +129,9 @@ export default function CategoriesAside({ categories, setCategories, setSelected
                 <button onClick={handleClickExpandCategories}>{' ⬇ '}</button>
             </header>
             <section className='RestaurantProfileMenu-manage-categoriesContainer'>
+            {
+                error ? <p className='RestaurantProfileMenu-manage-categoriesContainer-errorMsg'>{error}</p> : null
+            }
             {
                     addingCategory
                         ? (
@@ -117,8 +146,13 @@ export default function CategoriesAside({ categories, setCategories, setSelected
                                     }}
                                 />
                                 <div>
-                                    <button onClick={handleConfirmAddCategoryClick}>✅</button>
-                                    <button onClick={handleCancelAddCategoryClick}>❌</button>
+                                    <button onClick={handleConfirmAddCategoryClick}
+                                        className={loading ? 'RestaurantProfileMenu-manage-categoriesContainer-loadingBtn' : ''}
+                                    >
+                                        {loading ? '⌛' : '✅'}
+                                    </button>
+                                    {loading ? null : <button onClick={handleCancelAddCategoryClick}>❌</button>}
+                                    
                                 </div>
                             </div>
                         )
@@ -145,7 +179,11 @@ export default function CategoriesAside({ categories, setCategories, setSelected
                             <div>
                                 {
                                     editingCategory === category.id
-                                        ? <button onClick={handleConfirmClick}>✅</button>
+                                        ? <button onClick={handleConfirmClick}
+                                        className={loading ? 'RestaurantProfileMenu-manage-categoriesContainer-loadingBtn' : ''}
+                                        >
+                                            {loading ? '⌛' : '✅'}
+                                        </button>
                                         :
                                         <>
                                             <button onClick={() => handleEditClick(category.id, category.nombre)}>🖌</button>

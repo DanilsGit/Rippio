@@ -38,6 +38,13 @@
     overflow: auto;
 }
 
+.RestaurantProfileMenu-manage-categoriesContainer-errorMsg{
+    color: #ff0000;
+    font-weight: 800;
+    border-bottom: #ff0000 2px solid;
+
+}
+
 .RestaurantProfileMenu-manage-categoriesContainer > div {
     color: #fff;
     font-size: 0.8em;
@@ -97,6 +104,19 @@
     border-radius: 1em;
     cursor: pointer;
 
+}
+
+.RestaurantProfileMenu-manage-categoriesContainer-loadingBtn{
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .RestaurantProfileMenu-manage-categoriesContainerAddBtn:hover{

@@ -5,9 +5,9 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
             <section className="loginPage-content">
                 <form
                     onSubmit={handleSubmitLogin}
-                    className="loginPage-form">
+                    className={`loginPage-form ${userMode ? 'user-mode' : 'non-user-mode'}`}>
                     <h2 className="loginPage-form-h2">{text.login.title_login}</h2>
-                    <div className="loginPage-form-input">
+                    <div className={`loginPage-form-input ${userMode ? 'user-mode' : 'non-user-mode'}`}>
                         <i className="fas fa-user"></i>
                         <input type="text" placeholder="Correo electrónico"
                             onChange={(e) => setUserLogin((user) => ({
@@ -32,7 +32,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                     <input
                         type="submit"
                         value={text.login.button_login}
-                        className="loginPage-form-button"
+                        className={`loginPage-form-button ${userMode ? 'user-mode' : 'non-user-mode'}`}
                     />
                     <p className="info">
                         {text.login.title_register}{" "}
@@ -49,12 +49,12 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
             </section>
 
             <section className="registerPage-content">
-                <form action="" className="registerPage-form"
+                <form action="" className={`registerPage-form ${userMode ? 'user-mode' : 'non-user-mode'}`}
                     onSubmit={handleSubmitRegister}
                 >
                     <h2 className="registerPage-form-h2"> {text.register.title_register}</h2>
 
-                    <div className="registerPage-form-input">
+                    <div className={`registerPage-form-input ${userMode ? 'user-mode' : 'non-user-mode'}`}>
                         <input required type="text" placeholder={userMode ? "Nombre" : "Nombre del restaurante"}
                         id='registerInputFirstName'
                             onChange={(e) => setUserRegister((user) => ({
@@ -122,7 +122,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                     <input
                         type="submit"
                         value={text.register.button_register}
-                        className="registerPage-form-button"
+                        className={`registerPage-form-button ${userMode ? 'user-mode' : 'non-user-mode'}`}
                     />
                     <p className="info">
                         {text.register.title_login}{" "}
@@ -138,7 +138,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                 </form>
             </section>
 
-            <div className="panels-content">
+            <div className={`panels-content ${userMode ? 'user-mode' : 'non-user-mode'}`}>
                 <div className="panel left-panel">
                     <div className="left-panel-content">
                         <h3>{text.register.title_login}</h3>

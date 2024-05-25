@@ -82,18 +82,18 @@ export function RegisterPage() {
     },
     {
       register: {
-        title_register: 'Haz crecer tu restaurante',
+        title_register: 'Bienvenido a la familia',
         button_register: 'Registrar restaurante',
         title_login: '¿Tu restaurante ya está en rippio?',
-        p_login: 'Inicia sesión para gestionar tu restaurante y ver tus pedidos.',
-        button_login: 'Administrar!'
+        p_login: 'Inicia sesión para actualizar la información de tu negocio, gestionar tus pedidos y atraer nuevos clientes.',
+        button_login: '¡Accede ya!'
       },
       login: {
-        title_login: 'Administra tu restaurante',
-        button_login: 'Gestionar',
-        title_register: '¿Aún no estás con nosotros?',
-        p_register: 'Registra tu restaurante con nosotros y aumenta tus ventas.',
-        button_register: 'Comenzar!'
+        title_login: 'Accede a tu restaurante',
+        button_login: 'Iniciar sesión',
+        title_register: '¿Aún no tienes una cuenta?',
+        p_register: 'Al registrar tu restaurante con nosotros, tendrás acceso a numerosos beneficios y clientes potenciales. Tenemos las mejores tarifas y políticas del mercado.',
+        button_register: '¡Comienza ya!'
       }
     }
   ]
@@ -124,7 +124,7 @@ export function RegisterPage() {
           <button onClick={handleSwitchUserToRestaurant}>
             {
               isUserMode
-                ? <h2>Consigue visibilidad</h2>
+                ? <h2> Acceso negocios </h2>
                 : <h2>¡Inicia sesión aquí!</h2>
             }
           </button>

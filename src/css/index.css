@@ -57,17 +57,18 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  padding: 0.5em;
+  padding: 1em;
   font-size: 1em;
-  border: 5px solid rgb(0, 0, 0);
+  border: none;
   border-radius: 1em;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.418);
 }
 
 .ReactModal__Overlay{
-  background-color: #032b2ab4 !important;
+  background-color: #020808b4 !important;
   z-index: 2;
 }
 

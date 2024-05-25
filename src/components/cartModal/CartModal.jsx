@@ -11,7 +11,7 @@ export function CartModal() {
         <div>
             <Modal className='ModalCart Modal' isOpen={showCartModal} onRequestClose={toggleCartModal}>
                 <header className='ModalCart-header'>
-                    <h2>Rippio Carrito</h2>
+                    <h2>Carrito de compras</h2>
                 </header>
                 {
                     cart.items.length !== 0
@@ -49,7 +49,8 @@ export function CartModal() {
                         <>
                             <section className='ModalCart-content'>
                                 <div className='ModalCart-content-items'>
-                                    <h3>No hay productos en el carrito</h3>
+                                    <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/CartModal%2FEmptyIcon.png?alt=media&token=c47e70d1-4819-499d-b6e2-d6a4bdbb140a'></img>
+                                    <h3>Tu carrito está vacío...</h3>
                                 </div>
                             </section>
                         </>

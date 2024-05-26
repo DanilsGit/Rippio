@@ -8,7 +8,6 @@ import RestaurantMenu from './RestaurantMenu';
 import axios from 'axios';
 import { useAuth } from '../../../hooks/useAuth';
 
-
 export function RestaurantProfileMenu() {
     const user = useAuth((state) => state.user)
     const token = useAuth((state) => state.token)
@@ -23,6 +22,7 @@ export function RestaurantProfileMenu() {
     const [isModalEditProductOpen, setIsModalEditProductOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [editedProduct, setEditedProduct] = useState(null);
+    const [loadingProduct, setLoadingProduct] = useState(false);
 
     const addUniqueKeyToProducts = (categories) => {
         const newCategories = categories.map(category => {
@@ -80,33 +80,53 @@ export function RestaurantProfileMenu() {
 
     // CRUD PRODUCTS
 
-    const handleConfirmModalAddProductClick = () => {
-        const newProduct = {
-            ...createdProduct,
-            id: uuid(), // This is a temporary solution, the backend should generate the id
-            uniqueKey: uuid()
-        }
-        console.log(newProduct);
-        const newCategories = categories.map(category => {
-            if (newProduct.categories.includes(category.id)) {
-                return {
-                    ...category,
-                    productos: [...category.productos, {
-                        id: newProduct.id,
-                        disponible: newProduct.disponible,
-                        nombre: newProduct.nombre,
-                        descripcion: newProduct.descripcion,
-                        img_product: newProduct.imagen,
-                        costo_unit: newProduct.costo_unit
-                    }]
+    const handleConfirmModalAddProductClick = async () => {
+        setLoadingProduct(true);
+        try {
+            await axios.post(`https://rippio-api.vercel.app/api/product/add`,
+                {
+                    secciones: createdProduct.categories,
+                    nombre: createdProduct.nombre,
+                    descripcion: createdProduct.descripcion,
+                    cost_unit: createdProduct.costo_unit,
+                    img_product: createdProduct.imagen,
+                    disponible: createdProduct.disponible
+                },
+                {
+                    headers: {
+                        authorization: `Bearer ${token}`
+                    }
                 }
-            }
-            return category
-        })
-
-        setCategories(newCategories)
-        setCreatedProduct(null)
-        setIsModalAddProductOpen(false);
+            ).then(res => {
+                const newProduct = {
+                    ...createdProduct,
+                    id: res.data.response.id,
+                    uniqueKey: uuid()
+                }
+                const newCategories = categories.map(category => {
+                    if (newProduct.categories.includes(category.id)) {
+                        return {
+                            ...category,
+                            productos: [...category.productos, {
+                                id: newProduct.id,
+                                disponible: newProduct.disponible,
+                                nombre: newProduct.nombre,
+                                descripcion: newProduct.descripcion,
+                                img_product: newProduct.imagen,
+                                costo_unit: newProduct.costo_unit
+                            }]
+                        }
+                    }
+                    return category
+                })
+                setCategories(newCategories)
+                setCreatedProduct(null)
+                setIsModalAddProductOpen(false);
+            })
+        } catch (error) {
+            console.error(error)
+        }
+        setLoadingProduct(false);
     }
 
     const handleCancelModalAddProductClick = () => {
@@ -114,30 +134,68 @@ export function RestaurantProfileMenu() {
         setIsModalAddProductOpen(false);
     }
 
-    const handleConfirmModalEditProductClick = () => {
-        const newProduct = {
-            ...editedProduct,
-            id: uuid() // This is a temporary solution, the backend should generate the id
-        }
-
-        // const newCategories = categories.map(category => {
-        //     if (createdProduct.categories.includes(category.id)) {
-        //         return {
-        //             ...category,
-        //             productos: [...category.productos, {
-        //                 id: newProduct.id,
-        //                 disponible: newProduct.disponible,
-        //                 nombre: newProduct.nombre,
-        //                 descripcion: newProduct.descripcion,
-        //                 imagen: newProduct.imagen,
-        //                 costo_unit: newProduct.costo_unit
-        //             }]
-        //         }
-        //     }
-        //     return category
-        // })
-        setIsModalEditProductOpen(false);
+    const handleConfirmModalEditProductClick = async () => {
+        setLoadingProduct(true);
+        await axios.post(`https://rippio-api.vercel.app/api/product/updateProd`,
+        {
+            id_producto: editedProduct.id,
+            disponible: editedProduct.disponible,
+            nombre: editedProduct.nombre,
+            descripcion: editedProduct.descripcion,
+            cost_unit: editedProduct.costo_unit,
+            img_product: editedProduct.img_product,
+            secciones: editedProduct.categories
+        },
+        {
+            headers: {
+                authorization: `Bearer ${token}`
+            }
+        }).then(() => {
+            const categoryWithoutProduct = categories.map(category => {
+                return {
+                    ...category,
+                    productos: category.productos.filter(product => product.id !== selectedProduct.id)
+                }
+            })
+            const newCategories = categoryWithoutProduct.map(category => {
+                if (editedProduct.categories.includes(category.id)) {
+                    return {
+                        ...category,
+                        productos: [...category.productos, {
+                            uniqueKey: uuid(),
+                            id: editedProduct.id,
+                            disponible: editedProduct.disponible,
+                            nombre: editedProduct.nombre,
+                            descripcion: editedProduct.descripcion,
+                            img_product: editedProduct.img_product,
+                            costo_unit: editedProduct.costo_unit
+                        }]
+                    }
+                }
+                return category
+            })
+    
+            setCategories(newCategories)
+            setIsModalEditProductOpen(false);
+        }).catch(error => {
+            console.error(error)
+            setLoadingProduct(false);
+        })
+        setLoadingProduct(false);
     }
+
+    useEffect(() => {
+        if (categories && selectedProduct) {
+            const categoriesFromProduct = categories.filter(category => category.productos.find(product => product.id == selectedProduct.id))
+
+            const productWithCategories = {
+                ...selectedProduct,
+                categories: categoriesFromProduct.map(category => category.id)
+            }
+
+            setEditedProduct(productWithCategories)
+        }
+    }, [selectedProduct, categories])
 
     const handleCancelModalEditProductClick = () => {
         setSelectedProduct(null)
@@ -186,8 +244,8 @@ export function RestaurantProfileMenu() {
                             }
                         </section>
                         <CategoryDeleteModal loadingDelete={loadingDeleteCategory} isModalOpen={isModalCategoriesOpen} handleCancelModalCategoriesClick={handleCancelModalCategoriesClick} selectedCategory={selectedCategory} handleConfirmModalCategoriesClick={handleConfirmRemoveModalCategoriesClick} />
-                        <CreateProductMenuModal categories={categories} isModalOpen={isModalAddProductOpen} handleCancel={handleCancelModalAddProductClick} handleConfirm={handleConfirmModalAddProductClick} setProduct={setCreatedProduct} newProduct={createdProduct} />
-                        <CreateProductMenuModal categories={categories} isModalOpen={isModalEditProductOpen} handleCancel={handleCancelModalEditProductClick} handleConfirm={handleConfirmModalEditProductClick} setProduct={setEditedProduct} newProduct={editedProduct} productSelectedToEdit={selectedProduct} />
+                        <CreateProductMenuModal loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalAddProductOpen} handleCancel={handleCancelModalAddProductClick} handleConfirm={handleConfirmModalAddProductClick} setProduct={setCreatedProduct} newProduct={createdProduct} />
+                        <CreateProductMenuModal loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalEditProductOpen} handleCancel={handleCancelModalEditProductClick} handleConfirm={handleConfirmModalEditProductClick} setProduct={setEditedProduct} newProduct={editedProduct} productSelectedToEdit={selectedProduct} />
                     </>
                     : error ? <h1>Hubo un error al cargar los productos</h1> : <h1>Cargando...</h1>
             }

@@ -8,7 +8,7 @@ import Tippy from '@tippyjs/react';
 
 
 
-export default function CreateProductMenuModal({ isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit }) {
+export default function CreateProductMenuModal({ isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit, loadingProduct }) {
 
 
     const categoryOptions = categories.map(category => {
@@ -19,8 +19,8 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
     })
 
     const estados = [
-        { value: 'disponible', label: 'Disponible' },
-        { value: 'no disponible', label: 'No disponible' }
+        { value: 'true', label: 'Disponible' },
+        { value: 'false', label: 'No disponible' }
     ]
 
     const handleButtonClick = () => {
@@ -41,7 +41,6 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
     const uploadImage = async (file) => {
         setLoading(true);
         try {
-            console.log(file);
             const newImage = await uploadFile(file, `ProductImage`, file.name);
             setImage(newImage);
             setProduct({
@@ -101,11 +100,6 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                 contentLabel="Agregar nuevo producto"
             >
                 <div>
-                    {/* {
-                        newProduct?.nombre
-                            ? <h1>{newProduct.nombre}</h1>
-                            : <h1>Nuevo producto</h1>
-                    } */}
                     {
                         <h1>
                             {
@@ -131,7 +125,7 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                                 <label htmlFor="categories">Categoría</label>
                                 <Select
                                     className='AddProductMenuModal-form-inputCategory-select'
-                                    required={productSelectedToEdit ? false : true}
+                                    required
                                     id="categories"
                                     name="categories"
                                     isMulti
@@ -157,12 +151,12 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                                 <label htmlFor="estado">Estado</label>
                                 <Select
                                     className='AddProductMenuModal-form-inputCategory-select'
-                                    required={productSelectedToEdit ? false : true}
+                                    required
                                     id="estado"
                                     name="estado"
                                     options={estados}
                                     defaultValue={productSelectedToEdit ?
-                                        productSelectedToEdit.disponible ?
+                                        productSelectedToEdit.disponible == 'true' ?
                                             { value: 'true', label: 'Disponible' }
                                             : { value: 'false', label: 'No disponible' }
                                         : null
@@ -171,7 +165,7 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                                         (estado) => {
                                             setProduct({
                                                 ...newProduct,
-                                                estado: estado.value
+                                                disponible: estado.value
                                             })
                                         }}
                                     placeholder="Estado"
@@ -182,14 +176,14 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                         <div
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputName'>
                             <label htmlFor="nombre">Nombre</label>
-                            <input required={productSelectedToEdit ? false : true}
+                            <input required
                                 value={newProduct ? newProduct.nombre : ''}
                                 type="text" id="nombre" name="nombre" onChange={(e) => setProduct({ ...newProduct, nombre: e.target.value })} />
                         </div>
                         <div
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputDescription'>
                             <label htmlFor="descripcion">Descripción</label>
-                            <textarea required={productSelectedToEdit ? false : true}
+                            <textarea required
                                 value={newProduct ? newProduct.descripcion : ''}
                                 type="text" id="descripcion" name="descripcion"
                                 onChange={(e) => setProduct({ ...newProduct, descripcion: e.target.value })}
@@ -225,18 +219,25 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                             <label htmlFor="costo_unit">Costo unitario</label>
                             <input
                             value={newProduct ? newProduct.costo_unit : '' }
-                                required={productSelectedToEdit ? false : true}
+                                required
                                 type="number" id="costo_unit" name="costo_unit" onChange={(e) => setProduct({ ...newProduct, costo_unit: e.target.value })} />
                         </div>
                         <div className='AddProductMenuModal-form-btnContainer'>
                             <button>
                                 {
+                                    loadingProduct
+                                        ? 'Cargando...'
+                                        :
                                     productSelectedToEdit
                                         ? 'Editar'
                                         : 'Agregar'
                                 }
                             </button>
-                            <button type='button' onClick={handleCancel}>Cancelar</button>
+                            {
+                                loadingProduct
+                                    ? null
+                                    : <button type='button' onClick={handleCancel}>Cancelar</button>
+                            }
                         </div>
                     </form>
                 </div>

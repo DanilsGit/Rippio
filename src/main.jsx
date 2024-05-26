@@ -8,6 +8,8 @@ import { SearchPage } from './pages/SearchPage.jsx'
 import { RestaurantPage } from './pages/RestaurantPage/RestaurantPage.jsx'
 import { Profile } from './pages/Profile/Profile.jsx'
 import { ProfileSettings } from './pages/Profile/ProfileSettings.jsx'
+import { ProfileDirections } from './pages/Profile/ProfileDirections.jsx'
+import { ProfilePaymentMethods } from './pages/Profile/ProfilePaymentMethods.jsx'
 import { ProfileCredits } from './pages/Profile/ProfileCredits.jsx'
 import { ProfileOrders } from './pages/Profile/ProfileOrders.jsx'
 import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.jsx';
@@ -16,7 +18,6 @@ import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfi
 import { InfoPage } from './pages/InfoPage.jsx'
 import { ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute, ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
 import { AllRestaurants } from './pages/AllRestaurants.jsx';
-
 
 import './css/index.css'
 import 'normalize.css'
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: '/profile/settings',
         element: <ProfileSettings />,
+      },
+      {
+        path: '/profile/directions',
+        element: <ProfileDirections />,
+      },
+      {
+        path: '/profile/paymentmethods',
+        element: <ProfilePaymentMethods/>,
       },
       {
         path: '/profile/credits',

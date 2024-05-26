@@ -18,6 +18,16 @@ const links = [
         text: 'Ajustes de cuenta'
     },
     {
+        to: '/profile/directions',
+        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FubicationIcon.png?alt=media&token=5b448b09-8a03-4e0d-805d-913417f783cc',
+        text: 'Direcciones'
+    },
+    {
+        to: '/paymentmethods',
+        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FpaymentMethod.png?alt=media&token=7e222e81-16d2-4dea-a72b-173747dccdc7',
+        text: 'Métodos de pago'
+    },
+    {
         to: '/profile/credits',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcreditsIcon.png?alt=media&token=e608b819-b6cd-4999-a799-a4d27d172fdf',
         text: 'Créditos'
@@ -26,11 +36,6 @@ const links = [
         to: '/profile/orders',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FwatchIcon.png?alt=media&token=0fd1e369-ac01-475f-a219-5a567f89c775',
         text: 'Últimos pedidos'
-    },
-    {
-        to: '/info',
-        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FhelpIcon.png?alt=media&token=04620c4d-2768-49b5-b2b7-e207d36c1ce0',
-        text: 'Centro de ayuda'
     }
 ]
 

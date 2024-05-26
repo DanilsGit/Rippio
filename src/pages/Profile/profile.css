@@ -1,14 +1,14 @@
 .ProfilePage{
     background-image:
     url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2Fprofilebackground.png?alt=media&token=11e3acae-aeec-4acd-a5fc-048e31a540b3');
-    background-size: fill;
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
 
 .ProfilePageContent{
     background: transparent;
-    background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, rgba(255, 209, 5, 0.308) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 100%);
     min-height: 90vh;
     display: flex;
     align-items: start;
@@ -25,16 +25,16 @@
     background-color: #fff;
     border-radius: 1em;
     padding: 1em;
-    box-shadow: -10px 10px 0px 0px #0000001e;
+    box-shadow: -10px 10px 0px 0px #8d44001e;
 }
 
 .ProfileOptions-header{
     font-size: 1.5em;
     font-weight: bold;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #00000023;
+    border-bottom: 1px solid #00616438;
     display: flex;
-    gap: 0.5em;
+    gap: 0.6em;
 }
 
 .ProfileOptions-header img{
@@ -48,13 +48,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #000;
+    color: #0a4547;
 }
 
 .ProfileOptions-header p:nth-child(1) {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
-    color: #00000099;
+    color: #19666699;
     font-size: 0.5em;
 }
 
@@ -85,12 +85,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 1em;
     flex: 3;
-    box-shadow: -10px 10px 0px 0px #0000001e;
+    box-shadow: -10px 10px 0px 0px #8531001e;
 }
-
 
 
 @media screen and (max-width: 645px){

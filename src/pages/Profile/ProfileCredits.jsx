@@ -15,7 +15,7 @@ export function ProfileCredits(){
                 <Link className='ProfileCredits-questionSection-gridItem' to="/info">¿Cómo funcionan los créditos?</Link>
                 <Link className='ProfileCredits-questionSection-gridItem' to="/info">¿Cómo usar mis créditos?</Link>
                 <Link className='ProfileCredits-questionSection-gridItem' to="/info">Maneras de adquirir créditos</Link>
-                <Link className='ProfileCredits-questionSection-gridItem' to="/info">Más información acerca de los créditos</Link>
+                <Link className='ProfileCredits-questionSection-gridItem' to="/info">Más información</Link>
             </section>
         </>
     )

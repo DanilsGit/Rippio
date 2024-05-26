@@ -37,9 +37,9 @@ export function HeaderNav() {
                             <button onClick={() => handleClickCartModal(toggleCartModal)} className='cartLink'>
                                 {
                                     cart.items.length > 0 ?
-                                        <img className='cartIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartContainIcon.png?alt=media&token=acb40490-2b9a-4f8b-a335-25e1ced67b36' />
+                                        <img className='cartIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartContainIcon.png?alt=media&token=c2351f31-8fc7-4c0d-bf40-2b92324f2591' />
                                         :
-                                        <img className='cartIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartIcon.png?alt=media&token=e8898b28-899f-4ef7-8468-513ffcde4f9e' />
+                                        <img className='cartIcon' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartIcon.png?alt=media&token=f05761a9-9b6e-4be8-a240-53a483a3461d' />
                                 }
                             </button>
                         </div>

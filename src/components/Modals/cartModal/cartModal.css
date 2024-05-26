@@ -15,44 +15,115 @@
     max-height: 70vh;
     overflow-y: auto;
     text-align: center;
-    margin: 2em;
 }
 
 .ModalCart-content-item{
-    border-bottom: 2px solid #8bacab;
-    padding: 0.7em;
+    border-bottom: 1px solid #8bacab;
+    padding: 1em;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
 }
 
 .ModalCart-content-item-actions{
     display: flex;
-    gap: 1em;
+    gap: .7em;
 }
 
 .ModalCart-content-item-btn{
-    background-color: #01CBC3;
+    background-color: #54aca9;
     color: #fff;
     border: none;
     padding: 0.2em 1em;
     border-radius: 0.5em;
     cursor: pointer;
-    width: auto;
+    width: 2.5em;
+    height: 2.5em;
     font-size: 1em;
+    font-weight: 600;
+}
+
+.ModalCart-content-item-btn:hover{
+    background-color: #149997;
+    transition: .6s;
 }
 
 .ModalCart-content-item img{
-    width: 10em;
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1em;
+    box-shadow: -3px 3px 0px 1px rgba(57, 143, 146, 0.644);
 }
 
-/*Para el carrito cuando está vacío*/
-.ModalCart-content-items img{
+.ModalCart-content-item-product{
+    display: flex;
+    align-items: center;
+
+}
+
+.ModalCart-content-item-info{
+    margin-right: 3em;
+    text-align: start;
+    line-height: 1.2em;
+}
+
+.ModalCart-content-item-info h3{
+    font-weight: 600;
+    font-size: 1em;
+    color: #046463;
+    margin-bottom: .2em;
+}
+
+.ModalCart-content-item-info p{
+    font-size: .7em;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: #011a19;
+}
+
+.ModalCart-content-item-info span{
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: .1em;
+    color: #011a19;
+}
+
+/*.ModalCart-content-item-info-desc{
+    font-size: .8em;
+    font-weight: 500;
+    color: #485658;
+}*/
+
+.ModalCart-content-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.ModalCart-content-total h3{
+    font-size: 1em;
+    font-weight: 700;
+    color: #103636;
+}
+
+.ModalCart-content-total span{
+    font-weight: 600;
+    color: #034141;
+    margin-left: .2em;
+}
+
+.ModalCart-content-items-img{
     width: 8em;
     margin-top: 1.5em;
 }
 
-.ModalCart-content-items h3{
+.ModalCart-content-items-h3{
     font-weight: 500;
-    font-size: 1em;
-    color: #254d4c;
+    font-size: .9em;
+    color: #627072;
     margin: 1em;
-}
+} 
 

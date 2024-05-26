@@ -53,7 +53,7 @@
 .Modal{
   position: absolute;
   background-color: #fff;
-  min-width: 50vw;
+  min-width: 40vw;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);

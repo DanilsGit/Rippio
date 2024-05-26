@@ -29,13 +29,7 @@ export const useAuth = create((set) => ({
     },
     register: async (userRegister) => {
         try {
-            const res = await registerRequest(userRegister);
-            const resUser = await getUserData(res.data.id);
-            set({ user: resUser.data[0] });
-            set({ isAuthenticated: true });
-            set({ token: res.data.token });
-            window.localStorage.setItem('token', res.data.token);
-            window.localStorage.setItem('user', JSON.stringify(resUser.data[0]));
+            await registerRequest(userRegister);
         } catch (error) {
             set({ errors: error.response.data });
             console.log(error);

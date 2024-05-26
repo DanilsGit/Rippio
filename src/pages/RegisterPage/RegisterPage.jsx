@@ -34,7 +34,7 @@ export function RegisterPage() {
     }
     console.log(newUserRegister);
     await register(newUserRegister);
-    setUserRegister(newUserRegister);
+    await login({ email: newUserRegister.email, password: newUserRegister.password });
   }
 
   const [userLogin, setUserLogin] = useState({

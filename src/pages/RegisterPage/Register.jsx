@@ -79,7 +79,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                     }
 
                     <div className="registerPage-form-input">
-                        <input required type="text" placeholder={userMode ? "Identificación" : "NIT - Documento"}
+                        <input required type="text" placeholder={userMode ? "Identificación" : "NIT - Documento"} maxLength={userMode ? 10 : 15}
                         id='registerInputId'
                             onChange={(e) => setUserRegister((user) => ({
                                 ...user,
@@ -89,7 +89,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                     </div>
 
                     <div className="registerPage-form-input">
-                        <input required type="text" placeholder="Teléfono" id='registerInputTel'
+                        <input required type="text" placeholder="Teléfono" id='registerInputTel' maxLength={10}
                             onChange={(e) => setUserRegister((user) => ({
                                 ...user,
                                 telefono: e.target.value

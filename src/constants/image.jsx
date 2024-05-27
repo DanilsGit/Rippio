@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { getStorage, ref, getDownloadURL, uploadBytes, deleteObject } from "firebase/storage";
 
 
 const firebaseConfig = {
@@ -20,4 +20,26 @@ export async function uploadFile(file, to, name){
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
     return url;
+}
+
+export async function renameFile(oldPath, newPath) {
+    const storage = getStorage();
+    const oldRef = ref(storage, oldPath);
+    const newRef = ref(storage, newPath);
+
+    // Descargar el archivo existente
+    const url = await getDownloadURL(oldRef);
+    const response = await fetch(url);
+    const blob = await response.blob();
+
+    // Subir el archivo con el nuevo nombre
+    await uploadBytes(newRef, blob);
+
+    // Eliminar el archivo antiguo
+    await deleteObject(oldRef);
+
+    // Obtener la nueva URL de descarga
+    const newUrl = await getDownloadURL(newRef);
+
+    return newUrl;
 }

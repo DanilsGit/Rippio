@@ -86,9 +86,7 @@ export default function CategoriesAside({ categories, setCategories, setSelected
     const handleConfirmAddCategoryClick = async () => {
         if (!newCategoryName) return
         setLoading(true);
-
         
-
         await axios.post('https://rippio-api.vercel.app/api/section/add',
         {
             nombre_seccion: newCategoryName
@@ -107,11 +105,10 @@ export default function CategoriesAside({ categories, setCategories, setSelected
             setCategories([...categories, newCategory])
             setNewCategoryName('')
             setAddingCategory(false)
-            setLoading(false);
         }).catch(error => {
             setError(error.response.data.error)
-            setLoading(false);
         });
+    setLoading(false);
     }
 
 

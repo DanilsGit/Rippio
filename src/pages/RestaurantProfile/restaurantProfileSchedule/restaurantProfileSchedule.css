@@ -1,0 +1,70 @@
+.restaurantProfileSchedule{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+}
+
+.restaurantProfileSchedule h1{
+    margin: 0;
+}
+
+.restaurantProfileSchedule-msgError{
+    color: var(--darkcyan);
+}
+
+.restaurantProfileSchedule-form{
+    display: flex;
+    margin: auto;
+    width: 95%;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    font-size: 0.8em;
+}
+
+.restaurantProfileSchedule-form-daysContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 16em auto;
+    gap: 2em;
+}
+
+.restaurantProfileSchedule-form-daysContainer > div{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.form-daysContainer-TitlesSwitch{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.restaurantProfileSchedule-form-SubmitContainer{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.restaurantProfileSchedule-form-SubmitContainer button{
+    font-size: 1em;
+    width: auto;
+    padding: 0.5em 5em;
+    background-color: var(--darkcyan);
+    border: none;
+    color: #fff;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+    .restaurantProfileSchedule-form-daysContainer{
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+    }
+}

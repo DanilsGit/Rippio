@@ -94,7 +94,7 @@ export default function RestaurantMenu({ categories, setCategories, setSelectedP
                                         const uniqueKey = uuid()
                                         return (
                                             <article draggable='true' onDragStart={(e) => handleDragStart(e, product)}
-                                                key={uniqueKey} className='RestaurantProfileMenu-manage-ddZone-product'>
+                                                key={uniqueKey} className={'RestaurantProfileMenu-manage-ddZone-product ' + (product.disponible ? '' : 'ddZone-product-inactive')}>
                                                 <img draggable='false' src={product.img_product} alt="product" />
                                                 <h4>{product.nombre}</h4>
                                                 <p>{product.descripcion}</p>

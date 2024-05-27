@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/restaurantProfile/horarios',
-        element: <ProfileOrders />,
+        element: <RestaurantProfileSchedule />,
       },
       { index: true, element: <Navigate to="settings" /> },
     ]
@@ -92,6 +92,7 @@ const router = createBrowserRouter([
 ]);
 
 import  RenderMain  from './RenderMain.jsx';
+import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RenderMain router={router} />);

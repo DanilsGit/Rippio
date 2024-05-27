@@ -2,13 +2,12 @@
 import Modal from 'react-modal'
 import './createProductMenuModal.css'
 import Select from 'react-select';
-import { uploadFile } from '../../../constants/image';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react';
 
 
 
-export default function CreateProductMenuModal({ isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit, loadingProduct }) {
+export default function CreateProductMenuModal({ loading, setFile, isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit, loadingProduct }) {
 
 
     const categoryOptions = categories.map(category => {
@@ -19,8 +18,8 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
     })
 
     const estados = [
-        { value: 'true', label: 'Disponible' },
-        { value: 'false', label: 'No disponible' }
+        { value: true, label: 'Disponible' },
+        { value: false, label: 'No disponible' }
     ]
 
     const handleButtonClick = () => {
@@ -29,7 +28,6 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
     }
 
     const [image, setImage] = useState('')
-    const [loading, setLoading] = useState(false)
 
 
     useEffect(() => {
@@ -39,18 +37,14 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
     }, [productSelectedToEdit, image]);
 
     const uploadImage = async (file) => {
-        setLoading(true);
-        try {
-            const newImage = await uploadFile(file, `ProductImage`, file.name);
-            setImage(newImage);
-            setProduct({
-                ...newProduct,
-                imagen: newImage
-            })
-        } catch (error) {
-            console.error(error);
-        }
-        setLoading(false);
+        if (!file) return;
+        const newImage = URL.createObjectURL(file);
+        setImage(newImage);
+        setFile(file);
+        setProduct({
+            ...newProduct,
+            imagen: newImage
+        })
     }
 
     const handleInputProfileChange = async (e) => {
@@ -156,11 +150,12 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                                     name="estado"
                                     options={estados}
                                     defaultValue={productSelectedToEdit ?
-                                        productSelectedToEdit.disponible == 'true' ?
-                                            { value: 'true', label: 'Disponible' }
-                                            : { value: 'false', label: 'No disponible' }
+                                        productSelectedToEdit.disponible == true ?
+                                            { value: true, label: 'Disponible' }
+                                            : { value: false, label: 'No disponible' }
                                         : null
                                     }
+                                    onMenuOpen={()=>console.log(productSelectedToEdit.disponible)}
                                     onChange={
                                         (estado) => {
                                             setProduct({
@@ -196,19 +191,22 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputImage'
                         >
                             <label className="hidden-label">Subir imagen</label>
-                            {
-                                loading
-                                    ? <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' alt='loading' className='AddProductMenuModal-form-inputImage-img AddProductMenuModal-form-inputImage-imgLoading' />
-                                    : image.length > 0
-                                        ? <img className="AddProductMenuModal-form-inputImage-img" src={image} alt="Imagen del producto" />
-                                        : <img className="AddProductMenuModal-form-inputImage-img AddProductMenuModal-form-inputImage-imgDefault" src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="Imagen del producto" />
-                            }
+                            <img
+                                className={'AddProductMenuModal-form-inputImage-img' + ' ' +
+                                (loading ? 'AddProductMenuModal-form-inputImage-imgLoading' :
+                                image.length > 0 ? '' : 'AddProductMenuModal-form-inputImage-imgDefault')}
+                                src={
+                                    loading ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804'
+                                        : image.length > 0 ? image
+                                            : 'https://cdn-icons-png.flaticon.com/512/32/32339.png'
+                                }
+                            />
                             <input
                                 required={productSelectedToEdit ? false : true}
-                                type="file" id="uploadProductImage" name="uploadImage" accept=".png, .jpg"
+                                type="file" id="uploadProductImage" name="uploadImage" accept=".png, .jpg, .jpeg"
                                 onChange={handleInputProfileChange} />
                             <Tippy content='Intentaremos dar la mejor presentación al público'>
-                                <button className="AddProductMenuModal-form-inputImage-Btn" onClick={handleButtonClick}>
+                                <button type='button' className="AddProductMenuModal-form-inputImage-Btn" onClick={handleButtonClick}>
                                     <img draggable='false' className="AddProductMenuModal-form-inputImage-imgBtn" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
                                 </button>
                             </Tippy>
@@ -218,7 +216,7 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                         >
                             <label htmlFor="costo_unit">Costo unitario</label>
                             <input
-                            value={newProduct ? newProduct.costo_unit : '' }
+                                value={newProduct ? newProduct.costo_unit : ''}
                                 required
                                 type="number" id="costo_unit" name="costo_unit" onChange={(e) => setProduct({ ...newProduct, costo_unit: e.target.value })} />
                         </div>
@@ -228,9 +226,9 @@ export default function CreateProductMenuModal({ isModalOpen, handleCancel, hand
                                     loadingProduct
                                         ? 'Cargando...'
                                         :
-                                    productSelectedToEdit
-                                        ? 'Editar'
-                                        : 'Agregar'
+                                        productSelectedToEdit
+                                            ? 'Editar'
+                                            : 'Agregar'
                                 }
                             </button>
                             {

@@ -54,14 +54,13 @@ export const ProductModal = ({ product, restaurant }) => {
                             </div> */}
                         </div>
                         <div className='ProductModal-btnContainer'>
-                            <button className='ProductModal-btnContainer-btn'>Agregar e ir al carrito</button>
                             <button onClick={
                                 () => {
                                     handleAddToCart(addToCart, product, restaurant, quantity)
                                     selectProduct(null)
                                     setQuantity(1)
                                 }
-                            } className='ProductModal-btnContainer-btn'>Agregar y seguir comprando</button>
+                            } className='ProductModal-btnContainer-btn'>Agregar al carrito</button>
                         </div>
                     </section>
                 </section>

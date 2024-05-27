@@ -3,7 +3,9 @@ import Modal from 'react-modal';
 import './modalConflictProduct.css';
 
 export const ModalConflictProduct = () => {
+
     const { clearCart, showModal, toggleModal, cart } = useCart();
+
 
     const closeModalConflictProduct = () => {
         clearCart()
@@ -27,7 +29,7 @@ export const ModalConflictProduct = () => {
                     cart.items.length > 0 ?
                         <div className='ModalConflictProduct-aviso'>
                             <p>Ya tienes productos de
-                                <span>{cart.items[0].restaurantNomId.nombre}</span>
+                                <span>{cart.restaurant.nombre}</span>
                                 en tu pedido
                             </p>
                             <p>¿Deseas descartar la orden?</p>

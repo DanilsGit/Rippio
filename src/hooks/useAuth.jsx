@@ -22,7 +22,6 @@ export const useAuth = create((set) => ({
             set({ token: res.data.token });
             window.localStorage.setItem('token', res.data.token);
             window.localStorage.setItem('user', JSON.stringify(resUser.data[0]));
-            console.log(resUser.data[0]);
         } catch (error) {
             set({ errors: error.response.data });
             setTimeout(() => set({ errors: null }), 3000);

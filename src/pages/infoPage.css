@@ -10,7 +10,8 @@
     -webkit-animation: gradient 10s ease infinite;
     -moz-animation: gradient 10s ease infinite;
     animation: gradient 10s ease infinite;
-    flex-wrap: wrap-reverse;
+    width: 90%;
+
 }
 
 .aboutus-container{
@@ -18,7 +19,6 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 0 3.5em;
-    margin: 0 6em;
     background-color: white;
 }
 
@@ -61,7 +61,6 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 0 3.5em;
-    margin: 0 6em;
     background-color: white;
 }
 

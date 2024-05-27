@@ -10,7 +10,8 @@ export const useCart = create((set) => {
     // Define el estado inicial del carrito
     let initialCart = JSON.parse(localStorage.getItem('cart')) || {
         items: [], // Inicialmente, el carrito no tiene items
-        total: 0 // El costo total inicialmente es 0
+        total: 0, // El costo total inicialmente es 0
+        restaurant: null // Inicialmente, el carrito no tiene restaurante
     };
 
     if (initialCart.total === null) {
@@ -25,14 +26,27 @@ export const useCart = create((set) => {
                 // Crea una copia del estado actual del carrito
                 const cart = { ...state.cart }
                 // Si el carrito ya tiene items y el restaurante del nuevo item es diferente al del primer item en el carrito
-                if (cart.items.length > 0 && cart.items[0].restaurantNomId.id !== item.restaurantNomId.id) {
+                if (cart.items.length > 0 && cart.restaurant.id !== item.restaurantNomId.id) {
                     // Muestra una alerta y no agrega el item al carrito
                     return { ...state, showModal: true };
                 }
                 // Agrega una key única al item
                 item.uniqueKey = Date.now();
                 // Agrega el nuevo item al carrito
-                cart.items = [...cart.items, item]
+                cart.items = [...cart.items, 
+                    {
+                        product: item.product,
+                        quantity: item.quantity,
+                        uniqueKey: item.uniqueKey
+                    }
+                ]
+                //Si el carrito no tiene restaurante, se le asigna el restaurante del item
+                if (cart.restaurant === null) {
+                    cart.restaurant = {
+                        id: item.restaurantNomId.id,
+                        nombre: item.restaurantNomId.nombre
+                    }
+                }
                 // Aumenta el costo total del carrito
                 cart.total = (cart.total || 0) + item.product.costo_unit * item.quantity
                 // Retorna el nuevo estado del carrito
@@ -56,6 +70,9 @@ export const useCart = create((set) => {
                 // Disminuye el costo total del carrito
                 cart.total = (cart.total || 0) - totalRestar
                 // Retorna el nuevo estado del carrito
+                if (cart.items.length === 0) {
+                    cart.restaurant = null;
+                }
                 saveCartToLocalStorage(cart);
                 return { cart }
             }),
@@ -65,6 +82,7 @@ export const useCart = create((set) => {
                 const cart = { ...state.cart }
                 cart.items = []
                 cart.total = 0
+                cart.restaurant = null
                 saveCartToLocalStorage(cart);
                 return { cart }
             }),
@@ -87,6 +105,9 @@ export const useCart = create((set) => {
                 } else {
                     cart.items.splice(index, 1);
                     cart.total -= item.product.costo_unit
+                    if (cart.items.length === 0) {
+                        cart.restaurant = null;
+                    }
                 }
                 saveCartToLocalStorage(cart);
                 return { cart }

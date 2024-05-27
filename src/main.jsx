@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile/paymentmethods',
-        element: <ProfilePaymentMethods/>,
+        element: <ProfilePaymentMethods />,
       },
       {
         path: '/profile/credits',

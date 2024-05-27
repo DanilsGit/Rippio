@@ -71,7 +71,7 @@
 
 .ProfileOrders-orderItem-header h2{
     color: #227976;
-    font-size: 1.1em;
+    font-size: 1em;
     width: 10em;
 }
 
@@ -105,13 +105,13 @@
 }
 
 .ProfileOrders-orderItem-body-p{
-    color: #338682;
+    color: #21706c;
     font-weight: 600;
     font-size: .9em;
 }
 
 .ProfileOrders-orderItem-body-observations{
-    color: #032e28a1;
+    color: #13312da1;
     font-size: 0.8em;
     font-weight: 600;
 }

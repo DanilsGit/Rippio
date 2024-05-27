@@ -23,7 +23,7 @@ const links = [
         text: 'Direcciones'
     },
     {
-        to: '/paymentmethods',
+        to: '/profile/paymentmethods',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FpaymentMethod.png?alt=media&token=7e222e81-16d2-4dea-a72b-173747dccdc7',
         text: 'Métodos de pago'
     },

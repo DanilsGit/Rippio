@@ -15,19 +15,28 @@
     flex-direction: column;
 }
 
+.ProfileSettings-h1{
+    font-size: 1.7em;
+    color: #1b4948;
+    margin-top: .5em;
+    padding-left: .5em;
+
+}
+
 .ProfileSettings-GridForm div > label {
     font-family: 'Montserrat', sans-serif;
-    color: #00000077;
+    font-weight: 450;
+    color: #053b3d77;
 }
 
 .ProfileSettingsInput {
-    color: #000;
-    font-weight: 500;
+    color: #0c4b45;
+    font-weight: 600;
     padding: 0.5em;
     border: none;
-    border-bottom: 2px solid #032B2A;
+    border-bottom: 2px solid #428180;
     outline: none;
-    width: 100%;
+    width: 90%;
     background-color: transparent;
 }
 
@@ -44,14 +53,22 @@
 
 .ProfileSettings-GridForm-btnContainer button {
     padding: 0.5em 1em;
+    width: 100%;
+    margin: 1em;
     border: none;
     border-radius: 0.5em;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 1.3em;
-    background-color: #01CBC3;
+    font-weight: 600;
+    font-size: 1.2em;
+    background-color: #42beba;
     color: #fff;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.ProfileSettings-GridForm-btnContainer button:hover {
+    background-color: #00adab;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 760px){

@@ -1,0 +1,136 @@
+.ProfileDirections{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 1em 2em;
+    gap: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ProfileDirections-h1{
+    font-size: 1.7em;
+    color: #1b4948;
+    margin: 0;
+    margin-top: .5em;
+    
+}
+
+.ProfileDirections-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    align-items: center;
+}
+
+.ProfileDirections-Input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #428180;
+}
+
+.fieldsetInformation, .fieldsetAddress {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2em 1em;
+    padding-right: 2em;
+    border: 2px solid #ffffff31;
+    width: 100%;
+}
+
+.label{
+    font-size: 1em;
+    color: #266462;
+    font-weight: 700;
+}
+
+.ProfileDirections-form input {
+    font-size: .9em;
+    outline: none;
+    padding-bottom: 0.5em;
+    color: #1c3d3c;
+    font-weight: 600;
+    width: 100%;
+}
+
+.ProfileDirections-form input::placeholder {
+    color: #1c3d3c8c;
+    font-weight: 500;
+}
+
+.fieldsetAddress > div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1em;
+}
+
+.fieldsetAddress label {
+    text-align: center;
+}
+
+.select {
+    width: 100%;
+    font-size: .9em;
+}
+
+.fieldsetAddress-address-div{
+    grid-column: 1 / -1;
+}
+
+.fieldsetAddress-address-div > div{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-weight: 600;
+    color: #394444;
+}
+
+.fieldsetAddress-address-div > div >input{
+    width: 20%;
+    text-align: center;
+}
+
+
+.ProfileDirections-Button{
+    padding: 0.5em 1em;
+    margin: 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #31afad;
+    width: 50%;
+    font-weight: 600;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.ProfileDirections-Button:hover{
+    background-color: #00adab;
+    transition: background-color 0.5s ease;
+}
+
+@media screen and (max-width: 760px) {
+    .fieldsetInformation, .fieldsetAddress {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1em;
+        padding-right: 2em;
+    }
+
+    .fieldsetAddress > div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 0.3em;
+    }
+
+    .ProfileDirections-Button{
+        width: 80%;
+    }
+
+}
+

@@ -74,10 +74,6 @@ export function ProfileSettings() {
                         onChange={(e) => { if (e.target.value.length <= 10) setNewUser((user) => ({ ...user, telefono: e.target.value })) }}
                         className='ProfileSettingsInput' required type="tel" id="phone" name="phone" />
                 </div>
-                <div>
-                    <label htmlFor="address">Dirección</label>
-                    <input readOnly className='ProfileSettingsInput' required type="text" id="address" name="address" />
-                </div>
                 <div className='ProfileSettings-GridForm-btnContainer'>
                     <button type="submit">
                         {

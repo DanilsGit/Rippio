@@ -1,7 +1,7 @@
 .ProfileOrders{
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 1em 2em;
     gap: 1em;
 }
 
@@ -11,23 +11,35 @@
 }
 
 .ProfileOrders-header h1{
-    font-size: 2em;
+    font-size: 1.7em;
+    color: #1b4948;
+    margin-top: .5em;
 }
 
 .ProfileOrders-ordersContainer{
-    border-top: 2px solid #00000021;
-    padding: 0em 1em;
+    border-top: 2px solid #0c818141;
+    padding: .7em 1em;
     padding-right: 5em;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.2em;
     max-height: 50vh;
     overflow-y: auto;
     @media screen and (max-width: 400px){
         width: 100%;
         padding-right: 1em;
     }
+}
+
+.ProfileOrders-ordersContainer::-webkit-scrollbar{
+    width: 1em;
+    background-color: #0c818141;
+}
+
+.ProfileOrders-ordersContainer::-webkit-scrollbar-thumb{
+    width: 1em;
+    background-color: #ffffff85;
 }
 
 .ProfileOrders-orderItem{
@@ -42,6 +54,13 @@
     flex-wrap: wrap;
 }
 
+.ProfileOrders-orderItem-header p{
+    color: #10746fa1;
+    font-size: 0.7em;
+    font-weight: 600;
+
+}
+
 .ProfileOrders-orderItem-header-div{
     display: flex;
     align-items: center;
@@ -51,17 +70,18 @@
 }
 
 .ProfileOrders-orderItem-header h2{
-    color: #11928D;
-    font-size: 1.2em;
+    color: #227976;
+    font-size: 1em;
     width: 10em;
 }
 
 .ProfileOrders-orderItem-body{
-    border-left: 3px solid #0000003a;
-    padding-left: 1.5em;
+    border-left: 3px solid #41949438;
+    padding-left: 1em;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: .2em;
+
 }
 
 
@@ -75,9 +95,9 @@
 }
 
 .ProfileOrders-orderItem-body-li-p{
-    color: #000000a1;
-    font-weight: 800;
-    font-size: 1em;
+    color: #224344be;
+    font-weight: 500;
+    font-size: .8em;
 }
 
 .ProfileOrders-orderItem-body-li-p:nth-child(1){
@@ -85,23 +105,23 @@
 }
 
 .ProfileOrders-orderItem-body-p{
-    color: #11928D;
-    font-weight: bold;
-    font-size: 1.1em;
+    color: #21706c;
+    font-weight: 600;
+    font-size: .9em;
 }
 
 .ProfileOrders-orderItem-body-observations{
-    color: #000000a1;
+    color: #13312da1;
     font-size: 0.8em;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .ProfileOrders-orderItem-body-observations span{
-    color: #000000a1;
+    color: #3a7471c7;
     font-weight: 500;
 }
 
 .ProfileOrders-orderItem-body-p span{
-    color: #000000d0;
+    color: #21837efa;
     font-weight: 600;
 }

@@ -9,8 +9,10 @@
     background: transparent;
     background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 2%, rgba(255, 255, 255, 0) 100%);
     min-height: 90vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 30% minmax(200px, 70%);
     align-items: start;
+    justify-content: center;
     padding: 4em 1em;
     gap: 3em;
     font-family: 'Montserrat', sans-serif;
@@ -25,7 +27,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
     background-color: #fff;
     border-radius: 1em;
     padding: 1em;
@@ -39,25 +40,38 @@
     padding-bottom: 0.5em;
     border-bottom: 1px solid #00000023;
     display: flex;
-    gap: 1em;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.ProfileRestaurantOptionsContainer-uploadBannerContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.ProfileRestaurantOptions-header-banner{
+    width: 100%;
+    height: 25vh;
+    object-fit: contain;
 }
 
 .ProfileRestaurantOptions-header-imgProfile{
-    width: 2.5em;
-    height: 2.5em;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    z-index: 0;
 }
 
 .ProfileRestaurantOptionsContainer-uploadIconContainer{
-    position: absolute;
-    width: 2.5em;
-    height: 2.5em;
+    position: relative;
+    width: 3.5em;
+    height: 3.5em;
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
-    z-index: 1;
-    opacity: 0;
+    opacity: 1;
 }
 
 .ProfileRestaurantOptionsContainer-uploadIconContainer:hover{
@@ -81,10 +95,6 @@
     100% { transform: rotate(360deg); }
 }
 
-.ProfileRestaurantOptions-header-imgProfile{
-    z-index: 1;
-}
-
 .ProfileRestaurantOptions-header-imgEdit{
     position: absolute;
     left: 0;
@@ -93,16 +103,34 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    z-index: 2;
     border: 1px solid #000;
+    opacity: 0;
+}
 
+.ProfileRestaurantOptions-header-imgEditBanner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 1px solid #00000027;
+    opacity: 0;
+}
+
+.ProfileRestaurantOptions-header-imgEditBanner:hover{
+    opacity: 0.5;
+}
+
+.ProfileRestaurantOptions-header-imgEdit:hover{
+    opacity: 1;
 }
 
 .ProfileRestaurantOptions-header-button{
     cursor: pointer;
 }
 
-.ProfileRestaurantOptionsContainer-uploadIconContainer input{
+.ProfileRestaurantOptionsContainer-uploadIconContainer input, .ProfileRestaurantOptionsContainer-uploadBannerContainer input{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -118,6 +146,13 @@
     color: #000;
 }
 
+.ProfileRestaurantOptions-header-titleAndIcon{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
 .ProfileRestaurantOptions-header p {
     font-size: 0.8em;
 }
@@ -129,25 +164,25 @@
     justify-content: start;
     background-color: #fff;
     border-radius: 1em;
-    flex: 3;
     box-shadow: -10px 10px 0px 0px #0000001e;
+    width: 100%;
 }
 
 
 @media screen and (max-width: 645px){
     .ProfileRestaurantPageContent{
-        flex-direction: column;
+        grid-template-columns: minmax(200px,1fr);
         padding: 0;
         margin: 0;
         align-items: center;
     }
     .ProfileRestaurantChildrenPage{
         width: 90%;
-        flex: 0;
+        margin: auto;
     }
     .ProfileRestaurantOptionsContainer{
         width: 90%;
-        flex: 0;
+        margin: auto;
     }
     .ProfileRestaurantPageContent{
         padding: 5em 0em;

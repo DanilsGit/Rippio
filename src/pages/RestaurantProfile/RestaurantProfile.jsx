@@ -49,14 +49,14 @@ export function RestaurantProfile() {
         try {
             const newImage = await uploadFile(e.target.files[0], 'RestaurantIcon', user.id);
             await axios.post('https://rippio-api.vercel.app/api/profile/modify_profile_image',
-            {
-                image: newImage
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
+                {
+                    image: newImage
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
             setUser({ ...user, img_icon: newImage });
         } catch (error) {
             console.error(error);
@@ -70,6 +70,33 @@ export function RestaurantProfile() {
         upload.click();
     }
 
+
+    const handleInputProfileBannerChange = async (e) => {
+        setLoading(true);
+        try {
+            const newImage = await uploadFile(e.target.files[0], 'RestaurantBanner', user.id);
+            await axios.post('https://rippio-api.vercel.app/api/profile/modify_banner_restaurant',
+                {
+                    image: newImage
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+            setUser({ ...user, img_banner: newImage });
+        } catch (error) {
+            console.error(error);
+        }
+        e.target.value = null;
+        setLoading(false);
+    }
+
+    const handleButtonBannerClick = () => {
+        const upload = document.getElementById('uploadBanner');
+        upload.click();
+    }
+
     return (
         <main className="ProfileRestaurantPage">
             <HeaderNav />
@@ -79,21 +106,43 @@ export function RestaurantProfile() {
                     <section className="ProfileRestaurantPageContent">
                         <section className="ProfileRestaurantOptionsContainer">
                             <header className="ProfileRestaurantOptions-header">
-                                {
-                                    loading
-                                        ? <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile loading" draggable='false' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' alt="Foto de perfil" />
-                                        : <img id="ProfileRestauran-imgProfile" className="ProfileRestaurantOptions-header-imgProfile" draggable='false' src={user.img_icon} alt="Foto de perfil" />
-                                }
-                                <div className="ProfileRestaurantOptionsContainer-uploadIconContainer">
+
+                                <div className="ProfileRestaurantOptionsContainer-uploadBannerContainer">
+                                    <img
+                                        className={loading ? "ProfileRestaurantOptions-header-banner loading" : "ProfileRestaurantOptions-header-banner"}
+                                        id="ProfileRestauran-imgProfile"
+                                        draggable='false'
+                                        src={loading ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' : user.img_banner}
+                                        alt="banner"
+                                    />
                                     <label className="hidden-label" htmlFor="upload">Subir imagen:</label>
-                                    <input type="file" id="upload" name="upload" accept=".png, .jpg"
-                                        onChange={handleInputProfileChange} />
-                                    <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonClick}>
-                                        <img draggable='false' className="ProfileRestaurantOptions-header-imgEdit" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
+                                    <input type="file" id="uploadBanner" name="uploadBanner" accept=".png, .jpg, .jpeg"
+                                        onChange={handleInputProfileBannerChange} />
+                                    <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonBannerClick}>
+                                        <img draggable='false' className="ProfileRestaurantOptions-header-imgEditBanner" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
                                     </button>
                                 </div>
-                                <div>
-                                    <h1 className="RestaurantProfileTitle">{user.nombre}</h1>
+
+
+                                <div className="ProfileRestaurantOptions-header-titleAndIcon">
+                                    <div className="ProfileRestaurantOptionsContainer-uploadIconContainer">
+                                        <img
+                                            className={loading ? "ProfileRestaurantOptions-header-imgProfile loading" : "ProfileRestaurantOptions-header-imgProfile"}
+                                            id="ProfileRestauran-imgProfile"
+                                            draggable='false'
+                                            src={loading ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' : user.img_icon}
+                                            alt="Foto de perfil"
+                                        />
+                                        <label className="hidden-label" htmlFor="upload">Subir imagen:</label>
+                                        <input type="file" id="upload" name="upload" accept=".png, .jpg, .jpeg"
+                                            onChange={handleInputProfileChange} />
+                                        <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonClick}>
+                                            <img draggable='false' className="ProfileRestaurantOptions-header-imgEdit" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <h1 className="RestaurantProfileTitle">{user.nombre}</h1>
+                                    </div>
                                 </div>
                             </header>
                             <ProfilePanel links={links} />

@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://rippio-api.vercel.app';
-// const API_URL = 'https://h8vxgqcm-4000.use2.devtunnels.ms';
-// const API_URL = 'http://localhost:4000';
+// const API_LOCAL = 'http://localhost:4000';
 
 export const registerRequest = data => axios.post(`${API_URL}/api/auth/register`, data, { withCredentials: true });
 

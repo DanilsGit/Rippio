@@ -22,9 +22,9 @@ export function ProfileDirections() {
     const token = useAuth((state) => state.token)
     const [loadingAddress, setLoadingAddress] = useState(false);
 
+    // Funcionalidad de los Select
     const [departamentos, setDepartamentos] = useState([])
     const [ciudades, setCiudades] = useState([])
-
     const handleDepartamentoChange = (selectedOption) => {
         const newCiudades = selectedOption.ciudades.map((ciudad,index) => ({ value: index, label: ciudad }));
         setCiudades(newCiudades);
@@ -43,6 +43,7 @@ export function ProfileDirections() {
 
     const [newUser, setNewUser] = useState({})
     
+    // Apariencia de los Select
     const customStyles = {
         menu: (provided) => ({
             ...provided,
@@ -104,8 +105,9 @@ export function ProfileDirections() {
             setForms(newForms);
         // ...
     }
+
     // Función para añadir una nueva dirección
-    const [forms, setForms] = useState([{ isConfirmed: false , arrow: false}]);
+    const [forms, setForms] = useState([{ isConfirmed: false , arrow: false}]); // true en las 3 para que el formulario salga abierto al recargar la página
 
     function handleAddAddressClick() {
         setForms([...forms, {}]);
@@ -117,9 +119,9 @@ export function ProfileDirections() {
             <h1 className="ProfileDirections-h1">Información de residencia</h1>
             <p className="ProfileDirections-h2">Administra la información de tu residencia para la correcta llegada de tus pedidos.</p>
             <div className='ProfileDirections-form-container'>
-                {forms.map((form, index) => (
+                {forms.map((form, index) => ( // Arreglo de formularios
                     <div className='' key={index}>
-                        <button className='ProfileDirections-active' onClick={() => handleToggle(index)}>Dirección
+                        <button className='ProfileDirections-active' onClick={() => handleToggle(index)}>Dirección de entrega
                                         {form.arrow ?
                                             <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FupArrow.png?alt=media&token=4014049e-5578-4b03-be3f-f36cdbf35dd0' alt='arrow-up' className='information-buttonArrow' />
                                             :

@@ -8,6 +8,7 @@ import { uploadFile } from "../../constants/image";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import axios from "axios";
+import { ProfileIcon } from "../../components/profile/ProfileIcon";
 
 
 const links = [
@@ -123,23 +124,8 @@ export function RestaurantProfile() {
                                     </button>
                                 </div>
 
-
                                 <div className="ProfileRestaurantOptions-header-titleAndIcon">
-                                    <div className="ProfileRestaurantOptionsContainer-uploadIconContainer">
-                                        <img
-                                            className={loading ? "ProfileRestaurantOptions-header-imgProfile loading" : "ProfileRestaurantOptions-header-imgProfile"}
-                                            id="ProfileRestauran-imgProfile"
-                                            draggable='false'
-                                            src={loading ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804' : user.img_icon}
-                                            alt="Foto de perfil"
-                                        />
-                                        <label className="hidden-label" htmlFor="upload">Subir imagen:</label>
-                                        <input type="file" id="upload" name="upload" accept=".png, .jpg, .jpeg"
-                                            onChange={handleInputProfileChange} />
-                                        <button className="ProfileRestaurantOptions-header-button" onClick={handleButtonClick}>
-                                            <img draggable='false' className="ProfileRestaurantOptions-header-imgEdit" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
-                                        </button>
-                                    </div>
+                                    <ProfileIcon loading={loading} handleInputProfileChange={handleInputProfileChange} handleButtonClick={handleButtonClick} user={user} />
                                     <div>
                                         <h1 className="RestaurantProfileTitle">{user.nombre}</h1>
                                     </div>

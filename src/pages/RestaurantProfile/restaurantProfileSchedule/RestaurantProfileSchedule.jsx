@@ -169,8 +169,7 @@ const formatSchedule = (mySchedule) => {
     const addMySchedule = async (token, schedule) => {
         setLoading(true)
         try {
-            const res = await addSchedule(token, schedule)
-            console.log(res);
+            await addSchedule(token, schedule)
             setError('Horario establecido correctamente')
         } catch (error) {
             console.log(error);

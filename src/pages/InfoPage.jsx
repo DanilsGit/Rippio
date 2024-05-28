@@ -1,9 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { HeaderNav } from '../components/headerNav/HeaderNav';
 import './infoPage.css'
+import { useEffect } from 'react';
 
 export function InfoPage() {
+
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    },[])
+
     return (
         <div className='background-container'>
             <HeaderNav />

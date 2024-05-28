@@ -4,6 +4,7 @@ import './restaurantMenu.css'
 import axios from 'axios'
 import { useAuth } from '../../../hooks/useAuth'
 import { useState } from 'react'
+import {moveProductToSection} from '../../../api/menu'
 
 export default function RestaurantMenu({ categories, setCategories, setSelectedProduct, setIsModalEditProductOpen }) {
 
@@ -15,7 +16,7 @@ export default function RestaurantMenu({ categories, setCategories, setSelectedP
         e.dataTransfer.setData('itemIds', [item.uniqueKey, item.id])
     }
 
-    const handleDrop = async (e, categoryDrop) => {
+    const handleDrop = (e, categoryDrop) => {
         e.preventDefault()
         const itemTransfer = e.dataTransfer.getData('itemIds')
         const itemIds = itemTransfer.split(',')
@@ -31,40 +32,32 @@ export default function RestaurantMenu({ categories, setCategories, setSelectedP
         if (itemInCategoryDrop) if (item.id == itemInCategoryDrop.id) { alert('El producto ya está en la categoría "' + categoryDrop.nombre + '"'); return }
 
         setHandleLoading(true)
+    
+        try {
+            moveProductToSection(token, itemIds[1], [categoryDrop.id])
 
-        await axios.post(`https://rippio-api.vercel.app/api/product/updateSeccionProd`,
-            {
-                id_producto: itemIds[1],
-                secciones: [categoryDrop.id]
-            },
-            {
-                headers: {
-                    authorization: `Bearer ${token}`
-                }
-            }).then(() => {
-                const newCategoryItemDeleted = {
-                    ...categoryItem,
-                    productos: categoryItem.productos.filter(product => product.uniqueKey != itemIds[0])
-                }
+            const newCategoryItemDeleted = {
+                ...categoryItem,
+                productos: categoryItem.productos.filter(product => product.uniqueKey != itemIds[0])
+            }
 
-                const newCategories = categories.map(category =>
-                    category === categoryItem ? newCategoryItemDeleted : category
-                );
+            const newCategories = categories.map(category =>
+                category === categoryItem ? newCategoryItemDeleted : category
+            );
 
-                const newCategoryItemAdded = {
-                    ...categoryDrop,
-                    productos: [...categoryDrop.productos, item]
-                }
+            const newCategoryItemAdded = {
+                ...categoryDrop,
+                productos: [...categoryDrop.productos, item]
+            }
 
-                const newCategoriesUpdated = newCategories.map(category =>
-                    category === categoryDrop ? newCategoryItemAdded : category
-                );
+            const newCategoriesUpdated = newCategories.map(category =>
+                category === categoryDrop ? newCategoryItemAdded : category
+            );
 
-                setCategories(newCategoriesUpdated)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+            setCategories(newCategoriesUpdated)
+        } catch (error) {
+            console.log(error);
+        }
         setHandleLoading(false)
     }
 

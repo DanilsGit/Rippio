@@ -1,0 +1,70 @@
+.ProfileIconOptionsContainer-uploadIconContainer{
+    position: relative;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.ProfileIconOptionsContainer-uploadIconContainer:hover{
+    opacity: 0.6;
+}
+
+.ProfileIconOptionsContainer-uploadIconContainer img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0em;
+    border-radius: 50%;
+}
+
+.loading{
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.ProfileIconOptionsContainer-uploadIconContainer input, .ProfileIconOptionsContainer-uploadBannerContainer input{
+    display: none;
+}
+
+
+.ProfileIconOptions-header-imgProfile{
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+.ProfileIconOptions-header-button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.ProfileIconOptions-header-imgEdit{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #000;
+    opacity: 0;
+}
+
+
+
+.ProfileIconOptions-header-imgEdit:hover{
+    opacity: 1;
+}

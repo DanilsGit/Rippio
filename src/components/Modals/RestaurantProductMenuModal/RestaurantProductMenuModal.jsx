@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import Modal from 'react-modal'
-import './createProductMenuModal.css'
+import './restaurantProductMenuModal.css'
 import Select from 'react-select';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react';
 
 
 
-export default function CreateProductMenuModal({ loading, setFile, isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit, loadingProduct }) {
+export default function RestaurantProductMenuModal({ loading, setFile, isModalOpen, handleCancel, handleConfirm, setProduct, categories, newProduct, productSelectedToEdit, loadingProduct }) {
 
 
     const categoryOptions = categories.map(category => {
@@ -155,7 +155,6 @@ export default function CreateProductMenuModal({ loading, setFile, isModalOpen, 
                                             : { value: false, label: 'No disponible' }
                                         : null
                                     }
-                                    onMenuOpen={()=>console.log(productSelectedToEdit.disponible)}
                                     onChange={
                                         (estado) => {
                                             setProduct({

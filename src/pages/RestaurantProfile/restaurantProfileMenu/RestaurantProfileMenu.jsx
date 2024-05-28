@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './restaurantProfileMenu.css'
 import uuid from 'react-uuid'
 import CategoryDeleteModal from '../../../components/Modals/categoryDeleteModal/CategoryDeleteModal';
-import CreateProductMenuModal from '../../../components/Modals/CreateProductMenuModal/CreateProductMenuModal';
+import RestaurantProductModal from '../../../components/Modals/RestaurantProductMenuModal/RestaurantProductMenuModal';
 import CategoriesAside from './CategoriesAside';
 import RestaurantMenu from './RestaurantMenu';
 import { useAuth } from '../../../hooks/useAuth';
@@ -272,8 +272,8 @@ export function RestaurantProfileMenu() {
                             }
                         </section>
                         <CategoryDeleteModal loadingDelete={loadingDeleteCategory} isModalOpen={isModalCategoriesOpen} handleCancelModalCategoriesClick={handleCancelModalCategoriesClick} selectedCategory={selectedCategory} handleConfirmModalCategoriesClick={handleConfirmRemoveModalCategoriesClick} />
-                        <CreateProductMenuModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalAddProductOpen} handleCancel={handleCancelModalAddProductClick} handleConfirm={handleConfirmModalAddProductClick} setProduct={setCreatedProduct} newProduct={createdProduct} />
-                        <CreateProductMenuModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalEditProductOpen} handleCancel={handleCancelModalEditProductClick} handleConfirm={handleConfirmModalEditProductClick} setProduct={setEditedProduct} newProduct={editedProduct} productSelectedToEdit={selectedProduct} />
+                        <RestaurantProductModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalAddProductOpen} handleCancel={handleCancelModalAddProductClick} handleConfirm={handleConfirmModalAddProductClick} setProduct={setCreatedProduct} newProduct={createdProduct} />
+                        <RestaurantProductModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalEditProductOpen} handleCancel={handleCancelModalEditProductClick} handleConfirm={handleConfirmModalEditProductClick} setProduct={setEditedProduct} newProduct={editedProduct} productSelectedToEdit={selectedProduct} />
                     </>
                     : error ? <h1>Hubo un error al cargar los productos</h1> : <h1>Cargando...</h1>
             }

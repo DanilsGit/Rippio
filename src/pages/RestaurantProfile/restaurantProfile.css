@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    overflow: hidden;
 }
 
 .ProfileRestaurantOptionsContainer-uploadBannerContainer{
@@ -52,60 +53,16 @@
     opacity: 1;
 }
 
+.ProfileRestaurantOptionsContainer-uploadBannerContainer input{
+    display: none;
+}
+
 .ProfileRestaurantOptions-header-banner{
     width: 100%;
     height: 25vh;
     object-fit: contain;
 }
 
-.ProfileRestaurantOptions-header-imgProfile{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.ProfileRestaurantOptionsContainer-uploadIconContainer{
-    position: relative;
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    opacity: 1;
-}
-
-.ProfileRestaurantOptionsContainer-uploadIconContainer:hover{
-    opacity: 0.6;
-}
-
-.ProfileRestaurantOptionsContainer-uploadIconContainer img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 0.2em;
-    border-radius: 50%;
-}
-
-.loading{
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.ProfileRestaurantOptions-header-imgEdit{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #000;
-    opacity: 0;
-}
 
 .ProfileRestaurantOptions-header-imgEditBanner{
     position: absolute;
@@ -121,23 +78,6 @@
 .ProfileRestaurantOptions-header-imgEditBanner:hover{
     opacity: 0.5;
 }
-
-.ProfileRestaurantOptions-header-imgEdit:hover{
-    opacity: 1;
-}
-
-.ProfileRestaurantOptions-header-button{
-    cursor: pointer;
-}
-
-.ProfileRestaurantOptionsContainer-uploadIconContainer input, .ProfileRestaurantOptionsContainer-uploadBannerContainer input{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    border-radius: 50%;
-}
-
 
 .ProfileRestaurantOptions-header div {
     display: flex;

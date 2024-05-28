@@ -37,13 +37,6 @@
     gap: 0.6em;
 }
 
-.ProfileOptions-header img{
-    width: 2.5em;
-    height: 2.5em;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 .ProfileOptions-header div {
     display: flex;
     flex-direction: column;

@@ -88,10 +88,21 @@ export function InformationAside({ name, direction, schedule, rating, logo, bann
                         {
                             schedule
                                 ? schedule.map((day, index) => {
+                                    console.log(day.open)
                                     return (
                                         <div className='RestaurantPage-content-aside-information-schedule-day' key={index}>
-                                            <span>{day.day}</span>
-                                            <span>{day.open} - {day.close}</span>
+
+                                            {
+                                                (day.open === '00:00' && day.close === '00:00')
+                                                    ? <>
+                                                        <span>{day.day}</span>
+                                                        <span>Cerrado</span>
+                                                    </>
+                                                    : <>
+                                                        <span>{day.day}</span>
+                                                        <span>{day.open} - {day.close}</span>
+                                                    </>
+                                            }
                                         </div>
                                     )
                                 })

@@ -6,42 +6,74 @@ import { Footer } from "../../components/footer/Footer";
 import { InformationAside } from "./aside/InformationAside";
 import { RestaurantMain } from "./main/RestaurantMain";
 
+import { getCatAndProdByResId, getInfo } from '../../api/restaurant'
+
 // import restaurantInfo from '../../utilities/restaurantInfo.json'
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { ProductModal } from "../../components/Modals/productModal/ProductModal";
+import { useCart } from "../../hooks/useCart";
+
+import { handleAddToCart } from '../../constants/cart'
 
 export function RestaurantPage() {
     const params = useParams();
     const [restaurantInfo, setRestaurantInfo] = useState({})
     const [categories, setCategories] = useState([])
-    useEffect(() => {
-        axios.get(`https://rippio-api.vercel.app/api/restaurant/getRestaurantInfoById/${params.idRestaurant}`)
-            .then(res => {
-                setRestaurantInfo(res.data)
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, [params.idRestaurant])
+
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [RestaurantOfProduct, setRestaurantOfProduct] = useState(null);
+
+
+    const addToCart = useCart((state) => state.addToCart)
+    const handleAddBtn = (product, restaurant, quantity) => {
+        handleAddToCart(addToCart, product, restaurant, quantity)
+        setSelectedProduct(null)
+        setRestaurantOfProduct(null)
+        setIsOpen(false)
+    }
+
+    const handleCancelBtn = () => {
+        setSelectedProduct(null)
+        setRestaurantOfProduct(null)
+        setIsOpen(false)
+    }
+
+const formatHours = (hour) => {
+    let parts = hour.split(':');
+    return parts[0] + ':' + parts[1];
+}
+
+useEffect(() => {
+    getInfo(params.idRestaurant).then(res => {
+        let data = res.data;
+        data.horario = data.horario.map(item => {
+            return {
+                ...item,
+                open: formatHours(item.open),
+                close: formatHours(item.close)
+            };
+        });
+        setRestaurantInfo(data);
+    })
+}, [params.idRestaurant])
+
 
     useEffect(()=>{
-        axios.get(`https://rippio-api.vercel.app/api/restaurant/getCategoriesAndProductsByRestaurantId/${params.idRestaurant}`)
-            .then(res => {
-                setCategories(res.data)
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        getCatAndProdByResId(params.idRestaurant).then(res => {
+            setCategories(res.data)})
     },[params.idRestaurant])
 
     const {id, nombre, direccion, horario, calificacion, img_icon, img_banner} = restaurantInfo
     const restaurant = {id, nombre}
     return (
         <main className="RestaurantPage">
+            <ProductModal isOpen={isOpen} productInModal={selectedProduct} restaurant={RestaurantOfProduct} handleAddBtn={handleAddBtn} handleCancelBtn={handleCancelBtn} />
             <HeaderSearch />
             <section className="RestaurantPage-content">
                 <InformationAside name={nombre} direction={direccion} schedule={horario} rating={calificacion} logo={img_icon} banner={img_banner} />
-                <RestaurantMain categories={categories} restaurant={restaurant} />
+                <RestaurantMain categories={categories} restaurant={restaurant} selectProduct={setSelectedProduct} setModalProductOpen={setIsOpen} setRestaurantOfProduct={setRestaurantOfProduct} />
             </section>
             <Footer />
         </main>

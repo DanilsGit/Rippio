@@ -21,8 +21,9 @@
 
 .aside-presentation-banner{
     width: 100%;
-    height: 35vh;
+    height: 30vh;
     object-fit: cover;
+    background-attachment: fixed;
 }
 
 .aside-presentation-logo{
@@ -93,6 +94,7 @@
     border-bottom: 1px solid #0000005e;
     cursor: pointer;
     outline: none;
+    color: #000;
 }
 
 .RestaurantPage-content-aside-information-schedule-btn img{

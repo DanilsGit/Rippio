@@ -2,18 +2,13 @@
 import { Link } from 'react-router-dom'
 import './restaurantsInformationResult.css'
 import { useCart } from '../../../hooks/useCart'
-import { ProductModal } from '../../Modals/productModal/ProductModal'
 import { checkProductInCart, handleAddToCart } from '../../../constants/cart'
-import { useProductModal } from '../../../hooks/useProductModal'
 
 
-export function RestaurantsInformationResult({ results }) {
+export function RestaurantsInformationResult({ results, selectProduct, setModalProductOpen, setRestaurantOfProduct }) {
     const cart = useCart((state) => state.cart)
     const addToCart = useCart((state) => state.addToCart)
     const removeFromCart = useCart((state) => state.removeFromCart)
-    
-    const selectProduct = useProductModal((state) => state.selectProduct)
-
 
     return (
         <section className="searchPage-restaurantInformationResult">
@@ -42,22 +37,29 @@ export function RestaurantsInformationResult({ results }) {
                                                 backgroundColor: checkProductInCart(cart, product) ? '#032B2A' : '#01CBC3'
                                             }}
                                             onClick={() => {
+                                                const newProduct = { ...product, observation: null}
                                                 checkProductInCart(cart, product)
                                                     ? removeFromCart({ product })
-                                                    : handleAddToCart(addToCart, product, restaurantNomId, 1)
+                                                    : handleAddToCart(addToCart, newProduct, restaurantNomId, 1)
                                             }} className='restaurantInformation-item-products-product-button'>
                                             {checkProductInCart(cart, product)
                                                 ? <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FremoveIcon.png?alt=media&token=25ab08fb-5469-49d6-914e-310722e4e9cd' alt='minus' />
                                                 : <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FaddIcon.png?alt=media&token=ed181174-d4ad-4c8a-a7ad-4a3035dfd4f4' alt='plus' />}
                                         </button>
-                                        <button className='restaurantInformation-item-products-product-buttonContainer' onClick={()=>selectProduct(product)}>
+                                        <button className='restaurantInformation-item-products-product-buttonContainer' onClick={
+                                            () => {
+                                                const newProduct = { ...product, observation: null }
+                                                selectProduct(newProduct)
+                                                setModalProductOpen(true)
+                                                setRestaurantOfProduct(restaurantNomId)
+                                            }
+                                        }>
                                             <img draggable='false' className='restaurantInformation-item-products-product-img' src={product.img_product} alt={product.nombre} />
                                             <div>
                                                 <span>{product.costo_unit}</span>
                                                 <p>{product.nombre}</p>
                                             </div>
                                         </button>
-                                        <ProductModal product={product} restaurant={restaurantNomId} />
                                     </section>
                                 )
                             })}

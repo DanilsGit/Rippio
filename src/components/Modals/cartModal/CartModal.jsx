@@ -28,6 +28,10 @@ export function CartModal() {
                                                         <p className='ModalCart-content-item-info-desc'>{item.product.dscripcion}</p>
                                                         <p>Cantidad: <span> {item.quantity}</span></p>
                                                         <p>Precio: <span>${item.product.costo_unit}</span></p>
+                                                        {
+                                                            item.product.observation &&
+                                                            <p>Observaciones: {item.product.observation}</p>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div className='ModalCart-content-item-actions'>

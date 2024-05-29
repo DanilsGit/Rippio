@@ -1,0 +1,31 @@
+.CartLocalDBModal{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.CartLocalDBModal div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.CartLocalDBModal button{
+    width: 40%;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--darkcyan);
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+}
+
+.CartLocalDBModal button:nth-child(2){
+    background-color: var(--lightcyan);
+}
+
+.CartLocalDBModal button:hover{
+    background-color: var(--darkblue);
+    transition: background-color 0.5s;
+}

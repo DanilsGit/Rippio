@@ -10,6 +10,7 @@ import { useState } from "react";
 import axios from "axios";
 import { uploadFile } from "../../constants/image";
 import { ProfileIcon } from "../../components/profile/ProfileIcon";
+import { useCart } from "../../hooks/useCart";
 
 
 const links = [
@@ -49,6 +50,14 @@ export function Profile() {
     const token = useAuth((state) => state.token)
     const isAuthenticated = useAuth((state) => state.isAuthenticated)
     const logout = useAuth((state) => state.logout)
+
+    const { loadCartFromLocalStorage, setTokenInCart } = useCart();
+
+    const handleLogout = () => {
+        loadCartFromLocalStorage();
+        setTokenInCart(null);
+        logout();
+    }
 
     const [loading, setLoading] = useState(false)
 
@@ -97,7 +106,7 @@ export function Profile() {
                                 </div>
                             </header>
                             <ProfilePanel links={links} />
-                            <button onClick={logout} className="ProfileOptions-logout">Cerrar sesión</button>
+                            <button onClick={handleLogout} className="ProfileOptions-logout">Cerrar sesión</button>
                         </section>
                         <section className="ProfileChildrenPage">
                             <Outlet />

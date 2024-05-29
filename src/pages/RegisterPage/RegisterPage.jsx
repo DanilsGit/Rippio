@@ -5,6 +5,10 @@ import { useAuth } from '../../hooks/useAuth';
 
 import './registerPage.css'
 import { Register } from './Register';
+import { useCart } from '../../hooks/useCart';
+import { CartLocalDBModal } from '../../components/Modals/sendLocalToDBCartModal/CartLocalDBModal';
+
+import { addToCart } from '../../api/cart'
 
 export function RegisterPage() {
 
@@ -25,6 +29,49 @@ export function RegisterPage() {
   })
 
 
+  const [userLogin, setUserLogin] = useState({
+    email: '',
+    password: ''
+  })
+
+  const [isOpenCartToDBModal, setIsOpenCartToDBModal] = useState(false)
+
+  const { loadCartFromDatabase, loadCartFromLocalStorage, setTokenInCart, clearCart } = useCart();
+  const cart = useCart((state) => state.cart)
+
+  const handleConfirmMoveCart = async () => {
+    await login(userLogin)
+    const token = localStorage.getItem('token');
+    if (token) {
+      setTokenInCart(token);
+      await clearCart();
+      await Promise.all(cart.items.map(async (item) => {
+        const observation = item.product.observation || 'N/A';
+        await addToCart(token, item.product.id, item.quantity, observation)
+      }))
+      await loadCartFromDatabase(token);
+    }
+  }
+
+const dontMoveCart = async () => {
+  const userLoginTrim = { email: userLogin.email.trim(), password: userLogin.password.trim() }
+  await login(userLoginTrim)
+  const token = localStorage.getItem('token');
+  if (token) {
+    setTokenInCart(token);
+    await loadCartFromDatabase(token);
+  }
+}
+  const handleSubmitLogin = (e) => {
+    e.preventDefault()
+    if (cart.items.length > 0) {
+      setIsOpenCartToDBModal(true)
+    } else {
+      dontMoveCart()
+    }
+  }
+
+  
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
     const newUserRegister = { ...userRegister };
@@ -32,20 +79,30 @@ export function RegisterPage() {
       newUserRegister.apellido = '';
       newUserRegister.tipo_usuario = 3;
     }
-    console.log(newUserRegister);
-    await register(newUserRegister);
-    await login({ email: newUserRegister.email, password: newUserRegister.password });
+    const UserRegisterTrim =
+    {
+      identificacion: newUserRegister.identificacion.trim(),
+      nombre: newUserRegister.nombre.trim(),
+      apellido: newUserRegister.apellido.trim(),
+      email: newUserRegister.email.trim(),
+      telefono: newUserRegister.telefono.trim(),
+      password: newUserRegister.password.trim(),
+      tipo_usuario: newUserRegister.tipo_usuario
+    }
+    const res = await register(UserRegisterTrim)
+    if(!res) return
+    await login({ email: UserRegisterTrim.email, password: UserRegisterTrim.password });
+    const token = localStorage.getItem('token');
+    if (token) {
+      setTokenInCart(token);
+      loadCartFromLocalStorage();
+      await Promise.all(cart.items.map(async (item) => {
+        const observation = item.product.observation || 'N/A';
+        await addToCart(token, item.product.id, item.quantity, observation)
+      }))
+    }
   }
 
-  const [userLogin, setUserLogin] = useState({
-    email: '',
-    password: ''
-  })
-
-  const handleSubmitLogin = async (e) => {
-    e.preventDefault()
-    await login(userLogin)
-  }
 
   const [isRegisterMode, setIsRegisterMode] = useState(false);
 
@@ -104,6 +161,7 @@ export function RegisterPage() {
       className={`register-login-page ${isRegisterMode ? "registerPage-mode" : "loginPage-mode"
         }`}
     >
+      <CartLocalDBModal show={isOpenCartToDBModal} setShow={setIsOpenCartToDBModal} handleConfirm={handleConfirmMoveCart} handleCancel={dontMoveCart} />
       <HeaderNav />
       <section className="register-login-page-background">
         {

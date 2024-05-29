@@ -6,6 +6,7 @@ import { ModalConflictProduct } from './components/Modals/differentRestaurantMod
 import { RouterProvider } from "react-router-dom";
 import { useAuth } from './hooks/useAuth.jsx';
 import { getUserData } from './api/auth.jsx';
+import { useCart } from './hooks/useCart.jsx';
 
 
 function RenderMain({ router }) {
@@ -13,15 +14,37 @@ function RenderMain({ router }) {
     const user = useAuth((state) => state.user);
     const setUser = useAuth((state) => state.setUser);
     const isAuthenticated = useAuth((state) => state.isAuthenticated);
+    const fixCart = window.localStorage.getItem('fixCart') == 'true';
+
+
+    const { loadCartFromLocalStorage, loadCartFromDatabase, setTokenInCart } = useCart();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            console.log('cargada de database');
+            setTokenInCart(token);
+            loadCartFromDatabase(token);
+        } else {
+            console.log('cargada de localstorage');
+            setTokenInCart(null);
+            loadCartFromLocalStorage();
+        }
+    }, []);
+
+
 
     const updateUserData = async () => {
         const newUser = await getUserData(user.id);
         setUser(newUser.data[0]);
     }
-
     useEffect(() => {
         if (isAuthenticated) {
             updateUserData();
+        }
+        if (!fixCart) {
+            window.localStorage.clear();
+            window.localStorage.setItem('fixCart', 'true');
         }
     }, []);
 

@@ -79,7 +79,6 @@
 .ProductModal-sectionInfo-infoContainer{
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .ProductModal-sectionInfo-infoContainer span{
@@ -87,9 +86,36 @@
     font-weight: 600;
 }
 
-.ProductModal-sectionInfo-infoContainer-overflow{
-    max-height: 20em;
+.ProductModal-sectionInfo-observationContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ProductModal-sectionInfo-observationContainer > label{
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #00000065;
+    font-size: 0.8em;
+}
+
+.ProductModal-sectionInfo-observationContainer textarea{
+    max-height: 10vh;
     overflow-y: auto;
+    resize: vertical;
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    border-bottom: 2px solid var(--darkblue);
+    background-color: #00000009;
+    transition: border-bottom 0.4s;
+}
+
+.ProductModal-sectionInfo-observationContainer textarea:focus{
+    border-bottom: 2px solid var(--darkcyan);
+    background-color: #00000017;
+    transition: border-bottom 0.4s;
 }
 
 .ProductModal-sectionInfo-infoContainer p{

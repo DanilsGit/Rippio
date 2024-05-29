@@ -1,9 +1,6 @@
-// Importa la función 'create' de la biblioteca 'zustand'
 import { create } from 'zustand'
 import { getUserData, loginRequest, registerRequest } from '../api/auth'
 
-
-// Crea un nuevo hook personalizado llamado 'useAuth'
 export const useAuth = create((set) => ({
     user: window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null,
     token: window.localStorage.getItem('token') || null,
@@ -12,6 +9,10 @@ export const useAuth = create((set) => ({
     setUser: (user) => {
         set({ user });
         window.localStorage.setItem('user', JSON.stringify(user));
+    },
+    setToken: (token) => {
+        set({ token });
+        window.localStorage.setItem('token', token);
     },
     login: async (userLogin) => {
         try {
@@ -23,17 +24,19 @@ export const useAuth = create((set) => ({
             window.localStorage.setItem('token', res.data.token);
             window.localStorage.setItem('user', JSON.stringify(resUser.data[0]));
         } catch (error) {
-            set({ errors: error.response.data });
+            set({ errors: error.response.data  });
             setTimeout(() => set({ errors: null }), 3000);
         }
     },
     register: async (userRegister) => {
         try {
             await registerRequest(userRegister);
+            return true;
         } catch (error) {
-            set({ errors: error.response.data });
+            set({ errors: error.response.data});
             console.log(error);
             setTimeout(() => set({ errors: null }), 3000);
+            return false;
         }
     },
     logout: () => {

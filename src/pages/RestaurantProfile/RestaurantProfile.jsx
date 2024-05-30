@@ -71,7 +71,6 @@ export function RestaurantProfile() {
         upload.click();
     }
 
-
     const handleInputProfileBannerChange = async (e) => {
         setLoading(true);
         try {

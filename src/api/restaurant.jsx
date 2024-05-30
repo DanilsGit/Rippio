@@ -6,3 +6,7 @@ const API_URL = 'https://rippio-api.vercel.app';
 export const getCatAndProdByResId = (id) => axios.get(`${API_URL}/api/restaurant/getCatAndProdByResId/${id}`);
 
 export const getInfo = (id) => axios.get(`${API_URL}/api/restaurant/getProfileById/${id}`);
+
+export const getCategories = () => axios.get(`${API_URL}/api/category/getAll`);
+
+export const getSettingsById = (id) => axios.get(`${API_URL}/api/user_data/getById/${id}`);

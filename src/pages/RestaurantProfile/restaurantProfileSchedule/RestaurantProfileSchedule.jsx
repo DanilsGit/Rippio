@@ -180,7 +180,6 @@ const formatSchedule = (mySchedule) => {
 
     const updateMySchedule = async (token, schedule) => {
         setLoading(true)
-        console.log(schedule);
         try {
             const res = await updateSchedule(token, schedule)
             console.log(res);
@@ -196,7 +195,8 @@ const formatSchedule = (mySchedule) => {
         if (token) {
             getMySchedule(token)
         }
-    }, [token], [])
+        console.log('useEffect',haveSchedule);
+    }, [token, haveSchedule], [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -208,8 +208,10 @@ const formatSchedule = (mySchedule) => {
         }
         if (haveSchedule) {
             updateMySchedule(token, scheduleData)
+            console.log('update');
         } else {
             addMySchedule(token, scheduleData)
+            console.log('add');
         }
         setLoading(false)
     }

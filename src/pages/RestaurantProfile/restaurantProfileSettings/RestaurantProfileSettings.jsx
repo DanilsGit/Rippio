@@ -113,18 +113,18 @@ export function RestaurantProfileSettings() {
         const secondaryCategory = categories.find(category => category.value === id_categoria[1]);
         const newInfo = {
             categories: {
-                main: mainCategory,
-                secondary: secondaryCategory
+                main: mainCategory || '',
+                secondary: secondaryCategory || '',
             },
             phone: telefono,
             address: {
-                departamento: { value: departamento, label: departamento },
-                ciudad: { value: ciudad, label: ciudad },
-                barrio: barrio,
-                tipoVia: { value: tipo_via, label: tipo_via },
-                numAddress: numero_via,
-                firstNumAddress: numero_uno,
-                secondNumAddress: numero_dos,
+                departamento: { value: departamento, label: departamento } || '',
+                ciudad: { value: ciudad, label: ciudad } || '',
+                barrio: barrio || '',
+                tipoVia: { value: tipo_via, label: tipo_via } || '',
+                numAddress: numero_via || '',
+                firstNumAddress: numero_uno || '',
+                secondNumAddress: numero_dos || '',
             }
         }
         setInfo(newInfo)

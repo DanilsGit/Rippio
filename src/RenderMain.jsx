@@ -38,6 +38,7 @@ function RenderMain({ router }) {
         const newUser = await getUserData(user.id);
         setUser(newUser.data[0]);
     }
+    
     useEffect(() => {
         if (isAuthenticated) {
             updateUserData();

@@ -299,7 +299,6 @@ a {
 .right-panel-image, .left-panel-image{
     display: flex;
     width: 9em;
-    margin: 0 5em;
     margin-top: 1em;
     -webkit-transition: -webkit-transform 10s;
 }
@@ -450,6 +449,9 @@ a {
 }
 
 .left-panel-content, .right-panel-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color:rgb(255, 255, 255);
     transition: 1.1s ease-in-out;
     transition-delay: .2s;
@@ -457,7 +459,6 @@ a {
 
 .right-panel-image, .left-panel-image{
     width: 9em;
-    margin: 0 5em;
     margin-top: 1em;
     -webkit-transition: -webkit-transform 10s;
 }

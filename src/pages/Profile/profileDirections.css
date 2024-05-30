@@ -1,11 +1,13 @@
 .ProfileDirections{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: start;
     padding: 1em 2em;
     gap: 1em;
     font-family: 'Montserrat', sans-serif;
+    max-height: 75vh;
+    overflow: auto;
 }
 
 .ProfileDirections-h1{
@@ -16,12 +18,64 @@
     
 }
 
+.ProfileDirections-form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow: auto;
+    border-top: 2px solid #0c818141;
+    padding-top: 1em;
+}
+
+.ProfileDirections-form-container::-webkit-scrollbar{
+    width: 1em;
+    background-color: #0c818141;
+}
+
+.ProfileDirections-form-container::-webkit-scrollbar-thumb{
+    width: 1em;
+    background-color: #7ab6b385;
+    background-color: #ffffff85;
+}
+
 .ProfileDirections-form{
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: 100%;
     align-items: center;
+    justify-content: center;
+    /* Para que se oculte el form*/
+    overflow: hidden;
+    max-height: 0em;
+    transition: all 0.5s ease-in-out;
+}
+
+.ProfileDirections-form::-webkit-scrollbar{
+    width: 1em;
+    background-color: #0c818141;
+}
+
+.ProfileDirections-form::-webkit-scrollbar-thumb{
+    width: 1em;
+    background-color: #ffffff85;
+}
+
+.open{
+    max-height: 37vh;
+    transition: all 0.5s ease-in-out;
+}
+
+.ProfileDirections-active{
+    background-color: transparent;
+    width: 50%;
+    padding: .5em 0;
+    border: none;
+    color: #1b4948;
+    font-size: .9em;
+    font-weight: 700;
+    text-align: start;
 }
 
 .ProfileDirections-Input{
@@ -30,23 +84,29 @@
     border-bottom: 2px solid #428180;
 }
 
-.fieldsetInformation, .fieldsetAddress {
+.fieldsetAddressProfile {
     display: grid;
     grid-template-columns: 50% 50%;
-    gap: 2em 1em;
-    padding-right: 2em;
-    border: 2px solid #ffffff31;
-    width: 100%;
+    gap: 1em;
+    padding: 0;
+    padding-left: 1.5em;
+    padding-top: 1em;
+    width: 90%;
+}
+
+fieldset.fieldsetAddressProfile {
+    border: none;
+    border-left: 5px solid #46777136;
 }
 
 .label{
-    font-size: 1em;
+    font-size: .8em;
     color: #266462;
     font-weight: 700;
 }
 
 .ProfileDirections-form input {
-    font-size: .9em;
+    font-size: .8em;
     outline: none;
     padding-bottom: 0.5em;
     color: #1c3d3c;
@@ -56,30 +116,37 @@
 
 .ProfileDirections-form input::placeholder {
     color: #1c3d3c8c;
+    font-size: .9em;
     font-weight: 500;
 }
 
-.fieldsetAddress > div {
+.fieldsetAddressProfile > div {
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 1em;
 }
 
-.fieldsetAddress label {
+.fieldsetAddressProfile label {
     text-align: center;
 }
 
 .select {
     width: 100%;
-    font-size: .9em;
+    font-size: .75em;
+    height: auto;
 }
 
-.fieldsetAddress-address-div{
+.select[multiple] {
+    height: auto; /* Asegúrate de que la altura sea automática */
+    overflow-y: auto; /* Agrega scroll vertical */
+}
+
+.fieldsetAddressProfile-address-div{
     grid-column: 1 / -1;
 }
 
-.fieldsetAddress-address-div > div{
+.fieldsetAddressProfile-address-div > div{
     display: flex;
     align-items: center;
     gap: 1em;
@@ -87,15 +154,50 @@
     color: #394444;
 }
 
-.fieldsetAddress-address-div > div >input{
+.fieldsetAddressProfile-address-div > div >input{
     width: 20%;
     text-align: center;
 }
 
+.textarea-address-div{
+    grid-column: 1 / -1;
+    margin-top: .5em; /*CAMBIAR AL PADRE GAP*/
+}
+
+.textarea-address-div textarea{
+    width: 90%;
+    height: 1.6em;
+    color: #394444;
+    font-size: .8em;
+    font-weight: 600;
+    resize: none;
+    overflow: hidden;
+}
+
+.textarea-address-div textarea:focus{
+    outline: none;
+}
+
+
+.ProfileDirections-Button-Edit, .ProfileDirections-Button-Confirm{
+    padding: 0.4em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: #1e917f83;
+    width: 100%;
+    font-weight: 600;
+    font-size: .8em;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    color: #175049;
+    letter-spacing: .2em;
+
+}
 
 .ProfileDirections-Button{
-    padding: 0.5em 1em;
-    margin: 1em;
+    padding: 0.5em;
+    margin: .4em;
     border: none;
     border-radius: 0.5em;
     background-color: #31afad;
@@ -108,29 +210,26 @@
 }
 
 .ProfileDirections-Button:hover{
-    background-color: #00adab;
+    background-color: #01807d;
     transition: background-color 0.5s ease;
 }
 
 @media screen and (max-width: 760px) {
-    .fieldsetInformation, .fieldsetAddress {
-        display: grid;
-        grid-template-columns: auto;
-        gap: 1em;
+.fieldsetAddressProfile {
         padding-right: 2em;
-    }
+}
 
-    .fieldsetAddress > div {
+.fieldsetAddressProfile > div {
         display: flex;
         flex-direction: column;
         align-items: start;
         justify-content: start;
         gap: 0.3em;
-    }
+}
 
-    .ProfileDirections-Button{
+.ProfileDirections-Button{
         width: 80%;
-    }
+}
 
 }
 

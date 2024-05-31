@@ -26,8 +26,7 @@ export function RestaurantProfileMenu() {
     const [editedProduct, setEditedProduct] = useState(null);
     const [loadingProduct, setLoadingProduct] = useState(false);
     const [file, setFile] = useState(null)
-
-    let begin = window.localStorage.getItem('begin') === 'true'
+    const [loadingCategories, setLoadingCategories] = useState(true)
 
     const addUniqueKeyToProducts = (categories) => {
         const newCategories = categories.map(category => {
@@ -53,7 +52,6 @@ export function RestaurantProfileMenu() {
                 productos: []
             }
             setCategories([...categories, newCategory])
-            window.localStorage.setItem('begin', 'true')
         } catch (error) {
             console.log(error);
             setError(error)
@@ -65,12 +63,14 @@ export function RestaurantProfileMenu() {
     const getMyProducts = async () => {
         try {
             const res = await getProductsByResId(user.id)
+            setLoadingCategories(false)
             if (res.data.length === 0) return
             const categoriesUuid = addUniqueKeyToProducts(res.data)
             setCategories(categoriesUuid)
         } catch (error) {
             console.log(error);
         }
+        
     }
 
     useEffect(() => {
@@ -232,8 +232,11 @@ export function RestaurantProfileMenu() {
 
     return (
         <>
-            {
-                (categories && categories.length > 0) || !begin
+        {
+            loadingCategories
+            ? <h1>Cargando...</h1>
+            :
+            categories
                     ?
                     <>
                         <section className='RestaurantProfileMenu'>
@@ -275,8 +278,9 @@ export function RestaurantProfileMenu() {
                         <RestaurantProductModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalAddProductOpen} handleCancel={handleCancelModalAddProductClick} handleConfirm={handleConfirmModalAddProductClick} setProduct={setCreatedProduct} newProduct={createdProduct} />
                         <RestaurantProductModal loading={loadingProduct} setFile={setFile} loadingProduct={loadingProduct} categories={categories} isModalOpen={isModalEditProductOpen} handleCancel={handleCancelModalEditProductClick} handleConfirm={handleConfirmModalEditProductClick} setProduct={setEditedProduct} newProduct={editedProduct} productSelectedToEdit={selectedProduct} />
                     </>
-                    : error ? <h1>Hubo un error al cargar los productos</h1> : <h1>Cargando...</h1>
-            }
+                    : error && <h1>Hubo un error al cargar los productos</h1>
+        }
+            
         </>
     )
 }

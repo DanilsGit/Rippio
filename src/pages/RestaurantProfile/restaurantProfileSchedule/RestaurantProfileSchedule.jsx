@@ -176,6 +176,7 @@ const formatSchedule = (mySchedule) => {
             setError('Error al establecer horario')
         }
         setLoading(false)
+        setHaveSchedule(true)
     }
 
     const updateMySchedule = async (token, schedule) => {

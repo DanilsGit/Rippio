@@ -28,6 +28,30 @@
     padding-top: 1em;
 }
 
+.ProfileDirections-Button-Container{
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ProfileDirections-Button-Delete{
+    padding: 0.3em 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--darkblue);
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+.ProfileDirections-Button-Delete:hover{
+    background-color: #ff0000;
+    transition: background-color 0.5s ease;
+}
+
 .ProfileDirections-form-container::-webkit-scrollbar{
     width: 1em;
     background-color: #0c818141;
@@ -69,7 +93,7 @@
 
 .ProfileDirections-active{
     background-color: transparent;
-    width: 50%;
+    width: 100%;
     padding: .5em 0;
     border: none;
     color: #1b4948;

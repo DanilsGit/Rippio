@@ -1,0 +1,294 @@
+.ProfilePaymentMethods{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 1em 2em;
+    gap: 1em;
+    font-family: 'Montserrat', sans-serif;
+    max-height: 80vh;
+    overflow: auto;
+    
+}
+
+.ProfilePaymentMethods-h1{
+    font-size: 1.7em;
+    color: #1b4948;
+    margin: 0;
+    margin-top: .5em;
+    
+}
+
+.ProfilePaymentMethods-form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow: auto;
+    border-top: 2px solid #0c818141;
+}
+
+.ProfilePaymentMethods-form-container::-webkit-scrollbar{
+    width: 1em;
+    background-color: #0c818141;
+}
+
+.ProfilePaymentMethods-form-container::-webkit-scrollbar-thumb{
+    width: 1em;
+    background-color: #7ab6b385;
+    background-color: #ffffff85;
+}
+
+.ProfilePaymentMethods-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    justify-items: center;
+    
+    
+    /* Para que se oculte el form*/
+    overflow: hidden;
+    max-height: 0em;
+    transition: all 0.5s ease-in-out;
+}
+
+.ProfilePaymentMethods-form::-webkit-scrollbar{
+    width: 1em;
+    background-color: #0c818141;
+}
+
+.ProfilePaymentMethods-form::-webkit-scrollbar-thumb{
+    width: 1em;
+    background-color: #ffffff85;
+}
+
+.open{
+    max-height: 50vh;
+    transition: all 0.5s ease-in-out;
+    overflow: auto;
+    width: 100%;
+    padding: 0 2em;
+}
+
+.ProfilePaymentMethods-active{
+    background-color: transparent;
+    width: 100%;
+    padding: .5em 0;
+    border: none;
+    color: #1b4948;
+    font-size: .9em;
+    font-weight: 700;
+    text-align: start;
+}
+
+.ProfilePaymentMethods-form-card{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCardDefault.png?alt=media&token=373cd089-568f-4f6f-b620-e987d4a89aad);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    display: grid;
+    min-height: 15em;
+    min-width: 20em;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 18% 82%;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    overflow: hidden;
+}
+
+.ProfilePaymentMethods-form-card-number{
+    color: #ffffff;
+    font-weight: 700;
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 1.8em;
+}
+
+.ProfilePaymentMethods-form-card-number input{
+    width: 90%;
+    letter-spacing: .2em;
+    
+}
+
+
+.ProfilePaymentMethods-form-card-date{
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 700;
+    grid-row: 3;
+    grid-column: 2;
+    width: 65%;
+    text-align: center;
+}
+
+.ProfilePaymentMethods-form-card-date input{
+    width: 35%;
+    margin: 0 1em;
+    letter-spacing: .2em;
+    text-align: center;
+}
+
+.ProfilePaymentMethods-form-card-name{
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 700;
+    grid-row: 4;
+    grid-column: 1 / span 2;
+    width: 72%;
+    margin-left: .7em;
+}
+
+.ProfilePaymentMethods-form-card-name input{
+    width: 46%;
+    margin: 0 .4em;
+}
+
+.ProfilePaymentMethods-form input {
+    font-size: .8em;
+    outline: none;
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #009cb100;
+    border: none;
+    text-shadow: 0 0 10px #00000098;
+}
+
+.ProfilePaymentMethods-form input::placeholder {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: .1em;
+}
+
+.div-banco{
+    grid-row: 1;
+    width: 100%;
+}
+
+.select {
+    font-size: .75em;
+    height: auto;
+}
+
+.select[multiple] {
+    height: auto; 
+    overflow-y: auto; 
+}
+
+.ProfilePaymentMethods-Button-Confirm{
+    padding: 0.4em;
+    border: none;
+    border-radius: 1em;
+    background-color: #1e917f83;
+    width: 100%;
+    font-weight: 600;
+    font-size: .8em;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    color: #175049;
+    letter-spacing: .2em;
+    grid-column: 1;
+
+}
+
+.ProfilePaymentMethods-Button{
+    padding: 0.5em;
+    margin: .4em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #31afad;
+    width: 50%;
+    font-weight: 600;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.ProfilePaymentMethods-Button:hover{
+    background-color: #01807d;
+    transition: background-color 0.5s ease;
+}
+
+@media screen and (max-width: 423px) {
+    .ProfilePaymentMethods-form-card{
+        min-height: 14em;
+        min-width: 25em;
+    }
+
+    .ProfilePaymentMethods-form-card-name{
+        width: 70%;
+    }
+    
+    .ProfilePaymentMethods-form-card-name input{
+        width: 40%;
+    }
+
+}
+
+@media screen and (max-width: 370px) {
+    .ProfilePaymentMethods-form-card{
+        min-height: 11em;
+        min-width: 20em;
+    }
+
+    .ProfilePaymentMethods-form-card-name{
+        width: 70%;
+    }
+    
+    .ProfilePaymentMethods-form-card-name input{
+        width: 40%;
+    }
+
+    .ProfilePaymentMethods-form-card-number{
+        font-size: 1.5em;
+    }
+
+    .ProfilePaymentMethods-form-card-date{
+        width: 65%;
+
+    }
+    
+    .ProfilePaymentMethods-form-card-date input{
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+
+    .open{
+        padding: 0;
+    }
+
+    .ProfilePaymentMethods-form-card{
+        min-height: 10em;
+        min-width: 19em;
+    }
+
+    .ProfilePaymentMethods-form-card-name{
+        width: 70%;
+    }
+    
+    .ProfilePaymentMethods-form-card-name input{
+        width: 40%;
+    }
+
+    .ProfilePaymentMethods-form-card-number{
+        font-size: 1.5em;
+    }
+
+    .ProfilePaymentMethods-form-card-date{
+        width: 65%;
+
+    }
+    
+    .ProfilePaymentMethods-form-card-date input{
+        width: 30%;
+    }
+
+}

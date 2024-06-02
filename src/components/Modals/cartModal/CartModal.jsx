@@ -1,11 +1,35 @@
 import Modal from 'react-modal';
 import { useCart } from '../../../hooks/useCart';
 import './cartModal.css'
+import LoginToPayModal from '../loginTopay/LoginToPayModal';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export function CartModal() {
+    const { cart, showCartModal, toggleCartModal, incrementProduct, decrementProduct, token } = useCart()
+    const [isOpen, setIsOpen] = useState(false)
+    const navigator = useNavigate()
 
-    const { cart, showCartModal, toggleCartModal, incrementProduct, decrementProduct } = useCart()
+
+    const handleClickPayButton = () => {
+        if (token) {
+            toggleCartModal()
+            navigator('/checkout')
+        } else {
+            setIsOpen(true)
+        }
+    }
+
+    const handleCancel = () => {
+        setIsOpen(false)
+    }
+
+    const handleLogin = () => {
+        setIsOpen(false)
+        toggleCartModal()
+        navigator('/login')
+    }
 
     return (
         <div>
@@ -25,7 +49,7 @@ export function CartModal() {
                                                     <img draggable='false' alt='product' src={item.product.img_product} />
                                                     <div className='ModalCart-content-item-info'>
                                                         <h3>{item.product.nombre}</h3>
-                                                        <p className='ModalCart-content-item-info-desc'>{item.product.dscripcion}</p>
+                                                        {/* <p className='ModalCart-content-item-info-desc'>{item.product.descripcion}</p> */}
                                                         <p>Cantidad: <span> {item.quantity}</span></p>
                                                         <p>Precio: <span>${item.product.costo_unit}</span></p>
                                                         {
@@ -46,6 +70,9 @@ export function CartModal() {
                                 </div>
                                 <div className='ModalCart-content-total'>
                                     <h3>Total a pagar: <span>${cart.total}</span></h3>
+                                    <button className='ModalCart-content-total-btn'
+                                    onClick={handleClickPayButton}
+                                    >Ir a pagar</button>
                                 </div>
                             </section>
                             <footer className='ModalCart-footer'>
@@ -62,6 +89,7 @@ export function CartModal() {
                         </>
                 }
             </Modal>
+            <LoginToPayModal isOpen={isOpen} HandleCancel={handleCancel} HandleLogin={handleLogin} />
         </div>
     )
 }

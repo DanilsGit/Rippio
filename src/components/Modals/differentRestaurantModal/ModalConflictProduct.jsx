@@ -30,7 +30,7 @@ export const ModalConflictProduct = () => {
                         <div className='ModalConflictProduct-aviso'>
                             <p>Ya tienes productos de
                                 <span>{cart.restaurant.nombre}</span>
-                                en tu pedido
+                                en tu pedido.
                             </p>
                             <p>¿Deseas descartar la orden?</p>
                         </div>

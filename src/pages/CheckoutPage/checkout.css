@@ -1,0 +1,172 @@
+.CheckoutPage-main{
+    background-color: var(--darkcyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CheckoutPage{
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    width: 90%;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10em;
+    font-size: 0.8em;
+}
+
+.CheckoutPage header{
+    text-align: center;
+    border-bottom: 2px solid #0000002b;
+}
+
+.CheckoutPage-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.CheckoutPage-content-item{
+    border-bottom: 2px solid #0000002b;
+    width: 100%;
+    padding: 1em 0em;
+    display: flex;
+    justify-content: center;
+}
+
+.CheckoutPage-content-item-content{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.CheckoutPage-content-item-content h2 {
+    font-size: 1.5em;
+}
+
+.CheckoutPage-content-item-content span{
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.CheckoutPage-content-item-content-cart-item span{
+    font-size: 1em;
+}
+
+
+.CheckoutPage-Select{
+    width: 40%;
+}
+
+.CheckoutPage-content-item-content-cart{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: #000;
+}
+
+.CheckoutPage-content-item-content-cart h2{
+    font-size: 2em;
+    font-weight: 700;
+}
+
+
+.CheckoutPage-content-item-content-cart-item{
+    display: flex;
+    gap: 2em;
+}
+
+.CheckoutPage-content-item-content-cart-item h3{
+    color: var(--darkcyan);
+}
+
+.CheckoutPage-content-item-content-cart-item img{
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    border: 2px solid var(--darkblue);
+    object-fit: cover;
+}
+
+.CheckoutPage-content-item-content-button{
+    position: relative;
+    background-color: var(--lightcyan);
+    padding: 0.5em 3em;
+    border-radius: 1em;
+    font-size: 1.2em;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.CheckoutPage-content-item-content-button p{
+    position: relative;
+    z-index: 2;
+}
+
+.CheckoutPage-content-item-content-button:hover{
+    background-color: var(--darkcyan);
+}
+
+.CheckoutPage-btn-loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 1em;
+    background-color: var(--darkblue);
+    z-index: 1;
+}
+
+.CheckoutPage-btn-loadingStart{
+    width: 70%;
+    transition: 2s;
+}
+
+.CheckoutPage-btn-loadingEnd{
+    width: 100%;
+    transition: 0.5s;
+}
+
+.CheckoutPage-warning-title{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--darkcyan);
+}
+
+.CheckoutPage-content-item-content-credits div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.CheckoutPage-credits-active{
+    color: var(--darkcyan);
+    font-weight: 700;
+}
+
+.text-strike {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .CheckoutPage-content-item-content-select{
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .CheckoutPage-Select{
+        width: 80%;
+    }
+}

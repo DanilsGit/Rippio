@@ -1,0 +1,43 @@
+.LoginToPayModal{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.LoginToPayModal h1{
+    margin: 0;
+    font-size: 2em;
+    font-weight: 600;
+    color: #011a19;
+}
+
+.LoginToPayModal p {
+    font-size: 1em;
+    font-weight: 500;
+    color: #485658;
+}
+
+.LoginToPayModal div {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.LoginToPayModal div button {
+    width: 100%;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #54aca9;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.LoginToPayModal div button:hover {
+    background-color: #046463;
+    transition: 0.5s;
+}

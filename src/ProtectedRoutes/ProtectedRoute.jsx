@@ -66,3 +66,18 @@ export function ProtectedPrincipalPageRestaurantRoute({ element }) {
 
     return element;
 }
+
+export function ProtectedCheckoutRoute({ element }) {
+    const user = useAuth((state) => state.user);
+    const isAuthenticated = useAuth((state) => state.isAuthenticated);
+
+    if (user?.tipo_usuario === 3) {
+        return <Navigate to="/restaurantprofile" />;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to="/login" />;
+    }
+
+    return element;
+}

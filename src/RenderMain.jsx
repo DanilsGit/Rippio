@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 // Main.jsx
 import React, { useEffect } from 'react';
-import { CartModal } from './components/Modals/cartModal/CartModal.jsx';
-import { ModalConflictProduct } from './components/Modals/differentRestaurantModal/ModalConflictProduct.jsx';
 import { RouterProvider } from "react-router-dom";
 import { useAuth } from './hooks/useAuth.jsx';
 import { getUserData } from './api/auth.jsx';
@@ -14,7 +12,7 @@ function RenderMain({ router }) {
     const user = useAuth((state) => state.user);
     const setUser = useAuth((state) => state.setUser);
     const isAuthenticated = useAuth((state) => state.isAuthenticated);
-    const fixCart = window.localStorage.getItem('fixCart') == 'true';
+    const fix = window.localStorage.getItem('fix') == 'true';
 
 
     const { loadCartFromLocalStorage, loadCartFromDatabase, setTokenInCart } = useCart();
@@ -26,12 +24,10 @@ function RenderMain({ router }) {
             setTokenInCart(token);
             loadCartFromDatabase(token);
         } else {
-            console.log('cargada de localstorage');
             setTokenInCart(null);
             loadCartFromLocalStorage();
         }
     }, []);
-
 
 
     const updateUserData = async () => {
@@ -43,16 +39,14 @@ function RenderMain({ router }) {
         if (isAuthenticated) {
             updateUserData();
         }
-        if (!fixCart) {
+        if (!fix) {
             window.localStorage.clear();
-            window.localStorage.setItem('fixCart', 'true');
+            window.localStorage.setItem('fix', 'true');
         }
     }, []);
 
     return (
         <React.StrictMode>
-            <CartModal />
-            <ModalConflictProduct />
             <RouterProvider router={router} />
         </React.StrictMode>
     );

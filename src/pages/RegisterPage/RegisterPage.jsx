@@ -71,8 +71,11 @@ const dontMoveCart = async () => {
     }
   }
 
+  const [clickOnRegister, setClickOnRegister] = useState(false);
   
   const handleSubmitRegister = async (e) => {
+    if (clickOnRegister) return;
+    setClickOnRegister(true);
     e.preventDefault();
     const newUserRegister = { ...userRegister };
     if (!isUserMode) {

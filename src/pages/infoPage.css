@@ -1,86 +1,141 @@
 .background-container{
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
 }
 
 .info-container{
-    background: linear-gradient(100deg, #083b3b, #00ccc3, #cbffff);
-    background-size: 600% 600%;
-
-    -webkit-animation: gradient 10s ease infinite;
-    -moz-animation: gradient 10s ease infinite;
-    animation: gradient 10s ease infinite;
-    width: 90%;
-
-}
-
-.aboutus-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 0 3.5em;
     background-color: white;
 }
 
-.aboutus-image{
-    width: 10em;
+.info-container-video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100vw;
+    height: 60vh;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
 }
 
-.aboutus-container-h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #26cac2;
+.info-container-video > video{
+    width: 100%;
+}
+
+.info-container-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.712);
+    z-index: 2;
+    position: relative;
+    width: 100vw;
+    height: 60vh;
     margin: 0;
-    margin-top: 1.5em;
-    margin-bottom: .5em;
-    text-align: center;
-    text-shadow: 0 0 10px #9dfffa;
 }
 
-.aboutus-container-p {
+
+.info-container-title >  h1{
+    margin-top: -2em;
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px  #000000a9;
+}
+
+.info-container-title > p{
     font-size: 1em;
     font-weight: 400;
-    color: #0e2b29;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: .07em;
+    padding: 0 12em;
+    text-shadow: 0 0 15px  #000000a9;
+}
+
+.info-container-mision{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/InfoPage%2FCurveDecoration.png?alt=media&token=a5eb0fd1-8acf-437a-9117-29fdf4d907e7);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: start;
+    margin-top: -5em;
+    padding: 4em 3em;
+    z-index: 3;
+    position: relative;
+}
+
+
+.info-container-mision-p {
+    font-size: 1em;
+    font-weight: 400;
+    color: #2b1e0e;
     text-align: justify;
     letter-spacing:  .06em;
     line-height: 2em;
     margin-bottom: 2em;
 }
 
-.aboutus-container-h2{
+.info-container-mision-h2{
     font-size: 1.5em;
     font-weight: 700;
-    color: #083f3c;
+    color: #7a5638;
     margin: 1em 0;
-    text-shadow: 0 0 10px #cafffc;
 }
 
+.info-container-mision> h2:first-child{
+    font-size: 2em;
+    text-align: center;
+}
 
 .help-container{
     display: flex;
     flex-direction: column;
+
+    margin-top: -3em;
     justify-content: space-around;
-    padding: 0 3.5em;
-    background-color: white;
 }
 
+
+.help-container-questions{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/InfoPage%2FCurveDecoration2.png?alt=media&token=656e9b15-718b-482a-a9a2-40188c0de5cc);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: start;
+    position: relative;
+    padding: 2em 3.5em;
+    background-color: white;
+}
 
 .help-container-title {
     font-size: 2.5em;
     font-weight: 700;
-    color: #26cac2;
+    color: #105551;
     margin: 0;
     margin-top: 1em;
     margin-bottom: .5em;
     text-align: center;
-    text-shadow: 0 0 10px #9dfffa;
+    text-shadow: 0 0 10px #bcf7f4;
 }
 
+.help-container-devolutions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #CFE6E6;
+    padding: 0 3.5em;
+
+}
 
 .help-container-h2{
     font-size: 1.5em;
     font-weight: 700;
-    color: #083f3c;
+    color: #0c504c;
     margin: 1em 0;
     text-shadow: 0 0 10px #cafffc;
 }
@@ -88,7 +143,7 @@
 .help-container-p, .help-container-li > p{
     font-size: 1em;
     font-weight: 400;
-    color: #0e2b29;
+    color: #082927;
     text-align: justify;
     letter-spacing:  .06em;
     line-height: 2em;
@@ -98,7 +153,7 @@
 .help-container-li{
     font-size: 1em;
     font-weight: 700;
-    color: #143836;
+    color: #1b6965;
     text-align: justify;
     letter-spacing:  .06em;
     line-height: 2em;
@@ -109,6 +164,89 @@
     margin-left: 2em;
     font-size: .9em;
     font-weight: 400;
-    color: #265f5b;
+    color: #0a4440;
 }
 
+.help-container-contact{
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/InfoPage%2FCurveDecoration3.png?alt=media&token=ef6f8684-ed14-45e8-ac13-86c03be31bf8);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFE6E6;
+    padding: 3em 3.5em;
+}
+
+.help-container-contact-h2{
+    font-size: 2em;
+    font-weight: 700;
+    color: #745227;
+    margin: 1em 0;
+}
+
+.help-container-contact-p{
+    font-size: 1em;
+    font-weight: 600;
+    color: #574321;
+    text-align: center;
+    letter-spacing:  .03em;
+    line-height: 2em;
+    margin-bottom: 3em;
+}
+
+@media (max-width: 714px ){
+
+    .info-container-video > video{
+        width: 180%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 3.5em;
+    }
+
+    .info-container-title > p{
+        font-size: 1.2em;
+        padding: 0 5em;
+    }
+}
+
+@media (max-width: 410px ){
+
+    .info-container-video > video{
+        width: 220%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 3em;
+        padding: 0 .5em;
+    }
+
+    .info-container-title > p{
+        font-size: 1em;
+        padding: 0 2em;
+    }
+}
+
+@media (max-width: 290px ){
+
+    .info-container-video > video{
+        width: 270%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 2.5em;
+        padding: 0 .5em;
+    }
+
+    .info-container-title > p{
+        font-size: .9em;
+        padding: 0 2em;
+    }
+}

@@ -1,3 +1,7 @@
+.ModalConflictProduct{
+    width: 60vw;
+}
+
 .ModalConflictProduct-header{
     display: flex;
     justify-content: center;
@@ -39,9 +43,15 @@
     cursor: pointer;
 }
 
+
 .ModalConflictProduct-btnContainer button:nth-child(1){
     background-color: var(--lightcyan);
 }
 .ModalConflictProduct-btnContainer button:nth-child(2){
     background-color: var(--darkblue);
+}
+
+.ModalConflictProduct-btnContainer button:hover{
+    transition: .6s;
+    background-color: var(--darkcyan);
 }

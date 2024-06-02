@@ -98,7 +98,7 @@
 
 .ModalCart-content-total{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 1em;
 }
@@ -113,6 +113,22 @@
     font-weight: 600;
     color: #034141;
     margin-left: .2em;
+}
+
+.ModalCart-content-total-btn{
+    background-color: #54aca9;
+    color: #fff;
+    border: none;
+    padding: .3em 1em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.ModalCart-content-total-btn:hover{
+    background-color: #077977;
+    transition: .6s;
 }
 
 .ModalCart-content-items-img{

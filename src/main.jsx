@@ -16,92 +16,107 @@ import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.j
 import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
 import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
 import { InfoPage } from './pages/InfoPage.jsx'
-import { ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute, ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute } from './ProtectedRoutes/ProtectedRoute.jsx';
+import {
+  ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
+  ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute, ProtectedCheckoutRoute
+} from './ProtectedRoutes/ProtectedRoute.jsx';
 import { AllRestaurants } from './pages/AllRestaurants.jsx';
+import RenderMain from './RenderMain.jsx';
+import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
+import { Checkout } from './pages/CheckoutPage/Checkout.jsx'
+import Layout from './Layout.jsx'
 
 import './css/index.css'
 import 'normalize.css'
 
+//Array con todas las rutas de la aplicación
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ProtectedPrincipalPageRestaurantRoute element={<App />} />,
-    errorElement: <Page404 />
-  },
-  {
-    path: '/login', 
-    element: <ProtectedRegisterRoute element={<RegisterPage />} />,
-  },
-  {
-    path: '/info', 
-    element: <InfoPage />, 
-  },
-  {
-    path: '/allrestaurants',
-    element: <ProtectedSearchRoute element={<AllRestaurants />} />,
-  },
-  {
-    path: '/searchpage/:search',
-    element: <ProtectedSearchRoute element={<SearchPage />} />,
-  },
-  {
-    path: '/restaurant/:idRestaurant',
-    element: <ProtectedSearchRoute element={<RestaurantPage />} />,
-  },
-  {
-    path: '/profile',
-    element: <ProtectedProfileRoute element={<Profile />} />,
+    element: <Layout />,
     children: [
       {
-        path: '/profile/settings',
-        element: <ProfileSettings />,
+        path: '/',
+        element: <ProtectedPrincipalPageRestaurantRoute element={<App />} />,
+        errorElement: <Page404 />
       },
       {
-        path: '/profile/directions',
-        element: <ProfileDirections />,
+        path: '/login',
+        element: <ProtectedRegisterRoute element={<RegisterPage />} />,
       },
       {
-        path: '/profile/paymentmethods',
-        element: <ProfilePaymentMethods />,
+        path: '/info',
+        element: <InfoPage />,
       },
       {
-        path: '/profile/credits',
-        element: <ProfileCredits />,
+        path: '/checkout',
+        element: <ProtectedCheckoutRoute element={<Checkout />} />,
       },
       {
-        path: '/profile/orders',
-        element: <ProfileOrders />,
+        path: '/allrestaurants',
+        element: <ProtectedSearchRoute element={<AllRestaurants />} />,
       },
-      { index: true, element: <Navigate to="settings" /> },
+      {
+        path: '/searchpage/:search',
+        element: <ProtectedSearchRoute element={<SearchPage />} />,
+      },
+      {
+        path: '/restaurant/:idRestaurant',
+        element: <ProtectedSearchRoute element={<RestaurantPage />} />,
+      },
+      {
+        path: '/profile',
+        element: <ProtectedProfileRoute element={<Profile />} />,
+        children: [
+          {
+            path: '/profile/settings',
+            element: <ProfileSettings />,
+          },
+          {
+            path: '/profile/directions',
+            element: <ProfileDirections />,
+          },
+          {
+            path: '/profile/paymentmethods',
+            element: <ProfilePaymentMethods />,
+          },
+          {
+            path: '/profile/credits',
+            element: <ProfileCredits />,
+          },
+          {
+            path: '/profile/orders',
+            element: <ProfileOrders />,
+          },
+          { index: true, element: <Navigate to="settings" /> },
+        ]
+      },
+      {
+        path: '/restaurantProfile',
+        element: <ProtectedProfileRestaurantRoute element={<RestaurantProfile />} />,
+        children: [
+          {
+            path: '/restaurantProfile/settings',
+            element: <RestaurantProfileSettings />,
+          },
+          {
+            path: '/restaurantProfile/menu',
+            element: <RestaurantProfileMenu />,
+          },
+          {
+            path: '/restaurantProfile/horarios',
+            element: <RestaurantProfileSchedule />,
+          },
+          { index: true, element: <Navigate to="settings" /> },
+        ]
+      },
+      {
+        path: '/Page404',
+        element: <Page404 />,
+      }
     ]
-  },
-  {
-    path: '/restaurantProfile',
-    element: <ProtectedProfileRestaurantRoute element={<RestaurantProfile />} />,
-    children: [
-      {
-        path: '/restaurantProfile/settings',
-        element: <RestaurantProfileSettings />,
-      },
-      {
-        path: '/restaurantProfile/menu',
-        element: <RestaurantProfileMenu />,
-      },
-      {
-        path: '/restaurantProfile/horarios',
-        element: <RestaurantProfileSchedule />,
-      },
-      { index: true, element: <Navigate to="settings" /> },
-    ]
-  },
-  {
-    path: '/Page404',
-    element: <Page404 />,
   }
 ]);
-
-import  RenderMain  from './RenderMain.jsx';
-import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(<RenderMain router={router} />);

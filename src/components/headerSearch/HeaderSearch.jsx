@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './headerSearch.css'
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,7 +9,7 @@ import { handleClickCartModal } from '../../constants/cart'
 import { HeaderDrawer } from '../headerDrawer/HeaderDrawer';
 import { useAuth } from '../../hooks/useAuth';
 
-export function HeaderSearch() {
+export function HeaderSearch({ isCheckout = false }) {
     const navigate = useNavigate();
     const [search, setSearch] = useState('');
     const cart = useCart((state) => state.cart)
@@ -33,16 +34,19 @@ export function HeaderSearch() {
             <nav className='header-nav'>
                 <ul className='header-ul'>
                     <li className='header-li'>
-                        <button
-                            onClick={() => handleClickCartModal(toggleCartModal)}
-                            className='header-li-link'>
-                            {
-                                cart.items.length > 0 ?
-                                    <img draggable='false' alt='cart' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartContainIcon.png?alt=media&token=a3667264-0a76-40ee-92cc-b2344651ab54' />
-                                    :
-                                    <img draggable='false' alt='cart' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartIcon.png?alt=media&token=8544fcaa-130f-4eea-9122-47ada0a95082' />
-                            }
-                        </button>
+                        {
+                            !isCheckout &&
+                            <button
+                                onClick={() => handleClickCartModal(toggleCartModal)}
+                                className='header-li-link'>
+                                {
+                                    cart.items.length > 0 ?
+                                        <img draggable='false' alt='cart' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartContainIcon.png?alt=media&token=a3667264-0a76-40ee-92cc-b2344651ab54' />
+                                        :
+                                        <img draggable='false' alt='cart' className='header-li-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FcartIcon.png?alt=media&token=8544fcaa-130f-4eea-9122-47ada0a95082' />
+                                }
+                            </button>
+                        }
                     </li>
                     <li className='header-li'>
                         <Link className='header-li-link' to='/login'>

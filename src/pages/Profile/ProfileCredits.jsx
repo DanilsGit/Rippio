@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom'
 import './profileCredits.css'
 import { useAuth } from '../../hooks/useAuth';
+import { useEffect } from 'react'
+import { getUserData } from '../../api/auth'
 
 export function ProfileCredits(){
     const user = useAuth((state) => state.user);
+    const setUser = useAuth(state => state.setUser)
+
+    useEffect(() => {
+        async function fetchUserData() {
+            const res = await getUserData(user.id)
+            setUser(res.data[0])
+        }
+        fetchUserData()
+    }, [])
+
     return (
         <>
             <section className='ProfileCredits-blackSection'>

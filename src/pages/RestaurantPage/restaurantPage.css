@@ -1,6 +1,6 @@
 .RestaurantPage{
-    background: rgb(208,208,208);
-    background: linear-gradient(180deg, rgba(208,208,208,1) 0%, rgba(245,245,245,1) 10%, rgba(245,245,245,1) 100%);
+    background: var(--white);
+    background: linear-gradient(180deg, rgb(175, 175, 175) 0%, var(--white) 8%, var(--white) 100%);
 }
 
 .RestaurantPage-content{

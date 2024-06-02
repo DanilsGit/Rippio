@@ -2,6 +2,9 @@ import './profileOrders.css'
 import orders from '../../utilities/recentOrders.json'
 
 export function ProfileOrders() {
+
+
+
     return (
         <section className="ProfileOrders">
             <header className='ProfileOrders-header'>

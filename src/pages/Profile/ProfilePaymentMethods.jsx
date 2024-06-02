@@ -119,18 +119,23 @@ export function ProfilePaymentMethods() {
     };
 
     const optionStyles = { // Lista de imágenes según el id (ya sigue el orden de la BD)
-        1: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard1.png?alt=media&token=180116a6-b1db-4161-a82e-7ffdbfb46496)' },
-        2: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard2.png?alt=media&token=2ce7584c-cbdc-4923-a9fb-d3d25d8a9ff6)' },
-        3: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard3.png?alt=media&token=53d41ddb-1c05-405a-9c34-f90016d26af3)' },
-        4: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard4.png?alt=media&token=db36bd0e-acdc-45c5-a1fa-e7c8478b2c7f)' },
-        6: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard6.png?alt=media&token=6dce1407-c525-41f8-8cb1-09508ef9033c)' },
-        7: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard7.png?alt=media&token=f7bd0395-dc91-41f6-be72-1c2fe9f862b6)' },
-        8: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard8.png?alt=media&token=3af07682-c84c-4adb-b414-2fb18b64fcb1)' },
-        10: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard10.png?alt=media&token=3f0580c5-0fba-4395-b02f-652a82cbe12b)' },
-        11: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard11.png?alt=media&token=65c24024-dc9d-4722-bd4c-9f7ace8ed865)' },
-        12: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard12.png?alt=media&token=af72b8f8-4ac3-4b4e-bad3-2124c0bbb4c8)' },
+        1: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard1.png?alt=media&token=9f080dc5-9ee8-4199-9d7f-e03d9c2f6ce4)' },
+        2: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard2.png?alt=media&token=20764118-ae75-4cde-ae52-d883b73de54e)' },
+        3: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard3.png?alt=media&token=6839b075-43d4-4bab-9ad9-3f280976ec35)' },
+        4: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard4.png?alt=media&token=0a84a176-57eb-4a43-a2c9-29f157db927c)' },
+        6: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard6.png?alt=media&token=4e052426-a15e-454c-b49e-41e511d96b49)' },
+        7: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard7.png?alt=media&token=f76edc41-7e60-48dd-bb74-1db6eb2baee5)' },
+        8: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard8.png?alt=media&token=48fd18ae-d121-40d1-a0d0-4ecb2a9b0e01)' },
+        10: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard10.png?alt=media&token=e40a13b3-4991-4876-b98a-ed1c28a3b872)' },
+        11: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard11.png?alt=media&token=70c041e1-abad-4a71-a47c-e891c071bc64)' },
+        12: { backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FRippioCard12.png?alt=media&token=ece06e90-f707-415e-8e8b-aab56d75023a)' },
     };
 
+    const cardIcons = {
+        1: { image: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FcardIcons%2FAmericanExpress.png?alt=media&token=a2acd094-f28d-48d0-ac05-9054f4e67280)'},
+        2: { image: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FcardIcons%2FMasterCard.png?alt=media&token=84c20e32-0b8c-44ab-a678-362d952b9921)'},
+        3: { image: 'url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FcardIcons%2FVisa.png?alt=media&token=35442c80-7bc5-4eda-93e9-8274606a957f)'}
+    };
 
     return (
         <section className='ProfilePaymentMethods'>

@@ -26,6 +26,7 @@ export function InfoPage() {
                     <h1 className='info-container-title-h1' id="about-us">Conoce Rippio Food</h1>
                     <p className='info-container-title-p'>Una aplicación innovadora para realizar pedidos de comida que tiene como objetivo
                             principal conectar a los consumidores con sus restaurantes favoritos de manera rápida, segura y transparente. </p>
+                    
                 </div>
                 <div className='info-container-mision'>
                     <h2 className='info-container-mision-h2'>¿Cuál es nuestra Misión?</h2>

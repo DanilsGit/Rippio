@@ -1,3 +1,5 @@
+import { HashLink as Link } from 'react-router-hash-link';
+
 export function FooterInformation(){
     return (
         <>
@@ -25,22 +27,22 @@ export function FooterInformation(){
                 </section>
 
                 <section className='footer-information-item'>
-                    <div className='information-title-container'><h2 className='footer-information-title'>Accede al centro de ayudas</h2></div>
+                    <div className='information-title-container'><h2 className='footer-information-title'><a  href="/info">Accede al centro de ayuda</a></h2></div>
                     <section className='footer-information-content footer-information-content-inactive'>
                         <div className='content-item'>
-                            <a href="/info">Preguntas Frecuentes</a>
+                        <Link smooth to="/info#questions">Preguntas Frecuentes</Link>
                             <p>Créditos, compras, pedidos</p>
                         </div>
                         <div className='content-item'>
-                            <a href="/info">Política de cambios y devoluciones</a>
+                            <Link smooth to="/info#changes-devolutions">Política de cambios y devoluciones</Link>
                             <p>Para solicitar devoluciones</p>
                         </div>
                         <div className='content-item'>
-                            <a href="/info">Solicitud de Garantía</a>
+                            <Link smooth to="/info#warranty-request">Solicitud de Garantía</Link>
                             <p>Protegemos tu pedido</p>
                         </div>
                         <div className='content-item'>
-                            <a href="/info">¿Cómo gestionar mi pedido?</a>
+                            <Link smooth to="/info#manage-order">¿Cómo gestionar mi pedido?</Link>
                             <p>Observaciones, adiciones y extras</p>
                         </div>
                     </section>

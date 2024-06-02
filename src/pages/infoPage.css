@@ -37,9 +37,10 @@
     margin: 0;
 }
 
-.info-container-title > h1{
+
+.info-container-title >  h1{
     margin-top: -2em;
-    font-size: 2.5em;
+    font-size: 3.5em;
     font-weight: 700;
     color: #ffffff;
     text-align: center;
@@ -103,7 +104,7 @@
 
 .help-container-questions{
     background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/InfoPage%2FCurveDecoration2.png?alt=media&token=656e9b15-718b-482a-a9a2-40188c0de5cc);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: start;
     position: relative;
@@ -168,7 +169,7 @@
 
 .help-container-contact{
     background-image: url(https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/InfoPage%2FCurveDecoration3.png?alt=media&token=ef6f8684-ed14-45e8-ac13-86c03be31bf8);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: start;
     position: relative;
@@ -197,4 +198,55 @@
     margin-bottom: 3em;
 }
 
+@media (max-width: 714px ){
 
+    .info-container-video > video{
+        width: 180%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 3.5em;
+    }
+
+    .info-container-title > p{
+        font-size: 1.2em;
+        padding: 0 5em;
+    }
+}
+
+@media (max-width: 410px ){
+
+    .info-container-video > video{
+        width: 220%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 3em;
+        padding: 0 .5em;
+    }
+
+    .info-container-title > p{
+        font-size: 1em;
+        padding: 0 2em;
+    }
+}
+
+@media (max-width: 290px ){
+
+    .info-container-video > video{
+        width: 270%;
+        
+    }
+
+    .info-container-title > h1{
+        font-size: 2.5em;
+        padding: 0 .5em;
+    }
+
+    .info-container-title > p{
+        font-size: .9em;
+        padding: 0 2em;
+    }
+}

@@ -74,6 +74,10 @@
     color: #000;
 }
 
+.footer-information-title > a{
+    color: #000;
+}
+
 .content-item{
     font-size: 1.1em;
 }

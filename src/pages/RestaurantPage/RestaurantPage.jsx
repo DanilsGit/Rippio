@@ -41,6 +41,7 @@ export function RestaurantPage() {
     }
 
 const formatHours = (hour) => {
+    if (!hour) return ('');
     let parts = hour.split(':');
     return parts[0] + ':' + parts[1];
 }

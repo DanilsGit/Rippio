@@ -58,44 +58,46 @@ export function ProfilePaymentMethods() {
         3: { image: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FcardIcons%2FVisa.png?alt=media&token=35442c80-7bc5-4eda-93e9-8274606a957f' }
     };
 
+    useEffect(() => {
+        getTypeOfPayment(token).then((response) => {
+            const typeOfPayments = response.data;
+            setTypeOfPayments(typeOfPayments);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }, [token]);
 
     //Obtener los métodos de pago del usuario
     useEffect(() => {
         // getTypeOfPayment
         getPayments(token).then((response) => {
             const payments = response.data; //Es un array de objetos con la información de los métodos de pago del usuario
-            getTypeOfPayment(token).then((response) => {
-                const typeOfPayments = response.data;
-                const newForm = payments.map((payment) => {
-                    return {
-                        id: payment.id,
-                        id_metodo_pago: payment.id_metodo_pago,
-                        nombre: payment.nombre,
-                        apellido: payment.apellido,
-                        numero: payment.numero,
-                        formattedNum: payment.numero.replace(/(\d{4})/g, '$1 ').trim(),
-                        expiracion: payment.expiracion,
-                        formattedExpiracion: payment.expiracion,
-                        cvv: payment.cvv,
-                        isConfirmed: true,
-                        arrow: false,
-                        selectedOption: metodos_pago.find((option) => option.value === payment.id_metodo_pago),
-                        isSaved: true,
-                        imagen: typeOfPayments.find((type) => type.id === payment.id_metodo_pago).card_icon || null
-                    }
-                }); // Aquí debes mapear los pagos para que se vean en el formulario
-                setForms(newForm);
-                setLoadingPaymentMethods(false);
-                setTypeOfPayments(typeOfPayments);
-            }).catch((error) => {
-                console.log(error);
-            });
+            const newForm = payments.map((payment) => {
+                return {
+                    id: payment.id,
+                    id_metodo_pago: payment.id_metodo_pago,
+                    nombre: payment.nombre,
+                    apellido: payment.apellido,
+                    numero: payment.numero,
+                    formattedNum: payment.numero.replace(/(\d{4})/g, '$1 ').trim(),
+                    expiracion: payment.expiracion,
+                    formattedExpiracion: payment.expiracion,
+                    cvv: payment.cvv,
+                    isConfirmed: true,
+                    arrow: false,
+                    selectedOption: metodos_pago.find((option) => option.value === payment.id_metodo_pago),
+                    isSaved: true,
+                    imagen: typeOfPayments.find((type) => type.id === payment.id_metodo_pago).card_icon || null
+                }
+            }); // Aquí debes mapear los pagos para que se vean en el formulario
+            setForms(newForm);
+            setLoadingPaymentMethods(false);
         }).catch((error) => {
-            console.error('Error fetching payments', error);
+            // console.log(error);
             setLoadingPaymentMethods(false);
         });
 
-    }, [token])
+    }, [token, typeOfPayments])
 
     function handleToggle(id) {
         setArrow(!arrow);

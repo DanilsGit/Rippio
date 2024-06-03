@@ -44,6 +44,9 @@ export function Checkout() {
     //Estado para guardar la información del pedido
     const [orderInfo, setOrderInfo] = useState({})
 
+    //Estado para darle a comprar solo una vez
+    const [buyOnce, setBuyOnce] = useState(false)
+
     //UseEffect para iniciar la información del pedido
     useEffect(() => {
         const NewOrderBeforeInfo = {
@@ -74,7 +77,11 @@ export function Checkout() {
                 setAddress(newAddress)
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
+                console.log(err.response.data.message);
+                if (err.response.data.message === 'No hay direcciones') {
+                    setAddress([])
+                }
             })
     }, [token])
 
@@ -92,7 +99,11 @@ export function Checkout() {
                 setPayment(newPayment)
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
+                console.log(err.response.data.message);
+                if (err.response.data.message === 'No hay tarjetas') {
+                    setPayment([])
+                }
             })
     }, [token])
 
@@ -156,6 +167,7 @@ export function Checkout() {
             use_credits: useCredits,
             shipping_cost: Number(costoEnvio),
             date: new Date().toISOString().slice(0, 19).replace('T', ' ')
+            // TODO que sea hora colombiana
         }
 
         addOrder(token, newOrderToSend).then(() => {
@@ -191,7 +203,7 @@ export function Checkout() {
                     </div>
                     <div className='CheckoutPage-content-item'>
                         <section className='CheckoutPage-content-item-content CheckoutPage-content-item-content-select'>
-                            <h2>Forma de pago</h2>
+                            <h2>Tarjeta de pago</h2>
                             <Select
                                 placeholder='Seleccionar...'
                                 className='CheckoutPage-Select'
@@ -285,7 +297,14 @@ export function Checkout() {
                     </div>
                     <div className='CheckoutPage-content-item'>
                         <button
-                            onClick={handleBtnOrder}
+                            onClick={
+                                buyOnce ?
+                                    null
+                                    : () => {
+                                        setBuyOnce(true)
+                                        handleBtnOrder()
+                                    }
+                            }
                             className='CheckoutPage-content-item-content-button'>
                             <p>
                                 {

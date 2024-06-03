@@ -5,25 +5,13 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { getPayments, getTypeOfPayment, addPayment, deletePayment } from '../../api/payment';
 
-const metodos_pago = [
-    { value: '1', label: 'Nequi' },
-    { value: '2', label: 'Bancolombia' },
-    { value: '3', label: 'Davivienda' },
-    { value: '4', label: 'Falabella' },
-    { value: '6', label: 'Nu' },
-    { value: '7', label: 'American Express' },
-    { value: '8', label: 'Banco de Bogotá' },
-    { value: '10', label: 'BBVA' },
-    { value: '11', label: 'Caja Social' },
-    { value: '12', label: 'AV Villas' }
-];
-
 export function ProfilePaymentMethods() {
 
     const token = useAuth((state) => state.token)
     const [arrow, setArrow] = useState(false);
     const [loadingPaymentMethods, setLoadingPaymentMethods] = useState(true);
     const [loading, setLoading] = useState(null);
+    const [metodos_pago, setMetodos_pago] = useState([]);
 
     //Estado para obtener los métodos de pago del usuario
     const [forms, setForms] = useState([]);
@@ -61,6 +49,7 @@ export function ProfilePaymentMethods() {
     useEffect(() => {
         getTypeOfPayment(token).then((response) => {
             const typeOfPayments = response.data;
+            setMetodos_pago(typeOfPayments.map((type) => ({ value: type.id, label: type.nombre })) || []);
             setTypeOfPayments(typeOfPayments);
         }).catch((error) => {
             console.log(error);
@@ -166,6 +155,12 @@ export function ProfilePaymentMethods() {
             console.log(error);
         });
         setLoading(false);
+    }
+
+    // Función para cancelar la creación de una tarjeta
+    const handleCancelClick = (id) => {
+        const newForms = forms.filter((form) => form.id !== id);
+        setForms(newForms);
     }
 
     // Función para añadir una nueva tarjeta
@@ -344,7 +339,7 @@ export function ProfilePaymentMethods() {
                                                         loading ? 'Cargando...' : 'Eliminar'
                                                     }
                                                 </button>
-                                                : <button className='ProfilePaymentMethods-Button-Delete' onClick={() => handleDeleteClick(form.id)}>Cancelar</button>
+                                                : <button className='ProfilePaymentMethods-Button-Delete' type='button' onClick={() => handleCancelClick(form.id)}>Cancelar</button>
                                         }
 
                                     </form>

@@ -19,7 +19,7 @@ export function TeamSection(){
                             <h2 className='team-title'>SE PARTE DEL EQUIPO</h2>
                             <p>¡Eres importante para nosotros! Te ofrecemos las mejores tarifas entre la competencia por entregar nuestros productos.</p>
                         </section>
-                        <a className='teamBtn' href='#'>Conoce los requisitos</a>
+                        <a className='teamBtn' href='/team'>Conoce los requisitos</a>
                     </section>
 
                     <section className='teamSection-item'>
@@ -32,7 +32,7 @@ export function TeamSection(){
                             <h2 className='team-title'>OBTEN VISIBILIDAD</h2>
                             <p>¡Sé parte de Rippio! Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
                         </section>
-                        <a className='teamBtn' href='#'>Acceder al registro</a>
+                        <a className='teamBtn' href='/team'>Acceder al registro</a>
                     </section>
                 </div>
             </section>

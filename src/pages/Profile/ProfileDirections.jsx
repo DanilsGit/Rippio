@@ -31,7 +31,7 @@ export function ProfileDirections() {
     }
 
     // Función para añadir una nueva dirección
-    const [forms, setForms] = useState([]); // true en las 3 para que el formulario salga abierto al recargar la página
+    const [forms, setForms] = useState([]);
 
 
     // Obtener los departamentos de Colombia
@@ -99,7 +99,7 @@ export function ProfileDirections() {
             if (form.id === id) {
                 return { ...form, isOpen: !form.isOpen, arrow: !form.arrow };
             } else {
-                return form;
+                return { ...form, isOpen: false, arrow: false };
             }
         });
         setForms(newForms);

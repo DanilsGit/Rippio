@@ -6,7 +6,7 @@
     padding: 1em 2em;
     gap: 1em;
     font-family: 'Montserrat', sans-serif;
-    max-height: 80vh;
+    max-height: 120vh;
     overflow: auto;
     
 }
@@ -19,6 +19,28 @@
     
 }
 
+.ProfilePaymentMethods-button-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1em;
+}
+
+.ProfilePaymentMethods-Button-Delete{
+    padding: 0.3em 0.5em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--darkblue);
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+.ProfilePaymentMethods-Button-Delete:hover{
+    background-color: #ff0000;
+    transition: background-color 0.5s ease;
+}
 .ProfilePaymentMethods-form-container{
     display: flex;
     flex-direction: column;
@@ -63,7 +85,7 @@
 }
 
 .open{
-    max-height: 50vh;
+    max-height: 60vh;
     transition: all 0.5s ease-in-out;
     overflow: auto;
     width: 100%;
@@ -95,6 +117,16 @@
     align-items: center;
     grid-column: 2;
     overflow: hidden;
+    position: relative;
+}
+
+.ProfilePaymentMethods-franchise{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    object-fit: contain;
+    padding: 0.5em;
 }
 
 .ProfilePaymentMethods-form-card-number{

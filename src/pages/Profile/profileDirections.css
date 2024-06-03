@@ -6,7 +6,7 @@
     padding: 1em 2em;
     gap: 1em;
     font-family: 'Montserrat', sans-serif;
-    max-height: 75vh;
+    max-height: 100vh;
     overflow: auto;
 }
 
@@ -87,8 +87,11 @@
 }
 
 .open{
-    max-height: 37vh;
+    max-height: 60vh;
     transition: all 0.5s ease-in-out;
+    overflow: auto;
+    width: 100%;
+    padding: 0 2em;
 }
 
 .ProfileDirections-active{

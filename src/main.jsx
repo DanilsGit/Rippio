@@ -16,6 +16,7 @@ import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.j
 import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
 import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
 import { InfoPage } from './pages/InfoPage.jsx'
+import { TeamPage } from './pages/TeamPage.jsx'
 import {
   ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
   ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute, ProtectedCheckoutRoute
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/info',
         element: <InfoPage />,
+      },
+      {
+        path: '/team',
+        element: <TeamPage />,
       },
       {
         path: '/checkout',

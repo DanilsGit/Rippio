@@ -23,6 +23,11 @@ const links = [
         text: 'Menú'
     },
     {
+        to: '/restaurantProfile/orders',
+        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FordersIcon.png?alt=media&token=5f5f5b3c-5d1c-4b5c-8b5b-2c5e4e8b8c2d',
+        text: 'Pedidos'
+    },
+    {
         to: '/restaurantProfile/horarios',
         icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FwatchIcon.png?alt=media&token=0fd1e369-ac01-475f-a219-5a567f89c775',
         text: 'Horarios'

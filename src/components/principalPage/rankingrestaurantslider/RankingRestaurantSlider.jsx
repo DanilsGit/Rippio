@@ -5,12 +5,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './rankingRestaurantSlider.css';
+import { Link } from 'react-router-dom';
 
 export function RankingRestaurantSlider({ slides }) {
-
-
-    let slidesOrdenados = slides.sort((a, b) => b.score - a.score);
-
 
     return (
 
@@ -31,10 +28,13 @@ export function RankingRestaurantSlider({ slides }) {
                     breakpoints={
                         {
                             0: {
-                                slidesPerView: 3,
+                                slidesPerView: 1,
+                            },
+                            200: {
+                                slidesPerView: 2,
                             },
                             350: {
-                                slidesPerView: 4,
+                                slidesPerView: 3,
 
                             },
                             550: {
@@ -42,7 +42,7 @@ export function RankingRestaurantSlider({ slides }) {
 
                             },
                             800: {
-                                slidesPerView: 5,
+                                slidesPerView: 7,
 
                             },
                             1100: {
@@ -51,13 +51,15 @@ export function RankingRestaurantSlider({ slides }) {
                         }
                     }
                 >
-                    {slidesOrdenados.map((slide, index) => (
-                        <SwiperSlide key={slide.image}>
-                        {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-reward.png" alt="Gold Frame" className="top-reward" />}
-                        {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-frame.png" alt="Gold Frame" className="award-frame" />}
-                        {index === 1 && <img src="/principalPage/bestNearRestaurant/silver-frame.png" alt="Silver Frame" className="award-frame" />}
-                        {index === 2 && <img src="/principalPage/bestNearRestaurant/bronze-frame.png" alt="Bronze Frame" className="award-frame" />}
-                            <img className='restaurant-img' src={slide.image} alt={slide.title} />
+                    {slides.map((slide, index) => (
+                        <SwiperSlide key={slide.id}>
+                            <Link className='top-restaurant-btn-img' to={`/restaurant/${slide.id}`}>
+                                {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-reward.png" alt="Gold Frame" className="top-reward" />}
+                                {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-frame.png" alt="Gold Frame" className="award-frame" />}
+                                {index === 1 && <img src="/principalPage/bestNearRestaurant/silver-frame.png" alt="Silver Frame" className="award-frame" />}
+                                {index === 2 && <img src="/principalPage/bestNearRestaurant/bronze-frame.png" alt="Bronze Frame" className="award-frame" />}
+                                <img className='restaurant-img' src={slide.img_icon} alt={slide.id} />
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>

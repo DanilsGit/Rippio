@@ -66,6 +66,10 @@ useEffect(() => {
             setCategories(res.data)})
     },[params.idRestaurant])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const {id, nombre, direccion, horario, calificacion, img_icon, img_banner} = restaurantInfo
     const restaurant = {id, nombre}
     return (

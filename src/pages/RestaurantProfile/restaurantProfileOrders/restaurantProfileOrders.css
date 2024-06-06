@@ -1,0 +1,71 @@
+.restaurantProfileOrders{
+    min-height: 90vh;
+    padding: 1em;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.restaurantProfileOrders h1{
+    margin: 0;
+}
+
+
+.restaurantProfileOrders h2{
+    font-size: 1em;
+    margin: 0;
+}
+
+.restaurantProfileOrders-content span{
+    font-weight: 600;
+    color: #dda743;
+}
+
+
+.restaurantProfileOrders-header{
+    border-bottom: 2px solid #0000002d;
+}
+
+.restaurantProfileOrders-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.restaurantProfileOrders-content-item{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    padding: 1em;
+    border: 2px solid #0000002d;
+}
+
+
+.restaurantProfileOrders-content-item-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.restaurantProfileOrders-content-item-footer{
+    display: flex;
+    width: 100%;
+}
+
+.restaurantProfileOrders-content-item-footer button{
+    margin-left: auto;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #dda743;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.restaurantProfileOrders-content-item-footer button:hover{
+    background-color: #c68f2d;
+    transition: 0.3s;
+}

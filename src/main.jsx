@@ -29,6 +29,7 @@ import Layout from './Layout.jsx'
 
 import './css/index.css'
 import 'normalize.css'
+import RestaurantProfileOrders from './pages/RestaurantProfile/restaurantProfileOrders/RestaurantProfileOrders.jsx';
 
 //Array con todas las rutas de la aplicación
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <Page404 />,
     children: [
       {
         path: '/',
@@ -108,6 +110,10 @@ const router = createBrowserRouter([
           {
             path: '/restaurantProfile/menu',
             element: <RestaurantProfileMenu />,
+          },
+          {
+            path: '/restaurantProfile/orders',
+            element: <RestaurantProfileOrders />,
           },
           {
             path: '/restaurantProfile/horarios',

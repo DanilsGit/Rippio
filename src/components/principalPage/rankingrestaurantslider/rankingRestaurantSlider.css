@@ -10,7 +10,30 @@
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     color: #000;
+}
 
+.bestNearRestaurant-noLocation{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1em;
+    border: 2px solid #0000203b;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+.bestNearRestaurant-noLocation button {
+    background-color: var(--darkcyan);
+    color: #fff;
+    padding: 0.5em 5em;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.bestNearRestaurant-noLocation button:hover{
+    background-color: var(--darkblue);
+    transition: 0.5s;
 }
 
 .swiper-wrapper{
@@ -26,16 +49,39 @@
 }
 
 .restaurant-img{
-    width: 6.25em;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.top-restaurant-btn-img{
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
     z-index: 1;
+
+    max-height: 6.5em;
+    max-width: 6.5em;
+
+
+    cursor: pointer;
+    border-radius: 50%;
 }
 
 .award-frame{
-    width: 7.25em;
+    visibility: visible;
+    width: 115%;
+    height: 115%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 0;
+    z-index: -1;
 }
 
 .top-reward{
@@ -44,7 +90,7 @@
     transform: translateX(-50%);
     width: 2em;
     z-index: 2;
-    top: 0px;
+    top: -25%;
 }
 
 

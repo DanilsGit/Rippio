@@ -1,0 +1,50 @@
+.WelcomeAnimation-canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+.WelcomeAnimation{
+    min-height: 900vh;
+}
+
+.WelcomeFrame{
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, 80%);
+    width: 80vw;
+    background-color: #00eeff5b;
+    padding: 1em;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.WelcomeFrame:hover{
+    background-color: #00c3ffa1;
+    transition: 0.5s;
+}
+
+.WelcomeFrame button{
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #002b63;
+    font-size: 2em;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 0.5em;
+    border-bottom: 2px solid #0000004b;
+}
+
+.WelcomeFrame button:hover{
+    background-color: #007eaf;
+    transition: 0.5s;
+}
+
+.WelcomeFrame h1{
+    margin: 0;
+}

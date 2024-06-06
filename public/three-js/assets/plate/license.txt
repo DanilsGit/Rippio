@@ -1,0 +1,11 @@
+Model Information:
+* title:	Simple Food Plate Model
+* source:	https://sketchfab.com/3d-models/simple-food-plate-model-fcc930f44133449ea441f04252feae9c
+* author:	Marco Zakaria (https://sketchfab.com/marcoZakaria)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Simple Food Plate Model" (https://sketchfab.com/3d-models/simple-food-plate-model-fcc930f44133449ea441f04252feae9c) by Marco Zakaria (https://sketchfab.com/marcoZakaria) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

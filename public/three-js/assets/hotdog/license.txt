@@ -1,0 +1,11 @@
+Model Information:
+* title:	hotdog
+* source:	https://sketchfab.com/3d-models/hotdog-03a56feb31ed48439a93f4ad7490a77a
+* author:	rudolfs (https://sketchfab.com/rudolfs)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "hotdog" (https://sketchfab.com/3d-models/hotdog-03a56feb31ed48439a93f4ad7490a77a) by rudolfs (https://sketchfab.com/rudolfs) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

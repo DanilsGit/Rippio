@@ -26,6 +26,7 @@ import RenderMain from './RenderMain.jsx';
 import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
 import { Checkout } from './pages/CheckoutPage/Checkout.jsx'
 import Layout from './Layout.jsx'
+import WelcomeAnimation from './pages/WelcomeAnimation/WelcomeAnimation.jsx'
 
 import './css/index.css'
 import 'normalize.css'
@@ -36,11 +37,15 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <Page404 />,
     children: [
       {
         path: '/',
         element: <ProtectedPrincipalPageRestaurantRoute element={<App />} />,
-        errorElement: <Page404 />
+      },
+      {
+        path: '/welcome',
+        element: <WelcomeAnimation />,
       },
       {
         path: '/login',

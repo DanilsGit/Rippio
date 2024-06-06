@@ -6,7 +6,7 @@
 
 
 .WelcomeAnimation{
-    min-height: 900vh;
+    /* min-height: 900vh; */
 }
 
 .WelcomeFrame{
@@ -15,15 +15,15 @@
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, 80%);
-    width: 80vw;
-    background-color: #00eeff5b;
+    width: 50vw;
+    background-color: var(--white);
     padding: 1em;
     border-radius: 1em;
     text-align: center;
 }
 
 .WelcomeFrame:hover{
-    background-color: #00c3ffa1;
+    background-color: #35af9f4d;
     transition: 0.5s;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .WelcomeFrame button:hover{
-    background-color: #007eaf;
+
     transition: 0.5s;
 }
 

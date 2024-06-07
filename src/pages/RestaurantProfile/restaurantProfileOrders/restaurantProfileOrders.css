@@ -11,10 +11,31 @@
     margin: 0;
 }
 
-
 .restaurantProfileOrders h2{
     font-size: 1em;
     margin: 0;
+}
+
+.restaurantProfileOrders-header{
+    border-bottom: 2px solid #0000002d;
+}
+
+.restaurantProfileOrders-filters{
+    padding: 0em 0em;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurantProfileOrders-filters h2{
+    margin: 0;
+}
+
+.restaurantProfileOrders-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-height: 150vh;
+    overflow-y: auto;
 }
 
 .restaurantProfileOrders-content span{
@@ -22,16 +43,6 @@
     color: #dda743;
 }
 
-
-.restaurantProfileOrders-header{
-    border-bottom: 2px solid #0000002d;
-}
-
-.restaurantProfileOrders-content{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
 
 .restaurantProfileOrders-content-item{
     display: flex;

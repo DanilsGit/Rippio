@@ -54,10 +54,10 @@ export function RankingRestaurantSlider({ slides }) {
                     {slides.map((slide, index) => (
                         <SwiperSlide key={slide.id}>
                             <Link className='top-restaurant-btn-img' to={`/restaurant/${slide.id}`}>
-                                {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-reward.png" alt="Gold Frame" className="top-reward" />}
-                                {index === 0 && <img src="/principalPage/bestNearRestaurant/gold-frame.png" alt="Gold Frame" className="award-frame" />}
-                                {index === 1 && <img src="/principalPage/bestNearRestaurant/silver-frame.png" alt="Silver Frame" className="award-frame" />}
-                                {index === 2 && <img src="/principalPage/bestNearRestaurant/bronze-frame.png" alt="Bronze Frame" className="award-frame" />}
+                                {index === 0 && <img src="https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FTopRestaurants%2Fgold-reward.png?alt=media&token=1c48d4be-0269-4795-94b3-38ea0310de70" alt="Gold Frame" className="top-reward" />}
+                                {index === 0 && <img src="https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FTopRestaurants%2Fgold-frame.png?alt=media&token=13d9c078-707a-4d2d-bd23-171dd23a4223" alt="Gold Frame" className="award-frame" />}
+                                {index === 1 && <img src="https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FTopRestaurants%2Fsilver-frame.png?alt=media&token=24e80552-941d-496b-a992-7bee0235ef5e" alt="Silver Frame" className="award-frame" />}
+                                {index === 2 && <img src="https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FTopRestaurants%2Fbronze-frame.png?alt=media&token=15b4b719-1eaf-4d1d-a603-f995149bcf60" alt="Bronze Frame" className="award-frame" />}
                                 <img className='restaurant-img' src={slide.img_icon} alt={slide.id} />
                             </Link>
                         </SwiperSlide>

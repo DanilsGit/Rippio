@@ -1,26 +1,26 @@
 [
   {
-    "image": "/principalPage/categories/fastFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FPizzaCategory.png?alt=media&token=46532a9b-ab5d-4876-af68-4aa46b51f447",
     "title": "Comida rápida"
   },
   {
-    "image": "/principalPage/categories/fishFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FFishCategory.png?alt=media&token=b3ac234c-db44-44e6-b324-01a51614f99f",
     "title": "Mariscos"
   },
   {
-    "image": "/principalPage/categories/asianFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FAsianFoodCategory.png?alt=media&token=48d4a23c-6029-4af8-9440-808e9c732998",
     "title": "Asiática"
   },
   {
-    "image": "/principalPage/categories/vegetarianFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FVeganCategory.png?alt=media&token=94ed578d-0e99-4ea8-a4b9-5577c0616015",
     "title": "Vegetariana"
   },
   {
-    "image": "/principalPage/categories/riceFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FRiceCategory.png?alt=media&token=1bef10aa-81d5-476a-a5c7-c1e0a099170a",
     "title": "Arroz"
   },
   {
-    "image": "/principalPage/categories/pastaFood.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FCategories%2FSpaghettiCategory.png?alt=media&token=e1e14943-0129-456f-8d64-2e9a80ad930d",
     "title": "Pasta"
   }
 ]

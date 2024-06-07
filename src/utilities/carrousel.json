@@ -1,18 +1,18 @@
 [
   {
-    "image": "/principalPage/carousel_img/crepes.waffles.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAdBanner%2FCrepesAdBanner.png?alt=media&token=378a00d0-1819-484c-9def-9ff311136ee2",
     "title": "Crepes"
   },
   {
-    "image": "/principalPage/carousel_img/subway.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAdBanner%2FSubwayAdBanner.png?alt=media&token=cbc462f6-7899-4ab5-8a67-eae7ee9bf10f",
     "title": "Subway"
   },
   {
-    "image": "/principalPage/carousel_img/kfc.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAdBanner%2FKfcAdBanner.png?alt=media&token=27aee7db-b45c-449d-b388-0ffa23585071",
     "title": "KFC"
   },
   {
-    "image": "/principalPage/carousel_img/señor.wok.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAdBanner%2FSrWokAdBanner.png?alt=media&token=cc9ceddb-fb58-41f8-ab76-94ec4045b7ba",
     "title": "Wok"
   }
 ]

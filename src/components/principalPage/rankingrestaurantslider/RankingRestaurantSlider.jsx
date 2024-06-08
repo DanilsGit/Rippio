@@ -34,11 +34,11 @@ export function RankingRestaurantSlider({ slides }) {
                                 slidesPerView: 2,
                             },
                             350: {
-                                slidesPerView: 3,
+                                slidesPerView: 4,
 
                             },
                             550: {
-                                slidesPerView: 5,
+                                slidesPerView: 6,
 
                             },
                             800: {

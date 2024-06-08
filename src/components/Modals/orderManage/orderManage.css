@@ -32,7 +32,8 @@
     gap: 1em;
     max-height: 60vh;
     overflow-y: auto;
-    width: 95%;
+    width: 100%;
+    font-size: 0.8em;
 }
 
 .OrderManage-content-items-item{
@@ -48,12 +49,16 @@
 
 .OrderManage-content-items-item > div {
     width: 100%;
+    display: grid;
+    grid-template-columns: 70% auto;
 }
 
 .OrderManage-content-items-item-cost{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: end;
 }
 
 .OrderManage-content-items-item img{
@@ -63,6 +68,7 @@
 }
 
 .OrderManage-content-info{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -110,4 +116,41 @@
 .OrderManage-content-info-buttons button:hover{
     background-color: var(--lightcyan);
     transition: 0.5s;
+}
+
+.scrollImg{
+    position: absolute;
+    width: 1.5em;
+    top: -4em;
+    right: 1em;
+    animation: UpAndDown 2s infinite ease-in-out
+}
+
+@keyframes UpAndDown{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(0.5em);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 440px){
+    .OrderManage-content-items-item > div {
+        grid-template-columns: auto;
+    }
+    .OrderManage-content-items-item {
+        font-size: 0.9em;
+    }
+    .OrderManage-content-items-item img {
+        width: 4em;
+        height: 4em;
+    }
+    .OrderManage-content-items-item-cost{
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }

@@ -60,6 +60,13 @@
     font-size: 1.2em;
 }
 
+.restaurantProfileOrders-content-item-content > div{
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    justify-content: space-between;
+}
+
 .restaurantProfileOrders-content-item-footer{
     display: flex;
     width: 100%;

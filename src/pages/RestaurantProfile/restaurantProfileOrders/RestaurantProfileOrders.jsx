@@ -34,18 +34,18 @@ export default function RestaurantProfileOrders() {
                         <p>01/01/2024</p>
                     </header>
                     <section className='restaurantProfileOrders-content-item-content'>
-                        <p>Enviar a: <strong>Nombre Apellido</strong></p>
-                        <p>Dirección: <strong>Calle 123</strong></p>
-                        <p>Subtotal: $100</p>
-                        <p>Envío: $50</p>
-                        <p>Total: <strong>$150</strong></p>
+                        <p>Enviar a: <b>Nombre Apellido</b></p>
+                        <p>Dirección: <b>Calle 123</b></p>
+                        <div>
+                            <p>Cobrar: <b>$150</b></p>
+                            <p>Envío: $50</p>
+                            <p>Subtotal: $100</p>
+                        </div>
                     </section>
                     <footer className='restaurantProfileOrders-content-item-footer'>
                         <button>Ver detalles</button>
                     </footer>
                 </article>
-
-
             </section>
             <OrderManage />
         </section>

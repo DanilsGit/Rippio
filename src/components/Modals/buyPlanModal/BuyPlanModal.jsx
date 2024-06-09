@@ -50,7 +50,7 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                 style={
                     isSelectOpen ? visible : auto
                 }
-                
+
             >
                 <div className='buyPlanModal-container'
                 >
@@ -72,6 +72,8 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                             options={methods}
                             placeholder='Método de pago'
                             onChange={(selected) => setSelectedMethod(selected)}
+                            isSearchable={false}
+                            
                         />
                     </div>
                     <div className='buyPlanModal-buyContainer'>

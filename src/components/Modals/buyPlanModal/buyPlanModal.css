@@ -109,6 +109,8 @@
     transform: translateY(1em);
     animation: fadeInAll 0.5s forwards;
     animation-delay: 2.5s;
+    position: relative;
+    z-index: -1;
 }
 
 .buyPlanModal-buyContainer img {
@@ -117,6 +119,7 @@
 }
 
 .buyPlanModal-buyButton{
+    color: #000;
     font-weight: 700;
     border: none;
     width: 100%;

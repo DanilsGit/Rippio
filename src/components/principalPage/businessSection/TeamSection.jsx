@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './teamSection.css'
 
 export function TeamSection(){
@@ -19,7 +20,7 @@ export function TeamSection(){
                             <h2 className='team-title'>SE PARTE DEL EQUIPO</h2>
                             <p>¡Eres importante para nosotros! Te ofrecemos las mejores tarifas entre la competencia por entregar nuestros productos.</p>
                         </section>
-                        <a className='teamBtn' href='/team'>Conoce los requisitos</a>
+                        <Link to={`/team`} className='teamBtn'>Conoce los requisitos</Link>
                     </section>
 
                     <section className='teamSection-item'>
@@ -32,7 +33,7 @@ export function TeamSection(){
                             <h2 className='team-title'>OBTEN VISIBILIDAD</h2>
                             <p>¡Sé parte de Rippio! Registra tu restaurante y consigue nuevos clientes de manera orgánica mediante nuestro sistema de reseñas.</p>
                         </section>
-                        <a className='teamBtn' href='/team'>Acceder al registro</a>
+                        <Link to={`/login`} className='teamBtn' href='/team'>Acceder al registro</Link>
                     </section>
                 </div>
             </section>

@@ -31,7 +31,6 @@ export function PrincipalPage() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords
-                console.log(latitude, longitude);
                 axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=es`)
                     .then(res => {
                         const city = res.city
@@ -39,7 +38,6 @@ export function PrincipalPage() {
                             setCity('Tuluá')
                         } else {
                             setCity(city)
-                            console.log(city);
                         }
                         setPermission(true)
                     }).catch(err => {
@@ -66,7 +64,6 @@ export function PrincipalPage() {
                     }
                 })
                 .then(res => {
-                    console.log(res.data);
                     setTopRestaurants(res.data)
                 }).catch(err => {
                     console.log(err);

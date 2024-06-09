@@ -104,8 +104,16 @@
     color: #002024;
     background-color: #fcd465;
     border-radius: 20px;
-    padding: 0.2em 0em;
+    padding: 0.5em 0em;
     margin-top: -.2em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.planBtn:hover{
+    background-color: #e5b73b;
+    transition: 0.3s;
 }
 
 .planDesc{

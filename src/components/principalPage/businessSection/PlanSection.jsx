@@ -1,70 +1,81 @@
-import rippioPlanIcon from '/principalPage/planSection/rippioPlanIcon.png'
 import './planSection.css'
+import { getPlans } from '../../../api/plan'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BuyPlanModal } from '../../Modals/buyPlanModal/BuyPlanModal'
 
 export function PlanSection() {
+
+    //Estado para almacenar los planes
+    const [plans, setPlans] = useState(null);
+    const [selectedPlan, setSelectedPlan] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    //UseEffect para traer los planes
+    useEffect(() => {
+        getPlans()
+            .then(res => {
+                // res.data.descripcion es un string con los features separados por coma
+                res.data.forEach(plan => {
+                    plan.descripcion = plan.descripcion.split(',');
+                });
+                //Ahora res.data es un array de objetos con los features separados
+                setPlans(res.data);
+            }).catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+    //Función para abrir modal de plan
+    const handlePlanModal = (plan) => {
+        setSelectedPlan(plan);
+        setIsModalOpen(true);
+    }
+
     return (
         <section className='planSection'>
             <div className='plan-background'>
                 <img draggable='false' className='plan-background-img' src='/principalPage/planSection/background.png'></img>
             </div>
             <section className='businessSection-plans-content'>
-
-                <section className='businessSection-plan-item'>
-                    <header className='plan-header'>
-                        <div className='plan-icon-container'>
-                            <img className='planIcon' draggable='false' src={rippioPlanIcon}></img>
-                            <p className='iconText'>Rippio plan básico</p>
-                        </div>
-                        <h2 className='plan-title'>Plan Básico</h2>
-                        <p className='planPrice'>16.500 COP al mes</p>
-                    </header>
-                    <ul className='plan-ul'>
-                        <li className='plan-ul-li'>Disfruta de 2 pedidos con envio gratis al mes</li>
-                        <li className='plan-ul-li'>Descuentos exclusivos en restaurantes</li>
-                        <li className='plan-ul-li'>Cancela cuando quieras</li>
-                        <li className='plan-ul-li'>Soporte prioritario</li>
-                    </ul>
-                    <a className='planBtn' href='#'>Conseguir plan básico</a>
-                    <a className='terminosBtn' href='#'>Términos y condiciones</a>
-                </section>
-                <section className='businessSection-plan-item'>
-                    <div className='plan-header'>
-                        <div className='plan-icon-container'>
-                            <img className='planIcon' draggable='false' src={rippioPlanIcon}></img>
-                            <p className='iconText'>Rippio plan plus</p>
-                        </div>
-                        <h2 className='plan-title'>Rippio Plus</h2>
-                        <p className='planPrice'>24.900 COP al mes</p>
-                    </div>
-                    <ul className='plan-ul'>
-                        <li className='plan-ul-li'>Disfruta de 5 pedidos con envío gratis al mes</li>
-                        <li className='plan-ul-li'>Obtienes 2 pedidos ultra fast gratis a la semana</li>
-                        <li className='plan-ul-li'>Cancela cuando quieras</li>
-                        <li className='plan-ul-li'>Beneficios del plan básico</li>
-                    </ul>
-                    <a className='planBtn' href='#'>Conseguir plan plus</a>
-                    <a className='terminosBtn' href='#'>Términos y condiciones</a>
-                </section>
-                <section className='businessSection-plan-item'>
-                
-                    <div className='plan-header'>
-                        <div className='plan-icon-container'>
-                            <img className='planIcon' draggable='false' src={rippioPlanIcon}></img>
-                            <p className='iconText'>Rippio plan premium</p>
-                        </div>
-                        <h2 className='plan-title'>Rippio Premium</h2>
-                        <p className='planPrice'>39.900 COP al mes</p>
-                    </div>
-                    <ul className='plan-ul'>
-                        <li className='plan-ul-li'>Disfruta de 10 pedidos con envío gratis al mes</li>
-                        <li className='plan-ul-li'>Obtienes 4 pedidos ultra fast gratis a la semana</li>
-                        <li className='plan-ul-li'>Cancela cuando quieras</li>
-                        <li className='plan-ul-li'>Beneficios del plan plus</li>
-                    </ul>
-                    <a className='planBtn' href='#'>Conseguir plan premium</a>
-                    <a className='terminosBtn' href='#'>Términos y condiciones</a>
-                </section>
+                {
+                    !plans ? <p>Cargando...</p> :
+                    plans.map((plan) => {
+                        return (
+                            <section key={plan.id} className='businessSection-plan-item'>
+                                <header className='plan-header'>
+                                    <div className='plan-icon-container'>
+                                        <img className='planIcon' draggable='false'
+                                        src={
+                                            plan.id === 1 ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FbasicPlanRippioIcon.png?alt=media&token=15d45e3e-3959-4f5d-9c3c-e9e470734a94'
+                                            : plan.id === 2 ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FplusPlanRippioIcon.png?alt=media&token=03b83152-b50e-4a59-9580-60d6077608a3'
+                                            : 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FpremiumPlanRippioIcon.png?alt=media&token=ffa61936-be50-4db6-a236-74687c12514a'
+                                        }
+                                        
+                                        />
+                                        <p className='iconText'>Rippio {plan.nombre}</p>
+                                    </div>
+                                    <h2 className='plan-title'>{plan.nombre}</h2>
+                                    <p className='planPrice'>{plan.precio} COP al mes</p>
+                                </header>
+                                <ul className='plan-ul'>
+                                    {   plan.descripcion &&
+                                        plan.descripcion.map((feature, index) => {
+                                            return (
+                                                <li key={index}
+                                                className='plan-ul-li'>{feature}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                                <button onClick={() => handlePlanModal(plan)} className='planBtn' href='#'>Conseguir plan</button>
+                                <Link to='/info' className='terminosBtn' href='#'>Términos y condiciones</Link>
+                            </section>
+                        )
+                    })
+                }
             </section>
+            <BuyPlanModal plan={selectedPlan} isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
         </section>
     )
 }

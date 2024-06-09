@@ -73,7 +73,6 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                             placeholder='Método de pago'
                             onChange={(selected) => setSelectedMethod(selected)}
                             isSearchable={false}
-                            
                         />
                     </div>
                     <div className='buyPlanModal-buyContainer'>

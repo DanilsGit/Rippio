@@ -151,6 +151,7 @@ export function Checkout() {
 
         if (order.id_pago === '' || order.id_direccion === '') {
             alert('Por favor, selecciona una dirección y un método de pago')
+            setBuyOnce(false)
             return;
         }
 
@@ -179,6 +180,7 @@ export function Checkout() {
             }, 2000)
         }).catch(err => {
             console.log(err);
+            setBuyOnce(false)
         })
     }
 

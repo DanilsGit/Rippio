@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.2em;
-    max-height: 50vh;
+    max-height: 80vh;
     overflow-y: auto;
     @media screen and (max-width: 400px){
         width: 100%;
@@ -125,3 +125,26 @@
     color: #21837efa;
     font-weight: 600;
 }
+
+.ProfileOrders-orderItem-body-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.ProfileOrders-orderItem-body-footer button{
+    background-color: #10746fa1;
+    color: white;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ProfileOrders-orderItem-body-footer button:hover{
+    background-color: #10746ffe;
+    transition: 0.3s;
+}
+

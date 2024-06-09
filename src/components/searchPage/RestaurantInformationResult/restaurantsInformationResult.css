@@ -35,6 +35,7 @@
     border-radius: 50%;
     object-fit: cover;
     transition: 0.5s;
+    aspect-ratio: 1/1;
 }
 
 .restaurantInformation-item-header-img:hover{

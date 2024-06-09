@@ -24,6 +24,19 @@
     gap: 1em;
 }
 
+.buyPlanModal-infoContainer-text h2{
+    opacity: 0;
+    transform: translateY(1em);
+    animation: fadeInH2 0.5s forwards;
+}
+
+@keyframes fadeInH2 {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .buyPlanModal-infoContainer-text ul {
     padding: 0em 2em;
     display: flex;
@@ -31,9 +44,50 @@
     gap: 3em;
 }
 
+.buyPlanModal-infoContainer-text ul li{
+    opacity: 0;
+    transform: translateX(-1.5em);
+    animation: fadeInLi 0.5s forwards;
+}
+
+.buyPlanModal-infoContainer-text ul li:nth-child(1){
+    animation-delay: 0.5s;
+}
+
+.buyPlanModal-infoContainer-text ul li:nth-child(2){
+    animation-delay: 1s;
+}
+
+.buyPlanModal-infoContainer-text ul li:nth-child(3){
+    animation-delay: 1.5s;
+}
+
+.buyPlanModal-infoContainer-text ul li:nth-child(4){
+    animation-delay: 2s;
+}
+
+@keyframes fadeInLi {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.buyPlanModal-infoContainer-text p{
+    opacity: 0;
+    transform: translateY(1em);
+    animation: fadeInAll 0.5s forwards;
+    animation-delay: 2.5s
+}
+
 .buyPlanModal-select{
     width: 50%;
     color: #000;
+
+    opacity: 0;
+    transform: translateY(1em);
+    animation: fadeInAll 0.5s forwards;
+    animation-delay: 2.5s;
 }
 
 .buyPlanModal-buyContainer{
@@ -50,6 +104,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    opacity: 0;
+    transform: translateY(1em);
+    animation: fadeInAll 0.5s forwards;
+    animation-delay: 2.5s;
 }
 
 .buyPlanModal-buyContainer img {
@@ -66,11 +125,24 @@
     cursor: pointer;
     border-radius: 1em;
     padding: 0.5em;
+
+    opacity: 0;
+    transform: translateY(1em);
+    animation: fadeInAll 0.5s forwards;
+    animation-delay: 2.5s;
+
 }
 
 .buyPlanModal-buyButton:hover{
     filter: brightness(0.9);
     transition: 0.3s;
+}
+
+@keyframes fadeInAll {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media screen and (max-width: 668px) {

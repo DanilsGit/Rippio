@@ -48,10 +48,12 @@
 }
 
 .ProfileOrders-orderItem-header{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    text-align: start;
 }
 
 .ProfileOrders-orderItem-header p{
@@ -61,33 +63,59 @@
 
 }
 
-.ProfileOrders-orderItem-header-div{
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    width: 20em;
-    font-weight: 600;
-}
 
 .ProfileOrders-orderItem-header h2{
     color: #227976;
     font-size: 1em;
-    width: 10em;
 }
 
 .ProfileOrders-orderItem-body{
     border-left: 3px solid #41949438;
     padding-left: 1em;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: start;
     gap: .2em;
+    position: relative;
+}
+
+.ProfileOrders-orderItem-body-p{
+    color: #21706c;
+    font-weight: 600;
+    font-size: .9em;
+}
+
+.ProfileOrders-orderItem-body-AbsoluteInfo{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    bottom: 0px;
+    font-size: 0.7em;
+    background-color: #1b4948cb;
+    border-radius: 1em;
+    padding: 0.5em;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.ProfileOrders-orderItem-body-AbsoluteInfo ul{
+    padding-left: 1.5em;
 
 }
 
+.ProfileOrders-orderItem-body-AbsoluteInfo ul li{
+    color: #fff;
+    font-weight: 700;
+    font-size: 1em;
+}
 
+/* 
 .ProfileOrders-orderItem-body-li {
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: start;
     gap: 2em;
     justify-content: left;
     color: #000000d0;
@@ -100,15 +128,6 @@
     font-size: .8em;
 }
 
-.ProfileOrders-orderItem-body-li-p:nth-child(1){
-    width: 10em;
-}
-
-.ProfileOrders-orderItem-body-p{
-    color: #21706c;
-    font-weight: 600;
-    font-size: .9em;
-}
 
 .ProfileOrders-orderItem-body-observations{
     color: #13312da1;
@@ -124,10 +143,11 @@
 .ProfileOrders-orderItem-body-p span{
     color: #21837efa;
     font-weight: 600;
-}
+} */
 
 .ProfileOrders-orderItem-body-footer{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
     align-items: center;
     margin-top: 1em;
@@ -136,7 +156,7 @@
 .ProfileOrders-orderItem-body-footer button{
     background-color: #10746fa1;
     color: white;
-    padding: .5em 1em;
+    padding: .2em 0em;
     border: none;
     border-radius: 5px;
     font-weight: 600;

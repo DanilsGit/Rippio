@@ -45,7 +45,7 @@ export function RestaurantIconResult({ results }) {
 
                                 },
                                 1100: {
-                                    slidesPerView: 8,
+                                    slidesPerView: 9,
                                 },
                             }
                         }

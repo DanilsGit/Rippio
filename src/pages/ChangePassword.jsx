@@ -6,7 +6,7 @@ import './changePassword.css'
 
 export function ChangePassword() {
 
-    const [isEmailSent, setEmailSent] = useState(true);
+    const [isEmailSent, setEmailSent] = useState(false);
     return (
             <div className='change-background-container'>
                 {isEmailSent ? <Change /> : <SendEmail />}

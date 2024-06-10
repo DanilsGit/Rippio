@@ -5,7 +5,6 @@ import { RestaurantIconResult } from '../components/searchPage/restaurantResult/
 import { RestaurantsInformationResult } from '../components/searchPage/RestaurantInformationResult/RestaurantsInformationResult';
 import { Footer } from '../components/footer/Footer';
 
-
 import './searchPage.css'
 
 import { useEffect, useState } from 'react';
@@ -21,6 +20,11 @@ export function SearchPage() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [RestaurantOfProduct, setRestaurantOfProduct] = useState(null);
+
+    // UseEffect para llevar el scroll al inicio de la página
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);

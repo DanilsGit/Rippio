@@ -168,7 +168,6 @@ export function Checkout() {
             use_credits: useCredits,
             shipping_cost: Number(costoEnvio),
             date: new Date().toISOString().slice(0, 19).replace('T', ' ')
-            // TODO que sea hora colombiana
         }
 
         addOrder(token, newOrderToSend).then(() => {

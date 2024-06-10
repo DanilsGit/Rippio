@@ -4,6 +4,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
 
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Page404 } from './pages/Page404.jsx'
+import { ChangePassword } from './pages/ChangePassword.jsx'
 import { SearchPage } from './pages/SearchPage.jsx'
 import { RestaurantPage } from './pages/RestaurantPage/RestaurantPage.jsx'
 import { Profile } from './pages/Profile/Profile.jsx'
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <ProtectedRegisterRoute element={<RegisterPage />} />,
+      },
+      {
+        path: '/changepassword',
+        element: <ChangePassword/>,
       },
       {
         path: '/info',

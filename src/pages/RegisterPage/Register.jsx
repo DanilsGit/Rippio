@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
+
 export function Register({ userMode, text, setUserRegister, handleSubmitRegister, errors, handleRegisterClick, handleLoginClick, setUserLogin, handleSubmitLogin }) {
     return (
         <section className={userMode ? "register-login-page-content" : "register-login-page-content register-login-page-content-to-Restaurant"}>
@@ -34,6 +36,7 @@ export function Register({ userMode, text, setUserRegister, handleSubmitRegister
                         value={text.login.button_login}
                         className={`loginPage-form-button ${userMode ? 'user-mode' : 'non-user-mode'}`}
                     />
+                    <Link to="/changepassword" className="loginPage-form-change"> ¿Olvidaste tu contraseña? </Link>
                     <p className="info">
                         {text.login.title_register}{" "}
                         <a

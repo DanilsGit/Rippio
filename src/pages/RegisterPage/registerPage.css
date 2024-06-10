@@ -484,6 +484,13 @@ a {
     padding: .5em 0;
 }
 
+.loginPage-form-change{
+    font-size: .9em;
+    text-decoration: underline;
+    color: #49a79f;
+    cursor: pointer;
+    z-index: 2;
+}
 
 
 

@@ -1,0 +1,109 @@
+.OrderDetailModal {
+    width: 80vw;
+}
+
+.OrderDetailModal span {
+    color: var(--darkcyan);
+    font-weight: 700;
+}
+
+.OrderDetailModal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0em;
+    border-bottom: 2px solid var(--darkcyan);
+}
+
+.OrderDetailModal-header p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.OrderDetailModal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.OrderDetailModal-product {
+    display: grid;
+    grid-template-columns: 10% auto;
+    gap: 1em;
+    padding: 0.5em 0em;
+    border-bottom: 1px solid var(--darkcyan);
+    align-items: center;
+}
+
+.OrderDetailModal-product img {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    background-color: #0754804d;
+}
+
+.OrderDetailModal-productInfo-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.OrderDetailModal-footer{
+    font-size: 0.9em;
+    display: grid;
+    grid-template-columns: 80% auto;
+    padding: 0.5em 0em;
+    border-top: 2px solid var(--darkcyan);
+}
+
+.OrderDetailModal-footer-info-direction, .OrderDetailModal-footer-info-payment{
+    display: flex;
+    gap: 1em;
+}
+
+.OrderDetailModal-footer-info-direction > div{
+    display: flex;
+    gap: 0.5em;
+}
+
+.OrderDetailModal-footer-totals p{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 450px) {
+    .OrderDetailModal-product {
+        grid-template-columns: 20% auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .OrderDetailModal-footer{
+        grid-template-columns: 100%;
+    }
+    .OrderDetailModal-footer-totals{
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+    }
+    .OrderDetailModal-footer-info-direction > div{
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+
+
+/* 
+.OrderDetailModal-header button{
+    background-color: var(--darkcyan);
+    border: none;
+    width: 30%;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+.OrderDetailModal-header button:hover{
+    background-color: var(--darkblue);
+    transition: 0.3s;
+} */

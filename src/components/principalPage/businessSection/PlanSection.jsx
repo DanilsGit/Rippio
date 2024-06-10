@@ -35,7 +35,7 @@ export function PlanSection() {
     return (
         <section className='planSection'>
             <div className='plan-background'>
-                <img draggable='false' className='plan-background-img' src='/principalPage/planSection/background.png'></img>
+                <img draggable='false' className='plan-background-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FPlanSection%2FWavyBackground.png?alt=media&token=8cccb115-4a7e-454a-9d20-03bbe93518bf'></img>
             </div>
             <section className='businessSection-plans-content'>
                 {

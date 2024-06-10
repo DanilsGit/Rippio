@@ -23,14 +23,20 @@
     padding: 0.2em 0.8em;
 }
 
+.mostsearched-link{
+    color: rgb(30, 59, 56);
+    font-weight: 600;
+}
+
 .problemReport{
     display: flex;
     background-color: #FFC625;
-    padding: 5px;
+    padding: 1em;
     border-radius: 20px;
     width: 26em;
     align-items: center;
     gap: 15px;
+    margin-right: 1.5em;
 }
 
 .problemReport img{

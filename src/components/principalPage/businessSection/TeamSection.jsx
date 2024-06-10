@@ -5,7 +5,7 @@ export function TeamSection(){
     return(
         <section className="teamSection">
                 <div className='team-background'>
-                    <img draggable='false' className='team-background-img' src='/principalPage/teamSection/background.png'></img>
+                    <img draggable='false' className='team-background-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FTeamSection%2Fwooden-background.jpg?alt=media&token=6e28fe41-0b7a-44d8-ba0b-2002c1c9e320'></img>
                 </div>
 
                 <div className='teamSection-content'>

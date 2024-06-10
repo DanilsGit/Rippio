@@ -1,4 +1,5 @@
 import './mostSearch.css'
+import { Link } from 'react-router-dom';
 
 export function MostSearch() {
     return (
@@ -6,12 +7,13 @@ export function MostSearch() {
             <section className="mostSearched">
                 <h2 className="mostSearched-title">Lo más buscado hoy</h2>
                 <section className="mostSearched-content-items">
-                    <div className="mostSearched-item"><p>Pollo Asado</p></div>
-                    <div className="mostSearched-item"><p>Churrasco</p></div>
-                    <div className="mostSearched-item"><p>Chicharrón</p></div>
-                    <div className="mostSearched-item"><p>pizza</p></div>
-                    <div className="mostSearched-item"><p>Empanadas</p></div>
-                    <div className="mostSearched-item"><p>Salchipapa</p></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/Pollo%20Asado" className='mostsearched-link'> Pollo Asado</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/Ensalada?" className='mostsearched-link'>Ensalada</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/chicharron?" className='mostsearched-link'>Chicharrón</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/pizza?" className='mostsearched-link'>pizza</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/Empanada?" className='mostsearched-link'>Empanadas</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/salchipapa?" className='mostsearched-link'>Salchipapa</Link></div>
+                    <div className="mostSearched-item"><Link to="/searchpage/alitas?" className='mostsearched-link'>Alitas</Link></div>
                 </section>
             </section>
             <section className="problemReport">

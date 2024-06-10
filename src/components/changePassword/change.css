@@ -1,0 +1,64 @@
+.chg-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffff;
+    border-radius: 1em;
+    padding: 2em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    gap: 1em;
+    width: 50vw;
+}
+
+.chg-container > img{
+    width: 8em;
+}
+
+.chg-title{
+    font-size: 2em;
+    font-weight: 700;
+    color: rgb(46, 138, 130);
+    margin: 0;
+}
+
+.chg-text{
+    font-size: 1em;
+    font-weight: 400;
+    color: rgb(10, 14, 13);
+    text-align: center;
+}
+
+.chg-input{
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 2px solid rgb(46, 138, 130);
+    border-radius: 0.5em;
+    background: transparent;
+    color: rgb(23, 68, 64);
+}
+
+.chg-input:focus{
+    outline: none;
+    border: 2px solid rgb(24, 112, 103);
+}
+
+.chg-button{
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.5em;
+    background: rgb(46, 138, 130);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.chg-button:hover{
+    background: rgb(24, 112, 103);
+    transition: .5s;
+}
+

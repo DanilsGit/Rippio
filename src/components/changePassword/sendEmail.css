@@ -1,0 +1,93 @@
+.send-email-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffff;
+    border-radius: 1em;
+    padding: 2.5em 3em;
+    gap: 2.5em;
+    width: 50vw;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.822);
+}
+
+.send-email-container-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.send-email-container-title > img{
+    width: 8em;
+    margin: .5em;
+}
+
+.send-email-container-title > h1{
+    font-size: 2em;
+    font-weight: 700;
+    color: #1d8072;
+    text-align: center;
+    margin: 0;
+}
+
+.send-email-text{
+    font-size: 1em;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+    margin: 0 1em;
+
+}
+
+.send-email-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    gap: 1em;
+}
+
+.send-email-form > input{
+    width: 100%;
+    padding: .5em 1em;
+    border: 2px solid #1d8072;
+    border-radius: 0.5em;
+    outline: none;
+    background: transparent;
+    color: #1d8072;
+    font-weight: 600;
+}
+
+.send-email-form > input::placeholder{
+    color: #2d6860;
+    font-weight: 500;
+}
+
+.send-email-form > button{
+    width: 100%;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+    background: #1d8072;
+    color: #ffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.send-email-form > button:hover{
+    background: #1a4b44;
+    transition: .5s;
+}
+
+.send-email-link{
+    color: #1d8072;
+    font-weight: 600;
+}
+
+.send-email-link:hover{
+    color: #1a4b44;
+}

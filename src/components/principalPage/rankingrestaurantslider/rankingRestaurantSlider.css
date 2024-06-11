@@ -36,10 +36,9 @@
     transition: 0.5s;
 }
 
-.swiper-wrapper{
+.bestNearRestaurant-slider-container{
     height: 10em;
 }
-
 
 .restaurant-img{
     width: 100%;

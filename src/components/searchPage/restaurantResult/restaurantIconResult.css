@@ -1,12 +1,5 @@
 .searchPage-iconsContainer{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 2em;
-    padding-bottom: 1em;
-    border-bottom: 2px solid #0000005e;
-    background-color: red;
-    overflow: auto;
+    height: 10em;
 }
 
 .searchPage-iconsContainer a{

@@ -1,0 +1,71 @@
+/* Ordenes */
+
+.MainContent-bodySection-orders-container {
+    height: 25vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.MainContent-bodySection-orders-card {
+    max-height: 95%;
+    height: auto;
+    width: 100%;
+    min-width: 28em;
+    max-width: 29em;
+    border-radius: 1em;
+    padding: 0.5em 0em;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1em;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+.MainContent-bodySection-orders-card:hover {
+    box-shadow: 0px 0px 10px 0px #11928D;
+    transition: 0.4s;
+}
+
+.bodySection-orders-card-blue{
+    background-color: #C8F4F2;
+}
+
+.bodySection-orders-card-white{
+    background-color: #E0E3E4;
+}
+
+.bodySection-orders-card-yellow{
+    background-color: #FFE18E;
+}
+
+.MainContent-bodySection-orders-card h2 {
+    letter-spacing: 0.2em;
+}
+
+.MainContent-bodySection-orders-card p {
+    font-weight: 600;
+}
+
+.MainContent-bodySection-orders-card-status{
+    color: #11928D;
+}
+
+.MainContent-bodySection-orders-card-status > b{
+    font-weight: 800;
+}
+
+
+
+.MainContent-bodySection-orders-card button{
+    width: 40%;
+    background-color: #11928D;
+    color: white;
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.5em;
+}
+

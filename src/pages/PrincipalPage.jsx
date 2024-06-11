@@ -18,6 +18,10 @@ import itemsCategories from '../utilities/categories.json'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { getOrders } from '../api/order'
+import { useAuth } from '../hooks/useAuth';
+import { formatDate, formatDateWithoutHour } from '../constants/formatDate'
+import { OrderSliderPrincipalPage } from '../components/principalPage/orderSlider/OrderSliderPrincipalPage';
 
 
 export function PrincipalPage() {
@@ -47,7 +51,7 @@ export function PrincipalPage() {
         } else {
             console.log('No se pudo obtener la ubicación');
         }
-    }    
+    }
 
     //UseEffect para preguntar permisos de ubicación
     useEffect(() => {
@@ -71,11 +75,41 @@ export function PrincipalPage() {
         }
     }, [city])
 
+    //Estado para guardar las ordenes del usuario que estén en un estado diferente a entregado
+    const [orders, setOrders] = useState([])
+
+    //Traer token de zustand
+    const token = useAuth(state => state.token)
+
+    //UseEffect para traer las ordenes del usuario
+    useEffect(() => {
+        if (token) {
+            getOrders(token)
+                .then(res => {
+                    // La fecha en formatDate(fecha) retorna en el formato Jun 10, 2024, 10:20 PM
+                    // Se debe formatear a Jun 10, 2024 para comparar con la fecha actual sin la hora
+                    const ordersFormatDate = res.data.map(order => {
+                        return {
+                            ...order,
+                            fecha: formatDateWithoutHour(formatDate(order.fecha)),
+                            fechayhora: formatDate(order.fecha),
+                            subtotal: order.costo_total + order.creditos_usados  - order.costo_envio
+                        }
+                    })
+                    const newOrders = ordersFormatDate.filter(order => (order.estado !== 'Entregado' && order.fecha == formatDateWithoutHour(formatDate(new Date()))))
+                    setOrders(newOrders)
+                    console.log(newOrders);
+                }).catch(err => {
+                    console.log(err);
+                })
+        }
+    }, [])
 
     return (
         <main className='mainContent'>
             <HeaderNav />
             <section className='MainContent-bodySection'>
+                {orders.length > 0 && <OrderSliderPrincipalPage orders={orders} />}
                 <section className='MainContent-bodySection-content'>
                     <SearchSection />
                     <section className="MainContent-bodySection-firstSection">
@@ -89,7 +123,7 @@ export function PrincipalPage() {
                                 <h2 className='bestNearRestaurant-title'>Los mejores restaurantes cerca de ti</h2>
                                 <div className='bestNearRestaurant-noLocation'>
                                     <p>Para una mejor experiencia en Rippio, por favor permita el acceso a su ubicación</p>
-                                    <button onClick={()=>{getLocation()}}>Permitir</button>
+                                    <button onClick={() => { getLocation() }}>Permitir</button>
                                 </div>
                             </section>
                     }

@@ -48,7 +48,7 @@ export function SearchSection() {
             </section>
             <section className="secondSearchSection">
                 <img draggable='false'  className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fburger.png?alt=media&token=81cb53a2-ee9e-4418-be80-371e72a3b4a4' alt="foodIcon"></img>
-                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fbrocheta.png?alt=media&token=2b9d703c-2e4a-49bb-afe9-80d4d67d9919' alt="foodIcon"></img>
+                <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fsalchipapa.png?alt=media&token=36fb0abf-cc9d-4275-b946-bf4538a29b7e' alt="foodIcon"></img>
                 <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fburrito.png?alt=media&token=666db319-3c35-425b-b739-856ef91234c1' alt="foodIcon"></img>
                 <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Fsushi.png?alt=media&token=df46d08b-cae1-4661-800b-1ab28dd310fd' alt="foodIcon"></img>
                 <img draggable='false' className='secondSearchSection-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FAnimationSearch%2Ffoodbackground.png?alt=media&token=c30f626c-43b4-474d-aedf-4ba8e3a1cf5d' alt="foodIcon"></img>

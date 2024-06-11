@@ -1,6 +1,5 @@
 .SearchSection{
     display: flex;
-    margin-top: 50px;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;

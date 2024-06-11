@@ -12,53 +12,50 @@ export function RestaurantIconResult({ results }) {
 
 
     return (
-        <div>
-            
-                <div>
-                    <Swiper
-                        spaceBetween={40}
-                        navigation={true}
-                        loop={true}
-                        autoplay={
-                            {
-                                delay: 1000,
-                            }
-                        }
-                        breakpoints={
-                            {
-                                0: {
-                                    slidesPerView: 1,
-                                },
-                                200: {
-                                    slidesPerView: 2,
-                                },
-                                350: {
-                                    slidesPerView: 4,
+        <div className='searchPage-iconsContainer'>
+            <Swiper
+                spaceBetween={40}
+                navigation={true}
+                loop={true}
+                autoplay={
+                    {
+                        delay: 1000,
+                    }
+                }
+                breakpoints={
+                    {
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        200: {
+                            slidesPerView: 2,
+                        },
+                        350: {
+                            slidesPerView: 4,
 
-                                },
-                                550: {
-                                    slidesPerView: 6,
+                        },
+                        550: {
+                            slidesPerView: 6,
 
-                                },
-                                800: {
-                                    slidesPerView: 7,
+                        },
+                        800: {
+                            slidesPerView: 7,
 
-                                },
-                                1100: {
-                                    slidesPerView: 9,
-                                },
-                            }
-                        }
-                    >
-                        {results.map((restaurant) => (
-                            <SwiperSlide key={restaurant.id}>
-                                <Link to={`/restaurant/${restaurant.id}`} key={restaurant.id} className='searchPage-iconsContainer-link'>
-                                <img key={restaurant.id} className='searchPage-iconsContainer-img' src={restaurant.img_icon} alt={restaurant.nombre} />
-                                </Link>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
+                        },
+                        1100: {
+                            slidesPerView: 9,
+                        },
+                    }
+                }
+            >
+                {results.map((restaurant) => (
+                    <SwiperSlide key={restaurant.id}>
+                        <Link to={`/restaurant/${restaurant.id}`} key={restaurant.id} className='searchPage-iconsContainer-link'>
+                            <img key={restaurant.id} className='searchPage-iconsContainer-img' src={restaurant.img_icon} alt={restaurant.nombre} />
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     )
 }

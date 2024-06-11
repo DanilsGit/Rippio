@@ -14,7 +14,7 @@ export function RankingRestaurantSlider({ slides }) {
         <section className="bestNearRestaurant secondSection-child">
             <h2 className='bestNearRestaurant-title'>Los mejores restaurantes cerca de ti</h2>
             
-            <div>
+            <div className='bestNearRestaurant-slider-container'>
                 <Swiper
                     spaceBetween={40}
                     navigation={true}

@@ -17,11 +17,11 @@ export function RestaurantIconResult({ results }) {
                 spaceBetween={40}
                 navigation={true}
                 loop={true}
-                autoplay={
-                    {
-                        delay: 1000,
-                    }
-                }
+                // autoplay={
+                //     {
+                //         delay: 1000,
+                //     }
+                // }
                 breakpoints={
                     {
                         0: {

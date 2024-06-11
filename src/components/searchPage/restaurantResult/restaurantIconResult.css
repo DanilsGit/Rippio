@@ -2,19 +2,12 @@
     height: 10em;
 }
 
-.searchPage-iconsContainer a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6em;
-    height: 6em;
-}
-
 .searchPage-iconsContainer-img{
+    object-fit: cover;
+    border-radius: 50%;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+
 }
 
 .searchPage-iconsContainer-img:hover{
@@ -24,18 +17,15 @@
 
 .searchPage-iconsContainer-link{
     border: none;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: transparent;
-    z-index: 1;
+    
+    min-width: 6em;
+    min-height: 6em;
+
+    max-height: 6.5em;
+    max-width: 6.5em;
+    
     aspect-ratio: 1/1;
 
-    max-width: 6.5em;
-    max-height: 6.5em;
-
-    cursor: pointer;
     border-radius: 50%;
+    cursor: pointer;
 }

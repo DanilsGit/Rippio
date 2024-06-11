@@ -85,18 +85,4 @@
 }
 
 
-.swiper-button-next, .swiper-button-prev{
-    color: #000000;
-    width: 1em;
-}
 
-.swiper-slide{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.swiper{
-    padding: 0em 2em;
-}

@@ -155,10 +155,10 @@ export function ProfileDirections() {
 
     // Función para enviar una dirección actualizada
     const updateAddress = async (address) => {
+        console.log(address);
         setLoadingAddress(true);
         try {
-            const addressWithId = { ...address, id_direccion: address.id };
-            await editAddress(token, addressWithId);
+            await editAddress(token, address);
             // Hacer que los campos no sean editables y cerrar el formulario
             const newForms = forms.map((form) => {
                 if (form.id === address.id) {
@@ -203,7 +203,7 @@ export function ProfileDirections() {
             sentNewAddress(addressToSend);
         } else {
             const addressToEdit = {
-                id: address.id,
+                id_direccion: address.id,
                 departamento: address.departamento.label,
                 ciudad: address.ciudad.label,
                 barrio: address.barrio,
@@ -299,7 +299,7 @@ export function ProfileDirections() {
                                     <fieldset className='fieldsetAddressProfile'>
                                         <div>
                                             <label className="label" htmlFor="address">Departamento</label>
-                                            <Select className='select' onChange={
+                                            <Select className='Direction-Select' onChange={
                                                 (selectedOption) => {
                                                     handleDepartamentoChange(selectedOption);
                                                     const newForms = forms.map((f) =>
@@ -314,7 +314,7 @@ export function ProfileDirections() {
                                         </div>
                                         <div>
                                             <label className="label" htmlFor="address">Ciudad</label>
-                                            <Select className='select' maxMenuHeight={150}
+                                            <Select className='Direction-Select' maxMenuHeight={150}
                                                 value={form.ciudad}
                                                 required
                                                 onChange={
@@ -353,7 +353,7 @@ export function ProfileDirections() {
                                                     }}
                                                 value={form.tipo_via}
                                                 required
-                                                className='select selectvia' styles={customStyles} options={vias} placeholder='Seleccionar' isDisabled={form.isConfirmed} maxMenuHeight={115} />
+                                                className='Direction-Select selectvia' styles={customStyles} options={vias} placeholder='Seleccionar' isDisabled={form.isConfirmed} maxMenuHeight={115} />
                                         </div>
                                         <div className='fieldsetAddressProfile-address-div'>
                                             <label className="label" htmlFor="address">Dirección</label>
@@ -395,7 +395,7 @@ export function ProfileDirections() {
                                                     );
                                                     setForms(newForms);
                                                 }}
-                                                className='ProfileDirections-Input' required type="text" id="address" name="address" readOnly={form.isConfirmed} value={form.observaciones} />
+                                                className='ProfileDirections-Input' type="text" id="address" name="address" readOnly={form.isConfirmed} value={form.observaciones} />
                                         </div>
 
                                         {

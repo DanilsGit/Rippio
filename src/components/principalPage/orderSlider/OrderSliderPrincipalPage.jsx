@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { OrderDetailModal } from '../../Modals/orderDetailModal/OrderDetailModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function OrderSliderPrincipalPage({ orders }) {
 
@@ -14,6 +14,16 @@ export function OrderSliderPrincipalPage({ orders }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const [selectedOrder, setSelectedOrder] = useState(null);
+
+    // UseEffect para añadir la clase MainContent-bodySection-orders-card-loaded
+    useEffect(() => {
+        const cards = document.querySelectorAll('.MainContent-bodySection-orders-card');
+        if (cards) {
+            cards.forEach(card => {
+                card.classList.add('MainContent-bodySection-orders-card-loaded');
+            })
+        }
+    }, [orders])
 
     return (
         <div className='MainContent-bodySection-orders-container'>
@@ -56,8 +66,7 @@ export function OrderSliderPrincipalPage({ orders }) {
             >
                 {orders.map((order, index) => (
                     <SwiperSlide key={order.id}>
-                        <section className={`MainContent-bodySection-orders-card
-                        ${index % 3 === 0 ? 'bodySection-orders-card-blue' : index % 3 === 1 ? 'bodySection-orders-card-white' : 'bodySection-orders-card-yellow'}`}
+                        <section className={`MainContent-bodySection-orders-card ${index % 3 === 0 ? 'bodySection-orders-card-blue' : index % 3 === 1 ? 'bodySection-orders-card-white' : 'bodySection-orders-card-yellow'}`}
                         >
                             <p>Tu pedido en</p>
                             <h2>{order.nombre}</h2>
@@ -72,12 +81,12 @@ export function OrderSliderPrincipalPage({ orders }) {
                                 <p>Total: ${order.costo_total}</p>
                             }
                             <button
-                            onClick={
-                                () => {
-                                    setSelectedOrder(order);
-                                    setIsOpen(true);
+                                onClick={
+                                    () => {
+                                        setSelectedOrder(order);
+                                        setIsOpen(true);
+                                    }
                                 }
-                            }
                             >Más información</button>
                         </section>
                     </SwiperSlide>

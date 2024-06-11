@@ -1,7 +1,6 @@
 /* Ordenes */
 
 .MainContent-bodySection-orders-container {
-    height: 25vh;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,7 +12,7 @@
     max-width: 29em;
     border-radius: 1em;
     padding: 0.5em 0em;
-
+    margin: 1em 0em;
 
     display: flex;
     flex-direction: column;
@@ -21,6 +20,15 @@
     gap: 0.1em;
     align-items: center;
     font-size: 0.8em;
+
+    opacity: 0;
+    transform: translateX(200%);
+}
+
+.MainContent-bodySection-orders-card-loaded {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: 1s ease-out;
 }
 
 .MainContent-bodySection-orders-card:hover {
@@ -57,7 +65,6 @@
 }
 
 
-
 .MainContent-bodySection-orders-card button{
     width: 40%;
     background-color: #11928D;
@@ -69,3 +76,8 @@
     padding: 0.5em;
 }
 
+@media screen and (max-width: 685px){
+    .MainContent-bodySection-orders-container {
+        margin-bottom: 1.5em;
+    }
+}

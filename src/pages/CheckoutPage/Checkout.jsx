@@ -68,6 +68,7 @@ export function Checkout() {
     useEffect(() => {
         getAddresses(token)
             .then(res => {
+                console.log(res.data);
                 const newAddress = res.data.map(address => {
                     return {
                         value: address.id,
@@ -195,10 +196,15 @@ export function Checkout() {
                         <section className='CheckoutPage-content-item-content CheckoutPage-content-item-content-select'>
                             <h2>Dirección de entrega</h2>
                             <Select
+                                isSearchable={false}
                                 placeholder='Seleccionar...'
                                 className='CheckoutPage-Select'
                                 options={address}
                                 onChange={(selectedOption) => setOrder({ ...order, id_direccion: selectedOption })}
+                                noOptionsMessage={() => {
+                                    if (!address) return 'Cargando direcciones...'
+                                    return 'Registra direcciones en tu perfil'
+                                }}
                             />
                         </section>
                     </div>
@@ -206,10 +212,15 @@ export function Checkout() {
                         <section className='CheckoutPage-content-item-content CheckoutPage-content-item-content-select'>
                             <h2>Tarjeta de pago</h2>
                             <Select
+                                isSearchable={false}
                                 placeholder='Seleccionar...'
                                 className='CheckoutPage-Select'
                                 onChange={(selectedOption) => setOrder({ ...order, id_pago: selectedOption })}
                                 options={payment}
+                                noOptionsMessage={() => {
+                                    if (!payment) return 'Cargando métodos de pago...'
+                                    return 'Registra tarjetas en tu perfil'
+                                }}
                             />
                         </section>
                     </div>

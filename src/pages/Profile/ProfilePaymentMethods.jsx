@@ -9,12 +9,11 @@ export function ProfilePaymentMethods() {
 
     const token = useAuth((state) => state.token)
     const [arrow, setArrow] = useState(false);
-    const [loadingPaymentMethods, setLoadingPaymentMethods] = useState(true);
     const [loading, setLoading] = useState(null);
     const [metodos_pago, setMetodos_pago] = useState([]);
 
     //Estado para obtener los métodos de pago del usuario
-    const [forms, setForms] = useState([]);
+    const [forms, setForms] = useState(null);
 
     //Estado para tener los métodos de pago existentes en la BD
     const [typeOfPayments, setTypeOfPayments] = useState([]);
@@ -56,12 +55,22 @@ export function ProfilePaymentMethods() {
         });
     }, [token]);
 
+    //Función que retorna el card_icon de typeOfPayments dependiendo del id
+    function getCardIcon(id) {
+        const type = typeOfPayments.find((type) => type.id === id);
+        const image = type.card_icon || null;
+        console.log(image);
+        return image;
+    }
+
     //Obtener los métodos de pago del usuario
     useEffect(() => {
         // getTypeOfPayment
-        getPayments(token).then((response) => {
-            const payments = response.data; //Es un array de objetos con la información de los métodos de pago del usuario
-            const newForm = payments.map((payment) => {
+        getPayments(token).then((res) => {
+            console.log(res.data);
+            console.log(typeOfPayments);
+            const payments = res.data; //Es un array de objetos con la información de los métodos de pago del usuario
+            const newPayments = payments.map((payment) => {
                 return {
                     id: payment.id,
                     id_metodo_pago: payment.id_metodo_pago,
@@ -76,17 +85,18 @@ export function ProfilePaymentMethods() {
                     arrow: false,
                     selectedOption: metodos_pago.find((option) => option.value === payment.id_metodo_pago),
                     isSaved: true,
-                    imagen: typeOfPayments.find((type) => type.id === payment.id_metodo_pago).card_icon || null
+                    imagen: getCardIcon(payment.id_metodo_pago)
                 }
             }); // Aquí debes mapear los pagos para que se vean en el formulario
-            setForms(newForm);
-            setLoadingPaymentMethods(false);
+            setForms(newPayments);
         }).catch((error) => {
-            // console.log(error);
-            setLoadingPaymentMethods(false);
+            console.log(error);
+            if (error.response.data.message === 'No hay tarjetas') {
+                setForms([])
+            }
         });
 
-    }, [token, typeOfPayments])
+    }, [token, typeOfPayments,metodos_pago])
 
     function handleToggle(id) {
         setArrow(!arrow);
@@ -229,12 +239,11 @@ export function ProfilePaymentMethods() {
         setForms(newForms);
     };
 
-
-    return (
+    return ( 
         <section className='ProfilePaymentMethods'>
             <h1 className="ProfilePaymentMethods-h1">Tu cartera en Rippio</h1>
             {
-                loadingPaymentMethods ? <p>Cargando...</p> :
+                !forms ? <p>Cargando...</p> :
                     forms.length > 0 ?
                         <div className='ProfilePaymentMethods-form-container'>
                             {forms.map((form) => ( // Arreglo de formularios

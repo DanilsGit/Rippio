@@ -3,29 +3,36 @@ import { useState } from 'react'
 import './buyPlanModal.css'
 import Modal from 'react-modal'
 import Select from 'react-select'
+import { buyPlan } from '../../../api/plan'
+import { useAuth } from '../../../hooks/useAuth'
 
-export function BuyPlanModal({ plan, isOpen, closeModal }) {
+export function BuyPlanModal({ plan, isOpen, closeModal, pay_method, getPlan }) {
 
     const [selectedMethod, setSelectedMethod] = useState(null)
     const [isSelectOpen, setIsSelectOpen] = useState(false)
+    const [loadingBuy, setLoadingBuy] = useState(false)
+    const [onceSubmitted, setOnceSubmitted] = useState(false)
+    //Token de zustand
+    const token = useAuth(state => state.token)
 
     //Función para enviar la compra
-    const handleClick = (e, id) => {
+    const handleSubmit = async (e, id) => {
         e.preventDefault()
-        console.log(id)
-        console.log(selectedMethod)
-    }
+        if (onceSubmitted) return
+        setLoadingBuy(true)
+        setOnceSubmitted(true)
 
-    //Tarjetas de crédito:
-    const methods = [
-        { value: 1, label: 'Tarjeta terminada en 1234' },
-        { value: 2, label: 'Tarjeta terminada en 5678' },
-        { value: 3, label: 'Tarjeta terminada en 9012' },
-        { value: 4, label: 'Tarjeta terminada en 3456' },
-        { value: 5, label: 'Tarjeta terminada en 7890' },
-        { value: 6, label: 'Tarjeta terminada en 1234' },
-        { value: 7, label: 'Tarjeta terminada en 5678' },
-    ]
+        try {
+            await buyPlan(token, { id_plan: id, metodo_pago: selectedMethod.value })
+            await getPlan(token)
+            setLoadingBuy(false)
+            closeModal()
+        } catch (error) {
+            console.log(error);
+            setLoadingBuy(false)
+            setOnceSubmitted(false)
+        }
+    }
 
     const visible = {
         content: {
@@ -50,9 +57,11 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                 style={
                     isSelectOpen ? visible : auto
                 }
-
             >
-                <div className='buyPlanModal-container'
+                <form className='buyPlanModal-container'
+                    onSubmit={
+                        (e) => handleSubmit(e, plan.id)
+                    }
                 >
                     <div className='buyPlanModal-infoContainer-text'>
                         <h2>Estás a punto de obtener el {plan.nombre}</h2>
@@ -69,10 +78,12 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                             onMenuClose={() => setIsSelectOpen(false)}
                             maxMenuHeight={70}
                             className='buyPlanModal-select'
-                            options={methods}
+                            options={pay_method}
+                            noOptionsMessage={() => 'Agrega métodos de pago en el perfil'}
                             placeholder='Método de pago'
                             onChange={(selected) => setSelectedMethod(selected)}
                             isSearchable={false}
+                            required
                         />
                     </div>
                     <div className='buyPlanModal-buyContainer'>
@@ -87,10 +98,13 @@ export function BuyPlanModal({ plan, isOpen, closeModal }) {
                                 }
                             />
                         </div>
-                        <button className='buyPlanModal-buyButton'
-                            onClick={(e) => handleClick(e, plan.id)}>Comprar</button>
+                        <button className='buyPlanModal-buyButton'>
+                            {
+                                loadingBuy ? 'Cargando...' : 'Comprar'
+                            }
+                        </button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )

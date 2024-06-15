@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import './searchSection.css'
 import locationIcon from '/principalPage/icons/locationIcon.png';
 import searchIcon from '/principalPage/icons/searchIcon.png';
@@ -6,7 +7,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export function SearchSection() {
+export function SearchSection({location}) {
 
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
@@ -22,7 +23,14 @@ export function SearchSection() {
             <section className="firstSearchSection">
                 <header className="location">
                     <img draggable='false' className='locationImg' src={locationIcon} alt="location"></img>
-                    <p>Tuluá, Valle del Cauca</p>
+                    <p>
+                        {
+                            location ?
+                                `${location.city}, ${location.principalSubdivision}`
+                                :
+                                'No pudimos obtener tu ubicación'
+                        }
+                    </p>
                 </header>
                 <section className='searchFormSection'>
                     <div className='searchFormInfo'>

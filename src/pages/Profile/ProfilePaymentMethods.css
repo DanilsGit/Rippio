@@ -180,7 +180,8 @@
 }
 
 .ProfilePaymentMethods-form input {
-    font-size: .8em;
+    text-align: center;
+    font-size: .7em;
     outline: none;
     color: #ffffff;
     font-weight: 600;
@@ -194,6 +195,7 @@
     font-size: 1em;
     font-weight: 600;
     letter-spacing: .1em;
+    opacity: 0.8;
 }
 
 .div-banco{
@@ -266,6 +268,10 @@
     .ProfilePaymentMethods-form-card{
         min-height: 11em;
         min-width: 20em;
+    }
+
+    .ProfilePaymentMethods{
+        padding: 1em 1em;
     }
 
     .ProfilePaymentMethods-form-card-name{

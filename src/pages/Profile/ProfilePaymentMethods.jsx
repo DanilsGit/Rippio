@@ -11,6 +11,8 @@ export function ProfilePaymentMethods() {
     const [arrow, setArrow] = useState(false);
     const [loading, setLoading] = useState(null);
     const [metodos_pago, setMetodos_pago] = useState([]);
+    const [error, setError] = useState(null);
+    const [loadingForms, setLoadingForms] = useState(true);
 
     //Estado para obtener los métodos de pago del usuario
     const [forms, setForms] = useState(null);
@@ -45,58 +47,50 @@ export function ProfilePaymentMethods() {
         3: { image: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/ProfilePage%2FPaymentMethodsCards%2FcardIcons%2FVisa.png?alt=media&token=35442c80-7bc5-4eda-93e9-8274606a957f' }
     };
 
+    //Añadir los metodos de pago al select
+    useEffect(() => {
+        setMetodos_pago(typeOfPayments.map((type) => ({ value: type.id, label: type.nombre })) || []);
+    }, [typeOfPayments]);
+
+    //Obtener los métodos de pago existentes y Obtener los métodos de pago del usuario
     useEffect(() => {
         getTypeOfPayment(token).then((response) => {
             const typeOfPayments = response.data;
-            setMetodos_pago(typeOfPayments.map((type) => ({ value: type.id, label: type.nombre })) || []);
             setTypeOfPayments(typeOfPayments);
+
+            getPayments(token).then((response) => {
+                const payments = response.data; //Es un array de objetos con la información de los métodos de pago del usuario
+                const newForm = payments.map((payment) => {
+                    return {
+                        id: payment.id,
+                        id_metodo_pago: payment.id_metodo_pago,
+                        nombre: payment.nombre,
+                        apellido: payment.apellido,
+                        numero: payment.numero,
+                        formattedNum: payment.numero.replace(/(\d{4})/g, '$1 ').trim(),
+                        expiracion: payment.expiracion,
+                        formattedExpiracion: payment.expiracion,
+                        cvv: payment.cvv,
+                        isConfirmed: true,
+                        arrow: false,
+                        selectedOption: typeOfPayments.find((type) => type.id === payment.id_metodo_pago),
+                        isSaved: true,
+                        imagen: typeOfPayments.find((type) => type.id === payment.id_metodo_pago)?.card_icon || null
+                    }
+                });
+                setForms(newForm);
+                setLoadingForms(false);
+            }).catch((error) => {
+                console.log(error);
+                setForms([]);
+                setLoadingForms(false);
+            });
+
         }).catch((error) => {
             console.log(error);
         });
-    }, [token]);
 
-    //Función que retorna el card_icon de typeOfPayments dependiendo del id
-    function getCardIcon(id) {
-        const type = typeOfPayments.find((type) => type.id === id);
-        const image = type.card_icon || null;
-        console.log(image);
-        return image;
-    }
-
-    //Obtener los métodos de pago del usuario
-    useEffect(() => {
-        // getTypeOfPayment
-        getPayments(token).then((res) => {
-            console.log(res.data);
-            console.log(typeOfPayments);
-            const payments = res.data; //Es un array de objetos con la información de los métodos de pago del usuario
-            const newPayments = payments.map((payment) => {
-                return {
-                    id: payment.id,
-                    id_metodo_pago: payment.id_metodo_pago,
-                    nombre: payment.nombre,
-                    apellido: payment.apellido,
-                    numero: payment.numero,
-                    formattedNum: payment.numero.replace(/(\d{4})/g, '$1 ').trim(),
-                    expiracion: payment.expiracion,
-                    formattedExpiracion: payment.expiracion,
-                    cvv: payment.cvv,
-                    isConfirmed: true,
-                    arrow: false,
-                    selectedOption: metodos_pago.find((option) => option.value === payment.id_metodo_pago),
-                    isSaved: true,
-                    imagen: getCardIcon(payment.id_metodo_pago)
-                }
-            }); // Aquí debes mapear los pagos para que se vean en el formulario
-            setForms(newPayments);
-        }).catch((error) => {
-            console.log(error);
-            if (error.response.data.message === 'No hay tarjetas') {
-                setForms([])
-            }
-        });
-
-    }, [token, typeOfPayments,metodos_pago])
+    }, [token])
 
     function handleToggle(id) {
         setArrow(!arrow);
@@ -148,8 +142,12 @@ export function ProfilePaymentMethods() {
                 }
             });
             setForms(newForms);
+            setError(null);
         }).catch((error) => {
             console.log(error);
+            if (error.response.data.message) {
+                setError(error.response.data.message);
+            }
         });
         setLoading(false);
     }
@@ -179,7 +177,9 @@ export function ProfilePaymentMethods() {
         if (forms.some((form) => form.id === 'new')) {
             return;
         }
-        setForms([...forms, {
+        // Se cierran los formularios abiertos
+        const closedForms = forms.map((form) => ({ ...form, isOpen: false, arrow: false }));
+        const newForm = [...closedForms, {
             id: 'new',
             id_metodo_pago: null,
             nombre: '',
@@ -194,7 +194,8 @@ export function ProfilePaymentMethods() {
             arrow: true,
             selectedOption: null,
             isSaved: false
-        }]);
+        }]
+        setForms(newForm);
     }
 
     const handleCardNumberChange = (e, id) => {
@@ -239,11 +240,11 @@ export function ProfilePaymentMethods() {
         setForms(newForms);
     };
 
-    return ( 
+    return (
         <section className='ProfilePaymentMethods'>
             <h1 className="ProfilePaymentMethods-h1">Tu cartera en Rippio</h1>
             {
-                !forms ? <p>Cargando...</p> :
+                loadingForms ? <p>Cargando...</p> :
                     forms.length > 0 ?
                         <div className='ProfilePaymentMethods-form-container'>
                             {forms.map((form) => ( // Arreglo de formularios
@@ -279,7 +280,7 @@ export function ProfilePaymentMethods() {
                                                                 null
                                                 }></img>
                                             }
-                                            <div className='ProfilePaymentMethods-form-card-number'>
+                                            <div className={`ProfilePaymentMethods-form-card-number`}>
                                                 <input className='ProfilePaymentMethods-Input' type="text" id="paymentmethodNum" name="paymentmethod" required
                                                     placeholder='Número de tarjeta' readOnly={form.isConfirmed} value={form.formattedNum} onChange={(e) => { handleCardNumberChange(e, form.id) }} maxLength="19" />
                                             </div>
@@ -318,7 +319,6 @@ export function ProfilePaymentMethods() {
                                                         setForms(newForms);
                                                     }}
                                                     placeholder='Nombre' readOnly={form.isConfirmed} />
-
                                                 <input className='ProfilePaymentMethods-Input' type="text" id="paymentmethodLastName" name="paymentmethod" required
                                                     value={form.apellido}
                                                     onChange={(e) => {
@@ -334,8 +334,12 @@ export function ProfilePaymentMethods() {
                                                     }}
                                                     placeholder='Apellido' readOnly={form.isConfirmed} />
                                             </div>
-
                                         </div>
+                                        {
+                                            error && <p
+                                                style={{ color: 'red', textAlign: 'center' }}
+                                            >{error}</p>
+                                        }
                                         {!form.isSaved && <button className='ProfilePaymentMethods-Button-Confirm'>
                                             {
                                                 loading ? 'Cargando...' : 'Confirmar'
@@ -355,7 +359,7 @@ export function ProfilePaymentMethods() {
                                 </div>
                             ))}
                         </div>
-                        : <p>No tienes métodos de pago guardados</p>
+                        : <p>No tienes métodos de pago registrados</p>
             }
             <button type="button" className='ProfilePaymentMethods-Button' onClick={handleAddpaymentmethodClick}>Añadir una nueva tarjeta</button>
         </section>

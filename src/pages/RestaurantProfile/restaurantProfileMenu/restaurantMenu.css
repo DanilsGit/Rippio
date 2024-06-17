@@ -16,7 +16,7 @@
 
 .RestaurantProfileMenu-manage-ddZone{
     width: 100%;
-    border: 2px solid #0000002b;
+    border: 2px solid #4da09c2b;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
     gap: 1em;
@@ -28,8 +28,8 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 0.1em;
-    color: #000;
-    border: 2px solid var(--darkblue);
+    color: #044549;
+    border: 2px solid rgba(70, 126, 121, 0.404);
     padding: 0.5em;
     border-radius: 1em;
     cursor: grab;
@@ -39,7 +39,7 @@
 
 .ddZone-product-inactive{
     opacity: 0.5;
-    background-color: #0000003b;
+    background-color: #0e18173b;
 }
 
 .RestaurantProfileMenu-manage-ddZone-product:hover{
@@ -57,7 +57,7 @@
 .RestaurantProfileMenu-manage-ddZone-product img{
     width: 100%;
     height: 40%;
-    border-radius: 1em;
+    border-radius: .5em;
     object-fit: cover;
 }
 
@@ -72,7 +72,8 @@
 
 .RestaurantProfileMenu-manage-ddZone-product p{
     font-size: 0.8em;
-    color: #0000008a;
+    color: #27595f8a;
+    font-weight: 500;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -81,7 +82,7 @@
 }
 
 .RestaurantProfileMenu-manage-ddZone-product button{
-    background-color: var(--darkblue);
+    background-color: rgb(74, 122, 122);
     color: #fff;
     border: none;
     padding: 0.5em 1em;

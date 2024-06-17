@@ -65,7 +65,7 @@
 
 .RestaurantProfileMenu-header{
     padding: 0.5em 1em;
-    border-bottom: 2px solid #0000002b;
+    border-bottom: 2px solid #4da09c2b;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -76,12 +76,13 @@
 .RestaurantProfileMenu-header h1{
     margin: 0;
     font-size: 1.5em;
-    font-weight: 600;
+    font-weight: 700;
     text-align: start;
+    color: #204a4d;
 }
 
 .RestaurantProfileMenu-header button{
-    background-color: var(--darkblue);
+    background-color: rgb(63, 175, 175);
     color: #fff;
     border: none;
     padding: 0.5em 1em;
@@ -113,7 +114,7 @@
     flex-direction: column;
     gap: 1em;
     padding: 0.5em;
-    color: #0000008a;
+    color: #0033338a;
 }
 
 

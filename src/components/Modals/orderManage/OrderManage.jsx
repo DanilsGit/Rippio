@@ -79,7 +79,7 @@ export default function OrderManage({ order, isOpen, setIsOpen, setSelectedOrder
             >
                 <header className='OrderManage-header'>
                     <p>Gestión de pedido</p>
-                    <p>{order.estado}</p>
+                    <p><b>{order.estado}</b></p>
                     <p className='OrderManage-header-date'>{order.fecha}</p>
                 </header>
                 <section className='OrderManage-content'>
@@ -93,12 +93,12 @@ export default function OrderManage({ order, isOpen, setIsOpen, setSelectedOrder
                                             <div>
                                                 <p>{product.nombre}</p>
                                                 <p>Descripcion: {product.description}</p>
-                                                <p>Observaciones: <b>{product.observaciones}</b></p>
+                                                <p>Observaciones: {product.observaciones}</p>
                                             </div>
                                             <div className='OrderManage-content-items-item-cost'>
-                                                <p>Cantidad: <b>{product.cantidad_prod}</b></p>
-                                                <p>Unidad: <b>${product.costo_unit}</b></p>
-                                                <p>Subtotal: <b>${product.subtotal}</b></p>
+                                                <p><b>Cantidad:</b>{product.cantidad_prod}</p>
+                                                <p><b>Unidad:</b>${product.costo_unit}</p>
+                                                <p><b>Subtotal: </b>${product.subtotal}</p>
                                             </div>
                                         </div>
                                     </article>
@@ -111,12 +111,12 @@ export default function OrderManage({ order, isOpen, setIsOpen, setSelectedOrder
                             buyerData && (
                                 <section className='OrderManage-content-info'>
                                     <div className='OrderManage-content-info-order'>
-                                        <p>Enviar a: <b>{buyerData.nombre + ' ' + buyerData.apellido}</b></p>
-                                        <p>Dirección: <b>{buyerData.direccion}</b></p>
-                                        <p><b>{buyerData.observacion_direccion}</b></p>
-                                        <p>Subtotal: <b>${order.subtotal}</b></p>
-                                        <p>Envío: <b>${order.costo_envio}</b></p>
-                                        <p>Total: <b>${order.total}</b></p>
+                                        <p><b>Enviar a:</b> {buyerData.nombre + ' ' + buyerData.apellido}</p>
+                                        <p><b>Dirección:</b>  {buyerData.direccion}</p>
+                                        <p>{buyerData.observacion_direccion}</p>
+                                        <p><b>Subtotal:</b>  ${order.subtotal}</p>
+                                        <p><b>Envío:</b>  ${order.costo_envio}</p>
+                                        <p><b>Total:</b>  ${order.total}</p>
                                     </div>
                                     <div className='OrderManage-content-info-buttons'>
 

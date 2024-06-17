@@ -10,6 +10,7 @@ export function ProfileSettings() {
     const user = useAuth((state) => state.user);
     const token = useAuth((state) => state.token);
     const setUser = useAuth((state) => state.setUser);
+    const [message, setMessage] = useState(null);
 
     const [newUser, setNewUser] = useState({
         nombre: user.nombre,
@@ -33,13 +34,21 @@ export function ProfileSettings() {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
-                }).then(()=>{
+                }).then(() => {
                     setUpdatingInfo(false);
-                    setUser({...user, ...newUser});
+                    setUser({ ...user, ...newUser });
+                    setMessage('Datos actualizados correctamente');
+                    setTimeout(() => {
+                        setMessage(null);
+                    }, 3000);
                 })
 
         } catch (error) {
             console.error(error);
+            setMessage(`Error al actualizar los datos: ${error.response.data.message}`); // error.response.data.message
+            setTimeout(() => {
+                setMessage(null);
+            }, 3000);
         }
         setUpdatingInfo(false);
     }
@@ -47,6 +56,11 @@ export function ProfileSettings() {
     return (
         <section className='ProfileSettings'>
             <h1 className="ProfileSettings-h1">Información de tu cuenta</h1>
+            {
+                message && <p
+                    style={{ textAlign: 'center', color: message.includes('Error') ? 'red' : 'green' }}
+                >{message}</p>
+            }
             <form onSubmit={handleOnSubmitUpdateInfo}
                 className="ProfileSettings-GridForm">
                 <div>
@@ -82,7 +96,9 @@ export function ProfileSettings() {
                                 : 'Actualizar Datos'
                         }
                     </button>
+
                 </div>
+
             </form>
         </section>
     )

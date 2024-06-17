@@ -64,8 +64,9 @@ export function PrincipalPage() {
         }
     }
 
-    // UseEffect para location y permission
-    useEffect(() => {
+    // Función para dar permisos de ubicación
+    const handleGetLocation = async () => {
+        await getLocation()
         //Traer la ubicación del usuario y los permisos del localStorage
         const location = window.localStorage.getItem('location') ?
             JSON.parse(window.localStorage.getItem('location')) : null
@@ -73,6 +74,11 @@ export function PrincipalPage() {
             JSON.parse(window.localStorage.getItem('permission')) : false
         setLocation(location)
         setPermission(permission)
+    }
+
+    // UseEffect para location y permission
+    useEffect(() => {
+        handleGetLocation()
     }, [])
 
     //UseEffect para traer los mejores restaurantes de la ciudad
@@ -145,6 +151,7 @@ export function PrincipalPage() {
         getPlan(token)
     }, [token])
 
+
     return (
         <main className='mainContent'>
             <HeaderNav />
@@ -163,7 +170,7 @@ export function PrincipalPage() {
                                 <h2 className='bestNearRestaurant-title'>Los mejores restaurantes cerca de ti</h2>
                                 <div className='bestNearRestaurant-noLocation'>
                                     <p>Para una mejor experiencia en Rippio, por favor permita el acceso a su ubicación</p>
-                                    <button onClick={() => { getLocation() }}>Permitir</button>
+                                    <button onClick={() => { handleGetLocation }}>Permitir</button>
                                 </div>
                             </section>
                     }

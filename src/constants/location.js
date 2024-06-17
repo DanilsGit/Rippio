@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // Función para obtener la ubicación del usuario y subirlo al localStorage
-export const getLocation = () => {
+export const getLocation = async () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
             const { latitude, longitude } = position.coords

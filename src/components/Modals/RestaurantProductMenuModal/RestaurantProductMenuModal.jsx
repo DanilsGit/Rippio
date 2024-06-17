@@ -34,7 +34,7 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
         if (productSelectedToEdit && image !== productSelectedToEdit.img_product) {
             setImage(productSelectedToEdit.img_product);
         }
-    }, [productSelectedToEdit, image]);
+    }, [productSelectedToEdit]);
 
     const uploadImage = async (file) => {
         if (!file) return;
@@ -108,6 +108,7 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
                     <form
                         onSubmit={(e) => {
                             e.preventDefault()
+                            setImage('')
                             handleConfirm()
                         }}
                         className='AddProductMenuModal-form'
@@ -192,8 +193,8 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
                             <label className="hidden-label">Subir imagen</label>
                             <img
                                 className={'AddProductMenuModal-form-inputImage-img' + ' ' +
-                                (loading ? 'AddProductMenuModal-form-inputImage-imgLoading' :
-                                image.length > 0 ? '' : 'AddProductMenuModal-form-inputImage-imgDefault')}
+                                    (loading ? 'AddProductMenuModal-form-inputImage-imgLoading' :
+                                        image.length > 0 ? '' : 'AddProductMenuModal-form-inputImage-imgDefault')}
                                 src={
                                     loading ? 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Floading.png?alt=media&token=b1a554d7-4784-4f3c-892b-662ff72a3804'
                                         : image.length > 0 ? image
@@ -206,7 +207,9 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
                                 onChange={handleInputProfileChange} />
                             <Tippy content='Intentaremos dar la mejor presentación al público'>
                                 <button type='button' className="AddProductMenuModal-form-inputImage-Btn" onClick={handleButtonClick}>
-                                    <img draggable='false' className="AddProductMenuModal-form-inputImage-imgBtn" src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="Upload Icon" />
+                                    <img draggable='false' className="AddProductMenuModal-form-inputImage-imgBtn"
+                                        src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png"
+                                        alt="Upload Icon" />
                                 </button>
                             </Tippy>
                         </div>

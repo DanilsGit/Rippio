@@ -21,6 +21,12 @@
                             'price image'
                             'button button';
     gap: 1em;
+    color: #000;
+}
+
+
+.AddProductMenuModal-form input, .AddProductMenuModal-form textarea, .AddProductMenuModal-form select{
+    color: #000;
 }
 
 .AddProductMenuModal-form-input {

@@ -11,7 +11,7 @@ function RenderMain({ router }) {
     const user = useAuth((state) => state.user);
     const setUser = useAuth((state) => state.setUser);
     const isAuthenticated = useAuth((state) => state.isAuthenticated);
-    const fix = window.localStorage.getItem('fix2') == 'true';
+    const fix = window.localStorage.getItem('fix3') == 'true';
 
 
     const { loadCartFromLocalStorage, loadCartFromDatabase, setTokenInCart } = useCart();
@@ -40,7 +40,7 @@ function RenderMain({ router }) {
         }
         if (!fix) {
             window.localStorage.clear();
-            window.localStorage.setItem('fix2', 'true');
+            window.localStorage.setItem('fix3', 'true');
         }
     }, []);
 

@@ -58,8 +58,10 @@ export function InformationAside({ name, direction, schedule, rating, logo, bann
                 <p>{direction}</p>
                 <section className='RestaurantPage-content-aside-information-stats'>
                     <div>Delivery <span>10 min</span></div>
-                    <div>Envío <span>$0,00</span></div>
-                    <div>Calificación <span>{rating}</span></div>
+                    <div>Envío <span>$3000</span></div>
+                    <div>Calificación <span className='RestaurantPage-content-aside-information-stats-rating'>
+                    <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2Fstar.png?alt=media&token=3b3b3b7b-4b3b-4b3b-8b3b-3b3b3b3b3b3b' alt='Star'></img>
+                    {rating}</span></div>
                 </section>
                 <section className='RestaurantPage-content-aside-information-schedule'>
                     <button

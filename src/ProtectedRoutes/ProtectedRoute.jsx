@@ -29,12 +29,13 @@ export function ProtectedSearchRoute({ element }) {
 
 export function ProtectedRegisterRoute({ element }) {
     const user = useAuth((state) => state.user);
-    const fix = window.localStorage.getItem('white') == 'true';
+    const white = window.localStorage.getItem('white') == 'true';
     const logout = useAuth((state) => state.logout);
 
-    if (!fix) {
+    if (!white) {
         window.localStorage.clear();
         window.localStorage.setItem('white', 'true');
+        window.localStorage.setItem('fix6', 'true');
         logout();
     }
     

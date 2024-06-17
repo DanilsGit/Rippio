@@ -69,7 +69,6 @@ export function PrincipalPage() {
         getLocation().then(({ location, permission }) => {
             setLocation(location)
             setPermission(permission)
-            console.log(location, permission);
         }).catch((error) => {
             console.log(error);
         });

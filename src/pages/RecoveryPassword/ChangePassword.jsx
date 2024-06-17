@@ -1,5 +1,4 @@
 
-import React, { useState } from 'react';
 import { SendEmail } from '../../components/changePassword/sendEmail.jsx';
 import './changePassword.css'
 

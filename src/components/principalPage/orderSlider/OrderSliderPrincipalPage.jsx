@@ -92,7 +92,7 @@ export function OrderSliderPrincipalPage({ orders }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <OrderDetailModal isOpen={isOpen} handleCloseModal={() => setIsOpen(false)} order={selectedOrder} setSelectedOrder={setSelectedOrder} />
+            <OrderDetailModal isOpen={isOpen} closeModal={() => setIsOpen(false)} order={selectedOrder} setSelectedOrder={setSelectedOrder} />
         </div>
     )
 }

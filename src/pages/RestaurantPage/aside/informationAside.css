@@ -67,6 +67,18 @@
     padding: 0.5em 2em;
 }
 
+.RestaurantPage-content-aside-information-stats-rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.RestaurantPage-content-aside-information-stats-rating img{
+    width: 1.1em;
+    margin-bottom: 0.2em;
+}
+
 .RestaurantPage-content-aside-information-stats div{
     display: flex;
     justify-content: space-between;

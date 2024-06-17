@@ -53,8 +53,6 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
         closeModal()
     }
 
-
-
     return (
         <div>
             <Modal

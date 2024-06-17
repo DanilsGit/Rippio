@@ -280,7 +280,6 @@ export function RestaurantProfileMenu() {
                     </>
                     : error && <h1>Hubo un error al cargar los productos</h1>
         }
-            
         </>
     )
 }

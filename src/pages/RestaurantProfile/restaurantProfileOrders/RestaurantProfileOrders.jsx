@@ -83,6 +83,7 @@ export default function RestaurantProfileOrders() {
                 <h2>Filtrar por estado</h2>
                 <Select
                     onChange={selectedOption => setSelectedFilter(selectedOption.value)}
+                    isSearchable={false}
                     options={options}
                 />
             </section>

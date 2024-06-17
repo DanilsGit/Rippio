@@ -1,14 +1,14 @@
 .myPlan{
     min-height: 65vh;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(46, 45, 45, 1) 100%);
+    background: url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/HomePage%2FPlanSection%2FPlanBackground.png?alt=media&token=801bb8e3-2bb0-463f-84a0-40473aeb4c52');
+    background-size: cover;
     width: 100%;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    padding: 2em 1em;
+    padding: 2em ;
 }
 
 .myPlan-content{
@@ -16,6 +16,9 @@
     grid-template-columns: 70% auto;
     align-items: center;
     width: 100%;
+    background-color: rgba(2, 26, 24, 0.548);
+    border-radius: 1em;
+    padding: 0 2em;
 }
 
 .myPlan-info{
@@ -32,6 +35,8 @@
 .myPlan-info-title{
     margin: 0;
     font-size: 2em;
+    color: rgb(253, 249, 212);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.445);
 }
 
 .myPlan-info-feature{
@@ -41,10 +46,10 @@
 }
 
 .myPlan-info-feature-list{
-    padding-left: 1.5em;
+    padding-left: 1.2em;
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1.2em;
 }
 
 .myPlan-info-footer{
@@ -79,8 +84,21 @@
 }
 
 .myPlan-img{
-    width: 15em;
+    width: 12em;
     object-fit: contain;
+    animation: jump 1s alternate infinite ease-in;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.445) );
+}
+
+@keyframes jump {
+    0% {
+        transform: translateX(0);
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: translateX(-10em);
+        transform: rotate(2deg);
+    }
 }
 
 @media screen and (max-width: 600px) {

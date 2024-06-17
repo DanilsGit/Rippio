@@ -93,7 +93,16 @@ export default function RestaurantProfileOrders() {
                             <article key={order.id} className='restaurantProfileOrders-content-item'>
                                 <header className='restaurantProfileOrders-content-item-header'>
                                     <h2>Pedido #{order.id}</h2>
-                                    <span>{order.estado}</span>
+                                    <span
+                                    style={
+                                        order.estado === 'Pendiente' ? {color: '#C4830C'} :
+                                        order.estado === 'Preparando' ? {color: '#03434A'} :
+                                        order.estado === 'En camino' ? {color: '#66CACC'} : 
+                                        order.estado === 'Entregado' ? {color: '#3C966E'} : 
+                                        order.estado === 'Cancelado' ? {color: '#A33939'} :
+                                        {color: 'black'}
+                                    }
+                                    >{order.estado}</span>
                                     <p>{order.fecha}</p>
                                 </header>
                                 <section className='restaurantProfileOrders-content-item-content'>

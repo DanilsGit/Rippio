@@ -64,7 +64,16 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
             >
                 <header className='OrderDetailModal-header'>
                     <p>{order.nombre}</p>
-                    <p><span>{order.estado}</span></p>
+                    <p><span
+                    style={
+                        order.estado === 'Pendiente' ? {color: '#C4830C'} :
+                        order.estado === 'Preparando' ? {color: '#03434A'} :
+                        order.estado === 'En camino' ? {color: '#66CACC'} : 
+                        order.estado === 'Entregado' ? {color: '#3C966E'} : 
+                        order.estado === 'Cancelado' ? {color: '#A33939'} :
+                        {color: 'black'}
+                    }
+                    >{order.estado}</span></p>
                     <p>{order.fecha}</p>
                 </header>
                 <section className='OrderDetailModal-body'>
@@ -82,7 +91,7 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                                             }
                                             <div className='OrderDetailModal-productInfo-footer'>
                                                 <p>Cantidad: {product.cantidad_prod}</p>
-                                                <p>Precio: {product.costo_unit}</p>
+                                                <p><b>Precio:</b> {product.costo_unit}</p>
                                             </div>
                                         </div>
                                     </article>

@@ -48,7 +48,7 @@
     gap: 0.4em;
     align-items: center;
     justify-content: center;
-    background-color: #60c0bd;
+    background-color: #6ca5a5;
     padding: 0.2em 0.7em;
     border-radius: 20px;
 }
@@ -91,7 +91,7 @@
     position: absolute;
     top: -5%;
     right: -5%;
-    background-color: #60c0bd !important;
+    background-color: #1b807c;
     padding: 4% 4%;
     border-radius: 50%;
     cursor: pointer;

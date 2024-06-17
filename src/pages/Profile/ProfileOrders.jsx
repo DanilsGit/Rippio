@@ -100,7 +100,16 @@ export function ProfileOrders() {
                                                 <p className='ProfileOrders-orderItem-body-p'><span style={{textDecoration: 'line-through'}}>{`$${order.costo_total+order.creditos_usados}`}</span> {`$${order.costo_total}`}</p>
                                                 : <p className='ProfileOrders-orderItem-body-p'><span>{`$${order.costo_total}`}</span></p>
                                         }
-                                        <p className='ProfileOrders-orderItem-body-p'><span>{order.estado}</span></p>
+                                        <p className='ProfileOrders-orderItem-body-p'><span
+                                        style={
+                                            order.estado === 'Pendiente' ? {color: '#C4830C'} :
+                                            order.estado === 'Preparando' ? {color: '#03434A'} :
+                                            order.estado === 'En camino' ? {color: '#66CACC'} : 
+                                            order.estado === 'Entregado' ? {color: '#3C966E'} : 
+                                            order.estado === 'Cancelado' ? {color: '#A33939'} :
+                                            {color: 'black'}
+                                        }
+                                        >{order.estado}</span></p>
                                         <button
                                             onClick={() => {
                                                 setSelectedOrder(order)

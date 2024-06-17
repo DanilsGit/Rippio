@@ -1,5 +1,6 @@
 .CheckoutPage-main{
-    background-color: var(--darkcyan);
+    background: url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/OrderPage%2Fbackgroundorder.png?alt=media&token=a034c5bf-9b9f-43a5-899f-b31630bb4a00');
+    background-size: FIT;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,16 +10,17 @@
     display: flex;
     flex-direction: column;
     min-height: 90vh;
-    width: 90%;
-    background-color: #fff;
+    width: 60%;
+    background:linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.808) 100%), url('https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/OrderPage%2Fbackgroundorder.png?alt=media&token=a034c5bf-9b9f-43a5-899f-b31630bb4a00');
     font-family: 'Montserrat', sans-serif;
-    padding-bottom: 10em;
+    padding-bottom: 3em;
     font-size: 0.8em;
+    box-shadow-right: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .CheckoutPage header{
     text-align: center;
-    border-bottom: 2px solid #0000002b;
+    border-bottom: 2px solid #2b6d6d33;
 }
 
 .CheckoutPage-content{
@@ -29,7 +31,6 @@
 }
 
 .CheckoutPage-content-item{
-    border-bottom: 2px solid #0000002b;
     width: 100%;
     padding: 1em 0em;
     display: flex;
@@ -42,8 +43,38 @@
     justify-content: space-between;
 }
 
+.CheckoutPage-content-cart{
+    border: 1px solid #00000033;
+}
+
+.CheckoutPage h1 {
+    font-size: 2em;
+    color: #0a6163;
+}
+
 .CheckoutPage-content-item-content h2 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    color: #0a4a4b;
+    font-weight: 600;
+}
+
+.CheckoutPage-content-item-content-advise{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.advise {
+    background-color: #dbdbdb62;
+}
+
+.CheckoutPage-content-item-content-advise h2{
+    font-size: 1em;
+    font-weight: 500;
+    color: #aa3838;
+    text-align: center;
+    font-style: italic;
 }
 
 .CheckoutPage-content-item-content span{
@@ -79,14 +110,14 @@
 }
 
 .CheckoutPage-content-item-content-cart-item h3{
-    color: var(--darkcyan);
+    color: rgb(16, 82, 82);
 }
 
 .CheckoutPage-content-item-content-cart-item img{
     width: 6em;
     height: 6em;
     border-radius: 50%;
-    border: 2px solid var(--darkblue);
+    border: 2px solid #8ab1b1;
     object-fit: cover;
 }
 
@@ -160,7 +191,7 @@
 
 
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 790px){
     .CheckoutPage-content-item-content-select{
         flex-direction: column;
         align-items: center;
@@ -169,4 +200,49 @@
     .CheckoutPage-Select{
         width: 80%;
     }
+
+    .CheckoutPage{
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 450px){
+    .CheckoutPage-content-item-content-select{
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .CheckoutPage-Select{
+        width: 80%;
+    }
+
+    .CheckoutPage{
+        width: 90%;
+    }
+
+    .CheckoutPage-main{
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 250px){
+    .CheckoutPage-content-item-content-select{
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .CheckoutPage-Select{
+        width: 80%;
+    }
+
+    .CheckoutPage{
+        width: 100%;
+    }
+
+    .CheckoutPage-main{
+        align-items: center;
+    }
+
 }

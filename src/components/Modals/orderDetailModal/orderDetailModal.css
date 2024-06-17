@@ -11,12 +11,12 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5em 0em;
-    border-bottom: 2px solid var(--darkcyan);
+    border-bottom: 2px solid rgba(55, 113, 117, 0.288);
 }
 
 .OrderDetailModal-header p {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 .OrderDetailModal-body {
@@ -28,8 +28,8 @@
     display: grid;
     grid-template-columns: 10% auto;
     gap: 1em;
-    padding: 0.5em 0em;
-    border-bottom: 1px solid var(--darkcyan);
+    padding: 1em 0em;
+    border-bottom: 2px solid rgba(55, 113, 117, 0.288);
     align-items: center;
 }
 
@@ -47,11 +47,10 @@
 }
 
 .OrderDetailModal-footer{
-    font-size: 0.9em;
+    font-size: 1em;
     display: grid;
     grid-template-columns: 80% auto;
     padding: 0.5em 0em;
-    border-top: 2px solid var(--darkcyan);
 }
 
 .OrderDetailModal-footer-info-direction, .OrderDetailModal-footer-info-payment{

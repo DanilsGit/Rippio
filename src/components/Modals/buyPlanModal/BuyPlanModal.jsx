@@ -64,7 +64,7 @@ export function BuyPlanModal({ plan, isOpen, closeModal, pay_method, getPlan }) 
                     }
                 >
                     <div className='buyPlanModal-infoContainer-text'>
-                        <h2>Estás a punto de obtener el {plan.nombre}</h2>
+                        <h2>Obtener el {plan.nombre}</h2>
                         <ul>
                             {
                                 plan.descripcion.map((feature, index) => {
@@ -72,7 +72,7 @@ export function BuyPlanModal({ plan, isOpen, closeModal, pay_method, getPlan }) 
                                 })
                             }
                         </ul>
-                        <p>{plan.precio}COP/mes</p>
+                        <p>$ {plan.precio} COP / mes</p>
                         <Select
                             onMenuOpen={() => setIsSelectOpen(true)}
                             onMenuClose={() => setIsSelectOpen(false)}

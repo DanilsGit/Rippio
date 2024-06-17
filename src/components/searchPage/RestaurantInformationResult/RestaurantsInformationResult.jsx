@@ -34,7 +34,7 @@ export function RestaurantsInformationResult({ results, selectProduct, setModalP
                                     <section key={product.id} className='restaurantInformation-item-products-product'>
                                         <button
                                             style={{
-                                                backgroundColor: checkProductInCart(cart, product) ? '#032B2A' : '#01CBC3'
+                                                backgroundColor: checkProductInCart(cart, product) ? '#1b807c' : '#60c0bd'
                                             }}
                                             onClick={() => {
                                                 const newProduct = { ...product, observation: null}
@@ -43,7 +43,7 @@ export function RestaurantsInformationResult({ results, selectProduct, setModalP
                                                     : handleAddToCart(addToCart, newProduct, restaurantNomId, 1)
                                             }} className='restaurantInformation-item-products-product-button'>
                                             {checkProductInCart(cart, product)
-                                                ? <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FremoveIcon.png?alt=media&token=25ab08fb-5469-49d6-914e-310722e4e9cd' alt='minus' />
+                                                ? <img draggable='false' className='restaurantInformation-item-products-product-button-img Button-minus' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FremoveIcon.png?alt=media&token=25ab08fb-5469-49d6-914e-310722e4e9cd' alt='minus' />
                                                 : <img draggable='false' className='restaurantInformation-item-products-product-button-img' src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FaddIcon.png?alt=media&token=ed181174-d4ad-4c8a-a7ad-4a3035dfd4f4' alt='plus' />}
                                         </button>
                                         <button className='restaurantInformation-item-products-product-buttonContainer' onClick={

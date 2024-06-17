@@ -1,17 +1,18 @@
 .buyPlanModal {
-    width: 80vw;
+    width: 60vw;
     height: 80vh;
     min-height: 80vh;
     background: rgb(0, 0, 0);
-    background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(46, 45, 45, 1) 100%);
+    background: linear-gradient(135deg, rgb(4, 36, 34) 0%, rgb(0, 7, 7) 100%);
 }
 
 .buyPlanModal-container{
-    color: #fff;
+    color: #ffffff;
     display: grid;
     grid-template-columns: 70% auto;
     width: 100%;
     height: 100%;
+    padding: 1em;
 }
 
 .buyPlanModal-infoContainer-text{
@@ -21,13 +22,26 @@
     justify-content: space-between;
     color: #fff;
     font-size: 1.1em;
-    gap: 1em;
+    gap: 0em;
+}
+
+.buyPlanModal-infoContainer-text > h2{
+    font-size: 2em;
+    margin: .5em;
+    color: #aad6d6;
 }
 
 .buyPlanModal-infoContainer-text h2{
     opacity: 0;
     transform: translateY(1em);
     animation: fadeInH2 0.5s forwards;
+}
+
+.buyPlanModal-infoContainer-text p{
+    margin: 1em;
+    font-weight: 700;
+    color: #fffab5;
+    font-size: 1.5em;
 }
 
 @keyframes fadeInH2 {
@@ -41,7 +55,7 @@
     padding: 0em 2em;
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 1.5em;
 }
 
 .buyPlanModal-infoContainer-text ul li{
@@ -83,6 +97,7 @@
 .buyPlanModal-select{
     width: 50%;
     color: #000;
+    margin: 1em;
 
     opacity: 0;
     transform: translateY(1em);
@@ -95,12 +110,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1em;
 }
 
 .buyPlanModal-buyContainer > div{
     height: 100%;
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,18 +130,29 @@
 .buyPlanModal-buyContainer img {
     width: 100%;
     height: auto;
+
+    animation: jump 0.8s alternate infinite ease-in;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-1em);
+    }
 }
 
 .buyPlanModal-buyButton{
-    color: #000;
+    color: #1f1303;
     font-weight: 700;
     border: none;
     width: 100%;
-    background-color: #C0C0C0;
-    filter: brightness(1.5);
+    background-color: #ffd35b;
     cursor: pointer;
     border-radius: 1em;
     padding: 0.5em;
+    margin: 1em;
 
     opacity: 0;
     transform: translateY(1em);
@@ -137,7 +162,7 @@
 }
 
 .buyPlanModal-buyButton:hover{
-    filter: brightness(0.9);
+    background-color: #ffdf2b;
     transition: 0.3s;
 }
 

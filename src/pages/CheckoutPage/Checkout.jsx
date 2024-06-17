@@ -224,7 +224,7 @@ export function Checkout() {
                             />
                         </section>
                     </div>
-                    <div className='CheckoutPage-content-item'>
+                    <div className='CheckoutPage-content-item CheckoutPage-content-cart'>
                         <section className='CheckoutPage-content-item-content CheckoutPage-content-item-content-cart'>
                             <h2>{cart.restaurant.nombre}</h2>
                             <section className='CheckoutPage-content-item-content-cart'>
@@ -246,9 +246,9 @@ export function Checkout() {
                             </section>
                         </section>
                     </div>
-                    <div className='CheckoutPage-content-item'>
-                        <section className='CheckoutPage-content-item-content'>
-                            <h2 className='CheckoutPage-warning-title'>Por favor, revisa cada detalle de tu pedido antes de confirmar</h2>
+                    <div className='CheckoutPage-content-item advise'>
+                        <section className='CheckoutPage-content-item-content CheckoutPage-content-item-content-advise'>
+                            <h2 className='CheckoutPage-warning-title'>! Por favor, revisa cada detalle de tu pedido antes de confirmar</h2>
                         </section>
                     </div>
                     <div className='CheckoutPage-content-item'>

@@ -24,7 +24,7 @@ const links = [
     },
     {
         to: '/restaurantProfile/orders',
-        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FordersIcon.png?alt=media&token=5f5f5b3c-5d1c-4b5c-8b5b-2c5e4e8b8c2d',
+        icon: 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FOrderIocn.png?alt=media&token=cf5b0883-26e3-4d8a-bdda-2e77dc29d818',
         text: 'Pedidos'
     },
     {

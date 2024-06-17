@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 0.5em;
-    border-bottom: 2px solid #0000004c;
+    border-bottom: 2px solid #3e7e7e2d;
 }
 
 .OrderManage-header-date{
@@ -20,7 +20,7 @@
 }
 
 .OrderManage-header p{
-    font-size: 1.3em;    
+    font-size: 1.1em;    
 }
 
 .OrderManage-content{
@@ -48,7 +48,7 @@
     /* border: 1px solid #0000004c; */
     /* border-radius: 1em; */
     font-size: 1em;
-    border-bottom: 2px solid var(--darkcyan);
+    border-bottom: 2px solid #3e7e7e2d;
 }
 
 .OrderManage-content-items-item > div {
@@ -80,7 +80,6 @@
     align-items: end;
     padding: 0.5em;
     font-size: 0.8em;
-    border-top: 2px solid var(--darkblue);
 }
 
 .OrderManage-content-info div{

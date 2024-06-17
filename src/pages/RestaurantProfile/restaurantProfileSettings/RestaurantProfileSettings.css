@@ -23,7 +23,7 @@
 }
 
 .ProfileRestaurantSettings-Input{
-    background-color: #0000002f;
+    background-color: #67a2a541;
     border: none;
 }
 
@@ -33,12 +33,12 @@
     gap: 1em;
     padding: 1em 1.5em;
     padding-right: 2em;
-    border: 2px solid #00000031;
+    border: 1.8px solid #38666131;
     width: 100%;
 }
 
 .fieldsetInformation > legend, .fieldsetAddress > legend {
-    padding: 0em 0.5em;
+    padding: 0em 0.8em;
 }
 
 
@@ -46,10 +46,10 @@
     font-size: 1em;
     outline: none;
     padding: 0.8em;
-    color: #000;
-    font-weight: 500;
+    color: #184647;
+    font-weight: 600;
     width: 100%;
-    border-radius: 0.1em;
+    border-radius: 0.3em;
 }
 
 .ProfileRestaurantSettings-GridForm-nameRestaurant-Div{
@@ -98,7 +98,7 @@
     padding: 0.5em 1em;
     border: none;
     border-radius: 0.5em;
-    background-color: var(--darkcyan);
+    background-color: rgb(37, 153, 153);
     width: 50%;
     font-weight: 600;
     transition: background-color 0.5s ease;
@@ -108,7 +108,7 @@
 }
 
 .ProfileRestaurantSettings-Button:hover{
-    background-color: var(--lightcyan);
+    background-color: rgb(74, 180, 180);
     transition: background-color 0.5s ease;
 }
 

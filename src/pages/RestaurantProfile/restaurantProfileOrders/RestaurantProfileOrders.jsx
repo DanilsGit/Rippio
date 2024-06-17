@@ -97,15 +97,15 @@ export default function RestaurantProfileOrders() {
                                     <p>{order.fecha}</p>
                                 </header>
                                 <section className='restaurantProfileOrders-content-item-content'>
-                                    <p>Enviar a: <b>{order.cliente}</b></p>
-                                    <p>Dirección: <b>{order.direccion}</b></p>
+                                    <p><b>Enviar a:</b> {order.cliente}</p>
+                                    <p><b>Dirección:</b> {order.direccion}</p>
                                     <p
                                         className='restaurantProfileOrders-content-item-content-obDir'>
-                                        <b>{order.observacion_direccion}</b></p>
+                                        {order.observacion_direccion}</p>
                                     <div>
-                                        <p>Total: <b>${order.total}</b></p>
-                                        <p>Envío: ${order.costo_envio}</p>
-                                        <p>Subtotal: ${order.subtotal}</p>
+                                        <p><b>Total:</b> ${order.total}</p>
+                                        <p><b>Envío: </b>${order.costo_envio}</p>
+                                        <p><b>Subtotal:</b> ${order.subtotal}</p>
                                     </div>
                                 </section>
                                 <footer className='restaurantProfileOrders-content-item-footer'>

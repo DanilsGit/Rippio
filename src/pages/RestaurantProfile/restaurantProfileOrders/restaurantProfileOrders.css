@@ -9,6 +9,7 @@
 
 .restaurantProfileOrders h1{
     margin: 0;
+    color: #094949;
 }
 
 .restaurantProfileOrders h2{
@@ -17,7 +18,7 @@
 }
 
 .restaurantProfileOrders-header{
-    border-bottom: 2px solid #0000002d;
+    border-bottom: 2px solid #3e7e7e2d;
 }
 
 .restaurantProfileOrders-filters{
@@ -39,30 +40,30 @@
 }
 
 .restaurantProfileOrders-content span{
-    font-weight: 600;
-    color: #dda743;
+    font-weight: 700;
+    color: #ffbb00;
+    font-size: 1.2em;
 }
-
 
 .restaurantProfileOrders-content-item{
     display: flex;
     flex-direction: column;
     border-radius: 1em;
     padding: 1em;
-    border: 2px solid #0000002d;
+    border: 2px solid #3e7e7e2d;
 }
 
 .restaurantProfileOrders-content-item-header{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.1em;
+    font-size: .9em;
+    margin-bottom: 1em;
 }
 
 .restaurantProfileOrders-content-item-content{
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.6em;
 }
 
 .restaurantProfileOrders-content-item-content > div{
@@ -73,7 +74,7 @@
 }
 
 .restaurantProfileOrders-content-item-content-obDir{
-    color:#000000b1;
+    color:#4b7474d3;
 }
 
 .restaurantProfileOrders-content-item-footer{
@@ -86,13 +87,13 @@
     padding: 0.5em 1em;
     border: none;
     border-radius: 0.5em;
-    background-color: #dda743;
+    background-color: #358b8b;
     color: white;
     font-weight: 600;
     cursor: pointer;
 }
 
 .restaurantProfileOrders-content-item-footer button:hover{
-    background-color: #c68f2d;
+    background-color: #4aa3b3;
     transition: 0.3s;
 }

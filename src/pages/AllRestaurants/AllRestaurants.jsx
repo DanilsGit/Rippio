@@ -67,7 +67,7 @@ export function AllRestaurants() {
     // Estado para redireccionar
     const navigator = useNavigate()
 
-    //Traer la ubicación del usuario y los permisos del localStorage
+    //Traer la ubicación del usuario y los permisos
     const [location, setLocation] = useState(null)
     const [permission, setPermission] = useState(false)
 
@@ -87,7 +87,7 @@ export function AllRestaurants() {
 
     // Función para seleccionar la categoría
     const handleSelectCategory = (e) => {
-        if (e.value === selectedCategory){
+        if (e.value === selectedCategory) {
             return
         }
         setSelectedCategory(e.value)
@@ -96,7 +96,7 @@ export function AllRestaurants() {
 
     // Función para seleccionar el rating
     const handleRating = (e) => {
-        if (e === ratingValue){
+        if (e === ratingValue) {
             return
         }
         setRatingValue(e)
@@ -110,13 +110,13 @@ export function AllRestaurants() {
 
     // UseEffect por si hubo un cambio en la ubicación
     useEffect(() => {
-        getLocation()
-        const location = window.localStorage.getItem('location') ?
-            JSON.parse(window.localStorage.getItem('location')) : null
-        const permission = window.localStorage.getItem('permission') ?
-            JSON.parse(window.localStorage.getItem('permission')) : false
-        setLocation(location)
-        setPermission(permission)
+        getLocation().then(({ location, permission }) => {
+            setLocation(location)
+            setPermission(permission)
+            console.log(location, permission);
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
 
     //UseEffect para cargar los restaurantes
@@ -187,8 +187,8 @@ export function AllRestaurants() {
                                     restaurants.map((restaurant, index) => {
                                         return (
                                             <button
-                                            onClick={() => navigator(`/restaurant/${restaurant.id}`)}
-                                            key={index} className='all-restaurants-main-restaurant'>
+                                                onClick={() => navigator(`/restaurant/${restaurant.id}`)}
+                                                key={index} className='all-restaurants-main-restaurant'>
                                                 <img draggable='false' src={restaurant.img_banner} alt='banner' />
                                                 <div className='all-restaurants-main-restaurant-info'>
                                                     <img draggable='false' src={restaurant.img_icon} alt='Logo' />

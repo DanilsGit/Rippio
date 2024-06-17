@@ -6,7 +6,6 @@ import { useAuth } from './hooks/useAuth.jsx';
 import { getUserData } from './api/auth.jsx';
 import { useCart } from './hooks/useCart.jsx';
 
-
 function RenderMain({ router }) {
 
     const user = useAuth((state) => state.user);
@@ -44,6 +43,7 @@ function RenderMain({ router }) {
             window.localStorage.setItem('fix2', 'true');
         }
     }, []);
+
 
     return (
         <React.StrictMode>

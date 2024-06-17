@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import './RestaurantMain.css'
-import { ProductModal } from '../../../components/Modals/productModal/ProductModal'
 
 export function RestaurantMain({ categories, restaurant, selectProduct, setModalProductOpen, setRestaurantOfProduct}) {
     return (

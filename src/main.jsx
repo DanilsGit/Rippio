@@ -22,7 +22,7 @@ import {
   ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
   ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute, ProtectedCheckoutRoute
 } from './ProtectedRoutes/ProtectedRoute.jsx';
-import { AllRestaurants } from './pages/AllRestaurants.jsx';
+import { AllRestaurants } from './pages/AllRestaurants/AllRestaurants.jsx';
 import RenderMain from './RenderMain.jsx';
 import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
 import { Checkout } from './pages/CheckoutPage/Checkout.jsx'
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/changepassword',
-        element: <ChangePassword/>,
+        element: <ChangePassword />,
       },
       {
         path: '/info',
@@ -67,6 +67,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/allrestaurants',
+        element: <ProtectedSearchRoute element={<AllRestaurants />} />,
+      },
+      {
+        path: '/allrestaurants/:category',
         element: <ProtectedSearchRoute element={<AllRestaurants />} />,
       },
       {

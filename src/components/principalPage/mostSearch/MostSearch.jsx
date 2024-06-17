@@ -1,19 +1,48 @@
+import { useEffect, useState } from 'react';
 import './mostSearch.css'
 import { Link } from 'react-router-dom';
+import { mostOrdered } from '../../../api/order'
 
 export function MostSearch() {
+
+    // Lo más pedido
+    const [mostSearched, setMostSearched] = useState(null)
+
+    // Función para traer lo más pedido
+    const getMostSearched = async () => {
+        const date = new Date()
+        const fecha = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        const response = await mostOrdered(fecha)
+        // Ir retrocediendo la fecha hasta que se encuentre un día con pedidos
+        let ordered = response.data;
+        while (ordered.length === 0) {
+            date.setDate(date.getDate() - 1)
+            const fecha = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+            const response = await mostOrdered(fecha)
+            ordered = response.data
+        }
+        setMostSearched(ordered)
+    }
+
+    // UseEffect para traer los productos más pedidos
+    useEffect(() => {
+        getMostSearched()
+    }, [])
+
+    if (!mostSearched) return null
+
     return (
         <section className='thirdSection'>
             <section className="mostSearched">
-                <h2 className="mostSearched-title">Lo más buscado hoy</h2>
+                <h2 className="mostSearched-title">Lo más pedido hoy</h2>
                 <section className="mostSearched-content-items">
-                    <div className="mostSearched-item"><Link to="/searchpage/Pollo%20Asado" className='mostsearched-link'> Pollo Asado</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/Ensalada?" className='mostsearched-link'>Ensalada</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/chicharron?" className='mostsearched-link'>Chicharrón</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/pizza?" className='mostsearched-link'>pizza</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/Empanada?" className='mostsearched-link'>Empanadas</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/salchipapa?" className='mostsearched-link'>Salchipapa</Link></div>
-                    <div className="mostSearched-item"><Link to="/searchpage/alitas?" className='mostsearched-link'>Alitas</Link></div>
+                    {
+                        mostSearched.map((item, index) => (
+                            <div key={index} className="mostSearched-item">
+                                <Link to={`/searchpage/${item.category}`} className='mostsearched-link'>{item.category}</Link>
+                            </div>
+                        ))
+                    }
                 </section>
             </section>
             <section className="problemReport">

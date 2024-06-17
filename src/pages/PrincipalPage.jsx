@@ -28,12 +28,12 @@ import { getPayments } from '../api/payment'
 import { getPlanById } from '../api/plan'
 import { MyPlan } from '../components/principalPage/myPlan/MyPlan';
 
+import { getLocation } from '../constants/location'
+
+
 export function PrincipalPage() {
 
-    const [city, setCity] = useState(null)
     const [topRestaurants, setTopRestaurants] = useState([{}]) //Array de restaurantes
-    const [permission, setPermission] = useState(false) //Permiso de ubicación [true, false]
-    const [location, setLocation] = useState(null) //Ubicación del usuario
     const [pay_method, setPay_method] = useState(null) //Método de pago del usuario
     const [plan, setPlan] = useState(null) //Plan del usuario
     //Traer token de zustand
@@ -41,33 +41,8 @@ export function PrincipalPage() {
     //Estado para guardar las ordenes del usuario que estén en un estado diferente a entregado
     const [orders, setOrders] = useState([])
 
-    //Función para obtener la ubicación del usuario
-    const getLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                const { latitude, longitude } = position.coords
-                axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=es`)
-                    .then(res => {
-                        const city = res.data.city
-                        // if (city === null || city === undefined || city === 'Cali') {
-                        //     setCity('Tuluá')
-                        // } else {
-                        //     setCity(city)
-                        // }
-                        setCity(city)
-                        setLocation({
-                            city: city,
-                            principalSubdivision: res.data.principalSubdivision
-                        })
-                        setPermission(true)
-                    }).catch(err => {
-                        console.log(err);
-                    })
-            })
-        } else {
-            console.log('No se pudo obtener la ubicación');
-        }
-    }
+    const [location, setLocation] = useState(null)
+    const [permission, setPermission] = useState(false)
 
     //Función para obtener el plan del usuario
     const getPlan = token => {
@@ -89,18 +64,24 @@ export function PrincipalPage() {
         }
     }
 
-    //UseEffect para preguntar permisos de ubicación
+    // UseEffect para location y permission
     useEffect(() => {
-        getLocation()
+        //Traer la ubicación del usuario y los permisos del localStorage
+        const location = window.localStorage.getItem('location') ?
+            JSON.parse(window.localStorage.getItem('location')) : null
+        const permission = window.localStorage.getItem('permission') ?
+            JSON.parse(window.localStorage.getItem('permission')) : false
+        setLocation(location)
+        setPermission(permission)
     }, [])
 
     //UseEffect para traer los mejores restaurantes de la ciudad
     useEffect(() => {
-        if (city) {
+        if (location) {
             axios.get(`https://rippio-api.vercel.app/api/restaurant/getTopByCity`,
                 {
                     params: {
-                        ciudad: city
+                        ciudad: location.city
                     }
                 })
                 .then(res => {
@@ -109,7 +90,7 @@ export function PrincipalPage() {
                     console.log(err);
                 })
         }
-    }, [city])
+    }, [location])
 
     //UseEffect para traer las ordenes del usuario
     useEffect(() => {
@@ -177,7 +158,7 @@ export function PrincipalPage() {
                     </section>
                     {
                         permission ?
-                            (city && topRestaurants[0]?.id) && <RankingRestaurantSlider slides={topRestaurants} />
+                            (location.city && topRestaurants[0]?.id) && <RankingRestaurantSlider slides={topRestaurants} />
                             : <section className="bestNearRestaurant secondSection-child">
                                 <h2 className='bestNearRestaurant-title'>Los mejores restaurantes cerca de ti</h2>
                                 <div className='bestNearRestaurant-noLocation'>

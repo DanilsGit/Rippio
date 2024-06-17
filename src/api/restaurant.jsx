@@ -8,3 +8,12 @@ export const getCatAndProdByResId = (id) => axios.get(`${API_URL}/api/restaurant
 export const getInfo = (id) => axios.get(`${API_URL}/api/restaurant/getProfileById/${id}`);
 
 export const getCategories = () => axios.get(`${API_URL}/api/category/getAll`);
+
+export const getRestaurants = (ciudad, categoria, calificacion) =>
+    axios.get(`${API_URL}/api/restaurant/PageRestaurant`, {
+        params: {
+            ciudad,
+            categoria,
+            calificacion
+        }
+    });

@@ -33,7 +33,7 @@ export function SendEmail() {
                 {
                     success ?
                         <div className='send-email-container-title'>
-                            <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2FRippioSad.png?alt=media&token=c51235d0-0054-4d2e-8e86-02ef0f69211e'></img>
+                            <img src='https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/LoginPage%2FRippioHappy.png?alt=media&token=0dc72f88-d0da-446d-9a8e-70165ba3983c'></img>
                             <h1 className='send-email-title'>Correo enviado!</h1>
                             <p className='send-email-text'>Hemos enviado un correo a tu dirección de correo electrónico con un enlace para que puedas restablecer tu contraseña.</p>
                         </div>

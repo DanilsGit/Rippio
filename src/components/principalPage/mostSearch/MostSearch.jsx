@@ -8,9 +8,10 @@ export function MostSearch() {
     // Lo más pedido
     const [mostSearched, setMostSearched] = useState(null)
 
-    // Función para traer lo más pedido
+    // Función para traer lo más pedido, comenzando desde mañana
     const getMostSearched = async () => {
         const date = new Date()
+        date.setDate(date.getDate() + 1)
         const fecha = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         const response = await mostOrdered(fecha)
         // Ir retrocediendo la fecha hasta que se encuentre un día con pedidos

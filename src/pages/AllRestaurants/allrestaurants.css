@@ -28,7 +28,7 @@
     justify-content: space-between;
     padding: 0.5em 0em;
     font-size: 1em;
-
+    color: #000;
     @media screen and (max-width: 500px){
         flex-direction: column;
     }
@@ -89,6 +89,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 0.1em;
+    color: #000;
 }
 
 .all-restaurants-main-restaurant-name-container{

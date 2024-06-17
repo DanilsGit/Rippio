@@ -56,7 +56,7 @@ export function RestaurantsInformationResult({ results, selectProduct, setModalP
                                         }>
                                             <img draggable='false' className='restaurantInformation-item-products-product-img' src={product.img_product} alt={product.nombre} />
                                             <div>
-                                                <span>{product.costo_unit}</span>
+                                                <span>$ {product.costo_unit}</span>
                                                 <p>{product.nombre}</p>
                                             </div>
                                         </button>

@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 1em;
-    border-bottom: 2px solid #0000005e;
+    border-bottom: 2px solid #10554f34;
     gap: 2em;
 }
 
@@ -48,8 +48,8 @@
     gap: 0.4em;
     align-items: center;
     justify-content: center;
-    background-color: #01CBC3;
-    padding: 0.1em 0.5em;
+    background-color: #60c0bd;
+    padding: 0.2em 0.7em;
     border-radius: 20px;
 }
 
@@ -59,9 +59,10 @@
 .item-calificacion-text{
     font-size: 1em;
     line-height: 0em;
-    color: #fff;
+    color: #feffff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    letter-spacing: .15em;
 }
 
 /* PRODUCTS */
@@ -90,11 +91,11 @@
     position: absolute;
     top: -5%;
     right: -5%;
-    background-color: #01CBC3;
+    background-color: #60c0bd !important;
     padding: 4% 4%;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #003b39;
+    border: 2px solid #60c0bd;
     width: 23%;
     display: flex;
     justify-content: center;
@@ -102,7 +103,7 @@
 }
 
 .restaurantInformation-item-products-product-button:hover{
-    background-color: #007571 !important;
+    background-color: #4ce7e2 !important;
     transition: 0.5s;
 }
 
@@ -124,11 +125,11 @@
     object-fit: cover;
     border-radius: 1em;
     cursor: pointer;
-    border: 2px solid #003b39;
+    border: 3px solid #819c9b;
 }
 
 .restaurantInformation-item-products-product-img:hover{
-    border: 2px solid #01CBC3;
+    border: 3px solid #76dbd8;
     transition: 0.5s;
 
 }
@@ -138,18 +139,21 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
-    color: #000;
+    color: #0b312b;
 }
 
 .restaurantInformation-item-products-product-buttonContainer span {
     font-size: 1em;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #023d34;
 }
 
 .restaurantInformation-item-products-product-buttonContainer p {
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-align: start;
+    color: #396461;
 }

@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom";
 import './restaurantPage.css'
 import { HeaderSearch } from '../../components/headerSearch/HeaderSearch';
-import { Footer } from "../../components/footer/Footer";
+import { Footer } from "@m/core/components/footer/Footer";
 import { InformationAside } from "./aside/InformationAside";
 import { RestaurantMain } from "./main/RestaurantMain";
 

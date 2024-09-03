@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useCart } from '../../hooks/useCart'
 
 import { handleClickCartModal } from '../../constants/cart'
-import { HeaderDrawer } from '../headerDrawer/HeaderDrawer';
+import { HeaderDrawer } from '@m/core/components/headerDrawer/HeaderDrawer';
 import { useAuth } from '../../hooks/useAuth';
 
 export function HeaderSearch({ isCheckout = false }) {

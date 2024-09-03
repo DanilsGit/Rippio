@@ -1,5 +1,5 @@
-import { Footer } from "../../components/footer/Footer";
-import { HeaderNav } from "../../components/headerNav/HeaderNav";
+import { Footer } from "@m/core/components/footer/Footer";
+import { HeaderNav } from "@m/core/components/headerDrawer/HeaderDrawer";
 import { Outlet } from 'react-router-dom';
 
 import './restaurantProfile.css'

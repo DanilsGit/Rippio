@@ -1,5 +1,5 @@
 import Select from 'react-select'
-import { Footer } from '../../components/footer/Footer'
+import { Footer } from '@m/core/components/footer/Footer'
 import { HeaderSearch } from '../../components/headerSearch/HeaderSearch'
 import './checkout.css'
 import { useCart } from '../../hooks/useCart'

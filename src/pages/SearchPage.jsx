@@ -3,7 +3,7 @@ import axios from 'axios';
 import { HeaderSearch } from '../components/headerSearch/HeaderSearch';
 import { RestaurantIconResult } from '../components/searchPage/restaurantResult/RestaurantIconResult';
 import { RestaurantsInformationResult } from '../components/searchPage/RestaurantInformationResult/RestaurantsInformationResult';
-import { Footer } from '../components/footer/Footer';
+import { Footer } from '@m/core/components/footer/Footer';
 
 import './searchPage.css'
 

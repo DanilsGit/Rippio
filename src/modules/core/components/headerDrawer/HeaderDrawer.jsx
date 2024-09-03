@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import estilos from './headerDrawer.module.css';
 import { Link } from 'react-router-dom';
 import { Divider } from '@mui/material';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../../../hooks/useAuth';
 
 export function HeaderDrawer() {
     const [open, setOpen] = React.useState(false);

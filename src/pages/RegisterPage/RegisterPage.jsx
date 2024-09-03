@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { HeaderNav } from '../../components/headerNav/HeaderNav';
-import { Footer } from '../../components/footer/Footer';
+import { HeaderNav } from '@m/core/components/headerDrawer/HeaderDrawer';
+import { Footer } from '@m/core/components/footer/Footer';
 import { useAuth } from '../../hooks/useAuth';
 
 import './registerPage.css'

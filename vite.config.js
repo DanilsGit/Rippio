@@ -32,10 +32,15 @@ const manifest = {
         type: "image/png",
         purpose: "maskable",
       },
+      {
+        src: "/icons/maskableRippio.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
     ],
   },
 };
-
 // Obtener el directorio actual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

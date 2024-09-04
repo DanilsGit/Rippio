@@ -1,5 +1,4 @@
-import {Welcome} from './pages/Welcome'
-import {PrincipalPage} from './pages/PrincipalPage'
+import { PrincipalPage } from '@m/main/page/PrincipalPage'
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
@@ -7,7 +6,6 @@ function App() {
 
   return (
     <>
-      {/* <Welcome /> */}
       <PrincipalPage />
     </>
   )

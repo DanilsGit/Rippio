@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://rippio-api.vercel.app';
+const API_URL = import.meta.env.VITE_API_URL;
 // const API_LOCAL = 'http://localhost:4000';
 
 export const addAddress = (token, address) => axios.post(`${API_URL}/api/profile/add_address`, address, { headers: { 'Authorization': `Bearer ${token}` } });

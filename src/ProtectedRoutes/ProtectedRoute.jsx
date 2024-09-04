@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "@m/core/hooks/useAuth";
 import { Navigate } from "react-router-dom";
 
 export function ProtectedProfileRoute({ element }) {

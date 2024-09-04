@@ -2,9 +2,9 @@
 // Main.jsx
 import React, { useEffect } from 'react';
 import { RouterProvider } from "react-router-dom";
-import { useAuth } from './hooks/useAuth.jsx';
-import { getUserData } from './api/auth.jsx';
-import { useCart } from './hooks/useCart.jsx';
+import { useAuth } from '@m/core/hooks/useAuth.jsx';
+import { getUserData } from '@/api/auth.jsx';
+import { useCart } from '@m/core/hooks/useCart';
 
 function RenderMain({ router }) {
 

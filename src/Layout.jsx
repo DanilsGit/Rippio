@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom"
-import { CartModal } from './components/Modals/cartModal/CartModal.jsx';
-import { ModalConflictProduct } from './components/Modals/differentRestaurantModal/ModalConflictProduct.jsx';
+import { CartModal } from '@m/core/modals/cartModal/CartModal.jsx';
+import { ModalConflictProduct } from '@m/core/modals/differentRestaurantModal/ModalConflictProduct.jsx';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getLocation } from "./constants/location.js";
+import { getLocation } from "@m/core/utils/location.js";
 
 export default function Layout() {
 

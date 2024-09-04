@@ -1,37 +1,46 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import RegisterPage from './pages/RegisterPage/RegisterPage.jsx'
+import RegisterPage from '@m/auth/page/RegisterPage.jsx'
 
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Page404 } from './pages/Page404.jsx'
-import { ChangePassword } from './pages/RecoveryPassword/ChangePassword.jsx'
-import { ResetPassword } from './pages/RecoveryPassword/ResetPassword.jsx'
-import { SearchPage } from './pages/SearchPage.jsx'
-import { RestaurantPage } from './pages/RestaurantPage/RestaurantPage.jsx'
-import { Profile } from './pages/Profile/Profile.jsx'
-import { ProfileSettings } from './pages/Profile/ProfileSettings.jsx'
-import { ProfileDirections } from './pages/Profile/ProfileDirections.jsx'
-import { ProfilePaymentMethods } from './pages/Profile/ProfilePaymentMethods.jsx'
-import { ProfileCredits } from './pages/Profile/ProfileCredits.jsx'
-import { ProfileOrders } from './pages/Profile/ProfileOrders.jsx'
-import { RestaurantProfile } from './pages/RestaurantProfile/RestaurantProfile.jsx';
-import { RestaurantProfileSettings } from './pages/RestaurantProfile/restaurantProfileSettings/RestaurantProfileSettings.jsx';
-import { RestaurantProfileMenu } from './pages/RestaurantProfile/restaurantProfileMenu/RestaurantProfileMenu.jsx';
-import { InfoPage } from './pages/InfoPage.jsx'
-import { TeamPage } from './pages/TeamPage.jsx'
+import { Page404 } from '@m/404/page/Page404.jsx'
+import { ChangePassword } from '@m/forgetPassword/page/ChangePassword.jsx'
+import { ResetPassword } from '@m/forgetPassword/page/ResetPassword.jsx'
+import { SearchPage } from '@m/search/page/SearchPage.jsx'
+import { RestaurantPage } from '@m/restaurant/page/RestaurantPage.jsx'
+
+import { Profile } from '@m/clientProfile/page/Profile.jsx'
+import { ProfileSettings } from '@m/clientProfile/components/settings/ProfileSettings.jsx'
+import { ProfileAddress } from '@m/clientProfile/components/address/ProfileAddress.jsx'
+import { ProfilePaymentMethods } from '@m/clientProfile/components/paymentMethod/ProfilePaymentMethods.jsx'
+import { ProfileCredits } from '@m/clientProfile/components/credits/ProfileCredits.jsx'
+import { ProfileOrders } from '@m/clientProfile/components/orders/ProfileOrders.jsx'
+
+import { RestaurantProfile } from '@m/restaurantProfile/page/RestaurantProfile.jsx';
+import { RestaurantProfileSettings } from '@m/restaurantProfile/components/settings/RestaurantProfileSettings.jsx';
+import { RestaurantProfileMenu } from '@m/restaurantProfile/components/menu/RestaurantProfileMenu.jsx';
+import RestaurantProfileOrders from '@m/restaurantProfile/components/orders/RestaurantProfileOrders.jsx';
+import RestaurantProfileSchedule from '@m/restaurantProfile/components/schedule/RestaurantProfileSchedule.jsx';
+
+import { InfoPage } from '@m/information/page/InfoPage.jsx'
+import { TeamPage } from '@m/team/page/TeamPage.jsx'
+
+import { Checkout } from '@m/checkout/page/Checkout.jsx'
+
+
 import {
   ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
   ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute, ProtectedCheckoutRoute
 } from './ProtectedRoutes/ProtectedRoute.jsx';
-import { AllRestaurants } from './pages/AllRestaurants/AllRestaurants.jsx';
+
+import { AllRestaurants } from '@m/restaurants/page/AllRestaurants.jsx';
+
 import RenderMain from './RenderMain.jsx';
-import RestaurantProfileSchedule from './pages/RestaurantProfile/restaurantProfileSchedule/RestaurantProfileSchedule.jsx';
-import { Checkout } from './pages/CheckoutPage/Checkout.jsx'
+
 import Layout from './Layout.jsx'
 
 import './css/index.css'
 import 'normalize.css'
-import RestaurantProfileOrders from './pages/RestaurantProfile/restaurantProfileOrders/RestaurantProfileOrders.jsx';
 
 //Array con todas las rutas de la aplicación
 
@@ -96,7 +105,7 @@ const router = createBrowserRouter([
           },
           {
             path: '/profile/directions',
-            element: <ProfileDirections />,
+            element: <ProfileAddress />,
           },
           {
             path: '/profile/paymentmethods',

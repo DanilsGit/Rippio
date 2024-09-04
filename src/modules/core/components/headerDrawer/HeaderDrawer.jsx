@@ -9,9 +9,9 @@ import ListItemText from '@mui/material/ListItemText';
 import estilos from './headerDrawer.module.css';
 import { Link } from 'react-router-dom';
 import { Divider } from '@mui/material';
-import { useAuth } from '../../../../hooks/useAuth';
+import { useAuth } from '@m/core/hooks/useAuth';
 
-export function HeaderDrawer() {
+export default function HeaderDrawer() {
     const [open, setOpen] = React.useState(false);
 
     const isAuthenticated = useAuth((state) => state.isAuthenticated)

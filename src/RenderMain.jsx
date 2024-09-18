@@ -1,57 +1,23 @@
 /* eslint-disable react/prop-types */
 // Main.jsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { RouterProvider } from "react-router-dom";
-import { useAuth } from '@m/core/hooks/useAuth.jsx';
-import { getUserData } from '@/api/auth.jsx';
-import { useCart } from '@m/core/hooks/useCart';
+import { useLocalStorageFix } from '@m/core/hooks/useLocalStorageFix';
+import { useUserData } from '@m/core/hooks/useUserData';
+import { useCartData } from '@m/core/hooks/useCartData';
+import { ApolloProvider } from '@apollo/client';
+import { client } from '@m/core/apollo-client';
 
 function RenderMain({ router }) {
-
-    const user = useAuth((state) => state.user);
-    const setUser = useAuth((state) => state.setUser);
-    const isAuthenticated = useAuth((state) => state.isAuthenticated);
-    const fix = window.localStorage.getItem('fix6') == 'true';
-    const white = window.localStorage.getItem('white') == 'true';
-
-
-    const { loadCartFromLocalStorage, loadCartFromDatabase, setTokenInCart } = useCart();
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            console.log('cargada de database');
-            setTokenInCart(token);
-            loadCartFromDatabase(token);
-        } else {
-            setTokenInCart(null);
-            loadCartFromLocalStorage();
-        }
-    }, []);
-
-
-    const updateUserData = async () => {
-        const newUser = await getUserData(user.id);
-        setUser(newUser.data[0]);
-    }
-    
-    useEffect(() => {
-        if (isAuthenticated) {
-            updateUserData();
-        }
-        if (!fix) {
-            window.localStorage.clear();
-            window.localStorage.setItem('fix6', 'true');
-            if (white){
-                window.localStorage.setItem('white', 'true');
-            }
-        }
-    }, []);
-
+    useLocalStorageFix();
+    useUserData();
+    useCartData();
 
     return (
         <React.StrictMode>
-            <RouterProvider router={router} />
+            <ApolloProvider client={client}>
+                <RouterProvider router={router} />
+            </ApolloProvider>
         </React.StrictMode>
     );
 }

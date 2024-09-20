@@ -11,8 +11,6 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
 
     const [openChat, setOpenChat] = useState(false)
 
-    if (!order) return null
-
     const handleCloseModal = () => {
         setNull()
         setSelectedOrder(null)
@@ -76,7 +74,8 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                             <p><b>Cobro:</b></p>
                             <p>{paymentMethod ? paymentMethod : 'Cargando...'}</p>
                         </div>
-                        <button onClick={() => setOpenChat(true)}>Chat</button>
+                        <button className='OrderDetailModal-footer-info-chat'
+                        onClick={() => setOpenChat(true)}>Abrir chat</button>
                     </div>
                     <div className='OrderDetailModal-footer-totals'>
                         <p><b>Subtotal: </b>$ {order.costo_total + order.creditos_usados - order.costo_envio}</p>
@@ -88,7 +87,7 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                         <p><span>Total:</span><b>$ {order.costo_total}</b></p>
                     </div>
                 </footer>
-                <ChatModal isOpen={openChat} closeModal={() => setOpenChat(false)} order={order} />
+                {openChat && <ChatModal isOpen={openChat} closeModal={() => setOpenChat(false)} order={order} />}
             </Modal>
         </div>
     )

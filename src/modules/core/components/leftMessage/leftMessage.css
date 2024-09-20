@@ -1,4 +1,4 @@
-.ChatModal-body_message_restaurant {
+.ChatModal-body_message_left {
   display: grid;
   grid-template-columns: 2em auto;
   align-items: flex-end;
@@ -7,20 +7,20 @@
   margin-right: 2em;
 }
 
-.ChatModal-body_message_restaurant_image {
+.ChatModal-body_message_left_image {
   width: 2em;
   height: 2em;
   border-radius: 100%;
 }
 
-.ChatModal-body_message_restaurant_text {
+.ChatModal-body_message_left_text {
   display: flex;
   position: relative;
   justify-content: left;
   margin-bottom: 1em;
 }
 
-.ChatModal-body_message_restaurant_text::after {
+.ChatModal-body_message_left_text::after {
   content: "";
   position: absolute;
   bottom: -0.5em;
@@ -32,14 +32,14 @@
   border-left: 0.6em solid #f8d677;
 }
 
-.ChatModal-body_message_restaurant_text_content {
+.ChatModal-body_message_left_text_content {
   background-color: #f8d677;
   border-radius: 0.5em;
   padding: 0.3em;
   word-break: break-word;
 }
 
-.ChatModal-body_message_restaurant_text_hour {
+.ChatModal-body_message_left_text_hour {
   position: absolute;
   bottom: -1.5em;
   font-size: 0.8em;

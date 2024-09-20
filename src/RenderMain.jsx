@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 // Main.jsx
-import React from 'react';
-import { RouterProvider } from "react-router-dom";
-import { useLocalStorageFix } from '@m/core/hooks/useLocalStorageFix';
-import { useUserData } from '@m/core/hooks/useUserData';
-import { useCartData } from '@m/core/hooks/useCartData';
 import { ApolloProvider } from '@apollo/client';
 import { client } from '@m/core/apollo-client';
+/* eslint-disable react/prop-types */
+// Main.jsx
+import React from 'react';
+import { RouterProvider } from "react-router-dom";
+import { useStart } from './modules/core/hooks/custom-hooks';
+
+
 
 function RenderMain({ router }) {
-    useLocalStorageFix();
-    useUserData();
-    useCartData();
+    useStart();
 
     return (
         <React.StrictMode>

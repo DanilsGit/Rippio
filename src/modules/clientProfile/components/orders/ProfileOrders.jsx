@@ -24,9 +24,9 @@ export function ProfileOrders() {
     }
 
     const onMouseOutHandler = (order) => {
-            document.querySelector(`.ProfileOrders-orderItem-body-AbsoluteInfo-${order.id}`).style.visibility = 'hidden'
-            document.querySelector(`.ProfileOrders-orderItem-body-AbsoluteInfo-${order.id}`).style.opacity = '0'
-        }
+        document.querySelector(`.ProfileOrders-orderItem-body-AbsoluteInfo-${order.id}`).style.visibility = 'hidden'
+        document.querySelector(`.ProfileOrders-orderItem-body-AbsoluteInfo-${order.id}`).style.opacity = '0'
+    }
 
 
     return (
@@ -91,8 +91,8 @@ export function ProfileOrders() {
                                 </article>
                             )) : <p>No tienes pedidos aún</p>
                 }
+                {isOpen && <OrderDetailModal isOpen={isOpen} closeModal={() => setIsOpen(false)} order={selectedOrder} setSelectedOrder={setSelectedOrder} />}
             </section>
-            <OrderDetailModal isOpen={isOpen} closeModal={() => setIsOpen(false)} order={selectedOrder} setSelectedOrder={setSelectedOrder} />
         </section>
     )
 }

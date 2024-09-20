@@ -18,7 +18,6 @@ export const useOrders = () => {
     //UseEffect para obtener los pedidos del usuario
     useEffect(() => {
         getOrders(token).then(response => {
-            console.log(response.data);
             response.data.forEach(order => {
                 let cantidad = 0;
                 order.productos.forEach(product => {

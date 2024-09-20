@@ -46,12 +46,15 @@
   padding-bottom: 0.5em;
 }
 
+.ChatModal-footer {
+  padding-top: 0.5em;
+  border-top: 1px solid #a9d6d4;
+}
+
 .ChatModal-footer form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.5em;
-  border-top: 1px solid #a9d6d4;
 }
 
 .ChatModal-footer_input {

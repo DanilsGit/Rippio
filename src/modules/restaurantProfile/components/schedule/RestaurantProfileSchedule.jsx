@@ -182,8 +182,7 @@ const formatSchedule = (mySchedule) => {
     const updateMySchedule = async (token, schedule) => {
         setLoading(true)
         try {
-            const res = await updateSchedule(token, schedule)
-            console.log(res);
+            await updateSchedule(token, schedule)
             setError('Horario actualizado correctamente')
         } catch (error) {
             console.log(error);
@@ -196,7 +195,6 @@ const formatSchedule = (mySchedule) => {
         if (token) {
             getMySchedule(token)
         }
-        console.log('useEffect',haveSchedule);
     }, [token, haveSchedule], [])
 
     const handleSubmit = async (e) => {
@@ -209,10 +207,8 @@ const formatSchedule = (mySchedule) => {
         }
         if (haveSchedule) {
             updateMySchedule(token, scheduleData)
-            console.log('update');
         } else {
             addMySchedule(token, scheduleData)
-            console.log('add');
         }
         setLoading(false)
     }

@@ -12,6 +12,10 @@ import { GET_MESSAGES_BY_ORDER_ID } from "../Chat/graphql-queries";
 import { POST_MESSAGE_IN_ORDER_ID } from "../Chat/graphql-mutations";
 import { SUSCRIBE_BY_ORDER_ID } from "../Chat/graphql-subscription";
 
+
+import { getUserData } from '@/api/auth.jsx';
+import { useCart } from '@m/core/hooks/useCart';
+
 export const useDetailOrderModal = (order) => {
   //Estado mientras se cargan los productos
   const [loading, setLoading] = useState(true);
@@ -90,7 +94,6 @@ export const useChatQuery = (id) => {
 
 export const useChatMutation = (id) => {
   const token = useAuth((state) => state.token);
-
 
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
@@ -196,4 +199,45 @@ export const useChatSubscription = (id) => {
       });
     },
   });
+};
+
+export const useStart = () => {
+  const user = useAuth((state) => state.user);
+  const setUser = useAuth((state) => state.setUser);
+  const isAuthenticated = useAuth((state) => state.isAuthenticated);
+  const fix = window.localStorage.getItem("fix6") == "true";
+  const white = window.localStorage.getItem("white") == "true";
+
+  const { loadCartFromLocalStorage, loadCartFromDatabase, setTokenInCart } =
+    useCart();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      console.log("cargada de database");
+      setTokenInCart(token);
+      loadCartFromDatabase(token);
+    } else {
+      setTokenInCart(null);
+      loadCartFromLocalStorage();
+    }
+  }, []);
+
+  const updateUserData = async () => {
+    const newUser = await getUserData(user.id);
+    setUser(newUser.data[0]);
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      updateUserData();
+    }
+    if (!fix) {
+      window.localStorage.clear();
+      window.localStorage.setItem("fix6", "true");
+      if (white) {
+        window.localStorage.setItem("white", "true");
+      }
+    }
+  }, []);
 };

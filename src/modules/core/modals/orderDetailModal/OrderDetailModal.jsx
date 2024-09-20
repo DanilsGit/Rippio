@@ -1,55 +1,21 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
 import './orderDetailModal.css'
 import Modal from 'react-modal'
-import { getOrderDetailByID } from '@/api/order'
+import { useDetailOrderModal } from '../../hooks/custom-hooks';
+import { useState } from 'react';
+import ChatModal from '../chatModal/ChatModal';
 
 export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }) {
 
-    //Estado mientras se cargan los productos
-    const [loading, setLoading] = useState(true)
+    const { products, direction, paymentMethod, loading, setNull } = useDetailOrderModal(order)
 
-    //Estado para guardar los productos
-    const [products, setProducts] = useState(null)
-
-    //Estado para la dirección de envío
-    const [direction, setDirection] = useState(null)
-
-    //Estado para el método de pago
-    const [paymentMethod, setPaymentMethod] = useState(null)
-
-
-    useEffect(() => {
-        if (order) {
-            getOrderDetailByID(order.id).then(response => {
-                // console.log(response.data)
-                response.data.forEach(product => {
-                    product.observacionp = product.observacionp == 'N/A' || product.observacionp == '' || !product.observacionp ? '' : product.observacionp
-                    product.observaciond = product.observaciond == 'N/A' || product.observaciond == '' || !product.observaciond ? '' : product.observaciond
-                })
-                const direction = `${response.data[0].ciudad}, ${response.data[0].barrio}, ${response.data[0].tipo_via} ${response.data[0].numero_via} # ${response.data[0].numero_uno} - ${response.data[0].numero_dos}`
-                const observacion_direction = response.data[0].observaciond
-                const newDirection = [direction, observacion_direction]
-                setDirection(newDirection)
-                const paymentMethod = response.data[0].numero.slice(0, 4) + ' ❋❋❋❋ ❋❋❋❋ ' + '❋❋' + response.data[0].numero.slice(-2)
-                setPaymentMethod(paymentMethod)
-                setProducts(response.data)
-                setLoading(false)
-            }).catch(error => {
-                console.log(error)
-                setLoading(false)
-            })
-        }
-    }, [order], [])
+    const [openChat, setOpenChat] = useState(false)
 
     if (!order) return null
 
     const handleCloseModal = () => {
-        setLoading(true)
-        setProducts(null)
+        setNull()
         setSelectedOrder(null)
-        setDirection(null)
-        setPaymentMethod(null)
         closeModal()
     }
 
@@ -63,14 +29,14 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                 <header className='OrderDetailModal-header'>
                     <p>{order.nombre}</p>
                     <p><span
-                    style={
-                        order.estado === 'Pendiente' ? {color: '#C4830C'} :
-                        order.estado === 'Preparando' ? {color: '#03434A'} :
-                        order.estado === 'En camino' ? {color: '#66CACC'} : 
-                        order.estado === 'Entregado' ? {color: '#3C966E'} : 
-                        order.estado === 'Cancelado' ? {color: '#A33939'} :
-                        {color: 'black'}
-                    }
+                        style={
+                            order.estado === 'Pendiente' ? { color: '#C4830C' } :
+                                order.estado === 'Preparando' ? { color: '#03434A' } :
+                                    order.estado === 'En camino' ? { color: '#66CACC' } :
+                                        order.estado === 'Entregado' ? { color: '#3C966E' } :
+                                            order.estado === 'Cancelado' ? { color: '#A33939' } :
+                                                { color: 'black' }
+                        }
                     >{order.estado}</span></p>
                     <p>{order.fecha}</p>
                 </header>
@@ -110,6 +76,7 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                             <p><b>Cobro:</b></p>
                             <p>{paymentMethod ? paymentMethod : 'Cargando...'}</p>
                         </div>
+                        <button onClick={() => setOpenChat(true)}>Chat</button>
                     </div>
                     <div className='OrderDetailModal-footer-totals'>
                         <p><b>Subtotal: </b>$ {order.costo_total + order.creditos_usados - order.costo_envio}</p>
@@ -121,6 +88,7 @@ export function OrderDetailModal({ isOpen, closeModal, order, setSelectedOrder }
                         <p><span>Total:</span><b>$ {order.costo_total}</b></p>
                     </div>
                 </footer>
+                <ChatModal isOpen={openChat} closeModal={() => setOpenChat(false)} order={order} />
             </Modal>
         </div>
     )

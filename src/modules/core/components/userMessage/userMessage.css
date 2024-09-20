@@ -1,0 +1,48 @@
+.ChatModal-body_message_user {
+  display: grid;
+  grid-template-columns: auto 2em;
+  align-items: flex-end;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.ChatModal-body_message_user_image {
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+}
+
+.ChatModal-body_message_user_text {
+  display: flex;
+  position: relative;
+  justify-content: right;
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+
+.ChatModal-body_message_user_text::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5em;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 0.6em solid transparent;
+  border-bottom: 0.6em solid transparent;
+  border-right: 0.6em solid #a9d6d4; 
+}
+
+.ChatModal-body_message_user_text_content {
+  background-color: #a9d6d4;
+  border-radius: 0.5em;
+  padding: 0.3em;
+  word-break: break-word;
+}
+
+.ChatModal-body_message_user_text_hour {
+  position: absolute;
+  bottom: -1.5em;
+  font-size: 0.8em;
+  right: 0.5em;
+  opacity: 0.5;
+}

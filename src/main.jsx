@@ -27,8 +27,6 @@ import { TeamPage } from '@m/team/page/TeamPage.jsx'
 
 import { Checkout } from '@m/checkout/page/Checkout.jsx'
 
-import OrderChat from '@m/orderChat/page/OrderChat.jsx';
-
 
 import {
   ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
@@ -146,10 +144,6 @@ const router = createBrowserRouter([
           },
           { index: true, element: <Navigate to="settings" /> },
         ]
-      },
-      { 
-        path: '/orderChat/:idOrder',
-        element: <OrderChat />,
       },
       {
         path: '/Page404',

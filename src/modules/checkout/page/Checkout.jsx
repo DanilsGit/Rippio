@@ -2,186 +2,27 @@ import Select from 'react-select'
 import { Footer } from '@m/core/components/footer/Footer'
 import HeaderSearch from '@m/core/components/headerSearch/HeaderSearch'
 import './checkout.css'
-import { useCart } from '@m/core/hooks/useCart'
-import { useEffect, useState } from 'react'
 import { useAuth } from '@m/core/hooks/useAuth'
-import { getAddresses } from '@/api/address'
-import { getPayments } from '@/api/payment'
-import { addOrder } from '@/api/order'
-import { useNavigate } from 'react-router-dom'
+import { useCheckout, useUserDeriveryData } from '../hooks/custon-hooks'
 
 export function Checkout() {
 
-    const navigator = useNavigate()
-    const cart = useCart(state => state.cart)
-    const clearCart = useCart(state => state.clearCart)
     const user = useAuth(state => state.user)
-    const token = useAuth(state => state.token)
-    const loadCartFromDatabase = useCart(state => state.loadCartFromDatabase)
-    const [costoEnvio, setCostoEnvio] = useState(3000)
-    const [completeOrder, setCompleteOrder] = useState(false)
-
-    //Estado para guardar las direcciones del usuario
-    const [address, setAddress] = useState(null)
-
-    //Estado para guardar los métodos de pago del usuario
-    const [payment, setPayment] = useState(null)
-
-    //Estado para saber si usar creditos
-    const [useCredits, setUseCredits] = useState(false)
-
-    //Estado para enviar la información del pedido
-    const [order, setOrder] = useState({
-        id_pago: '',
-        id_direccion: '',
-        useCreditos: useCredits,
-        costoEnvio: costoEnvio,
-    });
-
-    //Objeto para la informacion previa del pedido
-    const [orderBeforeInfo, setOrderBeforeInfo] = useState({})
-
-    //Estado para guardar la información del pedido
-    const [orderInfo, setOrderInfo] = useState({})
-
-    //Estado para darle a comprar solo una vez
-    const [buyOnce, setBuyOnce] = useState(false)
-
-    //UseEffect para iniciar la información del pedido
-    useEffect(() => {
-        const NewOrderBeforeInfo = {
-            totalCreditos: user.creditos,
-            subTotal: cart.total,
-            total: cart.total + costoEnvio,
-        }
-        setOrderBeforeInfo(NewOrderBeforeInfo)
-        setOrderInfo(NewOrderBeforeInfo)
-    }, [cart, cart.total, user.creditos, costoEnvio])
-
-    //useEffect para cargar el carrito desde la base de datos
-    useEffect(() => {
-        loadCartFromDatabase(token)
-        console.log('cargadoEnCheckout');
-    }, [])
-
-    //useEffect para cargar las direcciones del usuario
-    useEffect(() => {
-        getAddresses(token)
-            .then(res => {
-                console.log(res.data);
-                const newAddress = res.data.map(address => {
-                    return {
-                        value: address.id,
-                        label: `${address.ciudad}, ${address.barrio} - ${address.tipo_via} - ${address.numero_uno} - ${address.numero_dos} - ${address.observaciones}`
-                    }
-                })
-                setAddress(newAddress)
-            })
-            .catch(err => {
-                // console.log(err);
-                console.log(err.response.data.message);
-                if (err.response.data.message === 'No hay direcciones') {
-                    setAddress([])
-                }
-            })
-    }, [token])
-
-    //useEffect para cargar los metodos de pago
-    useEffect(() => {
-        getPayments(token)
-            .then(res => {
-                const newPayment = res.data.map(payment => {
-                    const firstFourthAndTwoLast = payment.numero.slice(0, 4) + ' ❋❋❋❋ ❋❋❋❋ ' + '❋❋' + payment.numero.slice(-2)
-                    return {
-                        value: payment.id,
-                        label: firstFourthAndTwoLast
-                    }
-                })
-                setPayment(newPayment)
-            })
-            .catch(err => {
-                // console.log(err);
-                console.log(err.response.data.message);
-                if (err.response.data.message === 'No hay tarjetas') {
-                    setPayment([])
-                }
-            })
-    }, [token])
-
-
+    const { address, payment } = useUserDeriveryData()
+    const { orderBeforeInfo, orderInfo, costoEnvio, updateOrder, completeOrder, buyOnce, cart, handleSubmit, useCredits, calculateTotal } = useCheckout()
 
     //Si el carrito está vacío, no se muestra nada
     if (cart?.items.length === 0) {
         return;
     }
 
-
-    //Función para calcular el costo de envío
-    //TODO
-
-
-    //Función para calcular el total del pedido si incluye creditos o no
-    const calculateTotal = () => {
-        const newUseCredits = !useCredits
-        if (!newUseCredits) {
-            setOrderInfo(orderBeforeInfo)
-        } else {
-            const newOrderInfo = { ...orderInfo }
-            if (newOrderInfo.totalCreditos >= newOrderInfo.total) {
-                newOrderInfo.totalCreditos -= newOrderInfo.total
-                newOrderInfo.total = 0
-            }
-            else {
-                newOrderInfo.total -= newOrderInfo.totalCreditos
-                newOrderInfo.totalCreditos = 0
-            }
-            setOrderInfo(newOrderInfo)
-        }
-        setUseCredits(newUseCredits)
-    }
-
     //funcion de confirmar pedido
     const handleBtnOrder = async () => {
-
-        // const {  //Esto es lo que se espera recibir en el body
-        //     id_payment_method,
-        //     id_address,
-        //     use_credits,
-        //     shipping_cost,
-        //   } = req.body;
-
-        if (order.id_pago === '' || order.id_direccion === '') {
-            alert('Por favor, selecciona una dirección y un método de pago')
-            setBuyOnce(false)
-            return;
+        try {
+            await handleSubmit()
+        } catch (error) {
+            console.log(error);
         }
-
-        const loadingStart = document.querySelector('.CheckoutPage-btn-loading')
-        loadingStart.classList.add('CheckoutPage-btn-loadingStart')
-
-        //Formato fecha:
-        //2024-06-02 13:08:18
-        //2024-06-02 20:20:53
-
-        const newOrderToSend = {
-            id_payment_method: order.id_pago.value,
-            id_address: order.id_direccion.value,
-            use_credits: useCredits,
-            shipping_cost: Number(costoEnvio),
-            date: new Date().toISOString().slice(0, 19).replace('T', ' ')
-        }
-
-        addOrder(token, newOrderToSend).then(() => {
-            loadingStart.classList.add('CheckoutPage-btn-loadingEnd')
-            setCompleteOrder(true)
-            setTimeout(() => {
-                clearCart()
-                navigator('/profile/orders')
-            }, 2000)
-        }).catch(err => {
-            console.log(err);
-            setBuyOnce(false)
-        })
     }
 
     return (
@@ -200,7 +41,7 @@ export function Checkout() {
                                 placeholder='Seleccionar...'
                                 className='CheckoutPage-Select'
                                 options={address}
-                                onChange={(selectedOption) => setOrder({ ...order, id_direccion: selectedOption })}
+                                onChange={(selectedOption) => updateOrder('id_direccion', selectedOption.value)}
                                 noOptionsMessage={() => {
                                     if (!address) return 'Cargando direcciones...'
                                     return 'Registra direcciones en tu perfil'
@@ -215,7 +56,7 @@ export function Checkout() {
                                 isSearchable={false}
                                 placeholder='Seleccionar...'
                                 className='CheckoutPage-Select'
-                                onChange={(selectedOption) => setOrder({ ...order, id_pago: selectedOption })}
+                                onChange={(selectedOption) => updateOrder('id_pago', selectedOption.value)}
                                 options={payment}
                                 noOptionsMessage={() => {
                                     if (!payment) return 'Cargando métodos de pago...'
@@ -312,10 +153,7 @@ export function Checkout() {
                             onClick={
                                 buyOnce ?
                                     null
-                                    : () => {
-                                        setBuyOnce(true)
-                                        handleBtnOrder()
-                                    }
+                                    : handleBtnOrder
                             }
                             className='CheckoutPage-content-item-content-button'>
                             <p>

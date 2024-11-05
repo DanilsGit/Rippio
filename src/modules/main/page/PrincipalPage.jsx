@@ -167,8 +167,11 @@ export function PrincipalPage() {
                             : <section className="bestNearRestaurant secondSection-child">
                                 <h2 className='bestNearRestaurant-title'>Los mejores restaurantes cerca de ti</h2>
                                 <div className='bestNearRestaurant-noLocation'>
-                                    <p>Para una mejor experiencia en Rippio, por favor permita el acceso a su ubicación</p>
-                                    <button onClick={() => { handleGetLocation() }}>Permitir</button>
+                                    <div>
+                                        <p>Para una mejor experiencia en Rippio, por favor permita el acceso a su ubicación.</p>
+                                        <b>Si ya ha presionado el botón y no ha recibido el aviso de ubicación. Por favor, revisa los permisos de tu navegador.</b>
+                                    </div>
+                                    <button onClick={handleGetLocation}>Permitir</button>
                                 </div>
                             </section>
                     }

@@ -17,43 +17,6 @@ export function AllRestaurants() {
     const params = useParams()
     const searchCategory = params.category
 
-    // Opciones para el select de categorías
-    // const options = [
-    //     { value: 'all', label: 'Todos' },
-    //     { value: 'fastfood', label: 'Comida rápida' },
-    //     { value: 'healthy', label: 'Comida saludable' },
-    //     { value: 'japanese', label: 'Japonesa' },
-    //     { value: 'mexican', label: 'Mexicana' },
-    //     { value: 'italian', label: 'Italiana' },
-    //     { value: 'peruvian', label: 'Peruana' },
-    //     { value: 'chinese', label: 'China' },
-    //     { value: 'french', label: 'Francesa' },
-    //     { value: 'spanish', label: 'Española' },
-    //     { value: 'american', label: 'Americana' },
-    //     { value: 'vegan', label: 'Vegana' },
-    //     { value: 'vegetarian', label: 'Vegetariana' },
-    //     { value: 'glutenfree', label: 'Libre de gluten' },
-    //     { value: 'desserts', label: 'Postres' },
-    //     { value: 'drinks', label: 'Bebidas' },
-    //     { value: 'coffee', label: 'Café' },
-    //     { value: 'breakfast', label: 'Desayunos' },
-    //     { value: 'brunch', label: 'Brunch' },
-    //     { value: 'lunch', label: 'Almuerzos' },
-    //     { value: 'dinner', label: 'Cenas' },
-    //     { value: 'snacks', label: 'Snacks' },
-    //     { value: 'seafood', label: 'Mariscos' },
-    //     { value: 'meat', label: 'Carnes' },
-    //     { value: 'pasta', label: 'Pastas' },
-    //     { value: 'pizza', label: 'Pizzas' },
-    //     { value: 'sushi', label: 'Sushi' },
-    //     { value: 'tacos', label: 'Tacos' },
-    //     { value: 'burgers', label: 'Hamburguesas' },
-    //     { value: 'salads', label: 'Ensaladas' },
-    //     { value: 'soup', label: 'Sopas' },
-    //     { value: 'rice', label: 'Arroces' },
-    //     { value: 'noodles', label: 'Fideos' },
-    // ]
-
     // Estado para el valor de la calificación
     const [ratingValue, setRatingValue] = useState(5)
     // Estado para guardar las categorías

@@ -29,8 +29,7 @@ import { Checkout } from '@m/checkout/page/Checkout.jsx'
 
 
 import {
-  ProtectedProfileRoute, ProtectedSearchRoute, ProtectedRegisterRoute,
-  ProtectedProfileRestaurantRoute, ProtectedPrincipalPageRestaurantRoute, ProtectedCheckoutRoute
+  OnlyClientLoginRoute, OnlyClientNoLoginRoute, OnlyRestaurantLoginRoute, OnlyAdminLoginRoute, ProtectedRegisterRoute
 } from './ProtectedRoutes/ProtectedRoute.jsx';
 
 import { AllRestaurants } from '@m/restaurants/page/AllRestaurants.jsx';
@@ -41,6 +40,8 @@ import Layout from './Layout.jsx'
 
 import './css/index.css'
 import 'normalize.css'
+import { AdminProfile } from './modules/adminProfile/page/AdminProfile.jsx';
+import { RestaurantManagement } from './modules/adminProfile/components/RestaurantManagement/RestaurantManagement.jsx';
 
 //Array con todas las rutas de la aplicación
 
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <ProtectedPrincipalPageRestaurantRoute element={<App />} />,
+        element: <OnlyClientNoLoginRoute element={<App />} />,
         errorElement: <Page404 />
       },
       {
@@ -77,27 +78,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/checkout',
-        element: <ProtectedCheckoutRoute element={<Checkout />} />,
+        element: <OnlyClientLoginRoute element={<Checkout />} />,
       },
       {
         path: '/allrestaurants',
-        element: <ProtectedSearchRoute element={<AllRestaurants />} />,
+        element: <OnlyClientNoLoginRoute element={<AllRestaurants />} />,
       },
       {
         path: '/allrestaurants/:category',
-        element: <ProtectedSearchRoute element={<AllRestaurants />} />,
+        element: <OnlyClientNoLoginRoute element={<AllRestaurants />} />,
       },
       {
         path: '/searchpage/:search',
-        element: <ProtectedSearchRoute element={<SearchPage />} />,
+        element: <OnlyClientNoLoginRoute element={<SearchPage />} />,
       },
       {
         path: '/restaurant/:idRestaurant',
-        element: <ProtectedSearchRoute element={<RestaurantPage />} />,
+        element: <OnlyClientNoLoginRoute element={<RestaurantPage />} />,
       },
       {
         path: '/profile',
-        element: <ProtectedProfileRoute element={<Profile />} />,
+        element: <OnlyClientLoginRoute element={<Profile />} />,
         children: [
           {
             path: '/profile/settings',
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/restaurantProfile',
-        element: <ProtectedProfileRestaurantRoute element={<RestaurantProfile />} />,
+        element: <OnlyRestaurantLoginRoute element={<RestaurantProfile />} />,
         children: [
           {
             path: '/restaurantProfile/settings',
@@ -143,6 +144,17 @@ const router = createBrowserRouter([
             element: <RestaurantProfileSchedule />,
           },
           { index: true, element: <Navigate to="settings" /> },
+        ]
+      },
+      {
+        path: '/adminProfile',
+        element: <OnlyAdminLoginRoute element={<AdminProfile />} />,
+        children: [
+          {
+            path: '/adminProfile/restaurantManagement',
+            element: <RestaurantManagement />,
+          },
+          { index: true, element: <Navigate to="restaurantManagement" /> },
         ]
       },
       {

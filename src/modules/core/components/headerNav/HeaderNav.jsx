@@ -31,7 +31,7 @@ export default function HeaderNav() {
             </nav>
             <section className='headerPrincipalPage-userSection'>
                 {
-                    !isAuthenticated || user?.tipo_usuario !== 3
+                    !isAuthenticated || user?.tipo_usuario === 1
                         ?
                         <div>
                             <button onClick={() => handleClickCartModal(toggleCartModal)} className='cartLink'>
@@ -51,7 +51,7 @@ export default function HeaderNav() {
                             className='headerPrincipalPage-a'>
                             <div className='userlink'>
                                 <img className='userIcon'
-                                    src={isAuthenticated ? user.img_icon : 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdefaultUserIcon.png?alt=media&token=4cf7ae75-e6ac-4fc4-b33f-e3d869739818'}
+                                    src={isAuthenticated ? user?.img_icon : 'https://firebasestorage.googleapis.com/v0/b/rippio.appspot.com/o/icons%2FdefaultUserIcon.png?alt=media&token=4cf7ae75-e6ac-4fc4-b33f-e3d869739818'}
                                 />
                                 <span className='userText'>{isAuthenticated ? user.tipo_usuario !== 3 ? user.nombre.split(' ')[0] : user.nombre : 'Ingresa'}
                                 </span></div></Link>

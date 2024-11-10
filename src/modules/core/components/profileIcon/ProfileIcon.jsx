@@ -1,7 +1,44 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import './ProfileIcon.css'
+import { uploadFile } from "@m/core/utils/image";
+import axios from 'axios';
+import { useAuth } from "@m/core/hooks/useAuth";
 
-export function ProfileIcon({ loading, handleInputProfileChange, handleButtonClick, user}) {
+export function ProfileIcon() {
+
+    const [loading, setLoading] = useState(false)
+    const user = useAuth((state) => state.user)
+    const setUser = useAuth((state) => state.setUser)
+    const token = useAuth((state) => state.token)
+
+    const handleInputProfileChange = async (e) => {
+        setLoading(true);
+        const userType = user.tipo_usuario === 3 ? 'RestaurantIcon' : user.tipo_usuario === 1 ? 'UserIcon' : 'AdminIcon';
+        try {
+            const newImage = await uploadFile(e.target.files[0], userType, user.id);
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/profile/modify_profile_image`,
+                {
+                    image: newImage
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+            setUser({ ...user, img_icon: newImage });
+        } catch (error) {
+            console.error(error);
+        }
+        e.target.value = null;
+        setLoading(false);
+    }
+
+    const handleButtonClick = () => {
+        const upload = document.getElementById('upload');
+        upload.click();
+    }
+
     return (
         <div className="ProfileIconOptionsContainer-uploadIconContainer">
             <img

@@ -25,33 +25,6 @@ export function RestaurantProfile() {
 
     const [loading, setLoading] = useState(false)
 
-
-    const handleInputProfileChange = async (e) => {
-        setLoading(true);
-        try {
-            const newImage = await uploadFile(e.target.files[0], 'RestaurantIcon', user.id);
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/profile/modify_profile_image`,
-                {
-                    image: newImage
-                },
-                {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-            setUser({ ...user, img_icon: newImage });
-        } catch (error) {
-            console.error(error);
-        }
-        e.target.value = null;
-        setLoading(false);
-    }
-
-    const handleButtonClick = () => {
-        const upload = document.getElementById('upload');
-        upload.click();
-    }
-
     const handleInputProfileBannerChange = async (e) => {
         setLoading(true);
         try {
@@ -104,7 +77,7 @@ export function RestaurantProfile() {
                             </div>
 
                             <div className="ProfileRestaurantOptions-header-titleAndIcon">
-                                <ProfileIcon loading={loading} handleInputProfileChange={handleInputProfileChange} handleButtonClick={handleButtonClick} user={user} />
+                                <ProfileIcon />
                                 <div>
                                     <h1 className="RestaurantProfileTitle">{user.nombre}</h1>
                                 </div>

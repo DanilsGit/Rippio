@@ -1,7 +1,8 @@
 import Select from 'react-select'
 import './profileAddress.css';
 import '@/api/address.jsx';
-import { useColombiaDepartments, useManageAddress } from '../../hooks/custom-hooks';
+import { useManageAddress } from '../../hooks/custom-hooks';
+import { useColombiaDepartments } from '@m/core/hooks/useColombiaDepartments';
 
 const vias = [
     { value: '1', label: 'Calle' },

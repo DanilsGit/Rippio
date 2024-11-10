@@ -6,9 +6,6 @@ import './profile.css'
 
 import { useAuth } from "@m/core/hooks/useAuth";
 import { ProfilePanel } from "@m/core/components/ProfilePanel/ProfilePanel";
-import { useState } from "react";
-import axios from "axios";
-import { uploadFile } from "@m/core/utils/image";
 import { ProfileIcon } from "@m/core/components/profileIcon/ProfileIcon";
 import { useCart } from "@m/core/hooks/useCart";
 
@@ -46,8 +43,6 @@ const links = [
 export function Profile() {
 
     const user = useAuth((state) => state.user)
-    const setUser = useAuth((state) => state.setUser)
-    const token = useAuth((state) => state.token)
     const isAuthenticated = useAuth((state) => state.isAuthenticated)
     const logout = useAuth((state) => state.logout)
 
@@ -57,32 +52,6 @@ export function Profile() {
         loadCartFromLocalStorage();
         setTokenInCart(null);
         logout();
-    }
-
-    const [loading, setLoading] = useState(false)
-
-    const handleInputProfileChange = async (e) => {
-        setLoading(true);
-        try {
-            const newImage = await uploadFile(e.target.files[0], 'UserIcon', user.id);
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/profile/modify_profile_image`, {
-                image: newImage
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            setUser({ ...user, img_icon: newImage });
-        } catch (error) {
-            console.error(error);
-        }
-        e.target.value = null;
-        setLoading(false);
-    }
-
-    const handleButtonClick = () => {
-        const upload = document.getElementById('upload');
-        upload.click();
     }
 
 
@@ -97,8 +66,7 @@ export function Profile() {
                         <section className="ProfileOptionsContainer">
                             <header className="ProfileOptions-header">
 
-
-                                <ProfileIcon loading={loading} handleInputProfileChange={handleInputProfileChange} handleButtonClick={handleButtonClick} user={user} />
+                                <ProfileIcon user={user} />
 
                                 <div>
                                     <p>Mi perfil</p>

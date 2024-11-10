@@ -3,7 +3,6 @@ import { getOrders } from '@/api/order'
 import { useAuth } from '@m/core/hooks/useAuth'
 import { formatDate } from '@m/core/utils/formatDate'
 import { addAddress, deleteAddress, editAddress, getAddresses } from '../../../api/address'
-import axios from 'axios'
 
 export const useOrders = () => {
     //Obtenemos el token del usuario en zustand
@@ -40,24 +39,6 @@ export const useOrders = () => {
 
     return { orders, loading }
 
-}
-
-export const useColombiaDepartments = () => {
-    const [departamentos, setDepartamentos] = useState([])
-
-    // Obtener los departamentos de Colombia
-    useEffect(() => {
-        axios.get('https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json')
-            .then(response => {
-                const newDepartamentos = response.data.map(departamento => ({ value: departamento.id, label: departamento.departamento, ciudades: departamento.ciudades }));
-                setDepartamentos(newDepartamentos);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }, []);
-
-    return { departamentos };
 }
 
 export const useManageAddress = () => {

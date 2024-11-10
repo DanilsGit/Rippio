@@ -1,0 +1,32 @@
+.restaurantList_card_button {
+    background-color: var(--darkblue);
+    color: white;
+    border: none;
+    width: 3em;
+    height: 1.5em;
+    border-radius: 1em;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.restaurantList_card_button_circle {
+    aspect-ratio: 1;
+    height: 80%;
+    position: absolute;
+    border-radius: 100%;
+    transition: all 0.3s;
+    left: 0.2em;
+    transform: translateX(0);
+}
+
+.restaurantList_card_button_circle_active {
+    background-color: var(--lightcyan);
+    transform: translateX(calc(3em - 1.6em));
+}
+
+.restaurantList_card_button_circle_inactive {
+    background-color: var(--darkcyan);
+    transform: translateX(0);
+}

@@ -1,0 +1,130 @@
+.ProfileRestaurantPage{
+    background-color: var(--white);
+    background-size: fill;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileRestaurantPageContent{
+    background: transparent;
+    background: linear-gradient(180deg, rgba(116, 116, 116, 0.308) 0%, rgba(255, 255, 255, 0) 2%, rgba(255, 255, 255, 0) 100%);
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 30% minmax(200px, 70%);
+    align-items: start;
+    justify-content: center;
+    padding: 4em 1em;
+    gap: 3em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.RestaurantProfileTitle{
+    margin: 0;
+    font-size: 1em;
+}
+
+.ProfileRestaurantOptionsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 1em;
+    padding: 1em;
+    box-shadow: -10px 10px 0px 0px #0000001e;
+}
+
+
+.ProfileRestaurantOptions-header{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #00000023;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    overflow: hidden;
+}
+
+.ProfileRestaurantOptionsContainer-uploadBannerContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.ProfileRestaurantOptionsContainer-uploadBannerContainer input{
+    display: none;
+}
+
+.ProfileRestaurantOptions-header-banner{
+    width: 100%;
+    height: 25vh;
+    object-fit: contain;
+}
+
+
+.ProfileRestaurantOptions-header-imgEditBanner{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 1px solid #00000027;
+    opacity: 0;
+}
+
+.ProfileRestaurantOptions-header-imgEditBanner:hover{
+    opacity: 0.5;
+}
+
+.ProfileRestaurantOptions-header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+}
+
+.ProfileRestaurantOptions-header-titleAndIcon{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.ProfileRestaurantOptions-header p {
+    font-size: 0.8em;
+}
+
+
+.ProfileRestaurantChildrenPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: -10px 10px 0px 0px #0000001e;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 645px){
+    .ProfileRestaurantPageContent{
+        grid-template-columns: minmax(200px,1fr);
+        padding: 0;
+        margin: 0;
+        align-items: center;
+    }
+    .ProfileRestaurantChildrenPage{
+        width: 90%;
+        margin: auto;
+    }
+    .ProfileRestaurantOptionsContainer{
+        width: 90%;
+        margin: auto;
+    }
+    .ProfileRestaurantPageContent{
+        padding: 5em 0em;
+    }
+}

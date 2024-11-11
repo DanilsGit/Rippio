@@ -23,6 +23,7 @@ export const useAuth = create((set) => ({
             set({ token: res.data.token });
             window.localStorage.setItem('token', res.data.token);
             window.localStorage.setItem('user', JSON.stringify(resUser.data[0]));
+            return res.data.token;
         } catch (error) {
             set({ errors: error.response.data });
             setTimeout(() => set({ errors: null }), 3000);
@@ -30,12 +31,7 @@ export const useAuth = create((set) => ({
     },
     register: async (userRegister) => {
         try {
-            console.log("pre-registerRequest");
-            console.log(userRegister);
-
             await registerRequest(userRegister);
-
-            console.log("post-registerRequest");
             return true;
         } catch (error) {
             set({ errors: error.response.data });

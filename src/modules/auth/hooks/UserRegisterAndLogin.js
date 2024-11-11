@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useAuth } from '@m/core/hooks/useAuth';
 import { useCart } from '@m/core/hooks/useCart';
 import { addToCart } from '@/api/cart';
-import { addExamplePaymentMethod } from '../utils/constants';
+import { addExamplePaymentMethod } from '@m/auth/utils/constants';
+
 export const UserRegisterAndLogin = () => {
     // import the hooks
     const register = useAuth((state) => state.register)
@@ -90,11 +91,11 @@ export const UserRegisterAndLogin = () => {
       if (!res) return
   
       // Login the user after register
-      await login({ email: UserRegisterTrim.email, password: UserRegisterTrim.password });
-      const token = localStorage.getItem('token');
-
+      const token = await login({ email: UserRegisterTrim.email, password: UserRegisterTrim.password });
+      console.log(token);
+      
       // Add a example method of payment to the user (temporaly function)
-      addExamplePaymentMethod(token);
+      await addExamplePaymentMethod(token);
 
       // Move the cart to the database
       if (token) {

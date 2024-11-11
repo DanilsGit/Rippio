@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
 import './restaurantPage.css'
 import HeaderSearch from '@m/core/components/headerSearch/HeaderSearch';

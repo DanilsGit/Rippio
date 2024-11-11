@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Footer } from '@m/core/components/footer/Footer'
 import HeaderNav from '@m/core/components/headerNav/HeaderNav'
 import Select from 'react-select'

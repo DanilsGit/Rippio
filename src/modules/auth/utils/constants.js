@@ -1,6 +1,6 @@
 import { addPayment } from "@/api/payment";
 
-export const addExamplePaymentMethod = (token) => {
+export const addExamplePaymentMethod = async (token) => {
     // esta funcionalidad sólo está disponible hasta el 18 de noviembre de 2024
     const fecha = new Date();
     if (fecha > new Date('2024-11-18')) return;
@@ -13,5 +13,5 @@ export const addExamplePaymentMethod = (token) => {
         fecha_vencimiento: '12/25',
         cvv: '563'
     }
-    addPayment(token, data)
+    await addPayment(token, data)
 };

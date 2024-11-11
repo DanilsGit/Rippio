@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import './ProfileIcon.css'
 import { uploadFile } from "@m/core/utils/image";

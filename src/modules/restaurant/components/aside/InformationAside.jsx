@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from 'react';
 import './informationAside.css'
 

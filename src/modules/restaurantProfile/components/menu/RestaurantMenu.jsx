@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import uuid from 'react-uuid'
 import './restaurantMenu.css'
-import axios from 'axios'
 import { useAuth } from '@m/core/hooks/useAuth'
 import { useState } from 'react'
 import {moveProductToSection} from '@/api/menu'

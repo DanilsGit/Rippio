@@ -39,38 +39,51 @@ export function RestaurantPage() {
         setIsOpen(false)
     }
 
-const formatHours = (hour) => {
-    if (!hour) return ('');
-    let parts = hour.split(':');
-    return parts[0] + ':' + parts[1];
-}
+    const formatHours = (hour) => {
+        if (!hour) return ('');
+        let parts = hour.split(':');
+        return parts[0] + ':' + parts[1];
+    }
 
-useEffect(() => {
-    getInfo(params.idRestaurant).then(res => {
-        let data = res.data;
-        data.horario = data.horario.map(item => {
-            return {
-                ...item,
-                open: formatHours(item.open),
-                close: formatHours(item.close)
-            };
-        });
-        setRestaurantInfo(data);
-    })
-}, [params.idRestaurant])
+    useEffect(() => {
+        getInfo(params.idRestaurant).then(res => {
+            let data = res.data;
+            data.horario = data.horario.map(item => {
+                return {
+                    ...item,
+                    open: formatHours(item.open),
+                    close: formatHours(item.close)
+                };
+            });
+            setRestaurantInfo(data);
+        })
+    }, [params.idRestaurant])
 
 
-    useEffect(()=>{
+    useEffect(() => {
         getCatAndProdByResId(params.idRestaurant).then(res => {
-            setCategories(res.data)})
-    },[params.idRestaurant])
+            console.log(res.data)
+            const categories = Object.keys(res.data).map(key => {
+                return {
+                    id: key,
+                    nombre: res.data[key].nombre,
+                    productos: Object.keys(res.data[key].productos).map(key2 => {
+                        return {
+                            ...res.data[key].productos[key2],
+                            id: key2
+                        }
+                    })
+                }})
+            setCategories(categories)
+        })
+    }, [params.idRestaurant])
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
-    const {id, nombre, direccion, horario, calificacion, img_icon, img_banner} = restaurantInfo
-    const restaurant = {id, nombre}
+    const { id, nombre, direccion, horario, calificacion, img_icon, img_banner } = restaurantInfo
+    const restaurant = { id, nombre }
     return (
         <main className="RestaurantPage">
             <ProductModal isOpen={isOpen} productInModal={selectedProduct} restaurant={RestaurantOfProduct} handleAddBtn={handleAddBtn} handleCancelBtn={handleCancelBtn} />

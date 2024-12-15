@@ -40,7 +40,6 @@ export function AdminProfile() {
                     </section>
                 </section>
             }
-
             <Footer />
         </main>
     )

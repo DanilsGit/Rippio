@@ -175,6 +175,7 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
                                 value={newProduct ? newProduct.nombre : ''}
                                 type="text" id="nombre" name="nombre" onChange={(e) => setProduct({ ...newProduct, nombre: e.target.value })} />
                         </div>
+
                         <div
                             className='AddProductMenuModal-form-input AddProductMenuModal-form-inputDescription'>
                             <label htmlFor="descripcion">Descripción</label>
@@ -184,6 +185,7 @@ export default function RestaurantProductMenuModal({ loading, setFile, isModalOp
                                 onChange={(e) => setProduct({ ...newProduct, descripcion: e.target.value })}
                             />
                         </div>
+
                         <div
                             onDragLeave={handleDragLeave}
                             onDragOver={handleDragOver}

@@ -1,0 +1,38 @@
+.admin_graphs_section {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-height: 50em;
+}
+
+.admin_graphs_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    padding: 0 5vw;
+}
+
+.admin_graphs_loading {
+  width: 100%;
+  height: 100%;
+  min-height: 30em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: infinite-spinning 1s linear infinite;
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

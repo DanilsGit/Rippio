@@ -42,6 +42,7 @@ import './css/index.css'
 import 'normalize.css'
 import { AdminProfile } from './modules/adminProfile/page/AdminProfile.jsx';
 import { RestaurantManagement } from './modules/adminProfile/components/RestaurantManagement/RestaurantManagement.jsx';
+import AdminGraphs from './modules/adminProfile/components/AdminGraphs/AdminGraphs.jsx';
 
 //Array con todas las rutas de la aplicación
 
@@ -153,6 +154,10 @@ const router = createBrowserRouter([
           {
             path: '/adminProfile/restaurantManagement',
             element: <RestaurantManagement />,
+          },
+          {
+            path: '/adminProfile/graphs',
+            element: <AdminGraphs />,
           },
           { index: true, element: <Navigate to="restaurantManagement" /> },
         ]
